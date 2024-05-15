@@ -1,0 +1,632 @@
+Classic Timing Analyzer report for AD5310BRM
+Fri Jul 13 15:16:12 2007
+Quartus II Version 7.1 Build 156 04/30/2007 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clk'
+  6. tsu
+  7. tco
+  8. th
+  9. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                          ;
++------------------------------+-------+---------------+----------------------------------+----------------+----------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From           ; To             ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+----------------+----------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 4.975 ns                         ; dac1A_data[0]  ; shiftreg[0]    ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 9.204 ns                         ; shift_count[3] ; test2          ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -1.729 ns                        ; reset          ; shift_count[3] ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 319.69 MHz ( period = 3.128 ns ) ; state.sync_l   ; shift_count[3] ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                ;                ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+----------------+----------------+------------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                ; Setting            ; From ; To ; Entity Name ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                           ; EP1S10F484C5       ;      ;    ;             ;
+; Timing Models                                         ; Final              ;      ;    ;             ;
+; Default hold multicycle                               ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains             ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                        ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                      ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                 ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements               ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                      ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                  ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                 ; 10                 ;      ;    ;             ;
+; Number of paths to report                             ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                          ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                            ; Off                ;      ;    ;             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                   ;
++-----------------------------------------+-----------------------------------------------------+--------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From               ; To                  ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+--------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 319.69 MHz ( period = 3.128 ns )                    ; state.sync_l       ; shift_count[5]      ; clk        ; clk      ; None                        ; None                      ; 2.962 ns                ;
+; N/A                                     ; 319.69 MHz ( period = 3.128 ns )                    ; state.sync_l       ; shift_count[0]      ; clk        ; clk      ; None                        ; None                      ; 2.962 ns                ;
+; N/A                                     ; 319.69 MHz ( period = 3.128 ns )                    ; state.sync_l       ; shift_count[4]      ; clk        ; clk      ; None                        ; None                      ; 2.962 ns                ;
+; N/A                                     ; 319.69 MHz ( period = 3.128 ns )                    ; state.sync_l       ; shift_count[1]      ; clk        ; clk      ; None                        ; None                      ; 2.962 ns                ;
+; N/A                                     ; 319.69 MHz ( period = 3.128 ns )                    ; state.sync_l       ; shift_count[2]      ; clk        ; clk      ; None                        ; None                      ; 2.962 ns                ;
+; N/A                                     ; 319.69 MHz ( period = 3.128 ns )                    ; state.sync_l       ; shift_count[3]      ; clk        ; clk      ; None                        ; None                      ; 2.962 ns                ;
+; N/A                                     ; 322.06 MHz ( period = 3.105 ns )                    ; state.idle         ; data_temp           ; clk        ; clk      ; None                        ; None                      ; 2.930 ns                ;
+; N/A                                     ; 322.06 MHz ( period = 3.105 ns )                    ; state.idle         ; data_2_temp         ; clk        ; clk      ; None                        ; None                      ; 2.930 ns                ;
+; N/A                                     ; 327.23 MHz ( period = 3.056 ns )                    ; state.idle         ; shiftreg[11]        ; clk        ; clk      ; None                        ; None                      ; 2.904 ns                ;
+; N/A                                     ; 332.67 MHz ( period = 3.006 ns )                    ; state.idle         ; shiftreg_2[7]       ; clk        ; clk      ; None                        ; None                      ; 2.831 ns                ;
+; N/A                                     ; 332.89 MHz ( period = 3.004 ns )                    ; state.sync_h       ; data_temp           ; clk        ; clk      ; None                        ; None                      ; 2.838 ns                ;
+; N/A                                     ; 332.89 MHz ( period = 3.004 ns )                    ; state.sync_h       ; data_2_temp         ; clk        ; clk      ; None                        ; None                      ; 2.838 ns                ;
+; N/A                                     ; 336.59 MHz ( period = 2.971 ns )                    ; state.sync_l       ; data_temp           ; clk        ; clk      ; None                        ; None                      ; 2.796 ns                ;
+; N/A                                     ; 336.59 MHz ( period = 2.971 ns )                    ; state.sync_l       ; data_2_temp         ; clk        ; clk      ; None                        ; None                      ; 2.796 ns                ;
+; N/A                                     ; 336.93 MHz ( period = 2.968 ns )                    ; state.idle         ; shiftreg[10]        ; clk        ; clk      ; None                        ; None                      ; 2.810 ns                ;
+; N/A                                     ; 336.93 MHz ( period = 2.968 ns )                    ; state.idle         ; shiftreg_2[10]      ; clk        ; clk      ; None                        ; None                      ; 2.810 ns                ;
+; N/A                                     ; 336.93 MHz ( period = 2.968 ns )                    ; state.idle         ; shiftreg[9]         ; clk        ; clk      ; None                        ; None                      ; 2.810 ns                ;
+; N/A                                     ; 336.93 MHz ( period = 2.968 ns )                    ; state.idle         ; shiftreg[3]         ; clk        ; clk      ; None                        ; None                      ; 2.810 ns                ;
+; N/A                                     ; 336.93 MHz ( period = 2.968 ns )                    ; state.idle         ; shiftreg[2]         ; clk        ; clk      ; None                        ; None                      ; 2.810 ns                ;
+; N/A                                     ; 336.93 MHz ( period = 2.968 ns )                    ; state.idle         ; shiftreg[1]         ; clk        ; clk      ; None                        ; None                      ; 2.810 ns                ;
+; N/A                                     ; 336.93 MHz ( period = 2.968 ns )                    ; state.idle         ; shiftreg[0]         ; clk        ; clk      ; None                        ; None                      ; 2.810 ns                ;
+; N/A                                     ; 337.38 MHz ( period = 2.964 ns )                    ; state.idle         ; shiftreg_2[9]       ; clk        ; clk      ; None                        ; None                      ; 2.789 ns                ;
+; N/A                                     ; 337.38 MHz ( period = 2.964 ns )                    ; state.idle         ; shiftreg_2[8]       ; clk        ; clk      ; None                        ; None                      ; 2.789 ns                ;
+; N/A                                     ; 337.38 MHz ( period = 2.964 ns )                    ; state.idle         ; shiftreg_2[6]       ; clk        ; clk      ; None                        ; None                      ; 2.789 ns                ;
+; N/A                                     ; 337.38 MHz ( period = 2.964 ns )                    ; state.idle         ; shiftreg_2[5]       ; clk        ; clk      ; None                        ; None                      ; 2.789 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.idle         ; shiftreg[15]        ; clk        ; clk      ; None                        ; None                      ; 2.794 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.idle         ; shiftreg[14]        ; clk        ; clk      ; None                        ; None                      ; 2.794 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.idle         ; shiftreg[13]        ; clk        ; clk      ; None                        ; None                      ; 2.794 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.idle         ; shiftreg_2[13]      ; clk        ; clk      ; None                        ; None                      ; 2.794 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.idle         ; shiftreg[12]        ; clk        ; clk      ; None                        ; None                      ; 2.794 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.idle         ; shiftreg_2[12]      ; clk        ; clk      ; None                        ; None                      ; 2.794 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.idle         ; shiftreg_2[11]      ; clk        ; clk      ; None                        ; None                      ; 2.794 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.idle         ; shiftreg_2[1]       ; clk        ; clk      ; None                        ; None                      ; 2.794 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.idle         ; shiftreg_2[0]       ; clk        ; clk      ; None                        ; None                      ; 2.794 ns                ;
+; N/A                                     ; 340.25 MHz ( period = 2.939 ns )                    ; state.idle         ; shiftreg[8]         ; clk        ; clk      ; None                        ; None                      ; 2.781 ns                ;
+; N/A                                     ; 340.25 MHz ( period = 2.939 ns )                    ; state.idle         ; shiftreg[7]         ; clk        ; clk      ; None                        ; None                      ; 2.781 ns                ;
+; N/A                                     ; 340.25 MHz ( period = 2.939 ns )                    ; state.idle         ; shiftreg[6]         ; clk        ; clk      ; None                        ; None                      ; 2.781 ns                ;
+; N/A                                     ; 340.25 MHz ( period = 2.939 ns )                    ; state.idle         ; shiftreg[5]         ; clk        ; clk      ; None                        ; None                      ; 2.781 ns                ;
+; N/A                                     ; 340.25 MHz ( period = 2.939 ns )                    ; state.idle         ; shiftreg[4]         ; clk        ; clk      ; None                        ; None                      ; 2.781 ns                ;
+; N/A                                     ; 341.06 MHz ( period = 2.932 ns )                    ; state.idle         ; shiftreg_2[15]      ; clk        ; clk      ; None                        ; None                      ; 2.774 ns                ;
+; N/A                                     ; 341.06 MHz ( period = 2.932 ns )                    ; state.idle         ; shiftreg_2[14]      ; clk        ; clk      ; None                        ; None                      ; 2.774 ns                ;
+; N/A                                     ; 341.06 MHz ( period = 2.932 ns )                    ; state.idle         ; shiftreg_2[4]       ; clk        ; clk      ; None                        ; None                      ; 2.774 ns                ;
+; N/A                                     ; 341.06 MHz ( period = 2.932 ns )                    ; state.idle         ; shiftreg_2[3]       ; clk        ; clk      ; None                        ; None                      ; 2.774 ns                ;
+; N/A                                     ; 341.06 MHz ( period = 2.932 ns )                    ; state.idle         ; shiftreg_2[2]       ; clk        ; clk      ; None                        ; None                      ; 2.774 ns                ;
+; N/A                                     ; 341.30 MHz ( period = 2.930 ns )                    ; shift_count[3]     ; shift_count[5]      ; clk        ; clk      ; None                        ; None                      ; 2.764 ns                ;
+; N/A                                     ; 341.30 MHz ( period = 2.930 ns )                    ; shift_count[3]     ; shift_count[4]      ; clk        ; clk      ; None                        ; None                      ; 2.764 ns                ;
+; N/A                                     ; 342.23 MHz ( period = 2.922 ns )                    ; state.sync_l       ; shiftreg[11]        ; clk        ; clk      ; None                        ; None                      ; 2.770 ns                ;
+; N/A                                     ; 342.23 MHz ( period = 2.922 ns )                    ; Mstate.mready      ; shiftreg[6]         ; clk        ; clk      ; None                        ; None                      ; 2.764 ns                ;
+; N/A                                     ; 342.47 MHz ( period = 2.920 ns )                    ; Mstate.mready      ; shiftreg[5]         ; clk        ; clk      ; None                        ; None                      ; 2.762 ns                ;
+; N/A                                     ; 342.70 MHz ( period = 2.918 ns )                    ; state.sync_h       ; shiftreg[10]        ; clk        ; clk      ; None                        ; None                      ; 2.769 ns                ;
+; N/A                                     ; 342.70 MHz ( period = 2.918 ns )                    ; state.sync_h       ; shiftreg_2[10]      ; clk        ; clk      ; None                        ; None                      ; 2.769 ns                ;
+; N/A                                     ; 342.70 MHz ( period = 2.918 ns )                    ; state.sync_h       ; shiftreg[9]         ; clk        ; clk      ; None                        ; None                      ; 2.769 ns                ;
+; N/A                                     ; 342.70 MHz ( period = 2.918 ns )                    ; state.sync_h       ; shiftreg[3]         ; clk        ; clk      ; None                        ; None                      ; 2.769 ns                ;
+; N/A                                     ; 342.70 MHz ( period = 2.918 ns )                    ; state.sync_h       ; shiftreg[2]         ; clk        ; clk      ; None                        ; None                      ; 2.769 ns                ;
+; N/A                                     ; 342.70 MHz ( period = 2.918 ns )                    ; state.sync_h       ; shiftreg[1]         ; clk        ; clk      ; None                        ; None                      ; 2.769 ns                ;
+; N/A                                     ; 342.70 MHz ( period = 2.918 ns )                    ; state.sync_h       ; shiftreg[0]         ; clk        ; clk      ; None                        ; None                      ; 2.769 ns                ;
+; N/A                                     ; 342.94 MHz ( period = 2.916 ns )                    ; state.idle         ; shift_count[5]      ; clk        ; clk      ; None                        ; None                      ; 2.750 ns                ;
+; N/A                                     ; 342.94 MHz ( period = 2.916 ns )                    ; state.idle         ; shift_count[0]      ; clk        ; clk      ; None                        ; None                      ; 2.750 ns                ;
+; N/A                                     ; 342.94 MHz ( period = 2.916 ns )                    ; state.idle         ; shift_count[4]      ; clk        ; clk      ; None                        ; None                      ; 2.750 ns                ;
+; N/A                                     ; 342.94 MHz ( period = 2.916 ns )                    ; state.idle         ; shift_count[1]      ; clk        ; clk      ; None                        ; None                      ; 2.750 ns                ;
+; N/A                                     ; 342.94 MHz ( period = 2.916 ns )                    ; state.idle         ; shift_count[2]      ; clk        ; clk      ; None                        ; None                      ; 2.750 ns                ;
+; N/A                                     ; 342.94 MHz ( period = 2.916 ns )                    ; state.idle         ; shift_count[3]      ; clk        ; clk      ; None                        ; None                      ; 2.750 ns                ;
+; N/A                                     ; 343.17 MHz ( period = 2.914 ns )                    ; state.sync_h       ; shiftreg_2[9]       ; clk        ; clk      ; None                        ; None                      ; 2.748 ns                ;
+; N/A                                     ; 343.17 MHz ( period = 2.914 ns )                    ; Mstate.mready      ; shiftreg[8]         ; clk        ; clk      ; None                        ; None                      ; 2.756 ns                ;
+; N/A                                     ; 343.17 MHz ( period = 2.914 ns )                    ; state.sync_h       ; shiftreg_2[8]       ; clk        ; clk      ; None                        ; None                      ; 2.748 ns                ;
+; N/A                                     ; 343.17 MHz ( period = 2.914 ns )                    ; state.sync_h       ; shiftreg_2[7]       ; clk        ; clk      ; None                        ; None                      ; 2.748 ns                ;
+; N/A                                     ; 343.17 MHz ( period = 2.914 ns )                    ; state.sync_h       ; shiftreg_2[6]       ; clk        ; clk      ; None                        ; None                      ; 2.748 ns                ;
+; N/A                                     ; 343.17 MHz ( period = 2.914 ns )                    ; state.sync_h       ; shiftreg_2[5]       ; clk        ; clk      ; None                        ; None                      ; 2.748 ns                ;
+; N/A                                     ; 345.30 MHz ( period = 2.896 ns )                    ; state.sync_h       ; shiftreg[15]        ; clk        ; clk      ; None                        ; None                      ; 2.753 ns                ;
+; N/A                                     ; 345.30 MHz ( period = 2.896 ns )                    ; state.sync_h       ; shiftreg[14]        ; clk        ; clk      ; None                        ; None                      ; 2.753 ns                ;
+; N/A                                     ; 345.30 MHz ( period = 2.896 ns )                    ; state.sync_h       ; shiftreg[13]        ; clk        ; clk      ; None                        ; None                      ; 2.753 ns                ;
+; N/A                                     ; 345.30 MHz ( period = 2.896 ns )                    ; state.sync_h       ; shiftreg_2[13]      ; clk        ; clk      ; None                        ; None                      ; 2.753 ns                ;
+; N/A                                     ; 345.30 MHz ( period = 2.896 ns )                    ; state.sync_h       ; shiftreg[12]        ; clk        ; clk      ; None                        ; None                      ; 2.753 ns                ;
+; N/A                                     ; 345.30 MHz ( period = 2.896 ns )                    ; state.sync_h       ; shiftreg_2[12]      ; clk        ; clk      ; None                        ; None                      ; 2.753 ns                ;
+; N/A                                     ; 345.30 MHz ( period = 2.896 ns )                    ; state.sync_h       ; shiftreg[11]        ; clk        ; clk      ; None                        ; None                      ; 2.753 ns                ;
+; N/A                                     ; 345.30 MHz ( period = 2.896 ns )                    ; state.sync_h       ; shiftreg_2[11]      ; clk        ; clk      ; None                        ; None                      ; 2.753 ns                ;
+; N/A                                     ; 345.30 MHz ( period = 2.896 ns )                    ; state.sync_h       ; shiftreg_2[1]       ; clk        ; clk      ; None                        ; None                      ; 2.753 ns                ;
+; N/A                                     ; 345.30 MHz ( period = 2.896 ns )                    ; state.sync_h       ; shiftreg_2[0]       ; clk        ; clk      ; None                        ; None                      ; 2.753 ns                ;
+; N/A                                     ; 346.14 MHz ( period = 2.889 ns )                    ; state.sync_h       ; shiftreg[8]         ; clk        ; clk      ; None                        ; None                      ; 2.740 ns                ;
+; N/A                                     ; 346.14 MHz ( period = 2.889 ns )                    ; state.sync_h       ; shiftreg[7]         ; clk        ; clk      ; None                        ; None                      ; 2.740 ns                ;
+; N/A                                     ; 346.14 MHz ( period = 2.889 ns )                    ; state.sync_h       ; shiftreg[6]         ; clk        ; clk      ; None                        ; None                      ; 2.740 ns                ;
+; N/A                                     ; 346.14 MHz ( period = 2.889 ns )                    ; state.sync_h       ; shiftreg[5]         ; clk        ; clk      ; None                        ; None                      ; 2.740 ns                ;
+; N/A                                     ; 346.14 MHz ( period = 2.889 ns )                    ; state.sync_h       ; shiftreg[4]         ; clk        ; clk      ; None                        ; None                      ; 2.740 ns                ;
+; N/A                                     ; 346.98 MHz ( period = 2.882 ns )                    ; state.sync_h       ; shiftreg_2[15]      ; clk        ; clk      ; None                        ; None                      ; 2.733 ns                ;
+; N/A                                     ; 346.98 MHz ( period = 2.882 ns )                    ; state.sync_h       ; shiftreg_2[14]      ; clk        ; clk      ; None                        ; None                      ; 2.733 ns                ;
+; N/A                                     ; 346.98 MHz ( period = 2.882 ns )                    ; state.sync_h       ; shiftreg_2[4]       ; clk        ; clk      ; None                        ; None                      ; 2.733 ns                ;
+; N/A                                     ; 346.98 MHz ( period = 2.882 ns )                    ; state.sync_h       ; shiftreg_2[3]       ; clk        ; clk      ; None                        ; None                      ; 2.733 ns                ;
+; N/A                                     ; 346.98 MHz ( period = 2.882 ns )                    ; state.sync_h       ; shiftreg_2[2]       ; clk        ; clk      ; None                        ; None                      ; 2.733 ns                ;
+; N/A                                     ; 348.19 MHz ( period = 2.872 ns )                    ; state.sync_l       ; shiftreg_2[7]       ; clk        ; clk      ; None                        ; None                      ; 2.697 ns                ;
+; N/A                                     ; 352.11 MHz ( period = 2.840 ns )                    ; shift_count[0]     ; shift_count[5]      ; clk        ; clk      ; None                        ; None                      ; 2.674 ns                ;
+; N/A                                     ; 352.11 MHz ( period = 2.840 ns )                    ; shift_count[0]     ; shift_count[4]      ; clk        ; clk      ; None                        ; None                      ; 2.674 ns                ;
+; N/A                                     ; 352.86 MHz ( period = 2.834 ns )                    ; state.sync_l       ; shiftreg[10]        ; clk        ; clk      ; None                        ; None                      ; 2.676 ns                ;
+; N/A                                     ; 352.86 MHz ( period = 2.834 ns )                    ; state.sync_l       ; shiftreg_2[10]      ; clk        ; clk      ; None                        ; None                      ; 2.676 ns                ;
+; N/A                                     ; 352.86 MHz ( period = 2.834 ns )                    ; state.sync_l       ; shiftreg[9]         ; clk        ; clk      ; None                        ; None                      ; 2.676 ns                ;
+; N/A                                     ; 352.86 MHz ( period = 2.834 ns )                    ; state.sync_l       ; shiftreg[3]         ; clk        ; clk      ; None                        ; None                      ; 2.676 ns                ;
+; N/A                                     ; 352.86 MHz ( period = 2.834 ns )                    ; state.sync_l       ; shiftreg[2]         ; clk        ; clk      ; None                        ; None                      ; 2.676 ns                ;
+; N/A                                     ; 352.86 MHz ( period = 2.834 ns )                    ; state.sync_l       ; shiftreg[1]         ; clk        ; clk      ; None                        ; None                      ; 2.676 ns                ;
+; N/A                                     ; 352.86 MHz ( period = 2.834 ns )                    ; state.sync_l       ; shiftreg[0]         ; clk        ; clk      ; None                        ; None                      ; 2.676 ns                ;
+; N/A                                     ; 353.36 MHz ( period = 2.830 ns )                    ; state.sync_l       ; shiftreg_2[9]       ; clk        ; clk      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 353.36 MHz ( period = 2.830 ns )                    ; state.sync_l       ; shiftreg_2[8]       ; clk        ; clk      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 353.36 MHz ( period = 2.830 ns )                    ; state.sync_l       ; shiftreg_2[6]       ; clk        ; clk      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 353.36 MHz ( period = 2.830 ns )                    ; state.sync_l       ; shiftreg_2[5]       ; clk        ; clk      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 355.62 MHz ( period = 2.812 ns )                    ; state.sync_l       ; shiftreg[15]        ; clk        ; clk      ; None                        ; None                      ; 2.660 ns                ;
+; N/A                                     ; 355.62 MHz ( period = 2.812 ns )                    ; state.sync_l       ; shiftreg[14]        ; clk        ; clk      ; None                        ; None                      ; 2.660 ns                ;
+; N/A                                     ; 355.62 MHz ( period = 2.812 ns )                    ; state.sync_l       ; shiftreg[13]        ; clk        ; clk      ; None                        ; None                      ; 2.660 ns                ;
+; N/A                                     ; 355.62 MHz ( period = 2.812 ns )                    ; state.sync_l       ; shiftreg_2[13]      ; clk        ; clk      ; None                        ; None                      ; 2.660 ns                ;
+; N/A                                     ; 355.62 MHz ( period = 2.812 ns )                    ; state.sync_l       ; shiftreg[12]        ; clk        ; clk      ; None                        ; None                      ; 2.660 ns                ;
+; N/A                                     ; 355.62 MHz ( period = 2.812 ns )                    ; state.sync_l       ; shiftreg_2[12]      ; clk        ; clk      ; None                        ; None                      ; 2.660 ns                ;
+; N/A                                     ; 355.62 MHz ( period = 2.812 ns )                    ; state.sync_l       ; shiftreg_2[11]      ; clk        ; clk      ; None                        ; None                      ; 2.660 ns                ;
+; N/A                                     ; 355.62 MHz ( period = 2.812 ns )                    ; state.sync_l       ; shiftreg_2[1]       ; clk        ; clk      ; None                        ; None                      ; 2.660 ns                ;
+; N/A                                     ; 355.62 MHz ( period = 2.812 ns )                    ; state.sync_l       ; shiftreg_2[0]       ; clk        ; clk      ; None                        ; None                      ; 2.660 ns                ;
+; N/A                                     ; 356.38 MHz ( period = 2.806 ns )                    ; Mstate.mready      ; shiftreg_2[1]       ; clk        ; clk      ; None                        ; None                      ; 2.654 ns                ;
+; N/A                                     ; 356.51 MHz ( period = 2.805 ns )                    ; state.sync_l       ; shiftreg[8]         ; clk        ; clk      ; None                        ; None                      ; 2.647 ns                ;
+; N/A                                     ; 356.51 MHz ( period = 2.805 ns )                    ; state.sync_l       ; shiftreg[7]         ; clk        ; clk      ; None                        ; None                      ; 2.647 ns                ;
+; N/A                                     ; 356.51 MHz ( period = 2.805 ns )                    ; state.sync_l       ; shiftreg[6]         ; clk        ; clk      ; None                        ; None                      ; 2.647 ns                ;
+; N/A                                     ; 356.51 MHz ( period = 2.805 ns )                    ; state.sync_l       ; shiftreg[5]         ; clk        ; clk      ; None                        ; None                      ; 2.647 ns                ;
+; N/A                                     ; 356.51 MHz ( period = 2.805 ns )                    ; state.sync_l       ; shiftreg[4]         ; clk        ; clk      ; None                        ; None                      ; 2.647 ns                ;
+; N/A                                     ; 357.40 MHz ( period = 2.798 ns )                    ; state.sync_l       ; shiftreg_2[15]      ; clk        ; clk      ; None                        ; None                      ; 2.640 ns                ;
+; N/A                                     ; 357.40 MHz ( period = 2.798 ns )                    ; state.sync_l       ; shiftreg_2[14]      ; clk        ; clk      ; None                        ; None                      ; 2.640 ns                ;
+; N/A                                     ; 357.40 MHz ( period = 2.798 ns )                    ; state.sync_l       ; shiftreg_2[4]       ; clk        ; clk      ; None                        ; None                      ; 2.640 ns                ;
+; N/A                                     ; 357.40 MHz ( period = 2.798 ns )                    ; state.sync_l       ; shiftreg_2[3]       ; clk        ; clk      ; None                        ; None                      ; 2.640 ns                ;
+; N/A                                     ; 357.40 MHz ( period = 2.798 ns )                    ; state.sync_l       ; shiftreg_2[2]       ; clk        ; clk      ; None                        ; None                      ; 2.640 ns                ;
+; N/A                                     ; 362.71 MHz ( period = 2.757 ns )                    ; shift_count[2]     ; shift_count[5]      ; clk        ; clk      ; None                        ; None                      ; 2.591 ns                ;
+; N/A                                     ; 362.71 MHz ( period = 2.757 ns )                    ; shift_count[2]     ; shift_count[4]      ; clk        ; clk      ; None                        ; None                      ; 2.591 ns                ;
+; N/A                                     ; 366.17 MHz ( period = 2.731 ns )                    ; shift_count[3]     ; shift_count[3]      ; clk        ; clk      ; None                        ; None                      ; 2.565 ns                ;
+; N/A                                     ; 369.00 MHz ( period = 2.710 ns )                    ; Mstate.mready      ; shiftreg_2[10]      ; clk        ; clk      ; None                        ; None                      ; 2.552 ns                ;
+; N/A                                     ; 369.55 MHz ( period = 2.706 ns )                    ; Mstate.mready      ; shiftreg[2]         ; clk        ; clk      ; None                        ; None                      ; 2.548 ns                ;
+; N/A                                     ; 369.96 MHz ( period = 2.703 ns )                    ; Mstate.mready      ; shiftreg[9]         ; clk        ; clk      ; None                        ; None                      ; 2.545 ns                ;
+; N/A                                     ; 369.96 MHz ( period = 2.703 ns )                    ; Mstate.mready      ; shiftreg[3]         ; clk        ; clk      ; None                        ; None                      ; 2.545 ns                ;
+; N/A                                     ; 370.78 MHz ( period = 2.697 ns )                    ; state.data_h       ; shiftreg[10]        ; clk        ; clk      ; None                        ; None                      ; 2.539 ns                ;
+; N/A                                     ; 370.78 MHz ( period = 2.697 ns )                    ; state.data_h       ; shiftreg_2[10]      ; clk        ; clk      ; None                        ; None                      ; 2.539 ns                ;
+; N/A                                     ; 370.78 MHz ( period = 2.697 ns )                    ; state.data_h       ; shiftreg[9]         ; clk        ; clk      ; None                        ; None                      ; 2.539 ns                ;
+; N/A                                     ; 370.78 MHz ( period = 2.697 ns )                    ; state.data_h       ; shiftreg[3]         ; clk        ; clk      ; None                        ; None                      ; 2.539 ns                ;
+; N/A                                     ; 370.78 MHz ( period = 2.697 ns )                    ; state.data_h       ; shiftreg[2]         ; clk        ; clk      ; None                        ; None                      ; 2.539 ns                ;
+; N/A                                     ; 370.78 MHz ( period = 2.697 ns )                    ; state.data_h       ; shiftreg[1]         ; clk        ; clk      ; None                        ; None                      ; 2.539 ns                ;
+; N/A                                     ; 370.78 MHz ( period = 2.697 ns )                    ; state.data_h       ; shiftreg[0]         ; clk        ; clk      ; None                        ; None                      ; 2.539 ns                ;
+; N/A                                     ; 370.92 MHz ( period = 2.696 ns )                    ; Mstate.mready      ; shiftreg[4]         ; clk        ; clk      ; None                        ; None                      ; 2.538 ns                ;
+; N/A                                     ; 371.20 MHz ( period = 2.694 ns )                    ; Mstate.mready      ; shiftreg[7]         ; clk        ; clk      ; None                        ; None                      ; 2.536 ns                ;
+; N/A                                     ; 371.33 MHz ( period = 2.693 ns )                    ; state.data_h       ; shiftreg_2[9]       ; clk        ; clk      ; None                        ; None                      ; 2.518 ns                ;
+; N/A                                     ; 371.33 MHz ( period = 2.693 ns )                    ; state.data_h       ; shiftreg_2[8]       ; clk        ; clk      ; None                        ; None                      ; 2.518 ns                ;
+; N/A                                     ; 371.33 MHz ( period = 2.693 ns )                    ; state.data_h       ; shiftreg_2[7]       ; clk        ; clk      ; None                        ; None                      ; 2.518 ns                ;
+; N/A                                     ; 371.33 MHz ( period = 2.693 ns )                    ; state.data_h       ; shiftreg_2[6]       ; clk        ; clk      ; None                        ; None                      ; 2.518 ns                ;
+; N/A                                     ; 371.33 MHz ( period = 2.693 ns )                    ; state.data_h       ; shiftreg_2[5]       ; clk        ; clk      ; None                        ; None                      ; 2.518 ns                ;
+; N/A                                     ; 373.83 MHz ( period = 2.675 ns )                    ; state.data_h       ; shiftreg[15]        ; clk        ; clk      ; None                        ; None                      ; 2.523 ns                ;
+; N/A                                     ; 373.83 MHz ( period = 2.675 ns )                    ; state.data_h       ; shiftreg[14]        ; clk        ; clk      ; None                        ; None                      ; 2.523 ns                ;
+; N/A                                     ; 373.83 MHz ( period = 2.675 ns )                    ; state.data_h       ; shiftreg[13]        ; clk        ; clk      ; None                        ; None                      ; 2.523 ns                ;
+; N/A                                     ; 373.83 MHz ( period = 2.675 ns )                    ; state.data_h       ; shiftreg_2[13]      ; clk        ; clk      ; None                        ; None                      ; 2.523 ns                ;
+; N/A                                     ; 373.83 MHz ( period = 2.675 ns )                    ; state.data_h       ; shiftreg[12]        ; clk        ; clk      ; None                        ; None                      ; 2.523 ns                ;
+; N/A                                     ; 373.83 MHz ( period = 2.675 ns )                    ; state.data_h       ; shiftreg_2[12]      ; clk        ; clk      ; None                        ; None                      ; 2.523 ns                ;
+; N/A                                     ; 373.83 MHz ( period = 2.675 ns )                    ; state.data_h       ; shiftreg[11]        ; clk        ; clk      ; None                        ; None                      ; 2.523 ns                ;
+; N/A                                     ; 373.83 MHz ( period = 2.675 ns )                    ; state.data_h       ; shiftreg_2[11]      ; clk        ; clk      ; None                        ; None                      ; 2.523 ns                ;
+; N/A                                     ; 373.83 MHz ( period = 2.675 ns )                    ; state.data_h       ; shiftreg_2[1]       ; clk        ; clk      ; None                        ; None                      ; 2.523 ns                ;
+; N/A                                     ; 373.83 MHz ( period = 2.675 ns )                    ; state.data_h       ; shiftreg_2[0]       ; clk        ; clk      ; None                        ; None                      ; 2.523 ns                ;
+; N/A                                     ; 374.39 MHz ( period = 2.671 ns )                    ; shift_count[3]     ; shift_count[2]      ; clk        ; clk      ; None                        ; None                      ; 2.505 ns                ;
+; N/A                                     ; 374.81 MHz ( period = 2.668 ns )                    ; state.data_h       ; shiftreg[8]         ; clk        ; clk      ; None                        ; None                      ; 2.510 ns                ;
+; N/A                                     ; 374.81 MHz ( period = 2.668 ns )                    ; state.data_h       ; shiftreg[7]         ; clk        ; clk      ; None                        ; None                      ; 2.510 ns                ;
+; N/A                                     ; 374.81 MHz ( period = 2.668 ns )                    ; state.data_h       ; shiftreg[6]         ; clk        ; clk      ; None                        ; None                      ; 2.510 ns                ;
+; N/A                                     ; 374.81 MHz ( period = 2.668 ns )                    ; state.data_h       ; shiftreg[5]         ; clk        ; clk      ; None                        ; None                      ; 2.510 ns                ;
+; N/A                                     ; 374.81 MHz ( period = 2.668 ns )                    ; state.data_h       ; shiftreg[4]         ; clk        ; clk      ; None                        ; None                      ; 2.510 ns                ;
+; N/A                                     ; 375.80 MHz ( period = 2.661 ns )                    ; state.data_h       ; shiftreg_2[15]      ; clk        ; clk      ; None                        ; None                      ; 2.503 ns                ;
+; N/A                                     ; 375.80 MHz ( period = 2.661 ns )                    ; state.data_h       ; shiftreg_2[14]      ; clk        ; clk      ; None                        ; None                      ; 2.503 ns                ;
+; N/A                                     ; 375.80 MHz ( period = 2.661 ns )                    ; state.data_h       ; shiftreg_2[4]       ; clk        ; clk      ; None                        ; None                      ; 2.503 ns                ;
+; N/A                                     ; 375.80 MHz ( period = 2.661 ns )                    ; state.data_h       ; shiftreg_2[3]       ; clk        ; clk      ; None                        ; None                      ; 2.503 ns                ;
+; N/A                                     ; 375.80 MHz ( period = 2.661 ns )                    ; state.data_h       ; shiftreg_2[2]       ; clk        ; clk      ; None                        ; None                      ; 2.503 ns                ;
+; N/A                                     ; 376.08 MHz ( period = 2.659 ns )                    ; Mstate.mready      ; shiftreg_2[7]       ; clk        ; clk      ; None                        ; None                      ; 2.484 ns                ;
+; N/A                                     ; 377.50 MHz ( period = 2.649 ns )                    ; state.data_h       ; data_temp           ; clk        ; clk      ; None                        ; None                      ; 2.474 ns                ;
+; N/A                                     ; 377.50 MHz ( period = 2.649 ns )                    ; state.data_h       ; data_2_temp         ; clk        ; clk      ; None                        ; None                      ; 2.474 ns                ;
+; N/A                                     ; 378.64 MHz ( period = 2.641 ns )                    ; shift_count[0]     ; shift_count[3]      ; clk        ; clk      ; None                        ; None                      ; 2.475 ns                ;
+; N/A                                     ; 380.08 MHz ( period = 2.631 ns )                    ; shift_count[1]     ; shift_count[5]      ; clk        ; clk      ; None                        ; None                      ; 2.465 ns                ;
+; N/A                                     ; 380.08 MHz ( period = 2.631 ns )                    ; shift_count[1]     ; shift_count[4]      ; clk        ; clk      ; None                        ; None                      ; 2.465 ns                ;
+; N/A                                     ; 380.81 MHz ( period = 2.626 ns )                    ; Mstate.midle       ; Mstate.midle        ; clk        ; clk      ; None                        ; None                      ; 2.460 ns                ;
+; N/A                                     ; 380.81 MHz ( period = 2.626 ns )                    ; Mstate.midle       ; Mstate.mwait_config ; clk        ; clk      ; None                        ; None                      ; 2.460 ns                ;
+; N/A                                     ; 381.53 MHz ( period = 2.621 ns )                    ; shiftreg[9]        ; shiftreg[10]        ; clk        ; clk      ; None                        ; None                      ; 2.455 ns                ;
+; N/A                                     ; 383.00 MHz ( period = 2.611 ns )                    ; shift_count[3]     ; shift_count[1]      ; clk        ; clk      ; None                        ; None                      ; 2.445 ns                ;
+; N/A                                     ; 384.17 MHz ( period = 2.603 ns )                    ; shiftreg_2[10]     ; shiftreg_2[11]      ; clk        ; clk      ; None                        ; None                      ; 2.443 ns                ;
+; N/A                                     ; 386.85 MHz ( period = 2.585 ns )                    ; Mstate.mready      ; shiftreg[11]        ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; 387.30 MHz ( period = 2.582 ns )                    ; Mstate.mready      ; shiftreg_2[0]       ; clk        ; clk      ; None                        ; None                      ; 2.430 ns                ;
+; N/A                                     ; 387.45 MHz ( period = 2.581 ns )                    ; shift_count[0]     ; shift_count[2]      ; clk        ; clk      ; None                        ; None                      ; 2.415 ns                ;
+; N/A                                     ; 387.60 MHz ( period = 2.580 ns )                    ; Mstate.mready      ; shiftreg_2[12]      ; clk        ; clk      ; None                        ; None                      ; 2.428 ns                ;
+; N/A                                     ; 388.50 MHz ( period = 2.574 ns )                    ; Mstate.mready      ; shiftreg_2[11]      ; clk        ; clk      ; None                        ; None                      ; 2.422 ns                ;
+; N/A                                     ; 388.95 MHz ( period = 2.571 ns )                    ; Mstate.mready      ; shiftreg[12]        ; clk        ; clk      ; None                        ; None                      ; 2.419 ns                ;
+; N/A                                     ; 390.93 MHz ( period = 2.558 ns )                    ; shift_count[2]     ; shift_count[3]      ; clk        ; clk      ; None                        ; None                      ; 2.392 ns                ;
+; N/A                                     ; 392.31 MHz ( period = 2.549 ns )                    ; Mstate.mwait_dac_a ; shiftreg[1]         ; clk        ; clk      ; None                        ; None                      ; 2.391 ns                ;
+; N/A                                     ; 392.46 MHz ( period = 2.548 ns )                    ; Mstate.mwait_dac_a ; shiftreg_2[7]       ; clk        ; clk      ; None                        ; None                      ; 2.373 ns                ;
+; N/A                                     ; 394.17 MHz ( period = 2.537 ns )                    ; Mstate.mready      ; shiftreg_2[6]       ; clk        ; clk      ; None                        ; None                      ; 2.362 ns                ;
+; N/A                                     ; 394.48 MHz ( period = 2.535 ns )                    ; Mstate.mready      ; shiftreg_2[8]       ; clk        ; clk      ; None                        ; None                      ; 2.360 ns                ;
+; N/A                                     ; 395.10 MHz ( period = 2.531 ns )                    ; Mstate.mready      ; shiftreg_2[9]       ; clk        ; clk      ; None                        ; None                      ; 2.356 ns                ;
+; N/A                                     ; 395.26 MHz ( period = 2.530 ns )                    ; Mstate.mready      ; shiftreg_2[5]       ; clk        ; clk      ; None                        ; None                      ; 2.355 ns                ;
+; N/A                                     ; 396.67 MHz ( period = 2.521 ns )                    ; shift_count[0]     ; shift_count[1]      ; clk        ; clk      ; None                        ; None                      ; 2.355 ns                ;
+; N/A                                     ; 398.57 MHz ( period = 2.509 ns )                    ; Mstate.mready      ; shiftreg_2[3]       ; clk        ; clk      ; None                        ; None                      ; 2.351 ns                ;
+; N/A                                     ; 398.88 MHz ( period = 2.507 ns )                    ; Mstate.mready      ; shiftreg_2[2]       ; clk        ; clk      ; None                        ; None                      ; 2.349 ns                ;
+; N/A                                     ; 399.20 MHz ( period = 2.505 ns )                    ; Mstate.mready      ; shiftreg_2[4]       ; clk        ; clk      ; None                        ; None                      ; 2.347 ns                ;
+; N/A                                     ; 400.32 MHz ( period = 2.498 ns )                    ; shift_count[2]     ; shift_count[2]      ; clk        ; clk      ; None                        ; None                      ; 2.332 ns                ;
+; N/A                                     ; 402.25 MHz ( period = 2.486 ns )                    ; Mstate.mready      ; shiftreg[0]         ; clk        ; clk      ; None                        ; None                      ; 2.328 ns                ;
+; N/A                                     ; 403.39 MHz ( period = 2.479 ns )                    ; Mstate.mready      ; shiftreg[10]        ; clk        ; clk      ; None                        ; None                      ; 2.321 ns                ;
+; N/A                                     ; 405.68 MHz ( period = 2.465 ns )                    ; shiftreg[10]       ; shiftreg[11]        ; clk        ; clk      ; None                        ; None                      ; 2.305 ns                ;
+; N/A                                     ; 409.67 MHz ( period = 2.441 ns )                    ; Mstate.mwait_dac_a ; shiftreg_2[9]       ; clk        ; clk      ; None                        ; None                      ; 2.266 ns                ;
+; N/A                                     ; 410.17 MHz ( period = 2.438 ns )                    ; shift_count[2]     ; shift_count[1]      ; clk        ; clk      ; None                        ; None                      ; 2.272 ns                ;
+; N/A                                     ; 410.34 MHz ( period = 2.437 ns )                    ; Mstate.mready      ; Mstate.midle        ; clk        ; clk      ; None                        ; None                      ; 2.271 ns                ;
+; N/A                                     ; 410.34 MHz ( period = 2.437 ns )                    ; Mstate.mready      ; Mstate.mwait_config ; clk        ; clk      ; None                        ; None                      ; 2.271 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                    ;                     ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+--------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; tsu                                                                                 ;
++-------+--------------+------------+----------------+---------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From           ; To                  ; To Clock ;
++-------+--------------+------------+----------------+---------------------+----------+
+; N/A   ; None         ; 4.975 ns   ; dac1A_data[0]  ; shiftreg[0]         ; clk      ;
+; N/A   ; None         ; 4.403 ns   ; clk_en         ; shiftreg[10]        ; clk      ;
+; N/A   ; None         ; 4.403 ns   ; clk_en         ; shiftreg_2[10]      ; clk      ;
+; N/A   ; None         ; 4.403 ns   ; clk_en         ; shiftreg[9]         ; clk      ;
+; N/A   ; None         ; 4.403 ns   ; clk_en         ; shiftreg[3]         ; clk      ;
+; N/A   ; None         ; 4.403 ns   ; clk_en         ; shiftreg[2]         ; clk      ;
+; N/A   ; None         ; 4.403 ns   ; clk_en         ; shiftreg[1]         ; clk      ;
+; N/A   ; None         ; 4.403 ns   ; clk_en         ; shiftreg[0]         ; clk      ;
+; N/A   ; None         ; 4.399 ns   ; clk_en         ; shiftreg_2[9]       ; clk      ;
+; N/A   ; None         ; 4.399 ns   ; clk_en         ; shiftreg_2[8]       ; clk      ;
+; N/A   ; None         ; 4.399 ns   ; clk_en         ; shiftreg_2[7]       ; clk      ;
+; N/A   ; None         ; 4.399 ns   ; clk_en         ; shiftreg_2[6]       ; clk      ;
+; N/A   ; None         ; 4.399 ns   ; clk_en         ; shiftreg_2[5]       ; clk      ;
+; N/A   ; None         ; 4.388 ns   ; clk_en         ; data_temp           ; clk      ;
+; N/A   ; None         ; 4.388 ns   ; clk_en         ; data_2_temp         ; clk      ;
+; N/A   ; None         ; 4.381 ns   ; clk_en         ; shiftreg[15]        ; clk      ;
+; N/A   ; None         ; 4.381 ns   ; clk_en         ; shiftreg[14]        ; clk      ;
+; N/A   ; None         ; 4.381 ns   ; clk_en         ; shiftreg[13]        ; clk      ;
+; N/A   ; None         ; 4.381 ns   ; clk_en         ; shiftreg_2[13]      ; clk      ;
+; N/A   ; None         ; 4.381 ns   ; clk_en         ; shiftreg[12]        ; clk      ;
+; N/A   ; None         ; 4.381 ns   ; clk_en         ; shiftreg_2[12]      ; clk      ;
+; N/A   ; None         ; 4.381 ns   ; clk_en         ; shiftreg[11]        ; clk      ;
+; N/A   ; None         ; 4.381 ns   ; clk_en         ; shiftreg_2[11]      ; clk      ;
+; N/A   ; None         ; 4.381 ns   ; clk_en         ; shiftreg_2[1]       ; clk      ;
+; N/A   ; None         ; 4.381 ns   ; clk_en         ; shiftreg_2[0]       ; clk      ;
+; N/A   ; None         ; 4.374 ns   ; clk_en         ; shiftreg[8]         ; clk      ;
+; N/A   ; None         ; 4.374 ns   ; clk_en         ; shiftreg[7]         ; clk      ;
+; N/A   ; None         ; 4.374 ns   ; clk_en         ; shiftreg[6]         ; clk      ;
+; N/A   ; None         ; 4.374 ns   ; clk_en         ; shiftreg[5]         ; clk      ;
+; N/A   ; None         ; 4.374 ns   ; clk_en         ; shiftreg[4]         ; clk      ;
+; N/A   ; None         ; 4.367 ns   ; clk_en         ; shiftreg_2[15]      ; clk      ;
+; N/A   ; None         ; 4.367 ns   ; clk_en         ; shiftreg_2[14]      ; clk      ;
+; N/A   ; None         ; 4.367 ns   ; clk_en         ; shiftreg_2[4]       ; clk      ;
+; N/A   ; None         ; 4.367 ns   ; clk_en         ; shiftreg_2[3]       ; clk      ;
+; N/A   ; None         ; 4.367 ns   ; clk_en         ; shiftreg_2[2]       ; clk      ;
+; N/A   ; None         ; 3.998 ns   ; dac1A_data[1]  ; shiftreg[1]         ; clk      ;
+; N/A   ; None         ; 3.988 ns   ; clk_en         ; Mstate.mwait_dac_b  ; clk      ;
+; N/A   ; None         ; 3.988 ns   ; clk_en         ; Mstate.mwait_dac_a  ; clk      ;
+; N/A   ; None         ; 3.781 ns   ; dac2A_data[11] ; shiftreg_2[11]      ; clk      ;
+; N/A   ; None         ; 3.764 ns   ; dac1A_data[10] ; shiftreg[10]        ; clk      ;
+; N/A   ; None         ; 3.749 ns   ; dac1A_data[7]  ; shiftreg[7]         ; clk      ;
+; N/A   ; None         ; 3.699 ns   ; dac2A_data[1]  ; shiftreg_2[1]       ; clk      ;
+; N/A   ; None         ; 3.590 ns   ; clk_en         ; Mstate.midle        ; clk      ;
+; N/A   ; None         ; 3.590 ns   ; clk_en         ; Mstate.mwait_config ; clk      ;
+; N/A   ; None         ; 3.578 ns   ; dac1A_data[8]  ; shiftreg[8]         ; clk      ;
+; N/A   ; None         ; 3.494 ns   ; update_DACs    ; Mstate.midle        ; clk      ;
+; N/A   ; None         ; 3.494 ns   ; update_DACs    ; Mstate.mwait_config ; clk      ;
+; N/A   ; None         ; 3.438 ns   ; dac1A_data[3]  ; shiftreg[3]         ; clk      ;
+; N/A   ; None         ; 3.404 ns   ; dac1A_data[4]  ; shiftreg[4]         ; clk      ;
+; N/A   ; None         ; 3.391 ns   ; dac1B_data[8]  ; shiftreg[8]         ; clk      ;
+; N/A   ; None         ; 3.373 ns   ; dac1A_data[2]  ; shiftreg[2]         ; clk      ;
+; N/A   ; None         ; 3.349 ns   ; dac2A_data[9]  ; shiftreg_2[9]       ; clk      ;
+; N/A   ; None         ; 3.342 ns   ; dac2A_data[3]  ; shiftreg_2[3]       ; clk      ;
+; N/A   ; None         ; 3.335 ns   ; dac1A_data[9]  ; shiftreg[9]         ; clk      ;
+; N/A   ; None         ; 3.197 ns   ; dac1B_data[6]  ; shiftreg[6]         ; clk      ;
+; N/A   ; None         ; 3.184 ns   ; dac2B_data[7]  ; shiftreg_2[7]       ; clk      ;
+; N/A   ; None         ; 3.178 ns   ; dac1B_data[4]  ; shiftreg[4]         ; clk      ;
+; N/A   ; None         ; 3.174 ns   ; clk_en         ; state.sync_h        ; clk      ;
+; N/A   ; None         ; 3.174 ns   ; clk_en         ; data1~reg0          ; clk      ;
+; N/A   ; None         ; 3.174 ns   ; clk_en         ; data2~reg0          ; clk      ;
+; N/A   ; None         ; 3.136 ns   ; dac2B_data[8]  ; shiftreg_2[8]       ; clk      ;
+; N/A   ; None         ; 3.127 ns   ; dac2B_data[5]  ; shiftreg_2[5]       ; clk      ;
+; N/A   ; None         ; 3.119 ns   ; dac2A_data[0]  ; shiftreg_2[0]       ; clk      ;
+; N/A   ; None         ; 3.099 ns   ; dac2A_data[4]  ; shiftreg_2[4]       ; clk      ;
+; N/A   ; None         ; 3.089 ns   ; dac2B_data[6]  ; shiftreg_2[6]       ; clk      ;
+; N/A   ; None         ; 3.052 ns   ; dac1B_data[10] ; shiftreg[10]        ; clk      ;
+; N/A   ; None         ; 3.049 ns   ; dac2A_data[7]  ; shiftreg_2[7]       ; clk      ;
+; N/A   ; None         ; 3.040 ns   ; dac2B_data[2]  ; shiftreg_2[2]       ; clk      ;
+; N/A   ; None         ; 3.037 ns   ; clk_en         ; state.data_h        ; clk      ;
+; N/A   ; None         ; 3.037 ns   ; clk_en         ; state.data_l        ; clk      ;
+; N/A   ; None         ; 3.037 ns   ; clk_en         ; state.data_end      ; clk      ;
+; N/A   ; None         ; 3.037 ns   ; clk_en         ; state.next_tx       ; clk      ;
+; N/A   ; None         ; 3.037 ns   ; clk_en         ; state.sync_l        ; clk      ;
+; N/A   ; None         ; 3.037 ns   ; clk_en         ; state.idle          ; clk      ;
+; N/A   ; None         ; 3.028 ns   ; dac1A_data[6]  ; shiftreg[6]         ; clk      ;
+; N/A   ; None         ; 3.019 ns   ; dac2A_data[2]  ; shiftreg_2[2]       ; clk      ;
+; N/A   ; None         ; 3.011 ns   ; dac1B_data[1]  ; shiftreg[1]         ; clk      ;
+; N/A   ; None         ; 2.996 ns   ; dac1A_data[5]  ; shiftreg[5]         ; clk      ;
+; N/A   ; None         ; 2.974 ns   ; dac2A_data[10] ; shiftreg_2[10]      ; clk      ;
+; N/A   ; None         ; 2.967 ns   ; dac2A_data[8]  ; shiftreg_2[8]       ; clk      ;
+; N/A   ; None         ; 2.945 ns   ; dac2B_data[10] ; shiftreg_2[10]      ; clk      ;
+; N/A   ; None         ; 2.938 ns   ; dac1B_data[7]  ; shiftreg[7]         ; clk      ;
+; N/A   ; None         ; 2.937 ns   ; dac2A_data[5]  ; shiftreg_2[5]       ; clk      ;
+; N/A   ; None         ; 2.890 ns   ; dac2B_data[0]  ; shiftreg_2[0]       ; clk      ;
+; N/A   ; None         ; 2.889 ns   ; dac1A_data[11] ; shiftreg[11]        ; clk      ;
+; N/A   ; None         ; 2.873 ns   ; dac1B_data[9]  ; shiftreg[9]         ; clk      ;
+; N/A   ; None         ; 2.860 ns   ; dac2B_data[1]  ; shiftreg_2[1]       ; clk      ;
+; N/A   ; None         ; 2.845 ns   ; dac1B_data[0]  ; shiftreg[0]         ; clk      ;
+; N/A   ; None         ; 2.831 ns   ; clk_en         ; Mstate.mready       ; clk      ;
+; N/A   ; None         ; 2.831 ns   ; clk_en         ; shift_count[5]      ; clk      ;
+; N/A   ; None         ; 2.831 ns   ; clk_en         ; shift_count[0]      ; clk      ;
+; N/A   ; None         ; 2.831 ns   ; clk_en         ; shift_count[4]      ; clk      ;
+; N/A   ; None         ; 2.831 ns   ; clk_en         ; shift_count[1]      ; clk      ;
+; N/A   ; None         ; 2.831 ns   ; clk_en         ; shift_count[2]      ; clk      ;
+; N/A   ; None         ; 2.831 ns   ; clk_en         ; shift_count[3]      ; clk      ;
+; N/A   ; None         ; 2.830 ns   ; dac2B_data[4]  ; shiftreg_2[4]       ; clk      ;
+; N/A   ; None         ; 2.787 ns   ; dac1B_data[5]  ; shiftreg[5]         ; clk      ;
+; N/A   ; None         ; 2.769 ns   ; dac2A_data[6]  ; shiftreg_2[6]       ; clk      ;
+; N/A   ; None         ; 2.759 ns   ; dac2B_data[9]  ; shiftreg_2[9]       ; clk      ;
+; N/A   ; None         ; 2.719 ns   ; dac1B_data[2]  ; shiftreg[2]         ; clk      ;
+; N/A   ; None         ; 2.672 ns   ; dac2B_data[11] ; shiftreg_2[11]      ; clk      ;
+; N/A   ; None         ; 2.593 ns   ; dac1B_data[3]  ; shiftreg[3]         ; clk      ;
+; N/A   ; None         ; 2.540 ns   ; dac1B_data[11] ; shiftreg[11]        ; clk      ;
+; N/A   ; None         ; 2.523 ns   ; dac2B_data[3]  ; shiftreg_2[3]       ; clk      ;
+; N/A   ; None         ; 2.072 ns   ; update_DACs    ; Mstate.mready       ; clk      ;
+; N/A   ; None         ; 1.839 ns   ; reset          ; shift_count[5]      ; clk      ;
+; N/A   ; None         ; 1.839 ns   ; reset          ; shift_count[0]      ; clk      ;
+; N/A   ; None         ; 1.839 ns   ; reset          ; shift_count[4]      ; clk      ;
+; N/A   ; None         ; 1.839 ns   ; reset          ; shift_count[1]      ; clk      ;
+; N/A   ; None         ; 1.839 ns   ; reset          ; shift_count[2]      ; clk      ;
+; N/A   ; None         ; 1.839 ns   ; reset          ; shift_count[3]      ; clk      ;
++-------+--------------+------------+----------------+---------------------+----------+
+
+
++-------------------------------------------------------------------------------+
+; tco                                                                           ;
++-------+--------------+------------+----------------+-------------+------------+
+; Slack ; Required tco ; Actual tco ; From           ; To          ; From Clock ;
++-------+--------------+------------+----------------+-------------+------------+
+; N/A   ; None         ; 9.204 ns   ; shift_count[3] ; test2       ; clk        ;
+; N/A   ; None         ; 9.114 ns   ; shift_count[0] ; test2       ; clk        ;
+; N/A   ; None         ; 9.031 ns   ; shift_count[2] ; test2       ; clk        ;
+; N/A   ; None         ; 8.953 ns   ; state.sync_h   ; test4       ; clk        ;
+; N/A   ; None         ; 8.905 ns   ; shift_count[1] ; test2       ; clk        ;
+; N/A   ; None         ; 8.769 ns   ; Mstate.mready  ; test1       ; clk        ;
+; N/A   ; None         ; 8.692 ns   ; shift_count[5] ; test2       ; clk        ;
+; N/A   ; None         ; 8.648 ns   ; shift_count[4] ; test2       ; clk        ;
+; N/A   ; None         ; 8.161 ns   ; state.data_h   ; test4       ; clk        ;
+; N/A   ; None         ; 8.130 ns   ; Mstate.midle   ; test1       ; clk        ;
+; N/A   ; None         ; 7.929 ns   ; Mstate.mready  ; update_done ; clk        ;
+; N/A   ; None         ; 7.857 ns   ; sck_buffer     ; sck         ; clk        ;
+; N/A   ; None         ; 7.792 ns   ; sync~reg0      ; sync        ; clk        ;
+; N/A   ; None         ; 7.450 ns   ; data1~reg0     ; data1       ; clk        ;
+; N/A   ; None         ; 7.152 ns   ; data2~reg0     ; data2       ; clk        ;
++-------+--------------+------------+----------------+-------------+------------+
+
+
++-------------------------------------------------------------------------------------------+
+; th                                                                                        ;
++---------------+-------------+-----------+----------------+---------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From           ; To                  ; To Clock ;
++---------------+-------------+-----------+----------------+---------------------+----------+
+; N/A           ; None        ; -1.729 ns ; reset          ; shift_count[5]      ; clk      ;
+; N/A           ; None        ; -1.729 ns ; reset          ; shift_count[0]      ; clk      ;
+; N/A           ; None        ; -1.729 ns ; reset          ; shift_count[4]      ; clk      ;
+; N/A           ; None        ; -1.729 ns ; reset          ; shift_count[1]      ; clk      ;
+; N/A           ; None        ; -1.729 ns ; reset          ; shift_count[2]      ; clk      ;
+; N/A           ; None        ; -1.729 ns ; reset          ; shift_count[3]      ; clk      ;
+; N/A           ; None        ; -1.962 ns ; update_DACs    ; Mstate.mready       ; clk      ;
+; N/A           ; None        ; -2.413 ns ; dac2B_data[3]  ; shiftreg_2[3]       ; clk      ;
+; N/A           ; None        ; -2.430 ns ; dac1B_data[11] ; shiftreg[11]        ; clk      ;
+; N/A           ; None        ; -2.483 ns ; dac1B_data[3]  ; shiftreg[3]         ; clk      ;
+; N/A           ; None        ; -2.562 ns ; dac2B_data[11] ; shiftreg_2[11]      ; clk      ;
+; N/A           ; None        ; -2.609 ns ; dac1B_data[2]  ; shiftreg[2]         ; clk      ;
+; N/A           ; None        ; -2.649 ns ; dac2B_data[9]  ; shiftreg_2[9]       ; clk      ;
+; N/A           ; None        ; -2.659 ns ; dac2A_data[6]  ; shiftreg_2[6]       ; clk      ;
+; N/A           ; None        ; -2.677 ns ; dac1B_data[5]  ; shiftreg[5]         ; clk      ;
+; N/A           ; None        ; -2.720 ns ; dac2B_data[4]  ; shiftreg_2[4]       ; clk      ;
+; N/A           ; None        ; -2.721 ns ; clk_en         ; Mstate.mready       ; clk      ;
+; N/A           ; None        ; -2.721 ns ; clk_en         ; shift_count[5]      ; clk      ;
+; N/A           ; None        ; -2.721 ns ; clk_en         ; shift_count[0]      ; clk      ;
+; N/A           ; None        ; -2.721 ns ; clk_en         ; shift_count[4]      ; clk      ;
+; N/A           ; None        ; -2.721 ns ; clk_en         ; shift_count[1]      ; clk      ;
+; N/A           ; None        ; -2.721 ns ; clk_en         ; shift_count[2]      ; clk      ;
+; N/A           ; None        ; -2.721 ns ; clk_en         ; shift_count[3]      ; clk      ;
+; N/A           ; None        ; -2.735 ns ; dac1B_data[0]  ; shiftreg[0]         ; clk      ;
+; N/A           ; None        ; -2.750 ns ; dac2B_data[1]  ; shiftreg_2[1]       ; clk      ;
+; N/A           ; None        ; -2.763 ns ; dac1B_data[9]  ; shiftreg[9]         ; clk      ;
+; N/A           ; None        ; -2.779 ns ; dac1A_data[11] ; shiftreg[11]        ; clk      ;
+; N/A           ; None        ; -2.780 ns ; dac2B_data[0]  ; shiftreg_2[0]       ; clk      ;
+; N/A           ; None        ; -2.827 ns ; dac2A_data[5]  ; shiftreg_2[5]       ; clk      ;
+; N/A           ; None        ; -2.828 ns ; dac1B_data[7]  ; shiftreg[7]         ; clk      ;
+; N/A           ; None        ; -2.835 ns ; dac2B_data[10] ; shiftreg_2[10]      ; clk      ;
+; N/A           ; None        ; -2.857 ns ; dac2A_data[8]  ; shiftreg_2[8]       ; clk      ;
+; N/A           ; None        ; -2.864 ns ; dac2A_data[10] ; shiftreg_2[10]      ; clk      ;
+; N/A           ; None        ; -2.886 ns ; dac1A_data[5]  ; shiftreg[5]         ; clk      ;
+; N/A           ; None        ; -2.901 ns ; dac1B_data[1]  ; shiftreg[1]         ; clk      ;
+; N/A           ; None        ; -2.909 ns ; dac2A_data[2]  ; shiftreg_2[2]       ; clk      ;
+; N/A           ; None        ; -2.918 ns ; dac1A_data[6]  ; shiftreg[6]         ; clk      ;
+; N/A           ; None        ; -2.927 ns ; clk_en         ; state.data_h        ; clk      ;
+; N/A           ; None        ; -2.927 ns ; clk_en         ; state.data_l        ; clk      ;
+; N/A           ; None        ; -2.927 ns ; clk_en         ; state.data_end      ; clk      ;
+; N/A           ; None        ; -2.927 ns ; clk_en         ; state.next_tx       ; clk      ;
+; N/A           ; None        ; -2.927 ns ; clk_en         ; state.sync_l        ; clk      ;
+; N/A           ; None        ; -2.927 ns ; clk_en         ; state.idle          ; clk      ;
+; N/A           ; None        ; -2.930 ns ; dac2B_data[2]  ; shiftreg_2[2]       ; clk      ;
+; N/A           ; None        ; -2.939 ns ; dac2A_data[7]  ; shiftreg_2[7]       ; clk      ;
+; N/A           ; None        ; -2.942 ns ; dac1B_data[10] ; shiftreg[10]        ; clk      ;
+; N/A           ; None        ; -2.979 ns ; dac2B_data[6]  ; shiftreg_2[6]       ; clk      ;
+; N/A           ; None        ; -2.989 ns ; dac2A_data[4]  ; shiftreg_2[4]       ; clk      ;
+; N/A           ; None        ; -3.009 ns ; dac2A_data[0]  ; shiftreg_2[0]       ; clk      ;
+; N/A           ; None        ; -3.017 ns ; dac2B_data[5]  ; shiftreg_2[5]       ; clk      ;
+; N/A           ; None        ; -3.026 ns ; dac2B_data[8]  ; shiftreg_2[8]       ; clk      ;
+; N/A           ; None        ; -3.064 ns ; clk_en         ; state.sync_h        ; clk      ;
+; N/A           ; None        ; -3.064 ns ; clk_en         ; data1~reg0          ; clk      ;
+; N/A           ; None        ; -3.064 ns ; clk_en         ; data2~reg0          ; clk      ;
+; N/A           ; None        ; -3.068 ns ; dac1B_data[4]  ; shiftreg[4]         ; clk      ;
+; N/A           ; None        ; -3.074 ns ; dac2B_data[7]  ; shiftreg_2[7]       ; clk      ;
+; N/A           ; None        ; -3.087 ns ; dac1B_data[6]  ; shiftreg[6]         ; clk      ;
+; N/A           ; None        ; -3.225 ns ; dac1A_data[9]  ; shiftreg[9]         ; clk      ;
+; N/A           ; None        ; -3.232 ns ; dac2A_data[3]  ; shiftreg_2[3]       ; clk      ;
+; N/A           ; None        ; -3.239 ns ; dac2A_data[9]  ; shiftreg_2[9]       ; clk      ;
+; N/A           ; None        ; -3.263 ns ; dac1A_data[2]  ; shiftreg[2]         ; clk      ;
+; N/A           ; None        ; -3.281 ns ; dac1B_data[8]  ; shiftreg[8]         ; clk      ;
+; N/A           ; None        ; -3.294 ns ; dac1A_data[4]  ; shiftreg[4]         ; clk      ;
+; N/A           ; None        ; -3.328 ns ; dac1A_data[3]  ; shiftreg[3]         ; clk      ;
+; N/A           ; None        ; -3.384 ns ; update_DACs    ; Mstate.midle        ; clk      ;
+; N/A           ; None        ; -3.384 ns ; update_DACs    ; Mstate.mwait_config ; clk      ;
+; N/A           ; None        ; -3.468 ns ; dac1A_data[8]  ; shiftreg[8]         ; clk      ;
+; N/A           ; None        ; -3.480 ns ; clk_en         ; Mstate.midle        ; clk      ;
+; N/A           ; None        ; -3.480 ns ; clk_en         ; Mstate.mwait_config ; clk      ;
+; N/A           ; None        ; -3.589 ns ; dac2A_data[1]  ; shiftreg_2[1]       ; clk      ;
+; N/A           ; None        ; -3.639 ns ; dac1A_data[7]  ; shiftreg[7]         ; clk      ;
+; N/A           ; None        ; -3.654 ns ; dac1A_data[10] ; shiftreg[10]        ; clk      ;
+; N/A           ; None        ; -3.671 ns ; dac2A_data[11] ; shiftreg_2[11]      ; clk      ;
+; N/A           ; None        ; -3.878 ns ; clk_en         ; Mstate.mwait_dac_b  ; clk      ;
+; N/A           ; None        ; -3.878 ns ; clk_en         ; Mstate.mwait_dac_a  ; clk      ;
+; N/A           ; None        ; -3.888 ns ; dac1A_data[1]  ; shiftreg[1]         ; clk      ;
+; N/A           ; None        ; -4.257 ns ; clk_en         ; shiftreg_2[15]      ; clk      ;
+; N/A           ; None        ; -4.257 ns ; clk_en         ; shiftreg_2[14]      ; clk      ;
+; N/A           ; None        ; -4.257 ns ; clk_en         ; shiftreg_2[4]       ; clk      ;
+; N/A           ; None        ; -4.257 ns ; clk_en         ; shiftreg_2[3]       ; clk      ;
+; N/A           ; None        ; -4.257 ns ; clk_en         ; shiftreg_2[2]       ; clk      ;
+; N/A           ; None        ; -4.264 ns ; clk_en         ; shiftreg[8]         ; clk      ;
+; N/A           ; None        ; -4.264 ns ; clk_en         ; shiftreg[7]         ; clk      ;
+; N/A           ; None        ; -4.264 ns ; clk_en         ; shiftreg[6]         ; clk      ;
+; N/A           ; None        ; -4.264 ns ; clk_en         ; shiftreg[5]         ; clk      ;
+; N/A           ; None        ; -4.264 ns ; clk_en         ; shiftreg[4]         ; clk      ;
+; N/A           ; None        ; -4.271 ns ; clk_en         ; shiftreg[15]        ; clk      ;
+; N/A           ; None        ; -4.271 ns ; clk_en         ; shiftreg[14]        ; clk      ;
+; N/A           ; None        ; -4.271 ns ; clk_en         ; shiftreg[13]        ; clk      ;
+; N/A           ; None        ; -4.271 ns ; clk_en         ; shiftreg_2[13]      ; clk      ;
+; N/A           ; None        ; -4.271 ns ; clk_en         ; shiftreg[12]        ; clk      ;
+; N/A           ; None        ; -4.271 ns ; clk_en         ; shiftreg_2[12]      ; clk      ;
+; N/A           ; None        ; -4.271 ns ; clk_en         ; shiftreg[11]        ; clk      ;
+; N/A           ; None        ; -4.271 ns ; clk_en         ; shiftreg_2[11]      ; clk      ;
+; N/A           ; None        ; -4.271 ns ; clk_en         ; shiftreg_2[1]       ; clk      ;
+; N/A           ; None        ; -4.271 ns ; clk_en         ; shiftreg_2[0]       ; clk      ;
+; N/A           ; None        ; -4.278 ns ; clk_en         ; data_temp           ; clk      ;
+; N/A           ; None        ; -4.278 ns ; clk_en         ; data_2_temp         ; clk      ;
+; N/A           ; None        ; -4.289 ns ; clk_en         ; shiftreg_2[9]       ; clk      ;
+; N/A           ; None        ; -4.289 ns ; clk_en         ; shiftreg_2[8]       ; clk      ;
+; N/A           ; None        ; -4.289 ns ; clk_en         ; shiftreg_2[7]       ; clk      ;
+; N/A           ; None        ; -4.289 ns ; clk_en         ; shiftreg_2[6]       ; clk      ;
+; N/A           ; None        ; -4.289 ns ; clk_en         ; shiftreg_2[5]       ; clk      ;
+; N/A           ; None        ; -4.293 ns ; clk_en         ; shiftreg[10]        ; clk      ;
+; N/A           ; None        ; -4.293 ns ; clk_en         ; shiftreg_2[10]      ; clk      ;
+; N/A           ; None        ; -4.293 ns ; clk_en         ; shiftreg[9]         ; clk      ;
+; N/A           ; None        ; -4.293 ns ; clk_en         ; shiftreg[3]         ; clk      ;
+; N/A           ; None        ; -4.293 ns ; clk_en         ; shiftreg[2]         ; clk      ;
+; N/A           ; None        ; -4.293 ns ; clk_en         ; shiftreg[1]         ; clk      ;
+; N/A           ; None        ; -4.293 ns ; clk_en         ; shiftreg[0]         ; clk      ;
+; N/A           ; None        ; -4.865 ns ; dac1A_data[0]  ; shiftreg[0]         ; clk      ;
++---------------+-------------+-----------+----------------+---------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 7.1 Build 156 04/30/2007 SJ Full Version
+    Info: Processing started: Fri Jul 13 15:16:11 2007
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off tlv5637 -c AD5310BRM --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Info: Clock "clk" has Internal fmax of 319.69 MHz between source register "state.sync_l" and destination register "shift_count[5]" (period= 3.128 ns)
+    Info: + Longest register to register delay is 2.962 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X40_Y12_N9; Fanout = 11; REG Node = 'state.sync_l'
+        Info: 2: + IC(0.989 ns) + CELL(0.280 ns) = 1.269 ns; Loc. = LC_X40_Y11_N4; Fanout = 6; COMB Node = 'process2~12'
+        Info: 3: + IC(0.932 ns) + CELL(0.761 ns) = 2.962 ns; Loc. = LC_X39_Y12_N6; Fanout = 4; REG Node = 'shift_count[5]'
+        Info: Total cell delay = 1.041 ns ( 35.15 % )
+        Info: Total interconnect delay = 1.921 ns ( 64.85 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 3.006 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.828 ns) = 0.828 ns; Loc. = PIN_M20; Fanout = 56; CLK Node = 'clk'
+            Info: 2: + IC(1.636 ns) + CELL(0.542 ns) = 3.006 ns; Loc. = LC_X39_Y12_N6; Fanout = 4; REG Node = 'shift_count[5]'
+            Info: Total cell delay = 1.370 ns ( 45.58 % )
+            Info: Total interconnect delay = 1.636 ns ( 54.42 % )
+        Info: - Longest clock path from clock "clk" to source register is 3.006 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.828 ns) = 0.828 ns; Loc. = PIN_M20; Fanout = 56; CLK Node = 'clk'
+            Info: 2: + IC(1.636 ns) + CELL(0.542 ns) = 3.006 ns; Loc. = LC_X40_Y12_N9; Fanout = 11; REG Node = 'state.sync_l'
+            Info: Total cell delay = 1.370 ns ( 45.58 % )
+            Info: Total interconnect delay = 1.636 ns ( 54.42 % )
+    Info: + Micro clock to output delay of source is 0.156 ns
+    Info: + Micro setup delay of destination is 0.010 ns
+Info: tsu for register "shiftreg[0]" (data pin = "dac1A_data[0]", clock pin = "clk") is 4.975 ns
+    Info: + Longest pin to register delay is 7.979 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.087 ns) = 1.087 ns; Loc. = PIN_V9; Fanout = 1; PIN Node = 'dac1A_data[0]'
+        Info: 2: + IC(4.590 ns) + CELL(0.366 ns) = 6.043 ns; Loc. = LC_X41_Y12_N4; Fanout = 1; COMB Node = 'shiftreg~1619'
+        Info: 3: + IC(1.397 ns) + CELL(0.539 ns) = 7.979 ns; Loc. = LC_X41_Y13_N3; Fanout = 1; REG Node = 'shiftreg[0]'
+        Info: Total cell delay = 1.992 ns ( 24.97 % )
+        Info: Total interconnect delay = 5.987 ns ( 75.03 % )
+    Info: + Micro setup delay of destination is 0.010 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 3.014 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.828 ns) = 0.828 ns; Loc. = PIN_M20; Fanout = 56; CLK Node = 'clk'
+        Info: 2: + IC(1.644 ns) + CELL(0.542 ns) = 3.014 ns; Loc. = LC_X41_Y13_N3; Fanout = 1; REG Node = 'shiftreg[0]'
+        Info: Total cell delay = 1.370 ns ( 45.45 % )
+        Info: Total interconnect delay = 1.644 ns ( 54.55 % )
+Info: tco from clock "clk" to destination pin "test2" through register "shift_count[3]" is 9.204 ns
+    Info: + Longest clock path from clock "clk" to source register is 3.006 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.828 ns) = 0.828 ns; Loc. = PIN_M20; Fanout = 56; CLK Node = 'clk'
+        Info: 2: + IC(1.636 ns) + CELL(0.542 ns) = 3.006 ns; Loc. = LC_X39_Y12_N4; Fanout = 3; REG Node = 'shift_count[3]'
+        Info: Total cell delay = 1.370 ns ( 45.58 % )
+        Info: Total interconnect delay = 1.636 ns ( 54.42 % )
+    Info: + Micro clock to output delay of source is 0.156 ns
+    Info: + Longest register to pin delay is 6.042 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X39_Y12_N4; Fanout = 3; REG Node = 'shift_count[3]'
+        Info: 2: + IC(0.403 ns) + CELL(0.366 ns) = 0.769 ns; Loc. = LC_X39_Y12_N8; Fanout = 3; COMB Node = 'Equal0~48'
+        Info: 3: + IC(0.320 ns) + CELL(0.075 ns) = 1.164 ns; Loc. = LC_X39_Y12_N7; Fanout = 4; COMB Node = 'Equal0~49'
+        Info: 4: + IC(2.474 ns) + CELL(2.404 ns) = 6.042 ns; Loc. = PIN_D9; Fanout = 0; PIN Node = 'test2'
+        Info: Total cell delay = 2.845 ns ( 47.09 % )
+        Info: Total interconnect delay = 3.197 ns ( 52.91 % )
+Info: th for register "shift_count[5]" (data pin = "reset", clock pin = "clk") is -1.729 ns
+    Info: + Longest clock path from clock "clk" to destination register is 3.006 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.828 ns) = 0.828 ns; Loc. = PIN_M20; Fanout = 56; CLK Node = 'clk'
+        Info: 2: + IC(1.636 ns) + CELL(0.542 ns) = 3.006 ns; Loc. = LC_X39_Y12_N6; Fanout = 4; REG Node = 'shift_count[5]'
+        Info: Total cell delay = 1.370 ns ( 45.58 % )
+        Info: Total interconnect delay = 1.636 ns ( 54.42 % )
+    Info: + Micro hold delay of destination is 0.100 ns
+    Info: - Shortest pin to register delay is 4.835 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.725 ns) = 0.725 ns; Loc. = PIN_M21; Fanout = 13; PIN Node = 'reset'
+        Info: 2: + IC(2.051 ns) + CELL(0.366 ns) = 3.142 ns; Loc. = LC_X40_Y11_N4; Fanout = 6; COMB Node = 'process2~12'
+        Info: 3: + IC(0.932 ns) + CELL(0.761 ns) = 4.835 ns; Loc. = LC_X39_Y12_N6; Fanout = 4; REG Node = 'shift_count[5]'
+        Info: Total cell delay = 1.852 ns ( 38.30 % )
+        Info: Total interconnect delay = 2.983 ns ( 61.70 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Allocated 113 megabytes of memory during processing
+    Info: Processing ended: Fri Jul 13 15:16:13 2007
+    Info: Elapsed time: 00:00:02
+
+

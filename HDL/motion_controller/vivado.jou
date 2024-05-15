@@ -1,0 +1,82 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sun May 19 13:06:38 2024
+# Process ID: 32784
+# Current directory: C:/Users/piotr/AppData/Roaming/Xilinx/Vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent30096
+# Log file: C:/Users/piotr/AppData/Roaming/Xilinx/Vivado/vivado.log
+# Journal file: C:/Users/piotr/AppData/Roaming/Xilinx/Vivado\vivado.jou
+# Running On: LAPTOP-AOF2DR8H, OS: Windows, CPU Frequency: 2895 MHz, CPU Physical cores: 16, Host memory: 16556 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.srcs/sources_1/bd/design_2/design_2.bd}
+reset_run synth_1
+launch_runs synth_1 -jobs 12
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+reset_run impl_1
+launch_runs impl_1 -jobs 12
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+disconnect_hw_server localhost:3121
+connect_hw_server -allow_non_jtag
+disconnect_hw_server localhost:3121
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.runs/impl_1/dds_test.bit} [get_hw_devices xc7z010_1]
+set_property PROBES.FILE {C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.runs/impl_1/debug_nets.ltx} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {C:/Usclose_project
+open_project C:/Users/piotr/Dropbox/Projects2/FPGA/motion_controller/HDL/motion_controller/motion_controller.xpr
+update_compile_order -fileset sources_1
+archive_project C:/Users/piotr/Dropbox/Projects2/FPGA/motion_controller/HDL/motion_controller.xpr.zip -temp_dir C:/Users/piotr/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-29292-LAPTOP-AOF2DR8H -force -exclude_run_results
+{C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.runs/impl_1/dds_test.ltx} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.runs/impl_1/dds_test.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]]
+set_property PROBES.FILE {C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.runs/impl_1/dds_test.ltx} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.runs/impl_1/dds_test.ltx} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.runs/impl_1/dds_test.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 14
+wait_on_run impl_1
+open_run impl_1
+set_property PROBES.FILE {C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.runs/impl_1/dds_test.ltx} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.runs/impl_1/dds_test.ltx} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {C:/Users/piotr/Dropbox/Projects2/FPGA/test/project_1/project_1.runs/impl_1/dds_test.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z010_1] -filter {CELL_NAME=~"design_2_wrapper_i/design_2_i/system_ila_0/U0/ila_lib"}]]
+save_project_as dds_test C:/Users/piotr/Dropbox/Projects2/FPGA/motion_controller/HDL/Tests/dds_test -force
+import_files
+archive_project C:/Users/piotr/Dropbox/Projects2/FPGA/motion_controller/HDL/Tests/dds_test.xpr.zip -temp_dir C:/Users/piotr/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-32784-LAPTOP-AOF2DR8H -force -exclude_run_results

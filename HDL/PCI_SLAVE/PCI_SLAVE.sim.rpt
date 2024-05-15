@@ -1,0 +1,1103 @@
+Simulator report for PCI_SLAVE
+Mon Jun 25 17:38:42 2007
+Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 3.0 us       ;
+; Simulation Netlist Size     ; 657 nodes    ;
+; Simulation Coverage         ;      23.81 % ;
+; Total Number of Transitions ; 4529         ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
+; Device                      ; EP2C35F672C7 ;
++-----------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Timing     ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off        ;               ;
+; Glitch Filtering                                                                           ; Off        ; Off           ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      23.81 % ;
+; Total nodes checked                                 ; 657          ;
+; Total output ports checked                          ; 672          ;
+; Total output ports with complete 1/0-value coverage ; 160          ;
+; Total output ports with no 1/0-value coverage       ; 267          ;
+; Total output ports with no 1-value coverage         ; 495          ;
+; Total output ports with no 0-value coverage         ; 284          ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++--------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                ;
++------------------------------------+------------------------------------+------------------+
+; Node Name                          ; Output Port Name                   ; Output Port Type ;
++------------------------------------+------------------------------------+------------------+
+; |PCI_SLAVE|dat_MSB[0]              ; |PCI_SLAVE|dat_MSB[0]              ; regout           ;
+; |PCI_SLAVE|dat_MSB[1]              ; |PCI_SLAVE|dat_MSB[1]              ; regout           ;
+; |PCI_SLAVE|dat_MSB[2]              ; |PCI_SLAVE|dat_MSB[2]              ; regout           ;
+; |PCI_SLAVE|dat_MSB[3]              ; |PCI_SLAVE|dat_MSB[3]              ; regout           ;
+; |PCI_SLAVE|addr_count[0]           ; |PCI_SLAVE|addr_count[0]           ; regout           ;
+; |PCI_SLAVE|addr_count[1]           ; |PCI_SLAVE|addr_count[1]           ; regout           ;
+; |PCI_SLAVE|addr_count[2]           ; |PCI_SLAVE|addr_count[2]           ; regout           ;
+; |PCI_SLAVE|addr_count[3]           ; |PCI_SLAVE|addr_count[3]           ; regout           ;
+; |PCI_SLAVE|state.set_trdy          ; |PCI_SLAVE|state.set_trdy          ; regout           ;
+; |PCI_SLAVE|state.deselect          ; |PCI_SLAVE|state.deselect          ; regout           ;
+; |PCI_SLAVE|state.idle              ; |PCI_SLAVE|state.idle              ; regout           ;
+; |PCI_SLAVE|WideOr1                 ; |PCI_SLAVE|WideOr1                 ; combout          ;
+; |PCI_SLAVE|Selector6~29            ; |PCI_SLAVE|Selector6~29            ; combout          ;
+; |PCI_SLAVE|state.read_dat_lsb      ; |PCI_SLAVE|state.read_dat_lsb      ; regout           ;
+; |PCI_SLAVE|count_enable~38         ; |PCI_SLAVE|count_enable~38         ; combout          ;
+; |PCI_SLAVE|addr_count[0]~192       ; |PCI_SLAVE|addr_count[0]~192       ; combout          ;
+; |PCI_SLAVE|addr_count[0]~192       ; |PCI_SLAVE|addr_count[0]~200       ; cout             ;
+; |PCI_SLAVE|addr_count[1]~193       ; |PCI_SLAVE|addr_count[1]~193       ; combout          ;
+; |PCI_SLAVE|addr_count[1]~193       ; |PCI_SLAVE|addr_count[1]~201       ; cout             ;
+; |PCI_SLAVE|addr_count[2]~194       ; |PCI_SLAVE|addr_count[2]~194       ; combout          ;
+; |PCI_SLAVE|addr_count[2]~194       ; |PCI_SLAVE|addr_count[2]~202       ; cout             ;
+; |PCI_SLAVE|addr_count[3]~195       ; |PCI_SLAVE|addr_count[3]~195       ; combout          ;
+; |PCI_SLAVE|Selector2~276           ; |PCI_SLAVE|Selector2~276           ; combout          ;
+; |PCI_SLAVE|process3~0              ; |PCI_SLAVE|process3~0              ; combout          ;
+; |PCI_SLAVE|Selector4~76            ; |PCI_SLAVE|Selector4~76            ; combout          ;
+; |PCI_SLAVE|PCI_BEn[1]~41           ; |PCI_SLAVE|PCI_BEn[1]~41           ; combout          ;
+; |PCI_SLAVE|Selector4~77            ; |PCI_SLAVE|Selector4~77            ; combout          ;
+; |PCI_SLAVE|state.read_dat_msb      ; |PCI_SLAVE|state.read_dat_msb      ; regout           ;
+; |PCI_SLAVE|Selector3~193           ; |PCI_SLAVE|Selector3~193           ; combout          ;
+; |PCI_SLAVE|Selector3~194           ; |PCI_SLAVE|Selector3~194           ; combout          ;
+; |PCI_SLAVE|Selector3~195           ; |PCI_SLAVE|Selector3~195           ; combout          ;
+; |PCI_SLAVE|Selector0~35            ; |PCI_SLAVE|Selector0~35            ; combout          ;
+; |PCI_SLAVE|Selector6~30            ; |PCI_SLAVE|Selector6~30            ; combout          ;
+; |PCI_SLAVE|Selector7~278           ; |PCI_SLAVE|Selector7~278           ; combout          ;
+; |PCI_SLAVE|Selector7~279           ; |PCI_SLAVE|Selector7~279           ; combout          ;
+; |PCI_SLAVE|WideNor1                ; |PCI_SLAVE|WideNor1                ; combout          ;
+; |PCI_SLAVE|Selector8~255           ; |PCI_SLAVE|Selector8~255           ; combout          ;
+; |PCI_SLAVE|Selector8~256           ; |PCI_SLAVE|Selector8~256           ; combout          ;
+; |PCI_SLAVE|Selector9~255           ; |PCI_SLAVE|Selector9~255           ; combout          ;
+; |PCI_SLAVE|Selector9~256           ; |PCI_SLAVE|Selector9~256           ; combout          ;
+; |PCI_SLAVE|Selector10~255          ; |PCI_SLAVE|Selector10~255          ; combout          ;
+; |PCI_SLAVE|Selector10~256          ; |PCI_SLAVE|Selector10~256          ; combout          ;
+; |PCI_SLAVE|Selector11~255          ; |PCI_SLAVE|Selector11~255          ; combout          ;
+; |PCI_SLAVE|Selector11~256          ; |PCI_SLAVE|Selector11~256          ; combout          ;
+; |PCI_SLAVE|Selector12~255          ; |PCI_SLAVE|Selector12~255          ; combout          ;
+; |PCI_SLAVE|Selector4~78            ; |PCI_SLAVE|Selector4~78            ; combout          ;
+; |PCI_SLAVE|state.read_dat_msb~179  ; |PCI_SLAVE|state.read_dat_msb~179  ; combout          ;
+; |PCI_SLAVE|state.read_dat_msb~180  ; |PCI_SLAVE|state.read_dat_msb~180  ; combout          ;
+; |PCI_SLAVE|state.read_dat_msb~181  ; |PCI_SLAVE|state.read_dat_msb~181  ; combout          ;
+; |PCI_SLAVE|PCI_IRDYn               ; |PCI_SLAVE|PCI_IRDYn               ; combout          ;
+; |PCI_SLAVE|PCI_BEn[0]              ; |PCI_SLAVE|PCI_BEn[0]              ; combout          ;
+; |PCI_SLAVE|CLK                     ; |PCI_SLAVE|CLK                     ; combout          ;
+; |PCI_SLAVE|RESET                   ; |PCI_SLAVE|RESET                   ; combout          ;
+; |PCI_SLAVE|PCI_FRAMEn              ; |PCI_SLAVE|PCI_FRAMEn              ; combout          ;
+; |PCI_SLAVE|DPRAM_ADDR_RST          ; |PCI_SLAVE|DPRAM_ADDR_RST          ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[0]      ; |PCI_SLAVE|REGS_R_DAT_READ[0]      ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[16]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[16]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[0]        ; |PCI_SLAVE|DPRAM3_R_DATA[0]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[0]        ; |PCI_SLAVE|DPRAM2_R_DATA[0]        ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[0]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[0]    ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[0]   ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[0]   ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[0]     ; |PCI_SLAVE|REGS_RW_DAT_READ[0]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[1]      ; |PCI_SLAVE|REGS_R_DAT_READ[1]      ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[17]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[17]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[1]        ; |PCI_SLAVE|DPRAM3_R_DATA[1]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[1]        ; |PCI_SLAVE|DPRAM2_R_DATA[1]        ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[1]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[1]    ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[1]   ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[1]   ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[1]     ; |PCI_SLAVE|REGS_RW_DAT_READ[1]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[2]      ; |PCI_SLAVE|REGS_R_DAT_READ[2]      ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[18]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[18]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[2]        ; |PCI_SLAVE|DPRAM3_R_DATA[2]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[2]        ; |PCI_SLAVE|DPRAM2_R_DATA[2]        ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[2]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[2]    ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[2]   ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[2]   ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[2]     ; |PCI_SLAVE|REGS_RW_DAT_READ[2]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[3]      ; |PCI_SLAVE|REGS_R_DAT_READ[3]      ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[3]        ; |PCI_SLAVE|DPRAM3_R_DATA[3]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[3]        ; |PCI_SLAVE|DPRAM2_R_DATA[3]        ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[3]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[3]    ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[3]   ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[3]   ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[3]     ; |PCI_SLAVE|REGS_RW_DAT_READ[3]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[4]      ; |PCI_SLAVE|REGS_R_DAT_READ[4]      ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[4]        ; |PCI_SLAVE|DPRAM3_R_DATA[4]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[4]        ; |PCI_SLAVE|DPRAM2_R_DATA[4]        ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[4]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[4]    ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[4]   ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[4]   ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[4]     ; |PCI_SLAVE|REGS_RW_DAT_READ[4]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[5]      ; |PCI_SLAVE|REGS_R_DAT_READ[5]      ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[21]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[21]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[5]        ; |PCI_SLAVE|DPRAM3_R_DATA[5]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[5]        ; |PCI_SLAVE|DPRAM2_R_DATA[5]        ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[5]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[5]    ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[5]   ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[5]   ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[5]     ; |PCI_SLAVE|REGS_RW_DAT_READ[5]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[6]      ; |PCI_SLAVE|REGS_R_DAT_READ[6]      ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[6]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[6]    ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[6]   ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[6]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[24]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[24]  ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[8]   ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[8]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[10]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[10]  ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[14]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[14]  ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[0]    ; |PCI_SLAVE|REGS_RW_DAT_WRITE[0]    ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[1]    ; |PCI_SLAVE|REGS_RW_DAT_WRITE[1]    ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[2]    ; |PCI_SLAVE|REGS_RW_DAT_WRITE[2]    ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[3]    ; |PCI_SLAVE|REGS_RW_DAT_WRITE[3]    ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[4]    ; |PCI_SLAVE|REGS_RW_DAT_WRITE[4]    ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[16]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[16]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[17]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[17]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[18]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[18]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[19]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[19]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_ADDR[0]         ; |PCI_SLAVE|REGS_RW_ADDR[0]         ; padio            ;
+; |PCI_SLAVE|REGS_RW_ADDR[1]         ; |PCI_SLAVE|REGS_RW_ADDR[1]         ; padio            ;
+; |PCI_SLAVE|REGS_RW_ADDR[2]         ; |PCI_SLAVE|REGS_RW_ADDR[2]         ; padio            ;
+; |PCI_SLAVE|REGS_RW_ADDR[3]         ; |PCI_SLAVE|REGS_RW_ADDR[3]         ; padio            ;
+; |PCI_SLAVE|REGS_R_ADDR[0]          ; |PCI_SLAVE|REGS_R_ADDR[0]          ; padio            ;
+; |PCI_SLAVE|REGS_R_ADDR[1]          ; |PCI_SLAVE|REGS_R_ADDR[1]          ; padio            ;
+; |PCI_SLAVE|REGS_R_ADDR[2]          ; |PCI_SLAVE|REGS_R_ADDR[2]          ; padio            ;
+; |PCI_SLAVE|REGS_R_ADDR[3]          ; |PCI_SLAVE|REGS_R_ADDR[3]          ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[0]  ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[0]  ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[1]  ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[1]  ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[2]  ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[2]  ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[3]  ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[3]  ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[4]  ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[4]  ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[16] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[16] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[17] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[17] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[18] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[18] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[19] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[19] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_ADDR[0]       ; |PCI_SLAVE|DPRAM0_RW_ADDR[0]       ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_ADDR[1]       ; |PCI_SLAVE|DPRAM0_RW_ADDR[1]       ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_ADDR[2]       ; |PCI_SLAVE|DPRAM0_RW_ADDR[2]       ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_ADDR[3]       ; |PCI_SLAVE|DPRAM0_RW_ADDR[3]       ; padio            ;
+; |PCI_SLAVE|DPRAM1_R_ADDR[0]        ; |PCI_SLAVE|DPRAM1_R_ADDR[0]        ; padio            ;
+; |PCI_SLAVE|DPRAM1_R_ADDR[1]        ; |PCI_SLAVE|DPRAM1_R_ADDR[1]        ; padio            ;
+; |PCI_SLAVE|DPRAM1_R_ADDR[2]        ; |PCI_SLAVE|DPRAM1_R_ADDR[2]        ; padio            ;
+; |PCI_SLAVE|DPRAM1_R_ADDR[3]        ; |PCI_SLAVE|DPRAM1_R_ADDR[3]        ; padio            ;
+; |PCI_SLAVE|PCI_TRDYn               ; |PCI_SLAVE|PCI_TRDYn               ; padio            ;
+; |PCI_SLAVE|TEST1[0]                ; |PCI_SLAVE|TEST1[0]                ; padio            ;
+; |PCI_SLAVE|TEST1[1]                ; |PCI_SLAVE|TEST1[1]                ; padio            ;
+; |PCI_SLAVE|TEST1[2]                ; |PCI_SLAVE|TEST1[2]                ; padio            ;
+; |PCI_SLAVE|TEST1[3]                ; |PCI_SLAVE|TEST1[3]                ; padio            ;
+; |PCI_SLAVE|TEST1[7]                ; |PCI_SLAVE|TEST1[7]                ; padio            ;
+; |PCI_SLAVE|PCI_AD[0]~15            ; |PCI_SLAVE|PCI_AD[0]~15            ; combout          ;
+; |PCI_SLAVE|PCI_AD[0]~15            ; |PCI_SLAVE|PCI_AD[0]~output        ; padio            ;
+; |PCI_SLAVE|PCI_AD[1]~14            ; |PCI_SLAVE|PCI_AD[1]~14            ; combout          ;
+; |PCI_SLAVE|PCI_AD[1]~14            ; |PCI_SLAVE|PCI_AD[1]~output        ; padio            ;
+; |PCI_SLAVE|PCI_AD[2]~13            ; |PCI_SLAVE|PCI_AD[2]~13            ; combout          ;
+; |PCI_SLAVE|PCI_AD[2]~13            ; |PCI_SLAVE|PCI_AD[2]~output        ; padio            ;
+; |PCI_SLAVE|PCI_AD[3]~12            ; |PCI_SLAVE|PCI_AD[3]~12            ; combout          ;
+; |PCI_SLAVE|PCI_AD[3]~12            ; |PCI_SLAVE|PCI_AD[3]~output        ; padio            ;
+; |PCI_SLAVE|PCI_AD[4]~11            ; |PCI_SLAVE|PCI_AD[4]~11            ; combout          ;
+; |PCI_SLAVE|PCI_AD[4]~11            ; |PCI_SLAVE|PCI_AD[4]~output        ; padio            ;
+; |PCI_SLAVE|CLK~clkctrl             ; |PCI_SLAVE|CLK~clkctrl             ; outclk           ;
+; |PCI_SLAVE|RESET~clkctrl           ; |PCI_SLAVE|RESET~clkctrl           ; outclk           ;
+; |PCI_SLAVE|process3~0clkctrl       ; |PCI_SLAVE|process3~0clkctrl       ; outclk           ;
+; |PCI_SLAVE|dat_MSB[0]~feeder       ; |PCI_SLAVE|dat_MSB[0]~feeder       ; combout          ;
+; |PCI_SLAVE|dat_MSB[1]~feeder       ; |PCI_SLAVE|dat_MSB[1]~feeder       ; combout          ;
+; |PCI_SLAVE|dat_MSB[2]~feeder       ; |PCI_SLAVE|dat_MSB[2]~feeder       ; combout          ;
+; |PCI_SLAVE|dat_MSB[3]~feeder       ; |PCI_SLAVE|dat_MSB[3]~feeder       ; combout          ;
+; |PCI_SLAVE|dat_MSB[4]~feeder       ; |PCI_SLAVE|dat_MSB[4]~feeder       ; combout          ;
++------------------------------------+------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++--------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                   ;
++------------------------------------+------------------------------------+------------------+
+; Node Name                          ; Output Port Name                   ; Output Port Type ;
++------------------------------------+------------------------------------+------------------+
+; |PCI_SLAVE|dat_MSB[4]              ; |PCI_SLAVE|dat_MSB[4]              ; regout           ;
+; |PCI_SLAVE|dat_MSB[5]              ; |PCI_SLAVE|dat_MSB[5]              ; regout           ;
+; |PCI_SLAVE|dat_MSB[6]              ; |PCI_SLAVE|dat_MSB[6]              ; regout           ;
+; |PCI_SLAVE|dat_MSB[7]              ; |PCI_SLAVE|dat_MSB[7]              ; regout           ;
+; |PCI_SLAVE|dat_MSB[8]              ; |PCI_SLAVE|dat_MSB[8]              ; regout           ;
+; |PCI_SLAVE|dat_MSB[9]              ; |PCI_SLAVE|dat_MSB[9]              ; regout           ;
+; |PCI_SLAVE|dat_MSB[10]             ; |PCI_SLAVE|dat_MSB[10]             ; regout           ;
+; |PCI_SLAVE|dat_MSB[11]             ; |PCI_SLAVE|dat_MSB[11]             ; regout           ;
+; |PCI_SLAVE|dat_MSB[12]             ; |PCI_SLAVE|dat_MSB[12]             ; regout           ;
+; |PCI_SLAVE|dat_MSB[13]             ; |PCI_SLAVE|dat_MSB[13]             ; regout           ;
+; |PCI_SLAVE|dat_MSB[14]             ; |PCI_SLAVE|dat_MSB[14]             ; regout           ;
+; |PCI_SLAVE|dat_MSB[15]             ; |PCI_SLAVE|dat_MSB[15]             ; regout           ;
+; |PCI_SLAVE|addr_count[4]           ; |PCI_SLAVE|addr_count[4]           ; regout           ;
+; |PCI_SLAVE|base_ad[10]             ; |PCI_SLAVE|base_ad[10]             ; regout           ;
+; |PCI_SLAVE|base_ad[11]             ; |PCI_SLAVE|base_ad[11]             ; regout           ;
+; |PCI_SLAVE|base_ad[12]             ; |PCI_SLAVE|base_ad[12]             ; regout           ;
+; |PCI_SLAVE|base_ad[13]             ; |PCI_SLAVE|base_ad[13]             ; regout           ;
+; |PCI_SLAVE|base_ad[8]              ; |PCI_SLAVE|base_ad[8]              ; regout           ;
+; |PCI_SLAVE|base_ad[14]             ; |PCI_SLAVE|base_ad[14]             ; regout           ;
+; |PCI_SLAVE|base_ad[15]             ; |PCI_SLAVE|base_ad[15]             ; regout           ;
+; |PCI_SLAVE|base_ad[7]              ; |PCI_SLAVE|base_ad[7]              ; regout           ;
+; |PCI_SLAVE|state.write_dat_lsb     ; |PCI_SLAVE|state.write_dat_lsb     ; regout           ;
+; |PCI_SLAVE|base_ad[9]              ; |PCI_SLAVE|base_ad[9]              ; regout           ;
+; |PCI_SLAVE|REGS_RW_WREN~2          ; |PCI_SLAVE|REGS_RW_WREN~2          ; combout          ;
+; |PCI_SLAVE|addr_count[5]           ; |PCI_SLAVE|addr_count[5]           ; regout           ;
+; |PCI_SLAVE|addr_count[6]           ; |PCI_SLAVE|addr_count[6]           ; regout           ;
+; |PCI_SLAVE|addr_count[7]           ; |PCI_SLAVE|addr_count[7]           ; regout           ;
+; |PCI_SLAVE|Equal4~50               ; |PCI_SLAVE|Equal4~50               ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_WREN~2        ; |PCI_SLAVE|DPRAM0_RW_WREN~2        ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[0]     ; |PCI_SLAVE|dpram_addr_count[0]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[1]     ; |PCI_SLAVE|dpram_addr_count[1]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[2]     ; |PCI_SLAVE|dpram_addr_count[2]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[3]     ; |PCI_SLAVE|dpram_addr_count[3]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[4]     ; |PCI_SLAVE|dpram_addr_count[4]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[5]     ; |PCI_SLAVE|dpram_addr_count[5]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[6]     ; |PCI_SLAVE|dpram_addr_count[6]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[7]     ; |PCI_SLAVE|dpram_addr_count[7]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[8]     ; |PCI_SLAVE|dpram_addr_count[8]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[9]     ; |PCI_SLAVE|dpram_addr_count[9]     ; regout           ;
+; |PCI_SLAVE|addr_count[3]~195       ; |PCI_SLAVE|addr_count[3]~203       ; cout             ;
+; |PCI_SLAVE|addr_count[4]~196       ; |PCI_SLAVE|addr_count[4]~196       ; combout          ;
+; |PCI_SLAVE|addr_count[4]~196       ; |PCI_SLAVE|addr_count[4]~204       ; cout             ;
+; |PCI_SLAVE|state.write_dat_msb     ; |PCI_SLAVE|state.write_dat_msb     ; regout           ;
+; |PCI_SLAVE|Selector2~274           ; |PCI_SLAVE|Selector2~274           ; combout          ;
+; |PCI_SLAVE|Selector2~275           ; |PCI_SLAVE|Selector2~275           ; combout          ;
+; |PCI_SLAVE|Selector2~277           ; |PCI_SLAVE|Selector2~277           ; combout          ;
+; |PCI_SLAVE|addr_count[5]~197       ; |PCI_SLAVE|addr_count[5]~197       ; combout          ;
+; |PCI_SLAVE|addr_count[5]~197       ; |PCI_SLAVE|addr_count[5]~205       ; cout             ;
+; |PCI_SLAVE|addr_count[6]~198       ; |PCI_SLAVE|addr_count[6]~198       ; combout          ;
+; |PCI_SLAVE|addr_count[6]~198       ; |PCI_SLAVE|addr_count[6]~206       ; cout             ;
+; |PCI_SLAVE|addr_count[7]~199       ; |PCI_SLAVE|addr_count[7]~199       ; combout          ;
+; |PCI_SLAVE|dpram_count_enable~33   ; |PCI_SLAVE|dpram_count_enable~33   ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[1]~318 ; |PCI_SLAVE|dpram_addr_count[1]~318 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[1]~318 ; |PCI_SLAVE|dpram_addr_count[1]~379 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[2]~319 ; |PCI_SLAVE|dpram_addr_count[2]~319 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[2]~319 ; |PCI_SLAVE|dpram_addr_count[2]~380 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[3]~320 ; |PCI_SLAVE|dpram_addr_count[3]~320 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[3]~320 ; |PCI_SLAVE|dpram_addr_count[3]~381 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[4]~321 ; |PCI_SLAVE|dpram_addr_count[4]~321 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[4]~321 ; |PCI_SLAVE|dpram_addr_count[4]~382 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[5]~322 ; |PCI_SLAVE|dpram_addr_count[5]~322 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[5]~322 ; |PCI_SLAVE|dpram_addr_count[5]~383 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[6]~323 ; |PCI_SLAVE|dpram_addr_count[6]~323 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[6]~323 ; |PCI_SLAVE|dpram_addr_count[6]~384 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[7]~324 ; |PCI_SLAVE|dpram_addr_count[7]~324 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[7]~324 ; |PCI_SLAVE|dpram_addr_count[7]~385 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[8]~325 ; |PCI_SLAVE|dpram_addr_count[8]~325 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[8]~325 ; |PCI_SLAVE|dpram_addr_count[8]~386 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[9]~326 ; |PCI_SLAVE|dpram_addr_count[9]~326 ; combout          ;
+; |PCI_SLAVE|Selector3~192           ; |PCI_SLAVE|Selector3~192           ; combout          ;
+; |PCI_SLAVE|Equal3~29               ; |PCI_SLAVE|Equal3~29               ; combout          ;
+; |PCI_SLAVE|Selector22~373          ; |PCI_SLAVE|Selector22~373          ; combout          ;
+; |PCI_SLAVE|Selector22~374          ; |PCI_SLAVE|Selector22~374          ; combout          ;
+; |PCI_SLAVE|Selector7~272           ; |PCI_SLAVE|Selector7~272           ; combout          ;
+; |PCI_SLAVE|Selector7~273           ; |PCI_SLAVE|Selector7~273           ; combout          ;
+; |PCI_SLAVE|Selector7~274           ; |PCI_SLAVE|Selector7~274           ; combout          ;
+; |PCI_SLAVE|Selector7~275           ; |PCI_SLAVE|Selector7~275           ; combout          ;
+; |PCI_SLAVE|Selector7~276           ; |PCI_SLAVE|Selector7~276           ; combout          ;
+; |PCI_SLAVE|Selector7~277           ; |PCI_SLAVE|Selector7~277           ; combout          ;
+; |PCI_SLAVE|Selector8~249           ; |PCI_SLAVE|Selector8~249           ; combout          ;
+; |PCI_SLAVE|Selector8~250           ; |PCI_SLAVE|Selector8~250           ; combout          ;
+; |PCI_SLAVE|Selector8~251           ; |PCI_SLAVE|Selector8~251           ; combout          ;
+; |PCI_SLAVE|Selector8~252           ; |PCI_SLAVE|Selector8~252           ; combout          ;
+; |PCI_SLAVE|Selector8~253           ; |PCI_SLAVE|Selector8~253           ; combout          ;
+; |PCI_SLAVE|Selector8~254           ; |PCI_SLAVE|Selector8~254           ; combout          ;
+; |PCI_SLAVE|Selector9~249           ; |PCI_SLAVE|Selector9~249           ; combout          ;
+; |PCI_SLAVE|Selector9~250           ; |PCI_SLAVE|Selector9~250           ; combout          ;
+; |PCI_SLAVE|Selector9~251           ; |PCI_SLAVE|Selector9~251           ; combout          ;
+; |PCI_SLAVE|Selector9~252           ; |PCI_SLAVE|Selector9~252           ; combout          ;
+; |PCI_SLAVE|Selector9~253           ; |PCI_SLAVE|Selector9~253           ; combout          ;
+; |PCI_SLAVE|Selector9~254           ; |PCI_SLAVE|Selector9~254           ; combout          ;
+; |PCI_SLAVE|Selector10~249          ; |PCI_SLAVE|Selector10~249          ; combout          ;
+; |PCI_SLAVE|Selector10~250          ; |PCI_SLAVE|Selector10~250          ; combout          ;
+; |PCI_SLAVE|Selector10~251          ; |PCI_SLAVE|Selector10~251          ; combout          ;
+; |PCI_SLAVE|Selector10~252          ; |PCI_SLAVE|Selector10~252          ; combout          ;
+; |PCI_SLAVE|Selector10~253          ; |PCI_SLAVE|Selector10~253          ; combout          ;
+; |PCI_SLAVE|Selector10~254          ; |PCI_SLAVE|Selector10~254          ; combout          ;
+; |PCI_SLAVE|Selector11~249          ; |PCI_SLAVE|Selector11~249          ; combout          ;
+; |PCI_SLAVE|Selector11~250          ; |PCI_SLAVE|Selector11~250          ; combout          ;
+; |PCI_SLAVE|Selector11~251          ; |PCI_SLAVE|Selector11~251          ; combout          ;
+; |PCI_SLAVE|Selector11~252          ; |PCI_SLAVE|Selector11~252          ; combout          ;
+; |PCI_SLAVE|Selector11~253          ; |PCI_SLAVE|Selector11~253          ; combout          ;
+; |PCI_SLAVE|Selector11~254          ; |PCI_SLAVE|Selector11~254          ; combout          ;
+; |PCI_SLAVE|Selector12~249          ; |PCI_SLAVE|Selector12~249          ; combout          ;
+; |PCI_SLAVE|Selector12~250          ; |PCI_SLAVE|Selector12~250          ; combout          ;
+; |PCI_SLAVE|Selector12~251          ; |PCI_SLAVE|Selector12~251          ; combout          ;
+; |PCI_SLAVE|Selector12~252          ; |PCI_SLAVE|Selector12~252          ; combout          ;
+; |PCI_SLAVE|Selector12~253          ; |PCI_SLAVE|Selector12~253          ; combout          ;
+; |PCI_SLAVE|Selector12~254          ; |PCI_SLAVE|Selector12~254          ; combout          ;
+; |PCI_SLAVE|Selector12~256          ; |PCI_SLAVE|Selector12~256          ; combout          ;
+; |PCI_SLAVE|Selector13~249          ; |PCI_SLAVE|Selector13~249          ; combout          ;
+; |PCI_SLAVE|Selector13~250          ; |PCI_SLAVE|Selector13~250          ; combout          ;
+; |PCI_SLAVE|Selector13~251          ; |PCI_SLAVE|Selector13~251          ; combout          ;
+; |PCI_SLAVE|Selector13~252          ; |PCI_SLAVE|Selector13~252          ; combout          ;
+; |PCI_SLAVE|Selector13~253          ; |PCI_SLAVE|Selector13~253          ; combout          ;
+; |PCI_SLAVE|Selector13~254          ; |PCI_SLAVE|Selector13~254          ; combout          ;
+; |PCI_SLAVE|Selector13~256          ; |PCI_SLAVE|Selector13~256          ; combout          ;
+; |PCI_SLAVE|Selector14~249          ; |PCI_SLAVE|Selector14~249          ; combout          ;
+; |PCI_SLAVE|Selector14~250          ; |PCI_SLAVE|Selector14~250          ; combout          ;
+; |PCI_SLAVE|Selector14~251          ; |PCI_SLAVE|Selector14~251          ; combout          ;
+; |PCI_SLAVE|Selector14~252          ; |PCI_SLAVE|Selector14~252          ; combout          ;
+; |PCI_SLAVE|Selector14~253          ; |PCI_SLAVE|Selector14~253          ; combout          ;
+; |PCI_SLAVE|Selector14~254          ; |PCI_SLAVE|Selector14~254          ; combout          ;
+; |PCI_SLAVE|Selector14~256          ; |PCI_SLAVE|Selector14~256          ; combout          ;
+; |PCI_SLAVE|Selector15~249          ; |PCI_SLAVE|Selector15~249          ; combout          ;
+; |PCI_SLAVE|Selector15~250          ; |PCI_SLAVE|Selector15~250          ; combout          ;
+; |PCI_SLAVE|Selector15~251          ; |PCI_SLAVE|Selector15~251          ; combout          ;
+; |PCI_SLAVE|Selector15~252          ; |PCI_SLAVE|Selector15~252          ; combout          ;
+; |PCI_SLAVE|Selector15~253          ; |PCI_SLAVE|Selector15~253          ; combout          ;
+; |PCI_SLAVE|Selector15~254          ; |PCI_SLAVE|Selector15~254          ; combout          ;
+; |PCI_SLAVE|Selector15~255          ; |PCI_SLAVE|Selector15~255          ; combout          ;
+; |PCI_SLAVE|Selector15~256          ; |PCI_SLAVE|Selector15~256          ; combout          ;
+; |PCI_SLAVE|Selector16~249          ; |PCI_SLAVE|Selector16~249          ; combout          ;
+; |PCI_SLAVE|Selector16~250          ; |PCI_SLAVE|Selector16~250          ; combout          ;
+; |PCI_SLAVE|Selector16~251          ; |PCI_SLAVE|Selector16~251          ; combout          ;
+; |PCI_SLAVE|Selector16~252          ; |PCI_SLAVE|Selector16~252          ; combout          ;
+; |PCI_SLAVE|Selector16~253          ; |PCI_SLAVE|Selector16~253          ; combout          ;
+; |PCI_SLAVE|Selector16~254          ; |PCI_SLAVE|Selector16~254          ; combout          ;
+; |PCI_SLAVE|Selector16~255          ; |PCI_SLAVE|Selector16~255          ; combout          ;
+; |PCI_SLAVE|Selector16~256          ; |PCI_SLAVE|Selector16~256          ; combout          ;
+; |PCI_SLAVE|Selector17~249          ; |PCI_SLAVE|Selector17~249          ; combout          ;
+; |PCI_SLAVE|Selector17~250          ; |PCI_SLAVE|Selector17~250          ; combout          ;
+; |PCI_SLAVE|Selector17~251          ; |PCI_SLAVE|Selector17~251          ; combout          ;
+; |PCI_SLAVE|Selector17~252          ; |PCI_SLAVE|Selector17~252          ; combout          ;
+; |PCI_SLAVE|Selector17~253          ; |PCI_SLAVE|Selector17~253          ; combout          ;
+; |PCI_SLAVE|Selector17~254          ; |PCI_SLAVE|Selector17~254          ; combout          ;
+; |PCI_SLAVE|Selector17~255          ; |PCI_SLAVE|Selector17~255          ; combout          ;
+; |PCI_SLAVE|Selector17~256          ; |PCI_SLAVE|Selector17~256          ; combout          ;
+; |PCI_SLAVE|Selector18~249          ; |PCI_SLAVE|Selector18~249          ; combout          ;
+; |PCI_SLAVE|Selector18~250          ; |PCI_SLAVE|Selector18~250          ; combout          ;
+; |PCI_SLAVE|Selector18~251          ; |PCI_SLAVE|Selector18~251          ; combout          ;
+; |PCI_SLAVE|Selector18~252          ; |PCI_SLAVE|Selector18~252          ; combout          ;
+; |PCI_SLAVE|Selector18~253          ; |PCI_SLAVE|Selector18~253          ; combout          ;
+; |PCI_SLAVE|Selector18~254          ; |PCI_SLAVE|Selector18~254          ; combout          ;
+; |PCI_SLAVE|Selector18~255          ; |PCI_SLAVE|Selector18~255          ; combout          ;
+; |PCI_SLAVE|Selector18~256          ; |PCI_SLAVE|Selector18~256          ; combout          ;
+; |PCI_SLAVE|Selector19~249          ; |PCI_SLAVE|Selector19~249          ; combout          ;
+; |PCI_SLAVE|Selector19~250          ; |PCI_SLAVE|Selector19~250          ; combout          ;
+; |PCI_SLAVE|Selector19~251          ; |PCI_SLAVE|Selector19~251          ; combout          ;
+; |PCI_SLAVE|Selector19~252          ; |PCI_SLAVE|Selector19~252          ; combout          ;
+; |PCI_SLAVE|Selector19~253          ; |PCI_SLAVE|Selector19~253          ; combout          ;
+; |PCI_SLAVE|Selector19~254          ; |PCI_SLAVE|Selector19~254          ; combout          ;
+; |PCI_SLAVE|Selector19~255          ; |PCI_SLAVE|Selector19~255          ; combout          ;
+; |PCI_SLAVE|Selector19~256          ; |PCI_SLAVE|Selector19~256          ; combout          ;
+; |PCI_SLAVE|Selector20~249          ; |PCI_SLAVE|Selector20~249          ; combout          ;
+; |PCI_SLAVE|Selector20~250          ; |PCI_SLAVE|Selector20~250          ; combout          ;
+; |PCI_SLAVE|Selector20~251          ; |PCI_SLAVE|Selector20~251          ; combout          ;
+; |PCI_SLAVE|Selector20~252          ; |PCI_SLAVE|Selector20~252          ; combout          ;
+; |PCI_SLAVE|Selector20~253          ; |PCI_SLAVE|Selector20~253          ; combout          ;
+; |PCI_SLAVE|Selector20~254          ; |PCI_SLAVE|Selector20~254          ; combout          ;
+; |PCI_SLAVE|Selector20~255          ; |PCI_SLAVE|Selector20~255          ; combout          ;
+; |PCI_SLAVE|Selector20~256          ; |PCI_SLAVE|Selector20~256          ; combout          ;
+; |PCI_SLAVE|Selector21~249          ; |PCI_SLAVE|Selector21~249          ; combout          ;
+; |PCI_SLAVE|Selector21~250          ; |PCI_SLAVE|Selector21~250          ; combout          ;
+; |PCI_SLAVE|Selector21~251          ; |PCI_SLAVE|Selector21~251          ; combout          ;
+; |PCI_SLAVE|Selector21~252          ; |PCI_SLAVE|Selector21~252          ; combout          ;
+; |PCI_SLAVE|Selector21~253          ; |PCI_SLAVE|Selector21~253          ; combout          ;
+; |PCI_SLAVE|Selector21~254          ; |PCI_SLAVE|Selector21~254          ; combout          ;
+; |PCI_SLAVE|Selector21~255          ; |PCI_SLAVE|Selector21~255          ; combout          ;
+; |PCI_SLAVE|Selector21~256          ; |PCI_SLAVE|Selector21~256          ; combout          ;
+; |PCI_SLAVE|Selector22~375          ; |PCI_SLAVE|Selector22~375          ; combout          ;
+; |PCI_SLAVE|Selector22~376          ; |PCI_SLAVE|Selector22~376          ; combout          ;
+; |PCI_SLAVE|Selector22~377          ; |PCI_SLAVE|Selector22~377          ; combout          ;
+; |PCI_SLAVE|Selector22~378          ; |PCI_SLAVE|Selector22~378          ; combout          ;
+; |PCI_SLAVE|Selector22~379          ; |PCI_SLAVE|Selector22~379          ; combout          ;
+; |PCI_SLAVE|Selector22~380          ; |PCI_SLAVE|Selector22~380          ; combout          ;
+; |PCI_SLAVE|Selector22~381          ; |PCI_SLAVE|Selector22~381          ; combout          ;
+; |PCI_SLAVE|Selector22~382          ; |PCI_SLAVE|Selector22~382          ; combout          ;
+; |PCI_SLAVE|Selector1~130           ; |PCI_SLAVE|Selector1~130           ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[0]~388 ; |PCI_SLAVE|dpram_addr_count[0]~388 ; combout          ;
+; |PCI_SLAVE|INT_IN                  ; |PCI_SLAVE|INT_IN                  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[16]       ; |PCI_SLAVE|DPRAM3_R_DATA[16]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[16]       ; |PCI_SLAVE|DPRAM2_R_DATA[16]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[16]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[16]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[16]     ; |PCI_SLAVE|REGS_R_DAT_READ[16]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[16]    ; |PCI_SLAVE|REGS_RW_DAT_READ[16]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[17]       ; |PCI_SLAVE|DPRAM3_R_DATA[17]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[17]       ; |PCI_SLAVE|DPRAM2_R_DATA[17]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[17]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[17]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[17]     ; |PCI_SLAVE|REGS_R_DAT_READ[17]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[17]    ; |PCI_SLAVE|REGS_RW_DAT_READ[17]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[18]       ; |PCI_SLAVE|DPRAM3_R_DATA[18]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[18]       ; |PCI_SLAVE|DPRAM2_R_DATA[18]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[18]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[18]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[18]     ; |PCI_SLAVE|REGS_R_DAT_READ[18]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[18]    ; |PCI_SLAVE|REGS_RW_DAT_READ[18]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[19]       ; |PCI_SLAVE|DPRAM3_R_DATA[19]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[19]       ; |PCI_SLAVE|DPRAM2_R_DATA[19]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[19]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[19]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[19]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[19]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[19]     ; |PCI_SLAVE|REGS_R_DAT_READ[19]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[19]    ; |PCI_SLAVE|REGS_RW_DAT_READ[19]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[20]       ; |PCI_SLAVE|DPRAM3_R_DATA[20]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[20]       ; |PCI_SLAVE|DPRAM2_R_DATA[20]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[20]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[20]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[20]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[20]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[20]     ; |PCI_SLAVE|REGS_R_DAT_READ[20]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[20]    ; |PCI_SLAVE|REGS_RW_DAT_READ[20]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[21]       ; |PCI_SLAVE|DPRAM3_R_DATA[21]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[21]       ; |PCI_SLAVE|DPRAM2_R_DATA[21]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[21]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[21]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[21]     ; |PCI_SLAVE|REGS_R_DAT_READ[21]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[21]    ; |PCI_SLAVE|REGS_RW_DAT_READ[21]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[22]       ; |PCI_SLAVE|DPRAM3_R_DATA[22]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[22]       ; |PCI_SLAVE|DPRAM2_R_DATA[22]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[22]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[22]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[22]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[22]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[22]     ; |PCI_SLAVE|REGS_R_DAT_READ[22]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[22]    ; |PCI_SLAVE|REGS_RW_DAT_READ[22]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[23]       ; |PCI_SLAVE|DPRAM3_R_DATA[23]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[23]       ; |PCI_SLAVE|DPRAM2_R_DATA[23]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[23]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[23]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[23]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[23]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[23]     ; |PCI_SLAVE|REGS_R_DAT_READ[23]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[23]    ; |PCI_SLAVE|REGS_RW_DAT_READ[23]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[8]      ; |PCI_SLAVE|REGS_R_DAT_READ[8]      ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[24]       ; |PCI_SLAVE|DPRAM3_R_DATA[24]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[24]       ; |PCI_SLAVE|DPRAM2_R_DATA[24]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[24]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[24]   ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[8]        ; |PCI_SLAVE|DPRAM3_R_DATA[8]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[8]        ; |PCI_SLAVE|DPRAM2_R_DATA[8]        ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[8]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[8]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[24]     ; |PCI_SLAVE|REGS_R_DAT_READ[24]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[24]    ; |PCI_SLAVE|REGS_RW_DAT_READ[24]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[8]     ; |PCI_SLAVE|REGS_RW_DAT_READ[8]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[9]      ; |PCI_SLAVE|REGS_R_DAT_READ[9]      ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[25]       ; |PCI_SLAVE|DPRAM3_R_DATA[25]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[25]       ; |PCI_SLAVE|DPRAM2_R_DATA[25]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[25]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[25]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[25]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[25]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[9]        ; |PCI_SLAVE|DPRAM3_R_DATA[9]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[9]        ; |PCI_SLAVE|DPRAM2_R_DATA[9]        ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[9]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[9]    ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[9]   ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[9]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[25]     ; |PCI_SLAVE|REGS_R_DAT_READ[25]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[25]    ; |PCI_SLAVE|REGS_RW_DAT_READ[25]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[9]     ; |PCI_SLAVE|REGS_RW_DAT_READ[9]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[10]     ; |PCI_SLAVE|REGS_R_DAT_READ[10]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[26]       ; |PCI_SLAVE|DPRAM3_R_DATA[26]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[26]       ; |PCI_SLAVE|DPRAM2_R_DATA[26]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[26]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[26]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[26]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[26]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[10]       ; |PCI_SLAVE|DPRAM3_R_DATA[10]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[10]       ; |PCI_SLAVE|DPRAM2_R_DATA[10]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[10]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[10]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[26]     ; |PCI_SLAVE|REGS_R_DAT_READ[26]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[26]    ; |PCI_SLAVE|REGS_RW_DAT_READ[26]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[10]    ; |PCI_SLAVE|REGS_RW_DAT_READ[10]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[11]     ; |PCI_SLAVE|REGS_R_DAT_READ[11]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[27]       ; |PCI_SLAVE|DPRAM3_R_DATA[27]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[27]       ; |PCI_SLAVE|DPRAM2_R_DATA[27]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[27]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[27]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[27]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[27]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[11]       ; |PCI_SLAVE|DPRAM3_R_DATA[11]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[11]       ; |PCI_SLAVE|DPRAM2_R_DATA[11]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[11]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[11]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[11]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[11]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[27]     ; |PCI_SLAVE|REGS_R_DAT_READ[27]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[27]    ; |PCI_SLAVE|REGS_RW_DAT_READ[27]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[11]    ; |PCI_SLAVE|REGS_RW_DAT_READ[11]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[12]     ; |PCI_SLAVE|REGS_R_DAT_READ[12]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[28]       ; |PCI_SLAVE|DPRAM3_R_DATA[28]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[28]       ; |PCI_SLAVE|DPRAM2_R_DATA[28]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[28]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[28]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[28]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[28]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[12]       ; |PCI_SLAVE|DPRAM3_R_DATA[12]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[12]       ; |PCI_SLAVE|DPRAM2_R_DATA[12]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[12]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[12]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[12]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[12]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[28]     ; |PCI_SLAVE|REGS_R_DAT_READ[28]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[28]    ; |PCI_SLAVE|REGS_RW_DAT_READ[28]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[12]    ; |PCI_SLAVE|REGS_RW_DAT_READ[12]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[13]     ; |PCI_SLAVE|REGS_R_DAT_READ[13]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[29]       ; |PCI_SLAVE|DPRAM3_R_DATA[29]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[29]       ; |PCI_SLAVE|DPRAM2_R_DATA[29]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[29]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[29]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[29]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[29]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[13]       ; |PCI_SLAVE|DPRAM3_R_DATA[13]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[13]       ; |PCI_SLAVE|DPRAM2_R_DATA[13]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[13]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[13]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[13]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[13]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[29]     ; |PCI_SLAVE|REGS_R_DAT_READ[29]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[29]    ; |PCI_SLAVE|REGS_RW_DAT_READ[29]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[13]    ; |PCI_SLAVE|REGS_RW_DAT_READ[13]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[14]     ; |PCI_SLAVE|REGS_R_DAT_READ[14]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[30]       ; |PCI_SLAVE|DPRAM3_R_DATA[30]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[30]       ; |PCI_SLAVE|DPRAM2_R_DATA[30]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[30]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[30]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[30]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[30]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[14]       ; |PCI_SLAVE|DPRAM3_R_DATA[14]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[14]       ; |PCI_SLAVE|DPRAM2_R_DATA[14]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[14]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[14]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[30]     ; |PCI_SLAVE|REGS_R_DAT_READ[30]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[30]    ; |PCI_SLAVE|REGS_RW_DAT_READ[30]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[14]    ; |PCI_SLAVE|REGS_RW_DAT_READ[14]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[15]     ; |PCI_SLAVE|REGS_R_DAT_READ[15]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[31]       ; |PCI_SLAVE|DPRAM3_R_DATA[31]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[31]       ; |PCI_SLAVE|DPRAM2_R_DATA[31]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[31]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[31]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[31]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[31]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[15]       ; |PCI_SLAVE|DPRAM3_R_DATA[15]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[15]       ; |PCI_SLAVE|DPRAM2_R_DATA[15]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[15]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[15]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[15]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[15]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[31]     ; |PCI_SLAVE|REGS_R_DAT_READ[31]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[31]    ; |PCI_SLAVE|REGS_RW_DAT_READ[31]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[15]    ; |PCI_SLAVE|REGS_RW_DAT_READ[15]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[5]    ; |PCI_SLAVE|REGS_RW_DAT_WRITE[5]    ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[6]    ; |PCI_SLAVE|REGS_RW_DAT_WRITE[6]    ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[7]    ; |PCI_SLAVE|REGS_RW_DAT_WRITE[7]    ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[8]    ; |PCI_SLAVE|REGS_RW_DAT_WRITE[8]    ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[9]    ; |PCI_SLAVE|REGS_RW_DAT_WRITE[9]    ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[10]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[10]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[11]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[11]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[12]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[12]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[13]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[13]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[14]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[14]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[15]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[15]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[20]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[20]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[21]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[21]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[22]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[22]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[23]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[23]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[24]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[24]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[25]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[25]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[26]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[26]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[27]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[27]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[28]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[28]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[29]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[29]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[30]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[30]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_DAT_WRITE[31]   ; |PCI_SLAVE|REGS_RW_DAT_WRITE[31]   ; padio            ;
+; |PCI_SLAVE|REGS_RW_ADDR[4]         ; |PCI_SLAVE|REGS_RW_ADDR[4]         ; padio            ;
+; |PCI_SLAVE|REGS_RW_WREN            ; |PCI_SLAVE|REGS_RW_WREN            ; padio            ;
+; |PCI_SLAVE|REGS_R_ADDR[4]          ; |PCI_SLAVE|REGS_R_ADDR[4]          ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[5]  ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[5]  ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[6]  ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[6]  ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[7]  ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[7]  ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[8]  ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[8]  ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[9]  ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[9]  ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[10] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[10] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[11] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[11] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[12] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[12] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[13] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[13] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[14] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[14] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[15] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[15] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[20] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[20] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[21] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[21] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[22] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[22] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[23] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[23] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[24] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[24] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[25] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[25] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[26] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[26] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[27] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[27] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[28] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[28] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[29] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[29] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[30] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[30] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[31] ; |PCI_SLAVE|DPRAM0_RW_DAT_WRITE[31] ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_ADDR[4]       ; |PCI_SLAVE|DPRAM0_RW_ADDR[4]       ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_ADDR[5]       ; |PCI_SLAVE|DPRAM0_RW_ADDR[5]       ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_ADDR[6]       ; |PCI_SLAVE|DPRAM0_RW_ADDR[6]       ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_ADDR[7]       ; |PCI_SLAVE|DPRAM0_RW_ADDR[7]       ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_WREN          ; |PCI_SLAVE|DPRAM0_RW_WREN          ; padio            ;
+; |PCI_SLAVE|DPRAM1_R_ADDR[4]        ; |PCI_SLAVE|DPRAM1_R_ADDR[4]        ; padio            ;
+; |PCI_SLAVE|DPRAM1_R_ADDR[5]        ; |PCI_SLAVE|DPRAM1_R_ADDR[5]        ; padio            ;
+; |PCI_SLAVE|DPRAM1_R_ADDR[6]        ; |PCI_SLAVE|DPRAM1_R_ADDR[6]        ; padio            ;
+; |PCI_SLAVE|DPRAM1_R_ADDR[7]        ; |PCI_SLAVE|DPRAM1_R_ADDR[7]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[0]        ; |PCI_SLAVE|DPRAM2_R_ADDR[0]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[1]        ; |PCI_SLAVE|DPRAM2_R_ADDR[1]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[2]        ; |PCI_SLAVE|DPRAM2_R_ADDR[2]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[3]        ; |PCI_SLAVE|DPRAM2_R_ADDR[3]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[4]        ; |PCI_SLAVE|DPRAM2_R_ADDR[4]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[5]        ; |PCI_SLAVE|DPRAM2_R_ADDR[5]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[6]        ; |PCI_SLAVE|DPRAM2_R_ADDR[6]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[7]        ; |PCI_SLAVE|DPRAM2_R_ADDR[7]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[8]        ; |PCI_SLAVE|DPRAM2_R_ADDR[8]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[9]        ; |PCI_SLAVE|DPRAM2_R_ADDR[9]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[0]        ; |PCI_SLAVE|DPRAM3_R_ADDR[0]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[1]        ; |PCI_SLAVE|DPRAM3_R_ADDR[1]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[2]        ; |PCI_SLAVE|DPRAM3_R_ADDR[2]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[3]        ; |PCI_SLAVE|DPRAM3_R_ADDR[3]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[4]        ; |PCI_SLAVE|DPRAM3_R_ADDR[4]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[5]        ; |PCI_SLAVE|DPRAM3_R_ADDR[5]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[6]        ; |PCI_SLAVE|DPRAM3_R_ADDR[6]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[7]        ; |PCI_SLAVE|DPRAM3_R_ADDR[7]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[8]        ; |PCI_SLAVE|DPRAM3_R_ADDR[8]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[9]        ; |PCI_SLAVE|DPRAM3_R_ADDR[9]        ; padio            ;
+; |PCI_SLAVE|PCI_INTn                ; |PCI_SLAVE|PCI_INTn                ; padio            ;
+; |PCI_SLAVE|TEST1[4]                ; |PCI_SLAVE|TEST1[4]                ; padio            ;
+; |PCI_SLAVE|TEST1[5]                ; |PCI_SLAVE|TEST1[5]                ; padio            ;
+; |PCI_SLAVE|TEST1[6]                ; |PCI_SLAVE|TEST1[6]                ; padio            ;
+; |PCI_SLAVE|TEST1[8]                ; |PCI_SLAVE|TEST1[8]                ; padio            ;
+; |PCI_SLAVE|TEST1[9]                ; |PCI_SLAVE|TEST1[9]                ; padio            ;
+; |PCI_SLAVE|TEST1[10]               ; |PCI_SLAVE|TEST1[10]               ; padio            ;
+; |PCI_SLAVE|TEST1[11]               ; |PCI_SLAVE|TEST1[11]               ; padio            ;
+; |PCI_SLAVE|TEST1[12]               ; |PCI_SLAVE|TEST1[12]               ; padio            ;
+; |PCI_SLAVE|TEST1[13]               ; |PCI_SLAVE|TEST1[13]               ; padio            ;
+; |PCI_SLAVE|TEST1[14]               ; |PCI_SLAVE|TEST1[14]               ; padio            ;
+; |PCI_SLAVE|TEST1[15]               ; |PCI_SLAVE|TEST1[15]               ; padio            ;
+; |PCI_SLAVE|TEST1[16]               ; |PCI_SLAVE|TEST1[16]               ; padio            ;
+; |PCI_SLAVE|TEST1[17]               ; |PCI_SLAVE|TEST1[17]               ; padio            ;
+; |PCI_SLAVE|TEST1[18]               ; |PCI_SLAVE|TEST1[18]               ; padio            ;
+; |PCI_SLAVE|TEST1[19]               ; |PCI_SLAVE|TEST1[19]               ; padio            ;
+; |PCI_SLAVE|TEST1[20]               ; |PCI_SLAVE|TEST1[20]               ; padio            ;
+; |PCI_SLAVE|TEST1[21]               ; |PCI_SLAVE|TEST1[21]               ; padio            ;
+; |PCI_SLAVE|TEST1[22]               ; |PCI_SLAVE|TEST1[22]               ; padio            ;
+; |PCI_SLAVE|TEST1[23]               ; |PCI_SLAVE|TEST1[23]               ; padio            ;
+; |PCI_SLAVE|TEST1[24]               ; |PCI_SLAVE|TEST1[24]               ; padio            ;
+; |PCI_SLAVE|TEST1[25]               ; |PCI_SLAVE|TEST1[25]               ; padio            ;
+; |PCI_SLAVE|TEST1[26]               ; |PCI_SLAVE|TEST1[26]               ; padio            ;
+; |PCI_SLAVE|TEST1[27]               ; |PCI_SLAVE|TEST1[27]               ; padio            ;
+; |PCI_SLAVE|TEST1[28]               ; |PCI_SLAVE|TEST1[28]               ; padio            ;
+; |PCI_SLAVE|TEST1[29]               ; |PCI_SLAVE|TEST1[29]               ; padio            ;
+; |PCI_SLAVE|TEST1[30]               ; |PCI_SLAVE|TEST1[30]               ; padio            ;
+; |PCI_SLAVE|TEST1[31]               ; |PCI_SLAVE|TEST1[31]               ; padio            ;
+; |PCI_SLAVE|TEST2[0]                ; |PCI_SLAVE|TEST2[0]                ; padio            ;
+; |PCI_SLAVE|TEST2[1]                ; |PCI_SLAVE|TEST2[1]                ; padio            ;
+; |PCI_SLAVE|TEST2[2]                ; |PCI_SLAVE|TEST2[2]                ; padio            ;
+; |PCI_SLAVE|TEST2[3]                ; |PCI_SLAVE|TEST2[3]                ; padio            ;
+; |PCI_SLAVE|TEST2[4]                ; |PCI_SLAVE|TEST2[4]                ; padio            ;
+; |PCI_SLAVE|TEST2[5]                ; |PCI_SLAVE|TEST2[5]                ; padio            ;
+; |PCI_SLAVE|TEST2[6]                ; |PCI_SLAVE|TEST2[6]                ; padio            ;
+; |PCI_SLAVE|TEST2[7]                ; |PCI_SLAVE|TEST2[7]                ; padio            ;
+; |PCI_SLAVE|TEST2[8]                ; |PCI_SLAVE|TEST2[8]                ; padio            ;
+; |PCI_SLAVE|TEST2[9]                ; |PCI_SLAVE|TEST2[9]                ; padio            ;
+; |PCI_SLAVE|TEST2[10]               ; |PCI_SLAVE|TEST2[10]               ; padio            ;
+; |PCI_SLAVE|TEST2[11]               ; |PCI_SLAVE|TEST2[11]               ; padio            ;
+; |PCI_SLAVE|TEST2[12]               ; |PCI_SLAVE|TEST2[12]               ; padio            ;
+; |PCI_SLAVE|TEST2[13]               ; |PCI_SLAVE|TEST2[13]               ; padio            ;
+; |PCI_SLAVE|TEST2[14]               ; |PCI_SLAVE|TEST2[14]               ; padio            ;
+; |PCI_SLAVE|TEST2[15]               ; |PCI_SLAVE|TEST2[15]               ; padio            ;
+; |PCI_SLAVE|TEST2[16]               ; |PCI_SLAVE|TEST2[16]               ; padio            ;
+; |PCI_SLAVE|TEST2[17]               ; |PCI_SLAVE|TEST2[17]               ; padio            ;
+; |PCI_SLAVE|TEST2[18]               ; |PCI_SLAVE|TEST2[18]               ; padio            ;
+; |PCI_SLAVE|TEST2[19]               ; |PCI_SLAVE|TEST2[19]               ; padio            ;
+; |PCI_SLAVE|TEST2[20]               ; |PCI_SLAVE|TEST2[20]               ; padio            ;
+; |PCI_SLAVE|TEST2[21]               ; |PCI_SLAVE|TEST2[21]               ; padio            ;
+; |PCI_SLAVE|TEST2[22]               ; |PCI_SLAVE|TEST2[22]               ; padio            ;
+; |PCI_SLAVE|TEST2[23]               ; |PCI_SLAVE|TEST2[23]               ; padio            ;
+; |PCI_SLAVE|TEST2[24]               ; |PCI_SLAVE|TEST2[24]               ; padio            ;
+; |PCI_SLAVE|TEST2[25]               ; |PCI_SLAVE|TEST2[25]               ; padio            ;
+; |PCI_SLAVE|TEST2[26]               ; |PCI_SLAVE|TEST2[26]               ; padio            ;
+; |PCI_SLAVE|TEST2[27]               ; |PCI_SLAVE|TEST2[27]               ; padio            ;
+; |PCI_SLAVE|TEST2[28]               ; |PCI_SLAVE|TEST2[28]               ; padio            ;
+; |PCI_SLAVE|TEST2[29]               ; |PCI_SLAVE|TEST2[29]               ; padio            ;
+; |PCI_SLAVE|TEST2[30]               ; |PCI_SLAVE|TEST2[30]               ; padio            ;
+; |PCI_SLAVE|TEST2[31]               ; |PCI_SLAVE|TEST2[31]               ; padio            ;
+; |PCI_SLAVE|PCI_AD[5]~10            ; |PCI_SLAVE|PCI_AD[5]~10            ; combout          ;
+; |PCI_SLAVE|PCI_AD[5]~10            ; |PCI_SLAVE|PCI_AD[5]~output        ; padio            ;
+; |PCI_SLAVE|PCI_AD[6]~9             ; |PCI_SLAVE|PCI_AD[6]~9             ; combout          ;
+; |PCI_SLAVE|PCI_AD[6]~9             ; |PCI_SLAVE|PCI_AD[6]~output        ; padio            ;
+; |PCI_SLAVE|PCI_AD[7]~8             ; |PCI_SLAVE|PCI_AD[7]~8             ; combout          ;
+; |PCI_SLAVE|PCI_AD[7]~8             ; |PCI_SLAVE|PCI_AD[7]~output        ; padio            ;
+; |PCI_SLAVE|PCI_AD[8]~7             ; |PCI_SLAVE|PCI_AD[8]~7             ; combout          ;
+; |PCI_SLAVE|PCI_AD[8]~7             ; |PCI_SLAVE|PCI_AD[8]~output        ; padio            ;
+; |PCI_SLAVE|PCI_AD[9]~6             ; |PCI_SLAVE|PCI_AD[9]~6             ; combout          ;
+; |PCI_SLAVE|PCI_AD[9]~6             ; |PCI_SLAVE|PCI_AD[9]~output        ; padio            ;
+; |PCI_SLAVE|PCI_AD[10]~5            ; |PCI_SLAVE|PCI_AD[10]~5            ; combout          ;
+; |PCI_SLAVE|PCI_AD[10]~5            ; |PCI_SLAVE|PCI_AD[10]~output       ; padio            ;
+; |PCI_SLAVE|PCI_AD[11]~4            ; |PCI_SLAVE|PCI_AD[11]~4            ; combout          ;
+; |PCI_SLAVE|PCI_AD[11]~4            ; |PCI_SLAVE|PCI_AD[11]~output       ; padio            ;
+; |PCI_SLAVE|PCI_AD[12]~3            ; |PCI_SLAVE|PCI_AD[12]~3            ; combout          ;
+; |PCI_SLAVE|PCI_AD[12]~3            ; |PCI_SLAVE|PCI_AD[12]~output       ; padio            ;
+; |PCI_SLAVE|PCI_AD[13]~2            ; |PCI_SLAVE|PCI_AD[13]~2            ; combout          ;
+; |PCI_SLAVE|PCI_AD[13]~2            ; |PCI_SLAVE|PCI_AD[13]~output       ; padio            ;
+; |PCI_SLAVE|PCI_AD[14]~1            ; |PCI_SLAVE|PCI_AD[14]~1            ; combout          ;
+; |PCI_SLAVE|PCI_AD[14]~1            ; |PCI_SLAVE|PCI_AD[14]~output       ; padio            ;
+; |PCI_SLAVE|PCI_AD[15]~0            ; |PCI_SLAVE|PCI_AD[15]~0            ; combout          ;
+; |PCI_SLAVE|PCI_AD[15]~0            ; |PCI_SLAVE|PCI_AD[15]~output       ; padio            ;
+; |PCI_SLAVE|dat_MSB[5]~feeder       ; |PCI_SLAVE|dat_MSB[5]~feeder       ; combout          ;
+; |PCI_SLAVE|dat_MSB[6]~feeder       ; |PCI_SLAVE|dat_MSB[6]~feeder       ; combout          ;
+; |PCI_SLAVE|dat_MSB[7]~feeder       ; |PCI_SLAVE|dat_MSB[7]~feeder       ; combout          ;
+; |PCI_SLAVE|dat_MSB[10]~feeder      ; |PCI_SLAVE|dat_MSB[10]~feeder      ; combout          ;
+; |PCI_SLAVE|base_ad[11]~feeder      ; |PCI_SLAVE|base_ad[11]~feeder      ; combout          ;
+; |PCI_SLAVE|dat_MSB[11]~feeder      ; |PCI_SLAVE|dat_MSB[11]~feeder      ; combout          ;
+; |PCI_SLAVE|base_ad[13]~feeder      ; |PCI_SLAVE|base_ad[13]~feeder      ; combout          ;
+; |PCI_SLAVE|dat_MSB[15]~feeder      ; |PCI_SLAVE|dat_MSB[15]~feeder      ; combout          ;
++------------------------------------+------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++--------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                   ;
++------------------------------------+------------------------------------+------------------+
+; Node Name                          ; Output Port Name                   ; Output Port Type ;
++------------------------------------+------------------------------------+------------------+
+; |PCI_SLAVE|Equal2~58               ; |PCI_SLAVE|Equal2~58               ; combout          ;
+; |PCI_SLAVE|Equal2~59               ; |PCI_SLAVE|Equal2~59               ; combout          ;
+; |PCI_SLAVE|Equal2~60               ; |PCI_SLAVE|Equal2~60               ; combout          ;
+; |PCI_SLAVE|state.write_dat_lsb     ; |PCI_SLAVE|state.write_dat_lsb     ; regout           ;
+; |PCI_SLAVE|REGS_RW_WREN~2          ; |PCI_SLAVE|REGS_RW_WREN~2          ; combout          ;
+; |PCI_SLAVE|Equal2~61               ; |PCI_SLAVE|Equal2~61               ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_WREN~2        ; |PCI_SLAVE|DPRAM0_RW_WREN~2        ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[0]     ; |PCI_SLAVE|dpram_addr_count[0]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[1]     ; |PCI_SLAVE|dpram_addr_count[1]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[2]     ; |PCI_SLAVE|dpram_addr_count[2]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[3]     ; |PCI_SLAVE|dpram_addr_count[3]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[4]     ; |PCI_SLAVE|dpram_addr_count[4]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[5]     ; |PCI_SLAVE|dpram_addr_count[5]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[6]     ; |PCI_SLAVE|dpram_addr_count[6]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[7]     ; |PCI_SLAVE|dpram_addr_count[7]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[8]     ; |PCI_SLAVE|dpram_addr_count[8]     ; regout           ;
+; |PCI_SLAVE|dpram_addr_count[9]     ; |PCI_SLAVE|dpram_addr_count[9]     ; regout           ;
+; |PCI_SLAVE|addr_count[3]~195       ; |PCI_SLAVE|addr_count[3]~203       ; cout             ;
+; |PCI_SLAVE|addr_count[4]~196       ; |PCI_SLAVE|addr_count[4]~204       ; cout             ;
+; |PCI_SLAVE|state.write_dat_msb     ; |PCI_SLAVE|state.write_dat_msb     ; regout           ;
+; |PCI_SLAVE|Selector2~274           ; |PCI_SLAVE|Selector2~274           ; combout          ;
+; |PCI_SLAVE|Selector2~275           ; |PCI_SLAVE|Selector2~275           ; combout          ;
+; |PCI_SLAVE|Selector2~277           ; |PCI_SLAVE|Selector2~277           ; combout          ;
+; |PCI_SLAVE|addr_count[5]~197       ; |PCI_SLAVE|addr_count[5]~205       ; cout             ;
+; |PCI_SLAVE|addr_count[6]~198       ; |PCI_SLAVE|addr_count[6]~206       ; cout             ;
+; |PCI_SLAVE|dpram_count_enable~33   ; |PCI_SLAVE|dpram_count_enable~33   ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[1]~318 ; |PCI_SLAVE|dpram_addr_count[1]~318 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[1]~318 ; |PCI_SLAVE|dpram_addr_count[1]~379 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[2]~319 ; |PCI_SLAVE|dpram_addr_count[2]~319 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[2]~319 ; |PCI_SLAVE|dpram_addr_count[2]~380 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[3]~320 ; |PCI_SLAVE|dpram_addr_count[3]~320 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[3]~320 ; |PCI_SLAVE|dpram_addr_count[3]~381 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[4]~321 ; |PCI_SLAVE|dpram_addr_count[4]~321 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[4]~321 ; |PCI_SLAVE|dpram_addr_count[4]~382 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[5]~322 ; |PCI_SLAVE|dpram_addr_count[5]~322 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[5]~322 ; |PCI_SLAVE|dpram_addr_count[5]~383 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[6]~323 ; |PCI_SLAVE|dpram_addr_count[6]~323 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[6]~323 ; |PCI_SLAVE|dpram_addr_count[6]~384 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[7]~324 ; |PCI_SLAVE|dpram_addr_count[7]~324 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[7]~324 ; |PCI_SLAVE|dpram_addr_count[7]~385 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[8]~325 ; |PCI_SLAVE|dpram_addr_count[8]~325 ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[8]~325 ; |PCI_SLAVE|dpram_addr_count[8]~386 ; cout             ;
+; |PCI_SLAVE|dpram_addr_count[9]~326 ; |PCI_SLAVE|dpram_addr_count[9]~326 ; combout          ;
+; |PCI_SLAVE|Selector3~192           ; |PCI_SLAVE|Selector3~192           ; combout          ;
+; |PCI_SLAVE|Selector13~255          ; |PCI_SLAVE|Selector13~255          ; combout          ;
+; |PCI_SLAVE|Selector14~255          ; |PCI_SLAVE|Selector14~255          ; combout          ;
+; |PCI_SLAVE|Selector15~255          ; |PCI_SLAVE|Selector15~255          ; combout          ;
+; |PCI_SLAVE|Selector16~255          ; |PCI_SLAVE|Selector16~255          ; combout          ;
+; |PCI_SLAVE|Selector17~255          ; |PCI_SLAVE|Selector17~255          ; combout          ;
+; |PCI_SLAVE|Selector18~255          ; |PCI_SLAVE|Selector18~255          ; combout          ;
+; |PCI_SLAVE|Selector19~255          ; |PCI_SLAVE|Selector19~255          ; combout          ;
+; |PCI_SLAVE|Selector20~255          ; |PCI_SLAVE|Selector20~255          ; combout          ;
+; |PCI_SLAVE|Selector21~255          ; |PCI_SLAVE|Selector21~255          ; combout          ;
+; |PCI_SLAVE|Selector22~381          ; |PCI_SLAVE|Selector22~381          ; combout          ;
+; |PCI_SLAVE|Selector1~129           ; |PCI_SLAVE|Selector1~129           ; combout          ;
+; |PCI_SLAVE|Selector1~130           ; |PCI_SLAVE|Selector1~130           ; combout          ;
+; |PCI_SLAVE|dpram_addr_count[0]~388 ; |PCI_SLAVE|dpram_addr_count[0]~388 ; combout          ;
+; |PCI_SLAVE|INT_IN                  ; |PCI_SLAVE|INT_IN                  ; combout          ;
+; |PCI_SLAVE|PCI_BEn[1]              ; |PCI_SLAVE|PCI_BEn[1]              ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[16]       ; |PCI_SLAVE|DPRAM3_R_DATA[16]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[16]       ; |PCI_SLAVE|DPRAM2_R_DATA[16]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[16]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[16]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[16]     ; |PCI_SLAVE|REGS_R_DAT_READ[16]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[16]    ; |PCI_SLAVE|REGS_RW_DAT_READ[16]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[17]       ; |PCI_SLAVE|DPRAM3_R_DATA[17]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[17]       ; |PCI_SLAVE|DPRAM2_R_DATA[17]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[17]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[17]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[17]     ; |PCI_SLAVE|REGS_R_DAT_READ[17]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[17]    ; |PCI_SLAVE|REGS_RW_DAT_READ[17]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[18]       ; |PCI_SLAVE|DPRAM3_R_DATA[18]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[18]       ; |PCI_SLAVE|DPRAM2_R_DATA[18]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[18]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[18]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[18]     ; |PCI_SLAVE|REGS_R_DAT_READ[18]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[18]    ; |PCI_SLAVE|REGS_RW_DAT_READ[18]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[19]       ; |PCI_SLAVE|DPRAM3_R_DATA[19]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[19]       ; |PCI_SLAVE|DPRAM2_R_DATA[19]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[19]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[19]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[19]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[19]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[19]     ; |PCI_SLAVE|REGS_R_DAT_READ[19]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[19]    ; |PCI_SLAVE|REGS_RW_DAT_READ[19]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[20]       ; |PCI_SLAVE|DPRAM3_R_DATA[20]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[20]       ; |PCI_SLAVE|DPRAM2_R_DATA[20]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[20]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[20]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[20]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[20]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[20]     ; |PCI_SLAVE|REGS_R_DAT_READ[20]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[20]    ; |PCI_SLAVE|REGS_RW_DAT_READ[20]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[21]       ; |PCI_SLAVE|DPRAM3_R_DATA[21]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[21]       ; |PCI_SLAVE|DPRAM2_R_DATA[21]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[21]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[21]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[21]     ; |PCI_SLAVE|REGS_R_DAT_READ[21]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[21]    ; |PCI_SLAVE|REGS_RW_DAT_READ[21]    ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[22]       ; |PCI_SLAVE|DPRAM3_R_DATA[22]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[22]       ; |PCI_SLAVE|DPRAM2_R_DATA[22]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[22]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[22]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[22]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[22]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[6]        ; |PCI_SLAVE|DPRAM3_R_DATA[6]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[6]        ; |PCI_SLAVE|DPRAM2_R_DATA[6]        ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[22]     ; |PCI_SLAVE|REGS_R_DAT_READ[22]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[22]    ; |PCI_SLAVE|REGS_RW_DAT_READ[22]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[6]     ; |PCI_SLAVE|REGS_RW_DAT_READ[6]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[7]      ; |PCI_SLAVE|REGS_R_DAT_READ[7]      ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[23]       ; |PCI_SLAVE|DPRAM3_R_DATA[23]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[23]       ; |PCI_SLAVE|DPRAM2_R_DATA[23]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[23]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[23]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[23]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[23]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[7]        ; |PCI_SLAVE|DPRAM3_R_DATA[7]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[7]        ; |PCI_SLAVE|DPRAM2_R_DATA[7]        ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[7]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[7]    ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[7]   ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[7]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[23]     ; |PCI_SLAVE|REGS_R_DAT_READ[23]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[23]    ; |PCI_SLAVE|REGS_RW_DAT_READ[23]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[7]     ; |PCI_SLAVE|REGS_RW_DAT_READ[7]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[8]      ; |PCI_SLAVE|REGS_R_DAT_READ[8]      ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[24]       ; |PCI_SLAVE|DPRAM3_R_DATA[24]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[24]       ; |PCI_SLAVE|DPRAM2_R_DATA[24]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[24]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[24]   ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[8]        ; |PCI_SLAVE|DPRAM3_R_DATA[8]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[8]        ; |PCI_SLAVE|DPRAM2_R_DATA[8]        ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[8]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[8]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[24]     ; |PCI_SLAVE|REGS_R_DAT_READ[24]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[24]    ; |PCI_SLAVE|REGS_RW_DAT_READ[24]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[8]     ; |PCI_SLAVE|REGS_RW_DAT_READ[8]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[9]      ; |PCI_SLAVE|REGS_R_DAT_READ[9]      ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[25]       ; |PCI_SLAVE|DPRAM3_R_DATA[25]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[25]       ; |PCI_SLAVE|DPRAM2_R_DATA[25]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[25]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[25]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[25]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[25]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[9]        ; |PCI_SLAVE|DPRAM3_R_DATA[9]        ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[9]        ; |PCI_SLAVE|DPRAM2_R_DATA[9]        ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[9]    ; |PCI_SLAVE|DPRAM1_R_DAT_READ[9]    ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[9]   ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[9]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[25]     ; |PCI_SLAVE|REGS_R_DAT_READ[25]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[25]    ; |PCI_SLAVE|REGS_RW_DAT_READ[25]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[9]     ; |PCI_SLAVE|REGS_RW_DAT_READ[9]     ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[10]     ; |PCI_SLAVE|REGS_R_DAT_READ[10]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[26]       ; |PCI_SLAVE|DPRAM3_R_DATA[26]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[26]       ; |PCI_SLAVE|DPRAM2_R_DATA[26]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[26]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[26]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[26]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[26]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[10]       ; |PCI_SLAVE|DPRAM3_R_DATA[10]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[10]       ; |PCI_SLAVE|DPRAM2_R_DATA[10]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[10]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[10]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[26]     ; |PCI_SLAVE|REGS_R_DAT_READ[26]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[26]    ; |PCI_SLAVE|REGS_RW_DAT_READ[26]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[10]    ; |PCI_SLAVE|REGS_RW_DAT_READ[10]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[11]     ; |PCI_SLAVE|REGS_R_DAT_READ[11]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[27]       ; |PCI_SLAVE|DPRAM3_R_DATA[27]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[27]       ; |PCI_SLAVE|DPRAM2_R_DATA[27]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[27]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[27]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[27]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[27]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[11]       ; |PCI_SLAVE|DPRAM3_R_DATA[11]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[11]       ; |PCI_SLAVE|DPRAM2_R_DATA[11]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[11]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[11]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[11]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[11]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[27]     ; |PCI_SLAVE|REGS_R_DAT_READ[27]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[27]    ; |PCI_SLAVE|REGS_RW_DAT_READ[27]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[11]    ; |PCI_SLAVE|REGS_RW_DAT_READ[11]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[12]     ; |PCI_SLAVE|REGS_R_DAT_READ[12]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[28]       ; |PCI_SLAVE|DPRAM3_R_DATA[28]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[28]       ; |PCI_SLAVE|DPRAM2_R_DATA[28]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[28]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[28]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[28]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[28]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[12]       ; |PCI_SLAVE|DPRAM3_R_DATA[12]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[12]       ; |PCI_SLAVE|DPRAM2_R_DATA[12]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[12]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[12]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[12]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[12]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[28]     ; |PCI_SLAVE|REGS_R_DAT_READ[28]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[28]    ; |PCI_SLAVE|REGS_RW_DAT_READ[28]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[12]    ; |PCI_SLAVE|REGS_RW_DAT_READ[12]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[13]     ; |PCI_SLAVE|REGS_R_DAT_READ[13]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[29]       ; |PCI_SLAVE|DPRAM3_R_DATA[29]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[29]       ; |PCI_SLAVE|DPRAM2_R_DATA[29]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[29]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[29]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[29]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[29]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[13]       ; |PCI_SLAVE|DPRAM3_R_DATA[13]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[13]       ; |PCI_SLAVE|DPRAM2_R_DATA[13]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[13]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[13]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[13]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[13]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[29]     ; |PCI_SLAVE|REGS_R_DAT_READ[29]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[29]    ; |PCI_SLAVE|REGS_RW_DAT_READ[29]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[13]    ; |PCI_SLAVE|REGS_RW_DAT_READ[13]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[14]     ; |PCI_SLAVE|REGS_R_DAT_READ[14]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[30]       ; |PCI_SLAVE|DPRAM3_R_DATA[30]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[30]       ; |PCI_SLAVE|DPRAM2_R_DATA[30]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[30]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[30]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[30]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[30]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[14]       ; |PCI_SLAVE|DPRAM3_R_DATA[14]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[14]       ; |PCI_SLAVE|DPRAM2_R_DATA[14]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[14]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[14]   ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[30]     ; |PCI_SLAVE|REGS_R_DAT_READ[30]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[30]    ; |PCI_SLAVE|REGS_RW_DAT_READ[30]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[14]    ; |PCI_SLAVE|REGS_RW_DAT_READ[14]    ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[15]     ; |PCI_SLAVE|REGS_R_DAT_READ[15]     ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[31]       ; |PCI_SLAVE|DPRAM3_R_DATA[31]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[31]       ; |PCI_SLAVE|DPRAM2_R_DATA[31]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[31]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[31]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[31]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[31]  ; combout          ;
+; |PCI_SLAVE|DPRAM3_R_DATA[15]       ; |PCI_SLAVE|DPRAM3_R_DATA[15]       ; combout          ;
+; |PCI_SLAVE|DPRAM2_R_DATA[15]       ; |PCI_SLAVE|DPRAM2_R_DATA[15]       ; combout          ;
+; |PCI_SLAVE|DPRAM1_R_DAT_READ[15]   ; |PCI_SLAVE|DPRAM1_R_DAT_READ[15]   ; combout          ;
+; |PCI_SLAVE|DPRAM0_RW_DAT_READ[15]  ; |PCI_SLAVE|DPRAM0_RW_DAT_READ[15]  ; combout          ;
+; |PCI_SLAVE|REGS_R_DAT_READ[31]     ; |PCI_SLAVE|REGS_R_DAT_READ[31]     ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[31]    ; |PCI_SLAVE|REGS_RW_DAT_READ[31]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_DAT_READ[15]    ; |PCI_SLAVE|REGS_RW_DAT_READ[15]    ; combout          ;
+; |PCI_SLAVE|REGS_RW_WREN            ; |PCI_SLAVE|REGS_RW_WREN            ; padio            ;
+; |PCI_SLAVE|DPRAM0_RW_WREN          ; |PCI_SLAVE|DPRAM0_RW_WREN          ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[0]        ; |PCI_SLAVE|DPRAM2_R_ADDR[0]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[1]        ; |PCI_SLAVE|DPRAM2_R_ADDR[1]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[2]        ; |PCI_SLAVE|DPRAM2_R_ADDR[2]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[3]        ; |PCI_SLAVE|DPRAM2_R_ADDR[3]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[4]        ; |PCI_SLAVE|DPRAM2_R_ADDR[4]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[5]        ; |PCI_SLAVE|DPRAM2_R_ADDR[5]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[6]        ; |PCI_SLAVE|DPRAM2_R_ADDR[6]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[7]        ; |PCI_SLAVE|DPRAM2_R_ADDR[7]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[8]        ; |PCI_SLAVE|DPRAM2_R_ADDR[8]        ; padio            ;
+; |PCI_SLAVE|DPRAM2_R_ADDR[9]        ; |PCI_SLAVE|DPRAM2_R_ADDR[9]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[0]        ; |PCI_SLAVE|DPRAM3_R_ADDR[0]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[1]        ; |PCI_SLAVE|DPRAM3_R_ADDR[1]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[2]        ; |PCI_SLAVE|DPRAM3_R_ADDR[2]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[3]        ; |PCI_SLAVE|DPRAM3_R_ADDR[3]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[4]        ; |PCI_SLAVE|DPRAM3_R_ADDR[4]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[5]        ; |PCI_SLAVE|DPRAM3_R_ADDR[5]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[6]        ; |PCI_SLAVE|DPRAM3_R_ADDR[6]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[7]        ; |PCI_SLAVE|DPRAM3_R_ADDR[7]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[8]        ; |PCI_SLAVE|DPRAM3_R_ADDR[8]        ; padio            ;
+; |PCI_SLAVE|DPRAM3_R_ADDR[9]        ; |PCI_SLAVE|DPRAM3_R_ADDR[9]        ; padio            ;
+; |PCI_SLAVE|PCI_INTn                ; |PCI_SLAVE|PCI_INTn                ; padio            ;
+; |PCI_SLAVE|TEST1[6]                ; |PCI_SLAVE|TEST1[6]                ; padio            ;
+; |PCI_SLAVE|TEST1[8]                ; |PCI_SLAVE|TEST1[8]                ; padio            ;
+; |PCI_SLAVE|TEST1[9]                ; |PCI_SLAVE|TEST1[9]                ; padio            ;
+; |PCI_SLAVE|TEST1[10]               ; |PCI_SLAVE|TEST1[10]               ; padio            ;
+; |PCI_SLAVE|TEST1[11]               ; |PCI_SLAVE|TEST1[11]               ; padio            ;
+; |PCI_SLAVE|TEST1[12]               ; |PCI_SLAVE|TEST1[12]               ; padio            ;
+; |PCI_SLAVE|TEST1[13]               ; |PCI_SLAVE|TEST1[13]               ; padio            ;
+; |PCI_SLAVE|TEST1[14]               ; |PCI_SLAVE|TEST1[14]               ; padio            ;
+; |PCI_SLAVE|TEST1[15]               ; |PCI_SLAVE|TEST1[15]               ; padio            ;
+; |PCI_SLAVE|TEST1[16]               ; |PCI_SLAVE|TEST1[16]               ; padio            ;
+; |PCI_SLAVE|TEST1[17]               ; |PCI_SLAVE|TEST1[17]               ; padio            ;
+; |PCI_SLAVE|TEST1[18]               ; |PCI_SLAVE|TEST1[18]               ; padio            ;
+; |PCI_SLAVE|TEST1[19]               ; |PCI_SLAVE|TEST1[19]               ; padio            ;
+; |PCI_SLAVE|TEST1[20]               ; |PCI_SLAVE|TEST1[20]               ; padio            ;
+; |PCI_SLAVE|TEST1[21]               ; |PCI_SLAVE|TEST1[21]               ; padio            ;
+; |PCI_SLAVE|TEST1[22]               ; |PCI_SLAVE|TEST1[22]               ; padio            ;
+; |PCI_SLAVE|TEST1[23]               ; |PCI_SLAVE|TEST1[23]               ; padio            ;
+; |PCI_SLAVE|TEST1[24]               ; |PCI_SLAVE|TEST1[24]               ; padio            ;
+; |PCI_SLAVE|TEST1[25]               ; |PCI_SLAVE|TEST1[25]               ; padio            ;
+; |PCI_SLAVE|TEST1[26]               ; |PCI_SLAVE|TEST1[26]               ; padio            ;
+; |PCI_SLAVE|TEST1[27]               ; |PCI_SLAVE|TEST1[27]               ; padio            ;
+; |PCI_SLAVE|TEST1[28]               ; |PCI_SLAVE|TEST1[28]               ; padio            ;
+; |PCI_SLAVE|TEST1[29]               ; |PCI_SLAVE|TEST1[29]               ; padio            ;
+; |PCI_SLAVE|TEST1[30]               ; |PCI_SLAVE|TEST1[30]               ; padio            ;
+; |PCI_SLAVE|TEST1[31]               ; |PCI_SLAVE|TEST1[31]               ; padio            ;
+; |PCI_SLAVE|TEST2[0]                ; |PCI_SLAVE|TEST2[0]                ; padio            ;
+; |PCI_SLAVE|TEST2[1]                ; |PCI_SLAVE|TEST2[1]                ; padio            ;
+; |PCI_SLAVE|TEST2[2]                ; |PCI_SLAVE|TEST2[2]                ; padio            ;
+; |PCI_SLAVE|TEST2[3]                ; |PCI_SLAVE|TEST2[3]                ; padio            ;
+; |PCI_SLAVE|TEST2[4]                ; |PCI_SLAVE|TEST2[4]                ; padio            ;
+; |PCI_SLAVE|TEST2[5]                ; |PCI_SLAVE|TEST2[5]                ; padio            ;
+; |PCI_SLAVE|TEST2[6]                ; |PCI_SLAVE|TEST2[6]                ; padio            ;
+; |PCI_SLAVE|TEST2[7]                ; |PCI_SLAVE|TEST2[7]                ; padio            ;
+; |PCI_SLAVE|TEST2[8]                ; |PCI_SLAVE|TEST2[8]                ; padio            ;
+; |PCI_SLAVE|TEST2[9]                ; |PCI_SLAVE|TEST2[9]                ; padio            ;
+; |PCI_SLAVE|TEST2[10]               ; |PCI_SLAVE|TEST2[10]               ; padio            ;
+; |PCI_SLAVE|TEST2[11]               ; |PCI_SLAVE|TEST2[11]               ; padio            ;
+; |PCI_SLAVE|TEST2[12]               ; |PCI_SLAVE|TEST2[12]               ; padio            ;
+; |PCI_SLAVE|TEST2[13]               ; |PCI_SLAVE|TEST2[13]               ; padio            ;
+; |PCI_SLAVE|TEST2[14]               ; |PCI_SLAVE|TEST2[14]               ; padio            ;
+; |PCI_SLAVE|TEST2[15]               ; |PCI_SLAVE|TEST2[15]               ; padio            ;
+; |PCI_SLAVE|TEST2[16]               ; |PCI_SLAVE|TEST2[16]               ; padio            ;
+; |PCI_SLAVE|TEST2[17]               ; |PCI_SLAVE|TEST2[17]               ; padio            ;
+; |PCI_SLAVE|TEST2[18]               ; |PCI_SLAVE|TEST2[18]               ; padio            ;
+; |PCI_SLAVE|TEST2[19]               ; |PCI_SLAVE|TEST2[19]               ; padio            ;
+; |PCI_SLAVE|TEST2[20]               ; |PCI_SLAVE|TEST2[20]               ; padio            ;
+; |PCI_SLAVE|TEST2[21]               ; |PCI_SLAVE|TEST2[21]               ; padio            ;
+; |PCI_SLAVE|TEST2[22]               ; |PCI_SLAVE|TEST2[22]               ; padio            ;
+; |PCI_SLAVE|TEST2[23]               ; |PCI_SLAVE|TEST2[23]               ; padio            ;
+; |PCI_SLAVE|TEST2[24]               ; |PCI_SLAVE|TEST2[24]               ; padio            ;
+; |PCI_SLAVE|TEST2[25]               ; |PCI_SLAVE|TEST2[25]               ; padio            ;
+; |PCI_SLAVE|TEST2[26]               ; |PCI_SLAVE|TEST2[26]               ; padio            ;
+; |PCI_SLAVE|TEST2[27]               ; |PCI_SLAVE|TEST2[27]               ; padio            ;
+; |PCI_SLAVE|TEST2[28]               ; |PCI_SLAVE|TEST2[28]               ; padio            ;
+; |PCI_SLAVE|TEST2[29]               ; |PCI_SLAVE|TEST2[29]               ; padio            ;
+; |PCI_SLAVE|TEST2[30]               ; |PCI_SLAVE|TEST2[30]               ; padio            ;
+; |PCI_SLAVE|TEST2[31]               ; |PCI_SLAVE|TEST2[31]               ; padio            ;
++------------------------------------+------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+    Info: Processing started: Mon Jun 25 17:38:40 2007
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off PCI_SLAVE -c PCI_SLAVE
+Warning: Ignored node in vector source file. Can't find corresponding node name "base_ad[6]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "base_ad[5]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "base_ad[4]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "base_ad[3]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "base_ad[2]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "base_ad[1]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "base_ad[0]" in design.
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      23.81 %
+Info: Number of transitions in simulation is 4529
+Info: Vector file PCI_SLAVE.sim.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II Simulator was successful. 0 errors, 7 warnings
+    Info: Processing ended: Mon Jun 25 17:38:42 2007
+    Info: Elapsed time: 00:00:02
+
+

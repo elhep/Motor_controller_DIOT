@@ -1,0 +1,209 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7a200tfbg676-2",
+      "gen_directory": "../../../../motion_controller.gen/sources_1/bd/mc_design",
+      "name": "mc_design",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2023.2"
+    },
+    "design_tree": {
+      "axi_quad_spi_0": "",
+      "clk_wiz": "",
+      "axi_register_slice_0": "",
+      "rst_clk_wiz_100M": ""
+    },
+    "interface_ports": {
+      "spi_rtl": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:spi:1.0",
+        "vlnv": "xilinx.com:interface:spi_rtl:1.0",
+        "port_maps": {
+          "IO0_I": {
+            "physical_name": "spi_rtl_io0_i",
+            "direction": "I"
+          },
+          "IO0_O": {
+            "physical_name": "spi_rtl_io0_o",
+            "direction": "O"
+          },
+          "IO0_T": {
+            "physical_name": "spi_rtl_io0_t",
+            "direction": "O"
+          },
+          "IO1_I": {
+            "physical_name": "spi_rtl_io1_i",
+            "direction": "I"
+          },
+          "IO1_O": {
+            "physical_name": "spi_rtl_io1_o",
+            "direction": "O"
+          },
+          "IO1_T": {
+            "physical_name": "spi_rtl_io1_t",
+            "direction": "O"
+          },
+          "SCK_I": {
+            "physical_name": "spi_rtl_sck_i",
+            "direction": "I"
+          },
+          "SCK_O": {
+            "physical_name": "spi_rtl_sck_o",
+            "direction": "O"
+          },
+          "SCK_T": {
+            "physical_name": "spi_rtl_sck_t",
+            "direction": "O"
+          },
+          "SPISEL": {
+            "physical_name": "spi_rtl_spisel",
+            "direction": "I"
+          },
+          "SS_I": {
+            "physical_name": "spi_rtl_ss_i",
+            "direction": "I"
+          },
+          "SS_O": {
+            "physical_name": "spi_rtl_ss_o",
+            "direction": "O"
+          },
+          "SS_T": {
+            "physical_name": "spi_rtl_ss_t",
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "ports": {
+      "clk_100MHz": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000"
+          }
+        }
+      },
+      "reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      }
+    },
+    "components": {
+      "axi_quad_spi_0": {
+        "vlnv": "xilinx.com:ip:axi_quad_spi:3.2",
+        "ip_revision": "28",
+        "xci_name": "mc_design_axi_quad_spi_0_0",
+        "xci_path": "ip\\mc_design_axi_quad_spi_0_0\\mc_design_axi_quad_spi_0_0.xci",
+        "inst_hier_path": "axi_quad_spi_0",
+        "parameters": {
+          "Master_mode": {
+            "value": "0"
+          },
+          "QSPI_BOARD_INTERFACE": {
+            "value": "Custom"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
+      },
+      "clk_wiz": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "ip_revision": "13",
+        "xci_name": "mc_design_clk_wiz_0",
+        "xci_path": "ip\\mc_design_clk_wiz_0\\mc_design_clk_wiz_0.xci",
+        "inst_hier_path": "clk_wiz",
+        "parameters": {
+          "RESET_BOARD_INTERFACE": {
+            "value": "reset"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
+      },
+      "axi_register_slice_0": {
+        "vlnv": "xilinx.com:ip:axi_register_slice:2.1",
+        "ip_revision": "29",
+        "xci_name": "mc_design_axi_register_slice_0_0",
+        "xci_path": "ip\\mc_design_axi_register_slice_0_0\\mc_design_axi_register_slice_0_0.xci",
+        "inst_hier_path": "axi_register_slice_0",
+        "interface_ports": {
+          "S_AXI": {
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Slave",
+            "bridges": [
+              "M_AXI"
+            ]
+          }
+        }
+      },
+      "rst_clk_wiz_100M": {
+        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+        "ip_revision": "14",
+        "xci_name": "mc_design_rst_clk_wiz_100M_0",
+        "xci_path": "ip\\mc_design_rst_clk_wiz_100M_0\\mc_design_rst_clk_wiz_100M_0.xci",
+        "inst_hier_path": "rst_clk_wiz_100M"
+      }
+    },
+    "interface_nets": {
+      "axi_quad_spi_0_SPI_0": {
+        "interface_ports": [
+          "spi_rtl",
+          "axi_quad_spi_0/SPI_0"
+        ]
+      },
+      "axi_register_slice_0_M_AXI": {
+        "interface_ports": [
+          "axi_quad_spi_0/AXI_LITE",
+          "axi_register_slice_0/M_AXI"
+        ]
+      }
+    },
+    "nets": {
+      "clk_100MHz_1": {
+        "ports": [
+          "clk_100MHz",
+          "clk_wiz/clk_in1"
+        ]
+      },
+      "clk_wiz_clk_out1": {
+        "ports": [
+          "clk_wiz/clk_out1",
+          "axi_quad_spi_0/ext_spi_clk",
+          "axi_quad_spi_0/s_axi_aclk",
+          "axi_register_slice_0/aclk",
+          "rst_clk_wiz_100M/slowest_sync_clk"
+        ]
+      },
+      "clk_wiz_locked": {
+        "ports": [
+          "clk_wiz/locked",
+          "rst_clk_wiz_100M/dcm_locked"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "clk_wiz/reset",
+          "rst_clk_wiz_100M/ext_reset_in"
+        ]
+      },
+      "rst_clk_wiz_100M_peripheral_aresetn": {
+        "ports": [
+          "rst_clk_wiz_100M/peripheral_aresetn",
+          "axi_quad_spi_0/s_axi_aresetn",
+          "axi_register_slice_0/aresetn"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,1034 @@
+Timing Analyzer report for PCI_SLAVE
+Mon Jun 25 17:28:01 2007
+Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'CLK'
+  6. tsu
+  7. tco
+  8. tpd
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                     ;
++------------------------------+-------+---------------+----------------------------------+-----------------------+--------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                  ; To                 ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+-----------------------+--------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 7.861 ns                         ; PCI_BEn[0]            ; addr_count[7]      ; --         ; CLK      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 23.963 ns                        ; base_ad[11]           ; PCI_AD[8]          ; CLK        ; --       ; 0            ;
+; Worst-case tpd               ; N/A   ; None          ; 18.929 ns                        ; DPRAM0_RW_DAT_READ[7] ; PCI_AD[7]          ; --         ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -0.370 ns                        ; PCI_IRDYn             ; state.read_dat_lsb ; --         ; CLK      ; 0            ;
+; Clock Setup: 'CLK'           ; N/A   ; None          ; 279.64 MHz ( period = 3.576 ns ) ; state.set_trdy        ; addr_count[7]      ; CLK        ; CLK      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                       ;                    ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+-----------------------+--------------------+------------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                ; Setting            ; From ; To ; Entity Name ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                           ; EP2C35F672C7       ;      ;    ;             ;
+; Timing Models                                         ; Final              ;      ;    ;             ;
+; Number of source nodes to report per destination node ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                 ; 10                 ;      ;    ;             ;
+; Number of paths to report                             ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                          ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                            ; Off                ;      ;    ;             ;
+; Default hold multicycle                               ; Same As Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains             ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                        ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                      ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                 ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements               ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                      ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                  ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                         ; Off                ;      ;    ;             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLK             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLK'                                                                                                                                                                                                                                    ;
++-----------------------------------------+-----------------------------------------------------+---------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                ; To                  ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+---------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 279.64 MHz ( period = 3.576 ns )                    ; state.set_trdy      ; addr_count[7]       ; CLK        ; CLK      ; None                        ; None                      ; 3.337 ns                ;
+; N/A                                     ; 286.04 MHz ( period = 3.496 ns )                    ; state.set_trdy      ; addr_count[6]       ; CLK        ; CLK      ; None                        ; None                      ; 3.257 ns                ;
+; N/A                                     ; 292.57 MHz ( period = 3.418 ns )                    ; dpram_addr_count[0] ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 3.180 ns                ;
+; N/A                                     ; 294.81 MHz ( period = 3.392 ns )                    ; base_ad[8]          ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 3.152 ns                ;
+; N/A                                     ; 294.81 MHz ( period = 3.392 ns )                    ; base_ad[8]          ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 3.152 ns                ;
+; N/A                                     ; 294.81 MHz ( period = 3.392 ns )                    ; base_ad[8]          ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 3.152 ns                ;
+; N/A                                     ; 294.81 MHz ( period = 3.392 ns )                    ; base_ad[8]          ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 3.152 ns                ;
+; N/A                                     ; 294.81 MHz ( period = 3.392 ns )                    ; base_ad[8]          ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 3.152 ns                ;
+; N/A                                     ; 294.81 MHz ( period = 3.392 ns )                    ; base_ad[8]          ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 3.152 ns                ;
+; N/A                                     ; 294.81 MHz ( period = 3.392 ns )                    ; base_ad[8]          ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 3.152 ns                ;
+; N/A                                     ; 294.81 MHz ( period = 3.392 ns )                    ; base_ad[8]          ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 3.152 ns                ;
+; N/A                                     ; 294.81 MHz ( period = 3.392 ns )                    ; base_ad[8]          ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 3.152 ns                ;
+; N/A                                     ; 295.68 MHz ( period = 3.382 ns )                    ; state.set_trdy      ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 3.144 ns                ;
+; N/A                                     ; 295.68 MHz ( period = 3.382 ns )                    ; state.set_trdy      ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 3.144 ns                ;
+; N/A                                     ; 295.68 MHz ( period = 3.382 ns )                    ; state.set_trdy      ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 3.144 ns                ;
+; N/A                                     ; 295.68 MHz ( period = 3.382 ns )                    ; state.set_trdy      ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 3.144 ns                ;
+; N/A                                     ; 295.68 MHz ( period = 3.382 ns )                    ; state.set_trdy      ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 3.144 ns                ;
+; N/A                                     ; 295.68 MHz ( period = 3.382 ns )                    ; state.set_trdy      ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 3.144 ns                ;
+; N/A                                     ; 295.68 MHz ( period = 3.382 ns )                    ; state.set_trdy      ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 3.144 ns                ;
+; N/A                                     ; 295.68 MHz ( period = 3.382 ns )                    ; state.set_trdy      ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 3.144 ns                ;
+; N/A                                     ; 295.68 MHz ( period = 3.382 ns )                    ; state.set_trdy      ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 3.144 ns                ;
+; N/A                                     ; 297.27 MHz ( period = 3.364 ns )                    ; base_ad[11]         ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 3.125 ns                ;
+; N/A                                     ; 297.27 MHz ( period = 3.364 ns )                    ; base_ad[11]         ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 3.125 ns                ;
+; N/A                                     ; 297.27 MHz ( period = 3.364 ns )                    ; base_ad[11]         ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 3.125 ns                ;
+; N/A                                     ; 297.27 MHz ( period = 3.364 ns )                    ; base_ad[11]         ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 3.125 ns                ;
+; N/A                                     ; 297.27 MHz ( period = 3.364 ns )                    ; base_ad[11]         ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 3.125 ns                ;
+; N/A                                     ; 297.27 MHz ( period = 3.364 ns )                    ; base_ad[11]         ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 3.125 ns                ;
+; N/A                                     ; 297.27 MHz ( period = 3.364 ns )                    ; base_ad[11]         ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 3.125 ns                ;
+; N/A                                     ; 297.27 MHz ( period = 3.364 ns )                    ; base_ad[11]         ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 3.125 ns                ;
+; N/A                                     ; 297.27 MHz ( period = 3.364 ns )                    ; base_ad[11]         ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 3.125 ns                ;
+; N/A                                     ; 298.51 MHz ( period = 3.350 ns )                    ; base_ad[10]         ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 3.111 ns                ;
+; N/A                                     ; 298.51 MHz ( period = 3.350 ns )                    ; base_ad[10]         ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 3.111 ns                ;
+; N/A                                     ; 298.51 MHz ( period = 3.350 ns )                    ; base_ad[10]         ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 3.111 ns                ;
+; N/A                                     ; 298.51 MHz ( period = 3.350 ns )                    ; base_ad[10]         ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 3.111 ns                ;
+; N/A                                     ; 298.51 MHz ( period = 3.350 ns )                    ; base_ad[10]         ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 3.111 ns                ;
+; N/A                                     ; 298.51 MHz ( period = 3.350 ns )                    ; base_ad[10]         ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 3.111 ns                ;
+; N/A                                     ; 298.51 MHz ( period = 3.350 ns )                    ; base_ad[10]         ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 3.111 ns                ;
+; N/A                                     ; 298.51 MHz ( period = 3.350 ns )                    ; base_ad[10]         ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 3.111 ns                ;
+; N/A                                     ; 298.51 MHz ( period = 3.350 ns )                    ; base_ad[10]         ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 3.111 ns                ;
+; N/A                                     ; 299.58 MHz ( period = 3.338 ns )                    ; dpram_addr_count[0] ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 3.100 ns                ;
+; N/A                                     ; 300.48 MHz ( period = 3.328 ns )                    ; state.deselect      ; addr_count[7]       ; CLK        ; CLK      ; None                        ; None                      ; 3.089 ns                ;
+; N/A                                     ; 301.02 MHz ( period = 3.322 ns )                    ; state.set_trdy      ; addr_count[5]       ; CLK        ; CLK      ; None                        ; None                      ; 3.083 ns                ;
+; N/A                                     ; 303.49 MHz ( period = 3.295 ns )                    ; state.write_dat_lsb ; addr_count[7]       ; CLK        ; CLK      ; None                        ; None                      ; 3.055 ns                ;
+; N/A                                     ; 306.94 MHz ( period = 3.258 ns )                    ; dpram_addr_count[0] ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 3.020 ns                ;
+; N/A                                     ; 307.88 MHz ( period = 3.248 ns )                    ; state.deselect      ; addr_count[6]       ; CLK        ; CLK      ; None                        ; None                      ; 3.009 ns                ;
+; N/A                                     ; 308.45 MHz ( period = 3.242 ns )                    ; state.set_trdy      ; addr_count[4]       ; CLK        ; CLK      ; None                        ; None                      ; 3.003 ns                ;
+; N/A                                     ; 308.74 MHz ( period = 3.239 ns )                    ; state.idle          ; addr_count[7]       ; CLK        ; CLK      ; None                        ; None                      ; 3.000 ns                ;
+; N/A                                     ; 309.89 MHz ( period = 3.227 ns )                    ; state.write_dat_lsb ; state.deselect      ; CLK        ; CLK      ; None                        ; None                      ; 2.987 ns                ;
+; N/A                                     ; 311.04 MHz ( period = 3.215 ns )                    ; state.write_dat_lsb ; addr_count[6]       ; CLK        ; CLK      ; None                        ; None                      ; 2.975 ns                ;
+; N/A                                     ; 312.40 MHz ( period = 3.201 ns )                    ; state.idle          ; state.read_dat_msb  ; CLK        ; CLK      ; None                        ; None                      ; 2.963 ns                ;
+; N/A                                     ; 316.26 MHz ( period = 3.162 ns )                    ; state.set_trdy      ; addr_count[3]       ; CLK        ; CLK      ; None                        ; None                      ; 2.923 ns                ;
+; N/A                                     ; 316.56 MHz ( period = 3.159 ns )                    ; state.idle          ; addr_count[6]       ; CLK        ; CLK      ; None                        ; None                      ; 2.920 ns                ;
+; N/A                                     ; 319.08 MHz ( period = 3.134 ns )                    ; state.deselect      ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 2.896 ns                ;
+; N/A                                     ; 319.08 MHz ( period = 3.134 ns )                    ; state.deselect      ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 2.896 ns                ;
+; N/A                                     ; 319.08 MHz ( period = 3.134 ns )                    ; state.deselect      ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 2.896 ns                ;
+; N/A                                     ; 319.08 MHz ( period = 3.134 ns )                    ; state.deselect      ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 2.896 ns                ;
+; N/A                                     ; 319.08 MHz ( period = 3.134 ns )                    ; state.deselect      ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 2.896 ns                ;
+; N/A                                     ; 319.08 MHz ( period = 3.134 ns )                    ; state.deselect      ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 2.896 ns                ;
+; N/A                                     ; 319.08 MHz ( period = 3.134 ns )                    ; state.deselect      ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 2.896 ns                ;
+; N/A                                     ; 319.08 MHz ( period = 3.134 ns )                    ; state.deselect      ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 2.896 ns                ;
+; N/A                                     ; 319.08 MHz ( period = 3.134 ns )                    ; state.deselect      ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 2.896 ns                ;
+; N/A                                     ; 319.59 MHz ( period = 3.129 ns )                    ; state.read_dat_lsb  ; addr_count[7]       ; CLK        ; CLK      ; None                        ; None                      ; 2.889 ns                ;
+; N/A                                     ; 322.48 MHz ( period = 3.101 ns )                    ; state.write_dat_lsb ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 2.862 ns                ;
+; N/A                                     ; 322.48 MHz ( period = 3.101 ns )                    ; state.write_dat_lsb ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 2.862 ns                ;
+; N/A                                     ; 322.48 MHz ( period = 3.101 ns )                    ; state.write_dat_lsb ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 2.862 ns                ;
+; N/A                                     ; 322.48 MHz ( period = 3.101 ns )                    ; state.write_dat_lsb ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 2.862 ns                ;
+; N/A                                     ; 322.48 MHz ( period = 3.101 ns )                    ; state.write_dat_lsb ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 2.862 ns                ;
+; N/A                                     ; 322.48 MHz ( period = 3.101 ns )                    ; state.write_dat_lsb ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 2.862 ns                ;
+; N/A                                     ; 322.48 MHz ( period = 3.101 ns )                    ; state.write_dat_lsb ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 2.862 ns                ;
+; N/A                                     ; 322.48 MHz ( period = 3.101 ns )                    ; state.write_dat_lsb ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 2.862 ns                ;
+; N/A                                     ; 322.48 MHz ( period = 3.101 ns )                    ; state.write_dat_lsb ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 2.862 ns                ;
+; N/A                                     ; 324.25 MHz ( period = 3.084 ns )                    ; dpram_addr_count[0] ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 2.846 ns                ;
+; N/A                                     ; 324.46 MHz ( period = 3.082 ns )                    ; state.set_trdy      ; addr_count[2]       ; CLK        ; CLK      ; None                        ; None                      ; 2.843 ns                ;
+; N/A                                     ; 325.31 MHz ( period = 3.074 ns )                    ; state.deselect      ; addr_count[5]       ; CLK        ; CLK      ; None                        ; None                      ; 2.835 ns                ;
+; N/A                                     ; 326.37 MHz ( period = 3.064 ns )                    ; base_ad[13]         ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 2.825 ns                ;
+; N/A                                     ; 326.37 MHz ( period = 3.064 ns )                    ; base_ad[13]         ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 2.825 ns                ;
+; N/A                                     ; 326.37 MHz ( period = 3.064 ns )                    ; base_ad[13]         ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 2.825 ns                ;
+; N/A                                     ; 326.37 MHz ( period = 3.064 ns )                    ; base_ad[13]         ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 2.825 ns                ;
+; N/A                                     ; 326.37 MHz ( period = 3.064 ns )                    ; base_ad[13]         ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 2.825 ns                ;
+; N/A                                     ; 326.37 MHz ( period = 3.064 ns )                    ; base_ad[13]         ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 2.825 ns                ;
+; N/A                                     ; 326.37 MHz ( period = 3.064 ns )                    ; base_ad[13]         ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 2.825 ns                ;
+; N/A                                     ; 326.37 MHz ( period = 3.064 ns )                    ; base_ad[13]         ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 2.825 ns                ;
+; N/A                                     ; 326.37 MHz ( period = 3.064 ns )                    ; base_ad[13]         ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 2.825 ns                ;
+; N/A                                     ; 327.98 MHz ( period = 3.049 ns )                    ; state.read_dat_lsb  ; addr_count[6]       ; CLK        ; CLK      ; None                        ; None                      ; 2.809 ns                ;
+; N/A                                     ; 328.41 MHz ( period = 3.045 ns )                    ; state.idle          ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 2.807 ns                ;
+; N/A                                     ; 328.41 MHz ( period = 3.045 ns )                    ; state.idle          ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 2.807 ns                ;
+; N/A                                     ; 328.41 MHz ( period = 3.045 ns )                    ; state.idle          ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 2.807 ns                ;
+; N/A                                     ; 328.41 MHz ( period = 3.045 ns )                    ; state.idle          ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 2.807 ns                ;
+; N/A                                     ; 328.41 MHz ( period = 3.045 ns )                    ; state.idle          ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 2.807 ns                ;
+; N/A                                     ; 328.41 MHz ( period = 3.045 ns )                    ; state.idle          ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 2.807 ns                ;
+; N/A                                     ; 328.41 MHz ( period = 3.045 ns )                    ; state.idle          ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 2.807 ns                ;
+; N/A                                     ; 328.41 MHz ( period = 3.045 ns )                    ; state.idle          ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 2.807 ns                ;
+; N/A                                     ; 328.41 MHz ( period = 3.045 ns )                    ; state.idle          ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 2.807 ns                ;
+; N/A                                     ; 328.84 MHz ( period = 3.041 ns )                    ; state.write_dat_lsb ; addr_count[5]       ; CLK        ; CLK      ; None                        ; None                      ; 2.801 ns                ;
+; N/A                                     ; 330.03 MHz ( period = 3.030 ns )                    ; state.idle          ; state.set_trdy      ; CLK        ; CLK      ; None                        ; None                      ; 2.791 ns                ;
+; N/A                                     ; 332.89 MHz ( period = 3.004 ns )                    ; dpram_addr_count[0] ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 2.766 ns                ;
+; N/A                                     ; 333.11 MHz ( period = 3.002 ns )                    ; state.set_trdy      ; addr_count[1]       ; CLK        ; CLK      ; None                        ; None                      ; 2.763 ns                ;
+; N/A                                     ; 334.00 MHz ( period = 2.994 ns )                    ; state.deselect      ; addr_count[4]       ; CLK        ; CLK      ; None                        ; None                      ; 2.755 ns                ;
+; N/A                                     ; 335.01 MHz ( period = 2.985 ns )                    ; state.idle          ; addr_count[5]       ; CLK        ; CLK      ; None                        ; None                      ; 2.746 ns                ;
+; N/A                                     ; 335.35 MHz ( period = 2.982 ns )                    ; state.read_dat_lsb  ; state.deselect      ; CLK        ; CLK      ; None                        ; None                      ; 2.742 ns                ;
+; N/A                                     ; 337.50 MHz ( period = 2.963 ns )                    ; state.deselect      ; state.read_dat_msb  ; CLK        ; CLK      ; None                        ; None                      ; 2.725 ns                ;
+; N/A                                     ; 337.72 MHz ( period = 2.961 ns )                    ; state.write_dat_lsb ; addr_count[4]       ; CLK        ; CLK      ; None                        ; None                      ; 2.721 ns                ;
+; N/A                                     ; 340.72 MHz ( period = 2.935 ns )                    ; state.read_dat_lsb  ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 2.696 ns                ;
+; N/A                                     ; 340.72 MHz ( period = 2.935 ns )                    ; state.read_dat_lsb  ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 2.696 ns                ;
+; N/A                                     ; 340.72 MHz ( period = 2.935 ns )                    ; state.read_dat_lsb  ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 2.696 ns                ;
+; N/A                                     ; 340.72 MHz ( period = 2.935 ns )                    ; state.read_dat_lsb  ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 2.696 ns                ;
+; N/A                                     ; 340.72 MHz ( period = 2.935 ns )                    ; state.read_dat_lsb  ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 2.696 ns                ;
+; N/A                                     ; 340.72 MHz ( period = 2.935 ns )                    ; state.read_dat_lsb  ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 2.696 ns                ;
+; N/A                                     ; 340.72 MHz ( period = 2.935 ns )                    ; state.read_dat_lsb  ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 2.696 ns                ;
+; N/A                                     ; 340.72 MHz ( period = 2.935 ns )                    ; state.read_dat_lsb  ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 2.696 ns                ;
+; N/A                                     ; 340.72 MHz ( period = 2.935 ns )                    ; state.read_dat_lsb  ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 2.696 ns                ;
+; N/A                                     ; 342.00 MHz ( period = 2.924 ns )                    ; dpram_addr_count[0] ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 2.686 ns                ;
+; N/A                                     ; 343.17 MHz ( period = 2.914 ns )                    ; state.deselect      ; addr_count[3]       ; CLK        ; CLK      ; None                        ; None                      ; 2.675 ns                ;
+; N/A                                     ; 344.23 MHz ( period = 2.905 ns )                    ; state.idle          ; addr_count[4]       ; CLK        ; CLK      ; None                        ; None                      ; 2.666 ns                ;
+; N/A                                     ; 345.54 MHz ( period = 2.894 ns )                    ; base_ad[12]         ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 345.54 MHz ( period = 2.894 ns )                    ; base_ad[12]         ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 345.54 MHz ( period = 2.894 ns )                    ; base_ad[12]         ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 345.54 MHz ( period = 2.894 ns )                    ; base_ad[12]         ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 345.54 MHz ( period = 2.894 ns )                    ; base_ad[12]         ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 345.54 MHz ( period = 2.894 ns )                    ; base_ad[12]         ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 345.54 MHz ( period = 2.894 ns )                    ; base_ad[12]         ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 345.54 MHz ( period = 2.894 ns )                    ; base_ad[12]         ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 345.54 MHz ( period = 2.894 ns )                    ; base_ad[12]         ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 2.655 ns                ;
+; N/A                                     ; 347.10 MHz ( period = 2.881 ns )                    ; state.write_dat_lsb ; addr_count[3]       ; CLK        ; CLK      ; None                        ; None                      ; 2.641 ns                ;
+; N/A                                     ; 347.83 MHz ( period = 2.875 ns )                    ; state.read_dat_lsb  ; addr_count[5]       ; CLK        ; CLK      ; None                        ; None                      ; 2.635 ns                ;
+; N/A                                     ; 351.62 MHz ( period = 2.844 ns )                    ; dpram_addr_count[0] ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 2.606 ns                ;
+; N/A                                     ; 352.61 MHz ( period = 2.836 ns )                    ; base_ad[15]         ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 2.597 ns                ;
+; N/A                                     ; 352.61 MHz ( period = 2.836 ns )                    ; base_ad[15]         ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 2.597 ns                ;
+; N/A                                     ; 352.61 MHz ( period = 2.836 ns )                    ; base_ad[15]         ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 2.597 ns                ;
+; N/A                                     ; 352.61 MHz ( period = 2.836 ns )                    ; base_ad[15]         ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 2.597 ns                ;
+; N/A                                     ; 352.61 MHz ( period = 2.836 ns )                    ; base_ad[15]         ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 2.597 ns                ;
+; N/A                                     ; 352.61 MHz ( period = 2.836 ns )                    ; base_ad[15]         ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 2.597 ns                ;
+; N/A                                     ; 352.61 MHz ( period = 2.836 ns )                    ; base_ad[15]         ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 2.597 ns                ;
+; N/A                                     ; 352.61 MHz ( period = 2.836 ns )                    ; base_ad[15]         ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 2.597 ns                ;
+; N/A                                     ; 352.61 MHz ( period = 2.836 ns )                    ; base_ad[15]         ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 2.597 ns                ;
+; N/A                                     ; 352.86 MHz ( period = 2.834 ns )                    ; state.deselect      ; addr_count[2]       ; CLK        ; CLK      ; None                        ; None                      ; 2.595 ns                ;
+; N/A                                     ; 353.98 MHz ( period = 2.825 ns )                    ; state.idle          ; addr_count[3]       ; CLK        ; CLK      ; None                        ; None                      ; 2.586 ns                ;
+; N/A                                     ; 357.02 MHz ( period = 2.801 ns )                    ; state.write_dat_lsb ; addr_count[2]       ; CLK        ; CLK      ; None                        ; None                      ; 2.561 ns                ;
+; N/A                                     ; 357.78 MHz ( period = 2.795 ns )                    ; state.read_dat_lsb  ; addr_count[4]       ; CLK        ; CLK      ; None                        ; None                      ; 2.555 ns                ;
+; N/A                                     ; 361.79 MHz ( period = 2.764 ns )                    ; dpram_addr_count[0] ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 2.526 ns                ;
+; N/A                                     ; 363.11 MHz ( period = 2.754 ns )                    ; state.deselect      ; addr_count[1]       ; CLK        ; CLK      ; None                        ; None                      ; 2.515 ns                ;
+; N/A                                     ; 364.30 MHz ( period = 2.745 ns )                    ; state.idle          ; addr_count[2]       ; CLK        ; CLK      ; None                        ; None                      ; 2.506 ns                ;
+; N/A                                     ; 367.51 MHz ( period = 2.721 ns )                    ; state.write_dat_lsb ; addr_count[1]       ; CLK        ; CLK      ; None                        ; None                      ; 2.481 ns                ;
+; N/A                                     ; 368.32 MHz ( period = 2.715 ns )                    ; state.read_dat_lsb  ; addr_count[3]       ; CLK        ; CLK      ; None                        ; None                      ; 2.475 ns                ;
+; N/A                                     ; 370.92 MHz ( period = 2.696 ns )                    ; state.idle          ; state.write_dat_msb ; CLK        ; CLK      ; None                        ; None                      ; 2.458 ns                ;
+; N/A                                     ; 375.23 MHz ( period = 2.665 ns )                    ; state.idle          ; addr_count[1]       ; CLK        ; CLK      ; None                        ; None                      ; 2.426 ns                ;
+; N/A                                     ; 379.51 MHz ( period = 2.635 ns )                    ; state.read_dat_lsb  ; addr_count[2]       ; CLK        ; CLK      ; None                        ; None                      ; 2.395 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[3]       ; addr_count[7]       ; CLK        ; CLK      ; None                        ; None                      ; 2.351 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.set_trdy      ; dpram_addr_count[0] ; CLK        ; CLK      ; None                        ; None                      ; 2.336 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.set_trdy      ; addr_count[0]       ; CLK        ; CLK      ; None                        ; None                      ; 2.331 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.read_dat_lsb  ; addr_count[1]       ; CLK        ; CLK      ; None                        ; None                      ; 2.315 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[3]       ; addr_count[6]       ; CLK        ; CLK      ; None                        ; None                      ; 2.271 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[0]       ; addr_count[7]       ; CLK        ; CLK      ; None                        ; None                      ; 2.256 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[2] ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 2.220 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[14]         ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 2.177 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[14]         ; dpram_addr_count[2] ; CLK        ; CLK      ; None                        ; None                      ; 2.177 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[14]         ; dpram_addr_count[3] ; CLK        ; CLK      ; None                        ; None                      ; 2.177 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[14]         ; dpram_addr_count[4] ; CLK        ; CLK      ; None                        ; None                      ; 2.177 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[14]         ; dpram_addr_count[5] ; CLK        ; CLK      ; None                        ; None                      ; 2.177 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[14]         ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 2.177 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[14]         ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 2.177 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[14]         ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 2.177 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[14]         ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 2.177 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[0]       ; addr_count[6]       ; CLK        ; CLK      ; None                        ; None                      ; 2.176 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[8]          ; dpram_addr_count[0] ; CLK        ; CLK      ; None                        ; None                      ; 2.161 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[2] ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 2.140 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[11]         ; dpram_addr_count[0] ; CLK        ; CLK      ; None                        ; None                      ; 2.134 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.set_trdy      ; state.read_dat_msb  ; CLK        ; CLK      ; None                        ; None                      ; 2.128 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; base_ad[10]         ; dpram_addr_count[0] ; CLK        ; CLK      ; None                        ; None                      ; 2.120 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[5]       ; addr_count[7]       ; CLK        ; CLK      ; None                        ; None                      ; 2.113 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[3]       ; addr_count[5]       ; CLK        ; CLK      ; None                        ; None                      ; 2.097 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[2]       ; addr_count[7]       ; CLK        ; CLK      ; None                        ; None                      ; 2.096 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[0] ; dpram_addr_count[1] ; CLK        ; CLK      ; None                        ; None                      ; 2.095 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.deselect      ; dpram_addr_count[0] ; CLK        ; CLK      ; None                        ; None                      ; 2.088 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.deselect      ; addr_count[0]       ; CLK        ; CLK      ; None                        ; None                      ; 2.083 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[1] ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 2.071 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[2] ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 2.060 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[4] ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 2.057 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.write_dat_lsb ; dpram_addr_count[0] ; CLK        ; CLK      ; None                        ; None                      ; 2.054 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.write_dat_lsb ; addr_count[0]       ; CLK        ; CLK      ; None                        ; None                      ; 2.049 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.set_trdy      ; state.write_dat_lsb ; CLK        ; CLK      ; None                        ; None                      ; 2.041 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[5]       ; addr_count[6]       ; CLK        ; CLK      ; None                        ; None                      ; 2.033 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[3]       ; addr_count[4]       ; CLK        ; CLK      ; None                        ; None                      ; 2.017 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[2]       ; addr_count[6]       ; CLK        ; CLK      ; None                        ; None                      ; 2.016 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[0]       ; addr_count[5]       ; CLK        ; CLK      ; None                        ; None                      ; 2.002 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.idle          ; dpram_addr_count[0] ; CLK        ; CLK      ; None                        ; None                      ; 1.999 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.idle          ; addr_count[0]       ; CLK        ; CLK      ; None                        ; None                      ; 1.994 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[1] ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 1.991 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[4] ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 1.977 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[5] ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 1.970 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[1]       ; addr_count[7]       ; CLK        ; CLK      ; None                        ; None                      ; 1.947 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; addr_count[0]       ; addr_count[4]       ; CLK        ; CLK      ; None                        ; None                      ; 1.922 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[3] ; dpram_addr_count[9] ; CLK        ; CLK      ; None                        ; None                      ; 1.912 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[1] ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 1.911 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.read_dat_msb  ; state.deselect      ; CLK        ; CLK      ; None                        ; None                      ; 1.903 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[4] ; dpram_addr_count[7] ; CLK        ; CLK      ; None                        ; None                      ; 1.897 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[5] ; dpram_addr_count[8] ; CLK        ; CLK      ; None                        ; None                      ; 1.890 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.read_dat_lsb  ; dpram_addr_count[0] ; CLK        ; CLK      ; None                        ; None                      ; 1.888 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; dpram_addr_count[2] ; dpram_addr_count[6] ; CLK        ; CLK      ; None                        ; None                      ; 1.886 ns                ;
+; N/A                                     ; Restricted to 380.08 MHz ( period = 2.631 ns )      ; state.read_dat_lsb  ; addr_count[0]       ; CLK        ; CLK      ; None                        ; None                      ; 1.883 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                     ;                     ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+---------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------+
+; tsu                                                                             ;
++-------+--------------+------------+------------+---------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From       ; To                  ; To Clock ;
++-------+--------------+------------+------------+---------------------+----------+
+; N/A   ; None         ; 7.861 ns   ; PCI_BEn[0] ; addr_count[7]       ; CLK      ;
+; N/A   ; None         ; 7.781 ns   ; PCI_BEn[0] ; addr_count[6]       ; CLK      ;
+; N/A   ; None         ; 7.667 ns   ; PCI_BEn[0] ; dpram_addr_count[1] ; CLK      ;
+; N/A   ; None         ; 7.667 ns   ; PCI_BEn[0] ; dpram_addr_count[2] ; CLK      ;
+; N/A   ; None         ; 7.667 ns   ; PCI_BEn[0] ; dpram_addr_count[3] ; CLK      ;
+; N/A   ; None         ; 7.667 ns   ; PCI_BEn[0] ; dpram_addr_count[4] ; CLK      ;
+; N/A   ; None         ; 7.667 ns   ; PCI_BEn[0] ; dpram_addr_count[5] ; CLK      ;
+; N/A   ; None         ; 7.667 ns   ; PCI_BEn[0] ; dpram_addr_count[6] ; CLK      ;
+; N/A   ; None         ; 7.667 ns   ; PCI_BEn[0] ; dpram_addr_count[7] ; CLK      ;
+; N/A   ; None         ; 7.667 ns   ; PCI_BEn[0] ; dpram_addr_count[8] ; CLK      ;
+; N/A   ; None         ; 7.667 ns   ; PCI_BEn[0] ; dpram_addr_count[9] ; CLK      ;
+; N/A   ; None         ; 7.607 ns   ; PCI_BEn[0] ; addr_count[5]       ; CLK      ;
+; N/A   ; None         ; 7.527 ns   ; PCI_BEn[0] ; addr_count[4]       ; CLK      ;
+; N/A   ; None         ; 7.447 ns   ; PCI_BEn[0] ; addr_count[3]       ; CLK      ;
+; N/A   ; None         ; 7.367 ns   ; PCI_BEn[0] ; addr_count[2]       ; CLK      ;
+; N/A   ; None         ; 7.287 ns   ; PCI_BEn[0] ; addr_count[1]       ; CLK      ;
+; N/A   ; None         ; 6.860 ns   ; PCI_BEn[0] ; dpram_addr_count[0] ; CLK      ;
+; N/A   ; None         ; 6.855 ns   ; PCI_BEn[0] ; addr_count[0]       ; CLK      ;
+; N/A   ; None         ; 6.045 ns   ; PCI_AD[4]  ; addr_count[4]       ; CLK      ;
+; N/A   ; None         ; 5.865 ns   ; PCI_BEn[0] ; state.write_dat_msb ; CLK      ;
+; N/A   ; None         ; 5.832 ns   ; PCI_AD[7]  ; base_ad[7]          ; CLK      ;
+; N/A   ; None         ; 5.798 ns   ; PCI_AD[15] ; base_ad[15]         ; CLK      ;
+; N/A   ; None         ; 5.668 ns   ; PCI_FRAMEn ; state.deselect      ; CLK      ;
+; N/A   ; None         ; 5.608 ns   ; PCI_BEn[1] ; state.deselect      ; CLK      ;
+; N/A   ; None         ; 5.583 ns   ; PCI_AD[7]  ; addr_count[7]       ; CLK      ;
+; N/A   ; None         ; 5.553 ns   ; PCI_BEn[1] ; state.set_trdy      ; CLK      ;
+; N/A   ; None         ; 5.529 ns   ; PCI_BEn[0] ; state.deselect      ; CLK      ;
+; N/A   ; None         ; 5.431 ns   ; PCI_AD[15] ; dat_MSB[15]         ; CLK      ;
+; N/A   ; None         ; 5.249 ns   ; PCI_AD[5]  ; addr_count[5]       ; CLK      ;
+; N/A   ; None         ; 5.186 ns   ; PCI_AD[14] ; base_ad[14]         ; CLK      ;
+; N/A   ; None         ; 5.137 ns   ; PCI_AD[8]  ; dat_MSB[8]          ; CLK      ;
+; N/A   ; None         ; 5.134 ns   ; PCI_AD[8]  ; base_ad[8]          ; CLK      ;
+; N/A   ; None         ; 5.117 ns   ; PCI_AD[6]  ; addr_count[6]       ; CLK      ;
+; N/A   ; None         ; 5.117 ns   ; PCI_AD[2]  ; addr_count[2]       ; CLK      ;
+; N/A   ; None         ; 5.103 ns   ; PCI_AD[10] ; base_ad[10]         ; CLK      ;
+; N/A   ; None         ; 5.073 ns   ; PCI_AD[9]  ; base_ad[9]          ; CLK      ;
+; N/A   ; None         ; 5.069 ns   ; PCI_AD[12] ; base_ad[12]         ; CLK      ;
+; N/A   ; None         ; 5.068 ns   ; PCI_BEn[0] ; state.read_dat_msb  ; CLK      ;
+; N/A   ; None         ; 5.047 ns   ; PCI_BEn[1] ; state.read_dat_msb  ; CLK      ;
+; N/A   ; None         ; 5.018 ns   ; PCI_AD[5]  ; dat_MSB[5]          ; CLK      ;
+; N/A   ; None         ; 5.006 ns   ; PCI_FRAMEn ; state.read_dat_msb  ; CLK      ;
+; N/A   ; None         ; 4.997 ns   ; PCI_BEn[1] ; state.write_dat_lsb ; CLK      ;
+; N/A   ; None         ; 4.993 ns   ; PCI_BEn[1] ; state.write_dat_msb ; CLK      ;
+; N/A   ; None         ; 4.963 ns   ; PCI_AD[3]  ; dat_MSB[3]          ; CLK      ;
+; N/A   ; None         ; 4.959 ns   ; PCI_FRAMEn ; state.write_dat_lsb ; CLK      ;
+; N/A   ; None         ; 4.938 ns   ; PCI_AD[0]  ; dat_MSB[0]          ; CLK      ;
+; N/A   ; None         ; 4.757 ns   ; PCI_AD[2]  ; dat_MSB[2]          ; CLK      ;
+; N/A   ; None         ; 4.682 ns   ; PCI_BEn[0] ; state.write_dat_lsb ; CLK      ;
+; N/A   ; None         ; 4.642 ns   ; PCI_AD[13] ; dat_MSB[13]         ; CLK      ;
+; N/A   ; None         ; 4.590 ns   ; PCI_AD[7]  ; dat_MSB[7]          ; CLK      ;
+; N/A   ; None         ; 4.528 ns   ; PCI_IRDYn  ; addr_count[7]       ; CLK      ;
+; N/A   ; None         ; 4.448 ns   ; PCI_IRDYn  ; addr_count[6]       ; CLK      ;
+; N/A   ; None         ; 4.408 ns   ; PCI_AD[6]  ; dat_MSB[6]          ; CLK      ;
+; N/A   ; None         ; 4.388 ns   ; PCI_AD[3]  ; addr_count[3]       ; CLK      ;
+; N/A   ; None         ; 4.334 ns   ; PCI_IRDYn  ; dpram_addr_count[1] ; CLK      ;
+; N/A   ; None         ; 4.334 ns   ; PCI_IRDYn  ; dpram_addr_count[2] ; CLK      ;
+; N/A   ; None         ; 4.334 ns   ; PCI_IRDYn  ; dpram_addr_count[3] ; CLK      ;
+; N/A   ; None         ; 4.334 ns   ; PCI_IRDYn  ; dpram_addr_count[4] ; CLK      ;
+; N/A   ; None         ; 4.334 ns   ; PCI_IRDYn  ; dpram_addr_count[5] ; CLK      ;
+; N/A   ; None         ; 4.334 ns   ; PCI_IRDYn  ; dpram_addr_count[6] ; CLK      ;
+; N/A   ; None         ; 4.334 ns   ; PCI_IRDYn  ; dpram_addr_count[7] ; CLK      ;
+; N/A   ; None         ; 4.334 ns   ; PCI_IRDYn  ; dpram_addr_count[8] ; CLK      ;
+; N/A   ; None         ; 4.334 ns   ; PCI_IRDYn  ; dpram_addr_count[9] ; CLK      ;
+; N/A   ; None         ; 4.333 ns   ; PCI_AD[10] ; dat_MSB[10]         ; CLK      ;
+; N/A   ; None         ; 4.274 ns   ; PCI_IRDYn  ; addr_count[5]       ; CLK      ;
+; N/A   ; None         ; 4.194 ns   ; PCI_IRDYn  ; addr_count[4]       ; CLK      ;
+; N/A   ; None         ; 4.182 ns   ; PCI_AD[14] ; dat_MSB[14]         ; CLK      ;
+; N/A   ; None         ; 4.162 ns   ; PCI_AD[1]  ; addr_count[1]       ; CLK      ;
+; N/A   ; None         ; 4.142 ns   ; PCI_BEn[0] ; state.set_trdy      ; CLK      ;
+; N/A   ; None         ; 4.120 ns   ; PCI_AD[0]  ; addr_count[0]       ; CLK      ;
+; N/A   ; None         ; 4.114 ns   ; PCI_IRDYn  ; addr_count[3]       ; CLK      ;
+; N/A   ; None         ; 4.085 ns   ; PCI_AD[11] ; dat_MSB[11]         ; CLK      ;
+; N/A   ; None         ; 4.056 ns   ; PCI_FRAMEn ; state.write_dat_msb ; CLK      ;
+; N/A   ; None         ; 4.055 ns   ; PCI_FRAMEn ; state.read_dat_lsb  ; CLK      ;
+; N/A   ; None         ; 4.034 ns   ; PCI_IRDYn  ; addr_count[2]       ; CLK      ;
+; N/A   ; None         ; 4.030 ns   ; PCI_AD[1]  ; dat_MSB[1]          ; CLK      ;
+; N/A   ; None         ; 4.003 ns   ; PCI_FRAMEn ; state.idle          ; CLK      ;
+; N/A   ; None         ; 3.954 ns   ; PCI_IRDYn  ; addr_count[1]       ; CLK      ;
+; N/A   ; None         ; 3.939 ns   ; PCI_FRAMEn ; state.set_trdy      ; CLK      ;
+; N/A   ; None         ; 3.905 ns   ; PCI_AD[13] ; base_ad[13]         ; CLK      ;
+; N/A   ; None         ; 3.891 ns   ; PCI_BEn[0] ; state.read_dat_lsb  ; CLK      ;
+; N/A   ; None         ; 3.853 ns   ; PCI_AD[11] ; base_ad[11]         ; CLK      ;
+; N/A   ; None         ; 3.771 ns   ; PCI_AD[4]  ; dat_MSB[4]          ; CLK      ;
+; N/A   ; None         ; 3.661 ns   ; PCI_BEn[0] ; state.idle          ; CLK      ;
+; N/A   ; None         ; 3.606 ns   ; PCI_AD[12] ; dat_MSB[12]         ; CLK      ;
+; N/A   ; None         ; 3.548 ns   ; PCI_AD[9]  ; dat_MSB[9]          ; CLK      ;
+; N/A   ; None         ; 3.527 ns   ; PCI_IRDYn  ; dpram_addr_count[0] ; CLK      ;
+; N/A   ; None         ; 3.522 ns   ; PCI_IRDYn  ; addr_count[0]       ; CLK      ;
+; N/A   ; None         ; 2.532 ns   ; PCI_IRDYn  ; state.write_dat_msb ; CLK      ;
+; N/A   ; None         ; 2.196 ns   ; PCI_IRDYn  ; state.deselect      ; CLK      ;
+; N/A   ; None         ; 2.046 ns   ; PCI_IRDYn  ; state.set_trdy      ; CLK      ;
+; N/A   ; None         ; 1.735 ns   ; PCI_IRDYn  ; state.read_dat_msb  ; CLK      ;
+; N/A   ; None         ; 1.433 ns   ; PCI_IRDYn  ; state.write_dat_lsb ; CLK      ;
+; N/A   ; None         ; 0.618 ns   ; PCI_IRDYn  ; state.read_dat_lsb  ; CLK      ;
++-------+--------------+------------+------------+---------------------+----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                                                              ;
++-----------------------------------------+-----------------------------------------------------+------------+--------------------+-------------------+------------+
+; Slack                                   ; Required tco                                        ; Actual tco ; From               ; To                ; From Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+--------------------+-------------------+------------+
+; N/A                                     ; None                                                ; 23.963 ns  ; base_ad[11]        ; PCI_AD[8]         ; CLK        ;
+; N/A                                     ; None                                                ; 23.949 ns  ; base_ad[10]        ; PCI_AD[8]         ; CLK        ;
+; N/A                                     ; None                                                ; 23.854 ns  ; base_ad[11]        ; PCI_AD[12]        ; CLK        ;
+; N/A                                     ; None                                                ; 23.840 ns  ; base_ad[10]        ; PCI_AD[12]        ; CLK        ;
+; N/A                                     ; None                                                ; 23.663 ns  ; base_ad[13]        ; PCI_AD[8]         ; CLK        ;
+; N/A                                     ; None                                                ; 23.554 ns  ; base_ad[13]        ; PCI_AD[12]        ; CLK        ;
+; N/A                                     ; None                                                ; 23.493 ns  ; base_ad[12]        ; PCI_AD[8]         ; CLK        ;
+; N/A                                     ; None                                                ; 23.384 ns  ; base_ad[12]        ; PCI_AD[12]        ; CLK        ;
+; N/A                                     ; None                                                ; 23.063 ns  ; base_ad[14]        ; PCI_AD[8]         ; CLK        ;
+; N/A                                     ; None                                                ; 22.954 ns  ; base_ad[14]        ; PCI_AD[12]        ; CLK        ;
+; N/A                                     ; None                                                ; 22.400 ns  ; base_ad[15]        ; PCI_AD[8]         ; CLK        ;
+; N/A                                     ; None                                                ; 22.291 ns  ; base_ad[15]        ; PCI_AD[12]        ; CLK        ;
+; N/A                                     ; None                                                ; 22.277 ns  ; base_ad[9]         ; PCI_AD[8]         ; CLK        ;
+; N/A                                     ; None                                                ; 22.168 ns  ; base_ad[9]         ; PCI_AD[12]        ; CLK        ;
+; N/A                                     ; None                                                ; 21.910 ns  ; base_ad[8]         ; PCI_AD[8]         ; CLK        ;
+; N/A                                     ; None                                                ; 21.801 ns  ; base_ad[8]         ; PCI_AD[12]        ; CLK        ;
+; N/A                                     ; None                                                ; 21.323 ns  ; base_ad[11]        ; PCI_AD[7]         ; CLK        ;
+; N/A                                     ; None                                                ; 21.309 ns  ; base_ad[10]        ; PCI_AD[7]         ; CLK        ;
+; N/A                                     ; None                                                ; 21.023 ns  ; base_ad[13]        ; PCI_AD[7]         ; CLK        ;
+; N/A                                     ; None                                                ; 20.853 ns  ; base_ad[12]        ; PCI_AD[7]         ; CLK        ;
+; N/A                                     ; None                                                ; 20.423 ns  ; base_ad[14]        ; PCI_AD[7]         ; CLK        ;
+; N/A                                     ; None                                                ; 19.854 ns  ; base_ad[11]        ; PCI_AD[9]         ; CLK        ;
+; N/A                                     ; None                                                ; 19.840 ns  ; base_ad[10]        ; PCI_AD[9]         ; CLK        ;
+; N/A                                     ; None                                                ; 19.760 ns  ; base_ad[15]        ; PCI_AD[7]         ; CLK        ;
+; N/A                                     ; None                                                ; 19.577 ns  ; base_ad[11]        ; PCI_AD[15]        ; CLK        ;
+; N/A                                     ; None                                                ; 19.563 ns  ; base_ad[10]        ; PCI_AD[15]        ; CLK        ;
+; N/A                                     ; None                                                ; 19.554 ns  ; base_ad[13]        ; PCI_AD[9]         ; CLK        ;
+; N/A                                     ; None                                                ; 19.447 ns  ; base_ad[11]        ; PCI_AD[10]        ; CLK        ;
+; N/A                                     ; None                                                ; 19.433 ns  ; base_ad[10]        ; PCI_AD[10]        ; CLK        ;
+; N/A                                     ; None                                                ; 19.384 ns  ; base_ad[12]        ; PCI_AD[9]         ; CLK        ;
+; N/A                                     ; None                                                ; 19.312 ns  ; base_ad[11]        ; PCI_AD[13]        ; CLK        ;
+; N/A                                     ; None                                                ; 19.298 ns  ; base_ad[10]        ; PCI_AD[13]        ; CLK        ;
+; N/A                                     ; None                                                ; 19.277 ns  ; base_ad[13]        ; PCI_AD[15]        ; CLK        ;
+; N/A                                     ; None                                                ; 19.188 ns  ; base_ad[11]        ; PCI_AD[4]         ; CLK        ;
+; N/A                                     ; None                                                ; 19.174 ns  ; base_ad[10]        ; PCI_AD[4]         ; CLK        ;
+; N/A                                     ; None                                                ; 19.147 ns  ; base_ad[13]        ; PCI_AD[10]        ; CLK        ;
+; N/A                                     ; None                                                ; 19.107 ns  ; base_ad[12]        ; PCI_AD[15]        ; CLK        ;
+; N/A                                     ; None                                                ; 19.012 ns  ; base_ad[13]        ; PCI_AD[13]        ; CLK        ;
+; N/A                                     ; None                                                ; 18.977 ns  ; base_ad[12]        ; PCI_AD[10]        ; CLK        ;
+; N/A                                     ; None                                                ; 18.954 ns  ; base_ad[14]        ; PCI_AD[9]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.888 ns  ; base_ad[13]        ; PCI_AD[4]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.842 ns  ; base_ad[12]        ; PCI_AD[13]        ; CLK        ;
+; N/A                                     ; None                                                ; 18.718 ns  ; base_ad[12]        ; PCI_AD[4]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.710 ns  ; base_ad[11]        ; PCI_AD[2]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.696 ns  ; base_ad[10]        ; PCI_AD[2]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.677 ns  ; base_ad[14]        ; PCI_AD[15]        ; CLK        ;
+; N/A                                     ; None                                                ; 18.557 ns  ; base_ad[9]         ; PCI_AD[7]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.547 ns  ; base_ad[14]        ; PCI_AD[10]        ; CLK        ;
+; N/A                                     ; None                                                ; 18.412 ns  ; base_ad[14]        ; PCI_AD[13]        ; CLK        ;
+; N/A                                     ; None                                                ; 18.410 ns  ; base_ad[13]        ; PCI_AD[2]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.393 ns  ; base_ad[8]         ; PCI_AD[7]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.291 ns  ; base_ad[15]        ; PCI_AD[9]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.288 ns  ; base_ad[14]        ; PCI_AD[4]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.247 ns  ; base_ad[7]         ; PCI_AD[12]        ; CLK        ;
+; N/A                                     ; None                                                ; 18.240 ns  ; base_ad[12]        ; PCI_AD[2]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.168 ns  ; base_ad[9]         ; PCI_AD[9]         ; CLK        ;
+; N/A                                     ; None                                                ; 18.014 ns  ; base_ad[15]        ; PCI_AD[15]        ; CLK        ;
+; N/A                                     ; None                                                ; 17.884 ns  ; base_ad[15]        ; PCI_AD[10]        ; CLK        ;
+; N/A                                     ; None                                                ; 17.840 ns  ; base_ad[7]         ; PCI_AD[7]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.832 ns  ; base_ad[11]        ; PCI_AD[5]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.818 ns  ; base_ad[10]        ; PCI_AD[5]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.810 ns  ; base_ad[14]        ; PCI_AD[2]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.801 ns  ; base_ad[8]         ; PCI_AD[9]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.761 ns  ; base_ad[9]         ; PCI_AD[10]        ; CLK        ;
+; N/A                                     ; None                                                ; 17.749 ns  ; base_ad[15]        ; PCI_AD[13]        ; CLK        ;
+; N/A                                     ; None                                                ; 17.626 ns  ; base_ad[9]         ; PCI_AD[13]        ; CLK        ;
+; N/A                                     ; None                                                ; 17.625 ns  ; base_ad[15]        ; PCI_AD[4]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.532 ns  ; base_ad[13]        ; PCI_AD[5]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.464 ns  ; base_ad[11]        ; PCI_AD[3]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.450 ns  ; base_ad[10]        ; PCI_AD[3]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.448 ns  ; base_ad[9]         ; PCI_AD[4]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.445 ns  ; base_ad[11]        ; PCI_AD[14]        ; CLK        ;
+; N/A                                     ; None                                                ; 17.431 ns  ; base_ad[10]        ; PCI_AD[14]        ; CLK        ;
+; N/A                                     ; None                                                ; 17.394 ns  ; base_ad[8]         ; PCI_AD[10]        ; CLK        ;
+; N/A                                     ; None                                                ; 17.362 ns  ; base_ad[12]        ; PCI_AD[5]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.318 ns  ; base_ad[7]         ; PCI_AD[8]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.304 ns  ; base_ad[11]        ; PCI_AD[1]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.290 ns  ; base_ad[10]        ; PCI_AD[1]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.273 ns  ; state.read_dat_msb ; PCI_AD[12]        ; CLK        ;
+; N/A                                     ; None                                                ; 17.259 ns  ; base_ad[8]         ; PCI_AD[13]        ; CLK        ;
+; N/A                                     ; None                                                ; 17.164 ns  ; base_ad[13]        ; PCI_AD[3]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.147 ns  ; base_ad[15]        ; PCI_AD[2]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.145 ns  ; base_ad[13]        ; PCI_AD[14]        ; CLK        ;
+; N/A                                     ; None                                                ; 17.081 ns  ; base_ad[8]         ; PCI_AD[4]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.024 ns  ; base_ad[9]         ; PCI_AD[2]         ; CLK        ;
+; N/A                                     ; None                                                ; 17.004 ns  ; base_ad[13]        ; PCI_AD[1]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.994 ns  ; base_ad[12]        ; PCI_AD[3]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.975 ns  ; base_ad[12]        ; PCI_AD[14]        ; CLK        ;
+; N/A                                     ; None                                                ; 16.932 ns  ; base_ad[14]        ; PCI_AD[5]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.844 ns  ; base_ad[9]         ; PCI_AD[15]        ; CLK        ;
+; N/A                                     ; None                                                ; 16.834 ns  ; base_ad[12]        ; PCI_AD[1]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.829 ns  ; base_ad[8]         ; PCI_AD[15]        ; CLK        ;
+; N/A                                     ; None                                                ; 16.657 ns  ; base_ad[8]         ; PCI_AD[2]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.634 ns  ; base_ad[11]        ; PCI_AD[6]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.620 ns  ; base_ad[10]        ; PCI_AD[6]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.564 ns  ; base_ad[14]        ; PCI_AD[3]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.545 ns  ; base_ad[14]        ; PCI_AD[14]        ; CLK        ;
+; N/A                                     ; None                                                ; 16.404 ns  ; base_ad[14]        ; PCI_AD[1]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.334 ns  ; base_ad[13]        ; PCI_AD[6]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.312 ns  ; state.read_dat_msb ; PCI_AD[8]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.269 ns  ; base_ad[15]        ; PCI_AD[5]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.164 ns  ; base_ad[12]        ; PCI_AD[6]         ; CLK        ;
+; N/A                                     ; None                                                ; 16.094 ns  ; base_ad[7]         ; PCI_AD[15]        ; CLK        ;
+; N/A                                     ; None                                                ; 15.992 ns  ; base_ad[9]         ; PCI_AD[5]         ; CLK        ;
+; N/A                                     ; None                                                ; 15.901 ns  ; base_ad[15]        ; PCI_AD[3]         ; CLK        ;
+; N/A                                     ; None                                                ; 15.882 ns  ; base_ad[15]        ; PCI_AD[14]        ; CLK        ;
+; N/A                                     ; None                                                ; 15.815 ns  ; base_ad[11]        ; PCI_AD[11]        ; CLK        ;
+; N/A                                     ; None                                                ; 15.801 ns  ; base_ad[10]        ; PCI_AD[11]        ; CLK        ;
+; N/A                                     ; None                                                ; 15.741 ns  ; base_ad[15]        ; PCI_AD[1]         ; CLK        ;
+; N/A                                     ; None                                                ; 15.734 ns  ; base_ad[14]        ; PCI_AD[6]         ; CLK        ;
+; N/A                                     ; None                                                ; 15.705 ns  ; base_ad[7]         ; PCI_AD[4]         ; CLK        ;
+; N/A                                     ; None                                                ; 15.663 ns  ; base_ad[7]         ; PCI_AD[13]        ; CLK        ;
+; N/A                                     ; None                                                ; 15.625 ns  ; base_ad[8]         ; PCI_AD[5]         ; CLK        ;
+; N/A                                     ; None                                                ; 15.515 ns  ; base_ad[13]        ; PCI_AD[11]        ; CLK        ;
+; N/A                                     ; None                                                ; 15.345 ns  ; base_ad[12]        ; PCI_AD[11]        ; CLK        ;
+; N/A                                     ; None                                                ; 15.306 ns  ; base_ad[9]         ; PCI_AD[14]        ; CLK        ;
+; N/A                                     ; None                                                ; 15.273 ns  ; base_ad[7]         ; PCI_AD[9]         ; CLK        ;
+; N/A                                     ; None                                                ; 15.271 ns  ; base_ad[9]         ; PCI_AD[3]         ; CLK        ;
+; N/A                                     ; None                                                ; 15.109 ns  ; base_ad[9]         ; PCI_AD[1]         ; CLK        ;
+; N/A                                     ; None                                                ; 15.071 ns  ; base_ad[15]        ; PCI_AD[6]         ; CLK        ;
+; N/A                                     ; None                                                ; 15.067 ns  ; base_ad[11]        ; PCI_AD[0]         ; CLK        ;
+; N/A                                     ; None                                                ; 15.053 ns  ; base_ad[10]        ; PCI_AD[0]         ; CLK        ;
+; N/A                                     ; None                                                ; 14.939 ns  ; base_ad[8]         ; PCI_AD[14]        ; CLK        ;
+; N/A                                     ; None                                                ; 14.915 ns  ; base_ad[14]        ; PCI_AD[11]        ; CLK        ;
+; N/A                                     ; None                                                ; 14.904 ns  ; base_ad[8]         ; PCI_AD[3]         ; CLK        ;
+; N/A                                     ; None                                                ; 14.771 ns  ; state.read_dat_msb ; PCI_AD[7]         ; CLK        ;
+; N/A                                     ; None                                                ; 14.767 ns  ; base_ad[13]        ; PCI_AD[0]         ; CLK        ;
+; N/A                                     ; None                                                ; 14.756 ns  ; base_ad[8]         ; PCI_AD[1]         ; CLK        ;
+; N/A                                     ; None                                                ; 14.597 ns  ; base_ad[12]        ; PCI_AD[0]         ; CLK        ;
+; N/A                                     ; None                                                ; 14.438 ns  ; base_ad[9]         ; PCI_AD[6]         ; CLK        ;
+; N/A                                     ; None                                                ; 14.349 ns  ; base_ad[7]         ; PCI_AD[5]         ; CLK        ;
+; N/A                                     ; None                                                ; 14.252 ns  ; base_ad[15]        ; PCI_AD[11]        ; CLK        ;
+; N/A                                     ; None                                                ; 14.243 ns  ; state.read_dat_msb ; PCI_AD[13]        ; CLK        ;
+; N/A                                     ; None                                                ; 14.167 ns  ; base_ad[14]        ; PCI_AD[0]         ; CLK        ;
+; N/A                                     ; None                                                ; 14.071 ns  ; base_ad[8]         ; PCI_AD[6]         ; CLK        ;
+; N/A                                     ; None                                                ; 14.005 ns  ; base_ad[7]         ; PCI_AD[2]         ; CLK        ;
+; N/A                                     ; None                                                ; 13.981 ns  ; base_ad[7]         ; PCI_AD[3]         ; CLK        ;
+; N/A                                     ; None                                                ; 13.962 ns  ; base_ad[7]         ; PCI_AD[14]        ; CLK        ;
+; N/A                                     ; None                                                ; 13.821 ns  ; base_ad[7]         ; PCI_AD[1]         ; CLK        ;
+; N/A                                     ; None                                                ; 13.661 ns  ; base_ad[8]         ; PCI_AD[11]        ; CLK        ;
+; N/A                                     ; None                                                ; 13.565 ns  ; base_ad[9]         ; PCI_AD[11]        ; CLK        ;
+; N/A                                     ; None                                                ; 13.504 ns  ; base_ad[15]        ; PCI_AD[0]         ; CLK        ;
+; N/A                                     ; None                                                ; 13.481 ns  ; state.read_dat_msb ; PCI_AD[15]        ; CLK        ;
+; N/A                                     ; None                                                ; 13.410 ns  ; state.read_dat_lsb ; PCI_AD[4]         ; CLK        ;
+; N/A                                     ; None                                                ; 13.386 ns  ; base_ad[7]         ; PCI_AD[10]        ; CLK        ;
+; N/A                                     ; None                                                ; 13.279 ns  ; state.read_dat_lsb ; PCI_AD[12]        ; CLK        ;
+; N/A                                     ; None                                                ; 13.157 ns  ; state.read_dat_msb ; PCI_AD[4]         ; CLK        ;
+; N/A                                     ; None                                                ; 13.151 ns  ; base_ad[7]         ; PCI_AD[6]         ; CLK        ;
+; N/A                                     ; None                                                ; 13.099 ns  ; state.read_dat_lsb ; PCI_AD[9]         ; CLK        ;
+; N/A                                     ; None                                                ; 13.052 ns  ; state.read_dat_lsb ; PCI_AD[7]         ; CLK        ;
+; N/A                                     ; None                                                ; 12.846 ns  ; state.read_dat_msb ; PCI_AD[9]         ; CLK        ;
+; N/A                                     ; None                                                ; 12.840 ns  ; state.read_dat_msb ; PCI_AD[10]        ; CLK        ;
+; N/A                                     ; None                                                ; 12.777 ns  ; state.read_dat_lsb ; PCI_AD[10]        ; CLK        ;
+; N/A                                     ; None                                                ; 12.741 ns  ; state.read_dat_lsb ; PCI_AD[2]         ; CLK        ;
+; N/A                                     ; None                                                ; 12.705 ns  ; state.read_dat_msb ; PCI_AD[14]        ; CLK        ;
+; N/A                                     ; None                                                ; 12.601 ns  ; state.read_dat_msb ; PCI_AD[2]         ; CLK        ;
+; N/A                                     ; None                                                ; 12.417 ns  ; base_ad[8]         ; PCI_AD[0]         ; CLK        ;
+; N/A                                     ; None                                                ; 12.371 ns  ; state.read_dat_msb ; PCI_AD[5]         ; CLK        ;
+; N/A                                     ; None                                                ; 12.332 ns  ; base_ad[7]         ; PCI_AD[11]        ; CLK        ;
+; N/A                                     ; None                                                ; 12.301 ns  ; base_ad[9]         ; PCI_AD[0]         ; CLK        ;
+; N/A                                     ; None                                                ; 12.004 ns  ; state.read_dat_msb ; PCI_AD[6]         ; CLK        ;
+; N/A                                     ; None                                                ; 11.974 ns  ; state.read_dat_msb ; PCI_AD[3]         ; CLK        ;
+; N/A                                     ; None                                                ; 11.956 ns  ; state.read_dat_msb ; PCI_AD[1]         ; CLK        ;
+; N/A                                     ; None                                                ; 11.909 ns  ; state.read_dat_lsb ; PCI_AD[1]         ; CLK        ;
+; N/A                                     ; None                                                ; 11.909 ns  ; state.read_dat_lsb ; PCI_AD[0]         ; CLK        ;
+; N/A                                     ; None                                                ; 11.902 ns  ; state.read_dat_lsb ; PCI_AD[13]        ; CLK        ;
+; N/A                                     ; None                                                ; 11.820 ns  ; state.read_dat_lsb ; PCI_AD[15]        ; CLK        ;
+; N/A                                     ; None                                                ; 11.656 ns  ; state.read_dat_msb ; PCI_AD[0]         ; CLK        ;
+; N/A                                     ; None                                                ; 11.637 ns  ; state.read_dat_lsb ; PCI_AD[3]         ; CLK        ;
+; N/A                                     ; None                                                ; 11.584 ns  ; base_ad[7]         ; PCI_AD[0]         ; CLK        ;
+; N/A                                     ; None                                                ; 11.320 ns  ; addr_count[5]      ; TEST1[5]          ; CLK        ;
+; N/A                                     ; None                                                ; 11.320 ns  ; addr_count[5]      ; DPRAM1_R_ADDR[5]  ; CLK        ;
+; N/A                                     ; None                                                ; 11.282 ns  ; base_ad[11]        ; DPRAM0_RW_WREN    ; CLK        ;
+; N/A                                     ; None                                                ; 11.280 ns  ; addr_count[5]      ; DPRAM0_RW_ADDR[5] ; CLK        ;
+; N/A                                     ; None                                                ; 11.273 ns  ; state.read_dat_lsb ; PCI_AD[5]         ; CLK        ;
+; N/A                                     ; None                                                ; 11.273 ns  ; state.read_dat_lsb ; PCI_AD[8]         ; CLK        ;
+; N/A                                     ; None                                                ; 11.268 ns  ; base_ad[10]        ; DPRAM0_RW_WREN    ; CLK        ;
+; N/A                                     ; None                                                ; 11.158 ns  ; base_ad[8]         ; REGS_RW_WREN      ; CLK        ;
+; N/A                                     ; None                                                ; 11.150 ns  ; addr_count[6]      ; DPRAM1_R_ADDR[6]  ; CLK        ;
+; N/A                                     ; None                                                ; 11.150 ns  ; addr_count[6]      ; DPRAM0_RW_ADDR[6] ; CLK        ;
+; N/A                                     ; None                                                ; 11.130 ns  ; base_ad[11]        ; REGS_RW_WREN      ; CLK        ;
+; N/A                                     ; None                                                ; 11.116 ns  ; base_ad[10]        ; REGS_RW_WREN      ; CLK        ;
+; N/A                                     ; None                                                ; 10.982 ns  ; base_ad[13]        ; DPRAM0_RW_WREN    ; CLK        ;
+; N/A                                     ; None                                                ; 10.957 ns  ; state.read_dat_lsb ; PCI_AD[11]        ; CLK        ;
+; N/A                                     ; None                                                ; 10.949 ns  ; state.read_dat_lsb ; PCI_AD[14]        ; CLK        ;
+; N/A                                     ; None                                                ; 10.879 ns  ; state.read_dat_msb ; PCI_AD[11]        ; CLK        ;
+; N/A                                     ; None                                                ; 10.830 ns  ; base_ad[13]        ; REGS_RW_WREN      ; CLK        ;
+; N/A                                     ; None                                                ; 10.812 ns  ; base_ad[12]        ; DPRAM0_RW_WREN    ; CLK        ;
+; N/A                                     ; None                                                ; 10.660 ns  ; base_ad[12]        ; REGS_RW_WREN      ; CLK        ;
+; N/A                                     ; None                                                ; 10.602 ns  ; base_ad[15]        ; REGS_RW_WREN      ; CLK        ;
+; N/A                                     ; None                                                ; 10.510 ns  ; addr_count[4]      ; REGS_R_ADDR[4]    ; CLK        ;
+; N/A                                     ; None                                                ; 10.382 ns  ; base_ad[14]        ; DPRAM0_RW_WREN    ; CLK        ;
+; N/A                                     ; None                                                ; 10.348 ns  ; addr_count[3]      ; DPRAM1_R_ADDR[3]  ; CLK        ;
+; N/A                                     ; None                                                ; 10.348 ns  ; addr_count[3]      ; REGS_RW_ADDR[3]   ; CLK        ;
+; N/A                                     ; None                                                ; 10.324 ns  ; addr_count[3]      ; DPRAM0_RW_ADDR[3] ; CLK        ;
+; N/A                                     ; None                                                ; 10.324 ns  ; addr_count[3]      ; REGS_R_ADDR[3]    ; CLK        ;
+; N/A                                     ; None                                                ; 10.310 ns  ; addr_count[4]      ; TEST1[4]          ; CLK        ;
+; N/A                                     ; None                                                ; 10.293 ns  ; addr_count[3]      ; TEST1[3]          ; CLK        ;
+; N/A                                     ; None                                                ; 10.265 ns  ; addr_count[4]      ; REGS_RW_ADDR[4]   ; CLK        ;
+; N/A                                     ; None                                                ; 10.210 ns  ; addr_count[4]      ; DPRAM0_RW_ADDR[4] ; CLK        ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;                    ;                   ;            ;
++-----------------------------------------+-----------------------------------------------------+------------+--------------------+-------------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tpd                                                                                                                                                                ;
++-----------------------------------------+-----------------------------------------------------+-----------------+------------------------+-------------------------+
+; Slack                                   ; Required P2P Time                                   ; Actual P2P Time ; From                   ; To                      ;
++-----------------------------------------+-----------------------------------------------------+-----------------+------------------------+-------------------------+
+; N/A                                     ; None                                                ; 18.929 ns       ; DPRAM0_RW_DAT_READ[7]  ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 18.697 ns       ; DPRAM1_R_DAT_READ[7]   ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 17.760 ns       ; DPRAM0_RW_DAT_READ[8]  ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 17.176 ns       ; DPRAM1_R_DAT_READ[28]  ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 17.143 ns       ; DPRAM1_R_DAT_READ[8]   ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 17.125 ns       ; DPRAM0_RW_DAT_READ[9]  ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 17.024 ns       ; DPRAM1_R_DAT_READ[20]  ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 16.860 ns       ; DPRAM2_R_DATA[24]      ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 16.831 ns       ; DPRAM0_RW_DAT_READ[20] ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 16.780 ns       ; DPRAM0_RW_DAT_READ[24] ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 16.741 ns       ; DPRAM2_R_DATA[28]      ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 16.518 ns       ; DPRAM1_R_DAT_READ[12]  ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 16.518 ns       ; DPRAM2_R_DATA[7]       ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 16.479 ns       ; DPRAM3_R_DATA[28]      ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 16.318 ns       ; DPRAM3_R_DATA[8]       ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 16.144 ns       ; DPRAM0_RW_DAT_READ[23] ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 16.133 ns       ; DPRAM1_R_DAT_READ[9]   ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 16.132 ns       ; DPRAM1_R_DAT_READ[24]  ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 16.104 ns       ; DPRAM2_R_DATA[8]       ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 16.098 ns       ; DPRAM2_R_DATA[12]      ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 16.063 ns       ; DPRAM0_RW_DAT_READ[3]  ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 15.896 ns       ; DPRAM1_R_DAT_READ[23]  ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 15.882 ns       ; DPRAM3_R_DATA[24]      ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 15.844 ns       ; DPRAM1_R_DAT_READ[29]  ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 15.814 ns       ; DPRAM0_RW_DAT_READ[13] ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 15.809 ns       ; DPRAM0_RW_DAT_READ[21] ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 15.786 ns       ; DPRAM2_R_DATA[29]      ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 15.728 ns       ; DPRAM0_RW_DAT_READ[17] ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 15.722 ns       ; DPRAM1_R_DAT_READ[21]  ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 15.692 ns       ; DPRAM0_RW_DAT_READ[18] ; PCI_AD[2]               ;
+; N/A                                     ; None                                                ; 15.484 ns       ; DPRAM1_R_DAT_READ[18]  ; PCI_AD[2]               ;
+; N/A                                     ; None                                                ; 15.465 ns       ; DPRAM3_R_DATA[7]       ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 15.450 ns       ; DPRAM0_RW_DAT_READ[28] ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 15.411 ns       ; DPRAM2_R_DATA[13]      ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 15.304 ns       ; DPRAM3_R_DATA[29]      ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 15.257 ns       ; DPRAM3_R_DATA[23]      ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 15.180 ns       ; DPRAM0_RW_DAT_READ[1]  ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 15.172 ns       ; DPRAM2_R_DATA[23]      ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 15.167 ns       ; DPRAM0_RW_DAT_READ[29] ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 14.959 ns       ; REGS_R_DAT_READ[12]    ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 14.919 ns       ; DPRAM1_R_DAT_READ[27]  ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 14.875 ns       ; DPRAM3_R_DATA[13]      ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 14.833 ns       ; DPRAM1_R_DAT_READ[3]   ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 14.825 ns       ; DPRAM1_R_DAT_READ[13]  ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 14.680 ns       ; DPRAM1_R_DAT_READ[31]  ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 14.662 ns       ; DPRAM1_R_DAT_READ[1]   ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 14.651 ns       ; REGS_R_DAT_READ[23]    ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 14.646 ns       ; DPRAM1_R_DAT_READ[17]  ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 14.630 ns       ; REGS_R_DAT_READ[24]    ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 14.615 ns       ; DPRAM1_R_DAT_READ[22]  ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 14.606 ns       ; DPRAM2_R_DATA[31]      ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 14.575 ns       ; DPRAM1_R_DAT_READ[30]  ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 14.556 ns       ; DPRAM1_R_DAT_READ[15]  ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 14.550 ns       ; REGS_R_DAT_READ[8]     ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 14.529 ns       ; REGS_RW_DAT_READ[12]   ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 14.497 ns       ; REGS_RW_DAT_READ[28]   ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 14.486 ns       ; DPRAM3_R_DATA[12]      ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 14.482 ns       ; DPRAM0_RW_DAT_READ[16] ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 14.401 ns       ; DPRAM2_R_DATA[17]      ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 14.374 ns       ; DPRAM0_RW_DAT_READ[22] ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 14.354 ns       ; DPRAM3_R_DATA[31]      ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 14.341 ns       ; DPRAM3_R_DATA[17]      ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 14.288 ns       ; DPRAM0_RW_DAT_READ[31] ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 14.281 ns       ; DPRAM2_R_DATA[19]      ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 14.251 ns       ; REGS_RW_DAT_READ[24]   ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 14.230 ns       ; DPRAM1_R_DAT_READ[0]   ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 14.197 ns       ; DPRAM0_RW_DAT_READ[5]  ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 14.110 ns       ; DPRAM0_RW_DAT_READ[19] ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 14.090 ns       ; DPRAM0_RW_DAT_READ[15] ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 14.087 ns       ; DPRAM1_R_DAT_READ[19]  ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 14.082 ns       ; DPRAM3_R_DATA[19]      ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 14.057 ns       ; DPRAM3_R_DATA[1]       ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 14.048 ns       ; REGS_R_DAT_READ[13]    ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 13.994 ns       ; DPRAM1_R_DAT_READ[26]  ; PCI_AD[10]              ;
+; N/A                                     ; None                                                ; 13.984 ns       ; REGS_RW_DAT_READ[29]   ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 13.957 ns       ; REGS_RW_DAT_READ[23]   ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 13.934 ns       ; DPRAM3_R_DATA[15]      ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 13.916 ns       ; DPRAM2_R_DATA[15]      ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 13.915 ns       ; DPRAM0_RW_DAT_READ[0]  ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 13.853 ns       ; DPRAM0_RW_DAT_READ[12] ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 13.833 ns       ; REGS_RW_DAT_READ[8]    ; PCI_AD[8]               ;
+; N/A                                     ; None                                                ; 13.813 ns       ; REGS_RW_DAT_READ[19]   ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 13.783 ns       ; REGS_R_DAT_READ[7]     ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 13.778 ns       ; DPRAM1_R_DAT_READ[5]   ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 13.765 ns       ; REGS_RW_DAT_READ[7]    ; PCI_AD[7]               ;
+; N/A                                     ; None                                                ; 13.708 ns       ; DPRAM0_RW_DAT_READ[30] ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 13.702 ns       ; DPRAM1_R_DAT_READ[25]  ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 13.695 ns       ; DPRAM3_R_DATA[3]       ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 13.667 ns       ; REGS_RW_DAT_READ[13]   ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 13.605 ns       ; DPRAM1_R_DAT_READ[16]  ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 13.604 ns       ; DPRAM2_R_DATA[16]      ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 13.591 ns       ; REGS_R_DAT_READ[29]    ; PCI_AD[13]              ;
+; N/A                                     ; None                                                ; 13.586 ns       ; DPRAM0_RW_DAT_READ[14] ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 13.575 ns       ; PCI_BEn[0]             ; TEST1[7]                ;
+; N/A                                     ; None                                                ; 13.574 ns       ; DPRAM2_R_DATA[3]       ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 13.539 ns       ; DPRAM3_R_DATA[25]      ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 13.518 ns       ; REGS_R_DAT_READ[27]    ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 13.498 ns       ; DPRAM2_R_DATA[0]       ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 13.425 ns       ; DPRAM3_R_DATA[14]      ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 13.410 ns       ; DPRAM3_R_DATA[9]       ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 13.390 ns       ; DPRAM1_R_DAT_READ[14]  ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 13.389 ns       ; DPRAM2_R_DATA[30]      ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 13.378 ns       ; DPRAM2_R_DATA[14]      ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 13.371 ns       ; REGS_R_DAT_READ[17]    ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 13.350 ns       ; DPRAM0_RW_DAT_READ[26] ; PCI_AD[10]              ;
+; N/A                                     ; None                                                ; 13.310 ns       ; DPRAM0_RW_DAT_READ[6]  ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 13.309 ns       ; DPRAM3_R_DATA[0]       ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 13.300 ns       ; DPRAM2_R_DATA[1]       ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 13.268 ns       ; DPRAM1_R_DAT_READ[6]   ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 13.250 ns       ; DPRAM2_R_DATA[21]      ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 13.244 ns       ; DPRAM3_R_DATA[11]      ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 13.191 ns       ; DPRAM3_R_DATA[21]      ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 13.126 ns       ; DPRAM3_R_DATA[16]      ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 13.056 ns       ; DPRAM3_R_DATA[30]      ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 13.052 ns       ; DPRAM0_RW_DAT_READ[25] ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 13.029 ns       ; DPRAM1_R_DAT_READ[11]  ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 12.979 ns       ; DPRAM0_RW_DAT_READ[11] ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 12.944 ns       ; DPRAM0_RW_DAT_READ[2]  ; PCI_AD[2]               ;
+; N/A                                     ; None                                                ; 12.943 ns       ; DPRAM3_R_DATA[27]      ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 12.865 ns       ; DPRAM2_R_DATA[27]      ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 12.857 ns       ; REGS_R_DAT_READ[31]    ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 12.850 ns       ; DPRAM3_R_DATA[26]      ; PCI_AD[10]              ;
+; N/A                                     ; None                                                ; 12.824 ns       ; DPRAM0_RW_DAT_READ[27] ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 12.808 ns       ; REGS_R_DAT_READ[15]    ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 12.805 ns       ; DPRAM2_R_DATA[5]       ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 12.788 ns       ; REGS_R_DAT_READ[1]     ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 12.734 ns       ; DPRAM2_R_DATA[6]       ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 12.705 ns       ; REGS_RW_DAT_READ[5]    ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 12.700 ns       ; REGS_RW_DAT_READ[21]   ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 12.671 ns       ; DPRAM3_R_DATA[5]       ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 12.670 ns       ; DPRAM2_R_DATA[26]      ; PCI_AD[10]              ;
+; N/A                                     ; None                                                ; 12.570 ns       ; DPRAM2_R_DATA[9]       ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 12.564 ns       ; DPRAM1_R_DAT_READ[2]   ; PCI_AD[2]               ;
+; N/A                                     ; None                                                ; 12.560 ns       ; DPRAM1_R_DAT_READ[4]   ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 12.514 ns       ; DPRAM1_R_DAT_READ[10]  ; PCI_AD[10]              ;
+; N/A                                     ; None                                                ; 12.509 ns       ; REGS_RW_DAT_READ[15]   ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 12.506 ns       ; DPRAM2_R_DATA[22]      ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 12.501 ns       ; DPRAM2_R_DATA[11]      ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 12.478 ns       ; DPRAM0_RW_DAT_READ[10] ; PCI_AD[10]              ;
+; N/A                                     ; None                                                ; 12.448 ns       ; REGS_R_DAT_READ[0]     ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 12.433 ns       ; REGS_RW_DAT_READ[0]    ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 12.433 ns       ; REGS_R_DAT_READ[16]    ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 12.430 ns       ; DPRAM3_R_DATA[22]      ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 12.398 ns       ; REGS_R_DAT_READ[19]    ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 12.387 ns       ; DPRAM0_RW_DAT_READ[4]  ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 12.328 ns       ; DPRAM2_R_DATA[25]      ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 12.280 ns       ; DPRAM2_R_DATA[10]      ; PCI_AD[10]              ;
+; N/A                                     ; None                                                ; 12.257 ns       ; REGS_RW_DAT_READ[1]    ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 12.218 ns       ; REGS_R_DAT_READ[5]     ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 12.200 ns       ; DPRAM3_R_DATA[6]       ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 12.165 ns       ; REGS_RW_DAT_READ[3]    ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 12.152 ns       ; REGS_R_DAT_READ[14]    ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 12.130 ns       ; DPRAM3_R_DATA[20]      ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 12.127 ns       ; REGS_RW_DAT_READ[31]   ; PCI_AD[15]              ;
+; N/A                                     ; None                                                ; 12.106 ns       ; REGS_RW_DAT_READ[16]   ; PCI_AD[0]               ;
+; N/A                                     ; None                                                ; 12.073 ns       ; REGS_R_DAT_READ[21]    ; PCI_AD[5]               ;
+; N/A                                     ; None                                                ; 12.040 ns       ; REGS_RW_DAT_READ[17]   ; PCI_AD[1]               ;
+; N/A                                     ; None                                                ; 12.034 ns       ; DPRAM3_R_DATA[10]      ; PCI_AD[10]              ;
+; N/A                                     ; None                                                ; 12.012 ns       ; REGS_R_DAT_READ[3]     ; PCI_AD[3]               ;
+; N/A                                     ; None                                                ; 11.996 ns       ; REGS_R_DAT_READ[9]     ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 11.961 ns       ; REGS_R_DAT_READ[30]    ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 11.846 ns       ; REGS_RW_DAT_READ[27]   ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 11.831 ns       ; DPRAM2_R_DATA[20]      ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 11.803 ns       ; REGS_RW_DAT_READ[9]    ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 11.714 ns       ; REGS_R_DAT_READ[28]    ; PCI_AD[12]              ;
+; N/A                                     ; None                                                ; 11.633 ns       ; DPRAM2_R_DATA[18]      ; PCI_AD[2]               ;
+; N/A                                     ; None                                                ; 11.619 ns       ; REGS_R_DAT_READ[22]    ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 11.519 ns       ; REGS_RW_DAT_READ[14]   ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 11.514 ns       ; DPRAM2_R_DATA[4]       ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 11.487 ns       ; REGS_RW_DAT_READ[30]   ; PCI_AD[14]              ;
+; N/A                                     ; None                                                ; 11.215 ns       ; PCI_AD[15]             ; REGS_RW_DAT_WRITE[15]   ;
+; N/A                                     ; None                                                ; 11.161 ns       ; DPRAM3_R_DATA[4]       ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 11.160 ns       ; DPRAM3_R_DATA[18]      ; PCI_AD[2]               ;
+; N/A                                     ; None                                                ; 11.157 ns       ; REGS_RW_DAT_READ[11]   ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 11.062 ns       ; REGS_R_DAT_READ[11]    ; PCI_AD[11]              ;
+; N/A                                     ; None                                                ; 11.046 ns       ; REGS_RW_DAT_READ[26]   ; PCI_AD[10]              ;
+; N/A                                     ; None                                                ; 10.993 ns       ; REGS_RW_DAT_READ[22]   ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 10.976 ns       ; REGS_R_DAT_READ[10]    ; PCI_AD[10]              ;
+; N/A                                     ; None                                                ; 10.929 ns       ; PCI_AD[5]              ; REGS_RW_DAT_WRITE[5]    ;
+; N/A                                     ; None                                                ; 10.892 ns       ; PCI_AD[6]              ; DPRAM0_RW_DAT_WRITE[6]  ;
+; N/A                                     ; None                                                ; 10.889 ns       ; REGS_R_DAT_READ[6]     ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 10.862 ns       ; PCI_AD[6]              ; REGS_RW_DAT_WRITE[6]    ;
+; N/A                                     ; None                                                ; 10.849 ns       ; REGS_R_DAT_READ[2]     ; PCI_AD[2]               ;
+; N/A                                     ; None                                                ; 10.796 ns       ; REGS_R_DAT_READ[20]    ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 10.777 ns       ; REGS_R_DAT_READ[4]     ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 10.571 ns       ; REGS_R_DAT_READ[18]    ; PCI_AD[2]               ;
+; N/A                                     ; None                                                ; 10.525 ns       ; PCI_AD[0]              ; REGS_RW_DAT_WRITE[0]    ;
+; N/A                                     ; None                                                ; 10.506 ns       ; PCI_AD[3]              ; DPRAM0_RW_DAT_WRITE[3]  ;
+; N/A                                     ; None                                                ; 10.504 ns       ; PCI_AD[3]              ; REGS_RW_DAT_WRITE[3]    ;
+; N/A                                     ; None                                                ; 10.483 ns       ; REGS_RW_DAT_READ[18]   ; PCI_AD[2]               ;
+; N/A                                     ; None                                                ; 10.466 ns       ; REGS_RW_DAT_READ[20]   ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 10.431 ns       ; REGS_RW_DAT_READ[4]    ; PCI_AD[4]               ;
+; N/A                                     ; None                                                ; 10.419 ns       ; REGS_R_DAT_READ[25]    ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 10.418 ns       ; REGS_RW_DAT_READ[25]   ; PCI_AD[9]               ;
+; N/A                                     ; None                                                ; 10.390 ns       ; REGS_RW_DAT_READ[6]    ; PCI_AD[6]               ;
+; N/A                                     ; None                                                ; 10.329 ns       ; PCI_AD[5]              ; DPRAM0_RW_DAT_WRITE[5]  ;
+; N/A                                     ; None                                                ; 10.328 ns       ; PCI_AD[15]             ; DPRAM0_RW_DAT_WRITE[15] ;
+; N/A                                     ; None                                                ; 10.273 ns       ; PCI_AD[2]              ; REGS_RW_DAT_WRITE[2]    ;
+; N/A                                     ; None                                                ; 10.254 ns       ; REGS_R_DAT_READ[26]    ; PCI_AD[10]              ;
+; N/A                                     ; None                                                ; 10.242 ns       ; PCI_IRDYn              ; TEST1[7]                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                 ;                        ;                         ;
++-----------------------------------------+-----------------------------------------------------+-----------------+------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; th                                                                                    ;
++---------------+-------------+-----------+------------+---------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From       ; To                  ; To Clock ;
++---------------+-------------+-----------+------------+---------------------+----------+
+; N/A           ; None        ; -0.370 ns ; PCI_IRDYn  ; state.read_dat_lsb  ; CLK      ;
+; N/A           ; None        ; -0.854 ns ; PCI_IRDYn  ; state.write_dat_msb ; CLK      ;
+; N/A           ; None        ; -1.013 ns ; PCI_IRDYn  ; state.write_dat_lsb ; CLK      ;
+; N/A           ; None        ; -1.192 ns ; PCI_IRDYn  ; state.read_dat_msb  ; CLK      ;
+; N/A           ; None        ; -1.798 ns ; PCI_IRDYn  ; state.set_trdy      ; CLK      ;
+; N/A           ; None        ; -1.853 ns ; PCI_IRDYn  ; state.deselect      ; CLK      ;
+; N/A           ; None        ; -3.274 ns ; PCI_IRDYn  ; addr_count[0]       ; CLK      ;
+; N/A           ; None        ; -3.279 ns ; PCI_IRDYn  ; dpram_addr_count[0] ; CLK      ;
+; N/A           ; None        ; -3.300 ns ; PCI_AD[9]  ; dat_MSB[9]          ; CLK      ;
+; N/A           ; None        ; -3.358 ns ; PCI_AD[12] ; dat_MSB[12]         ; CLK      ;
+; N/A           ; None        ; -3.413 ns ; PCI_BEn[0] ; state.idle          ; CLK      ;
+; N/A           ; None        ; -3.496 ns ; PCI_FRAMEn ; state.read_dat_msb  ; CLK      ;
+; N/A           ; None        ; -3.505 ns ; PCI_FRAMEn ; state.write_dat_lsb ; CLK      ;
+; N/A           ; None        ; -3.523 ns ; PCI_AD[4]  ; dat_MSB[4]          ; CLK      ;
+; N/A           ; None        ; -3.605 ns ; PCI_AD[11] ; base_ad[11]         ; CLK      ;
+; N/A           ; None        ; -3.643 ns ; PCI_BEn[0] ; state.read_dat_lsb  ; CLK      ;
+; N/A           ; None        ; -3.657 ns ; PCI_AD[13] ; base_ad[13]         ; CLK      ;
+; N/A           ; None        ; -3.691 ns ; PCI_FRAMEn ; state.set_trdy      ; CLK      ;
+; N/A           ; None        ; -3.706 ns ; PCI_IRDYn  ; addr_count[1]       ; CLK      ;
+; N/A           ; None        ; -3.755 ns ; PCI_FRAMEn ; state.idle          ; CLK      ;
+; N/A           ; None        ; -3.761 ns ; PCI_FRAMEn ; state.deselect      ; CLK      ;
+; N/A           ; None        ; -3.782 ns ; PCI_AD[1]  ; dat_MSB[1]          ; CLK      ;
+; N/A           ; None        ; -3.786 ns ; PCI_IRDYn  ; addr_count[2]       ; CLK      ;
+; N/A           ; None        ; -3.807 ns ; PCI_FRAMEn ; state.read_dat_lsb  ; CLK      ;
+; N/A           ; None        ; -3.808 ns ; PCI_FRAMEn ; state.write_dat_msb ; CLK      ;
+; N/A           ; None        ; -3.837 ns ; PCI_AD[11] ; dat_MSB[11]         ; CLK      ;
+; N/A           ; None        ; -3.866 ns ; PCI_IRDYn  ; addr_count[3]       ; CLK      ;
+; N/A           ; None        ; -3.872 ns ; PCI_AD[0]  ; addr_count[0]       ; CLK      ;
+; N/A           ; None        ; -3.894 ns ; PCI_BEn[0] ; state.set_trdy      ; CLK      ;
+; N/A           ; None        ; -3.914 ns ; PCI_AD[1]  ; addr_count[1]       ; CLK      ;
+; N/A           ; None        ; -3.934 ns ; PCI_AD[14] ; dat_MSB[14]         ; CLK      ;
+; N/A           ; None        ; -3.946 ns ; PCI_IRDYn  ; addr_count[4]       ; CLK      ;
+; N/A           ; None        ; -4.026 ns ; PCI_IRDYn  ; addr_count[5]       ; CLK      ;
+; N/A           ; None        ; -4.085 ns ; PCI_AD[10] ; dat_MSB[10]         ; CLK      ;
+; N/A           ; None        ; -4.086 ns ; PCI_IRDYn  ; dpram_addr_count[1] ; CLK      ;
+; N/A           ; None        ; -4.086 ns ; PCI_IRDYn  ; dpram_addr_count[2] ; CLK      ;
+; N/A           ; None        ; -4.086 ns ; PCI_IRDYn  ; dpram_addr_count[3] ; CLK      ;
+; N/A           ; None        ; -4.086 ns ; PCI_IRDYn  ; dpram_addr_count[4] ; CLK      ;
+; N/A           ; None        ; -4.086 ns ; PCI_IRDYn  ; dpram_addr_count[5] ; CLK      ;
+; N/A           ; None        ; -4.086 ns ; PCI_IRDYn  ; dpram_addr_count[6] ; CLK      ;
+; N/A           ; None        ; -4.086 ns ; PCI_IRDYn  ; dpram_addr_count[7] ; CLK      ;
+; N/A           ; None        ; -4.086 ns ; PCI_IRDYn  ; dpram_addr_count[8] ; CLK      ;
+; N/A           ; None        ; -4.086 ns ; PCI_IRDYn  ; dpram_addr_count[9] ; CLK      ;
+; N/A           ; None        ; -4.140 ns ; PCI_AD[3]  ; addr_count[3]       ; CLK      ;
+; N/A           ; None        ; -4.160 ns ; PCI_AD[6]  ; dat_MSB[6]          ; CLK      ;
+; N/A           ; None        ; -4.200 ns ; PCI_IRDYn  ; addr_count[6]       ; CLK      ;
+; N/A           ; None        ; -4.280 ns ; PCI_IRDYn  ; addr_count[7]       ; CLK      ;
+; N/A           ; None        ; -4.342 ns ; PCI_AD[7]  ; dat_MSB[7]          ; CLK      ;
+; N/A           ; None        ; -4.361 ns ; PCI_BEn[1] ; state.write_dat_msb ; CLK      ;
+; N/A           ; None        ; -4.394 ns ; PCI_AD[13] ; dat_MSB[13]         ; CLK      ;
+; N/A           ; None        ; -4.434 ns ; PCI_BEn[0] ; state.write_dat_lsb ; CLK      ;
+; N/A           ; None        ; -4.509 ns ; PCI_AD[2]  ; dat_MSB[2]          ; CLK      ;
+; N/A           ; None        ; -4.690 ns ; PCI_AD[0]  ; dat_MSB[0]          ; CLK      ;
+; N/A           ; None        ; -4.695 ns ; PCI_BEn[1] ; state.set_trdy      ; CLK      ;
+; N/A           ; None        ; -4.712 ns ; PCI_BEn[1] ; state.write_dat_lsb ; CLK      ;
+; N/A           ; None        ; -4.715 ns ; PCI_AD[3]  ; dat_MSB[3]          ; CLK      ;
+; N/A           ; None        ; -4.756 ns ; PCI_BEn[1] ; state.read_dat_msb  ; CLK      ;
+; N/A           ; None        ; -4.770 ns ; PCI_AD[5]  ; dat_MSB[5]          ; CLK      ;
+; N/A           ; None        ; -4.820 ns ; PCI_BEn[0] ; state.read_dat_msb  ; CLK      ;
+; N/A           ; None        ; -4.821 ns ; PCI_AD[12] ; base_ad[12]         ; CLK      ;
+; N/A           ; None        ; -4.825 ns ; PCI_AD[9]  ; base_ad[9]          ; CLK      ;
+; N/A           ; None        ; -4.855 ns ; PCI_AD[10] ; base_ad[10]         ; CLK      ;
+; N/A           ; None        ; -4.869 ns ; PCI_AD[6]  ; addr_count[6]       ; CLK      ;
+; N/A           ; None        ; -4.869 ns ; PCI_AD[2]  ; addr_count[2]       ; CLK      ;
+; N/A           ; None        ; -4.886 ns ; PCI_AD[8]  ; base_ad[8]          ; CLK      ;
+; N/A           ; None        ; -4.889 ns ; PCI_AD[8]  ; dat_MSB[8]          ; CLK      ;
+; N/A           ; None        ; -4.938 ns ; PCI_AD[14] ; base_ad[14]         ; CLK      ;
+; N/A           ; None        ; -5.001 ns ; PCI_AD[5]  ; addr_count[5]       ; CLK      ;
+; N/A           ; None        ; -5.076 ns ; PCI_BEn[0] ; state.write_dat_msb ; CLK      ;
+; N/A           ; None        ; -5.183 ns ; PCI_AD[15] ; dat_MSB[15]         ; CLK      ;
+; N/A           ; None        ; -5.281 ns ; PCI_BEn[0] ; state.deselect      ; CLK      ;
+; N/A           ; None        ; -5.335 ns ; PCI_AD[7]  ; addr_count[7]       ; CLK      ;
+; N/A           ; None        ; -5.360 ns ; PCI_BEn[1] ; state.deselect      ; CLK      ;
+; N/A           ; None        ; -5.550 ns ; PCI_AD[15] ; base_ad[15]         ; CLK      ;
+; N/A           ; None        ; -5.584 ns ; PCI_AD[7]  ; base_ad[7]          ; CLK      ;
+; N/A           ; None        ; -5.797 ns ; PCI_AD[4]  ; addr_count[4]       ; CLK      ;
+; N/A           ; None        ; -6.607 ns ; PCI_BEn[0] ; addr_count[0]       ; CLK      ;
+; N/A           ; None        ; -6.612 ns ; PCI_BEn[0] ; dpram_addr_count[0] ; CLK      ;
+; N/A           ; None        ; -7.039 ns ; PCI_BEn[0] ; addr_count[1]       ; CLK      ;
+; N/A           ; None        ; -7.119 ns ; PCI_BEn[0] ; addr_count[2]       ; CLK      ;
+; N/A           ; None        ; -7.199 ns ; PCI_BEn[0] ; addr_count[3]       ; CLK      ;
+; N/A           ; None        ; -7.279 ns ; PCI_BEn[0] ; addr_count[4]       ; CLK      ;
+; N/A           ; None        ; -7.359 ns ; PCI_BEn[0] ; addr_count[5]       ; CLK      ;
+; N/A           ; None        ; -7.419 ns ; PCI_BEn[0] ; dpram_addr_count[1] ; CLK      ;
+; N/A           ; None        ; -7.419 ns ; PCI_BEn[0] ; dpram_addr_count[2] ; CLK      ;
+; N/A           ; None        ; -7.419 ns ; PCI_BEn[0] ; dpram_addr_count[3] ; CLK      ;
+; N/A           ; None        ; -7.419 ns ; PCI_BEn[0] ; dpram_addr_count[4] ; CLK      ;
+; N/A           ; None        ; -7.419 ns ; PCI_BEn[0] ; dpram_addr_count[5] ; CLK      ;
+; N/A           ; None        ; -7.419 ns ; PCI_BEn[0] ; dpram_addr_count[6] ; CLK      ;
+; N/A           ; None        ; -7.419 ns ; PCI_BEn[0] ; dpram_addr_count[7] ; CLK      ;
+; N/A           ; None        ; -7.419 ns ; PCI_BEn[0] ; dpram_addr_count[8] ; CLK      ;
+; N/A           ; None        ; -7.419 ns ; PCI_BEn[0] ; dpram_addr_count[9] ; CLK      ;
+; N/A           ; None        ; -7.533 ns ; PCI_BEn[0] ; addr_count[6]       ; CLK      ;
+; N/A           ; None        ; -7.613 ns ; PCI_BEn[0] ; addr_count[7]       ; CLK      ;
++---------------+-------------+-----------+------------+---------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Timing Analyzer
+    Info: Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+    Info: Processing started: Mon Jun 25 17:28:00 2007
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off PCI_SLAVE -c PCI_SLAVE --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLK" is an undefined clock
+Info: Clock "CLK" has Internal fmax of 279.64 MHz between source register "state.set_trdy" and destination register "addr_count[7]" (period= 3.576 ns)
+    Info: + Longest register to register delay is 3.337 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X57_Y27_N27; Fanout = 4; REG Node = 'state.set_trdy'
+        Info: 2: + IC(0.381 ns) + CELL(0.521 ns) = 0.902 ns; Loc. = LCCOMB_X57_Y27_N28; Fanout = 2; COMB Node = 'WideOr1'
+        Info: 3: + IC(0.313 ns) + CELL(0.177 ns) = 1.392 ns; Loc. = LCCOMB_X57_Y27_N2; Fanout = 5; COMB Node = 'count_enable~38'
+        Info: 4: + IC(0.322 ns) + CELL(0.495 ns) = 2.209 ns; Loc. = LCCOMB_X57_Y27_N4; Fanout = 2; COMB Node = 'addr_count[0]~200'
+        Info: 5: + IC(0.000 ns) + CELL(0.080 ns) = 2.289 ns; Loc. = LCCOMB_X57_Y27_N6; Fanout = 2; COMB Node = 'addr_count[1]~201'
+        Info: 6: + IC(0.000 ns) + CELL(0.080 ns) = 2.369 ns; Loc. = LCCOMB_X57_Y27_N8; Fanout = 2; COMB Node = 'addr_count[2]~202'
+        Info: 7: + IC(0.000 ns) + CELL(0.080 ns) = 2.449 ns; Loc. = LCCOMB_X57_Y27_N10; Fanout = 2; COMB Node = 'addr_count[3]~203'
+        Info: 8: + IC(0.000 ns) + CELL(0.080 ns) = 2.529 ns; Loc. = LCCOMB_X57_Y27_N12; Fanout = 2; COMB Node = 'addr_count[4]~204'
+        Info: 9: + IC(0.000 ns) + CELL(0.174 ns) = 2.703 ns; Loc. = LCCOMB_X57_Y27_N14; Fanout = 2; COMB Node = 'addr_count[5]~205'
+        Info: 10: + IC(0.000 ns) + CELL(0.080 ns) = 2.783 ns; Loc. = LCCOMB_X57_Y27_N16; Fanout = 1; COMB Node = 'addr_count[6]~206'
+        Info: 11: + IC(0.000 ns) + CELL(0.458 ns) = 3.241 ns; Loc. = LCCOMB_X57_Y27_N18; Fanout = 1; COMB Node = 'addr_count[7]~199'
+        Info: 12: + IC(0.000 ns) + CELL(0.096 ns) = 3.337 ns; Loc. = LCFF_X57_Y27_N19; Fanout = 3; REG Node = 'addr_count[7]'
+        Info: Total cell delay = 2.321 ns ( 69.55 % )
+        Info: Total interconnect delay = 1.016 ns ( 30.45 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "CLK" to destination register is 2.888 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.036 ns) = 1.036 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'CLK'
+            Info: 2: + IC(0.179 ns) + CELL(0.000 ns) = 1.215 ns; Loc. = CLKCTRL_G3; Fanout = 50; COMB Node = 'CLK~clkctrl'
+            Info: 3: + IC(1.071 ns) + CELL(0.602 ns) = 2.888 ns; Loc. = LCFF_X57_Y27_N19; Fanout = 3; REG Node = 'addr_count[7]'
+            Info: Total cell delay = 1.638 ns ( 56.72 % )
+            Info: Total interconnect delay = 1.250 ns ( 43.28 % )
+        Info: - Longest clock path from clock "CLK" to source register is 2.888 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.036 ns) = 1.036 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'CLK'
+            Info: 2: + IC(0.179 ns) + CELL(0.000 ns) = 1.215 ns; Loc. = CLKCTRL_G3; Fanout = 50; COMB Node = 'CLK~clkctrl'
+            Info: 3: + IC(1.071 ns) + CELL(0.602 ns) = 2.888 ns; Loc. = LCFF_X57_Y27_N27; Fanout = 4; REG Node = 'state.set_trdy'
+            Info: Total cell delay = 1.638 ns ( 56.72 % )
+            Info: Total interconnect delay = 1.250 ns ( 43.28 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Micro setup delay of destination is -0.038 ns
+Info: tsu for register "addr_count[7]" (data pin = "PCI_BEn[0]", clock pin = "CLK") is 7.861 ns
+    Info: + Longest pin to register delay is 10.787 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.884 ns) = 0.884 ns; Loc. = PIN_G25; Fanout = 6; PIN Node = 'PCI_BEn[0]'
+        Info: 2: + IC(5.441 ns) + CELL(0.457 ns) = 6.782 ns; Loc. = LCCOMB_X58_Y27_N18; Fanout = 4; COMB Node = 'Selector6~29'
+        Info: 3: + IC(1.515 ns) + CELL(0.545 ns) = 8.842 ns; Loc. = LCCOMB_X57_Y27_N2; Fanout = 5; COMB Node = 'count_enable~38'
+        Info: 4: + IC(0.322 ns) + CELL(0.495 ns) = 9.659 ns; Loc. = LCCOMB_X57_Y27_N4; Fanout = 2; COMB Node = 'addr_count[0]~200'
+        Info: 5: + IC(0.000 ns) + CELL(0.080 ns) = 9.739 ns; Loc. = LCCOMB_X57_Y27_N6; Fanout = 2; COMB Node = 'addr_count[1]~201'
+        Info: 6: + IC(0.000 ns) + CELL(0.080 ns) = 9.819 ns; Loc. = LCCOMB_X57_Y27_N8; Fanout = 2; COMB Node = 'addr_count[2]~202'
+        Info: 7: + IC(0.000 ns) + CELL(0.080 ns) = 9.899 ns; Loc. = LCCOMB_X57_Y27_N10; Fanout = 2; COMB Node = 'addr_count[3]~203'
+        Info: 8: + IC(0.000 ns) + CELL(0.080 ns) = 9.979 ns; Loc. = LCCOMB_X57_Y27_N12; Fanout = 2; COMB Node = 'addr_count[4]~204'
+        Info: 9: + IC(0.000 ns) + CELL(0.174 ns) = 10.153 ns; Loc. = LCCOMB_X57_Y27_N14; Fanout = 2; COMB Node = 'addr_count[5]~205'
+        Info: 10: + IC(0.000 ns) + CELL(0.080 ns) = 10.233 ns; Loc. = LCCOMB_X57_Y27_N16; Fanout = 1; COMB Node = 'addr_count[6]~206'
+        Info: 11: + IC(0.000 ns) + CELL(0.458 ns) = 10.691 ns; Loc. = LCCOMB_X57_Y27_N18; Fanout = 1; COMB Node = 'addr_count[7]~199'
+        Info: 12: + IC(0.000 ns) + CELL(0.096 ns) = 10.787 ns; Loc. = LCFF_X57_Y27_N19; Fanout = 3; REG Node = 'addr_count[7]'
+        Info: Total cell delay = 3.509 ns ( 32.53 % )
+        Info: Total interconnect delay = 7.278 ns ( 67.47 % )
+    Info: + Micro setup delay of destination is -0.038 ns
+    Info: - Shortest clock path from clock "CLK" to destination register is 2.888 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.036 ns) = 1.036 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'CLK'
+        Info: 2: + IC(0.179 ns) + CELL(0.000 ns) = 1.215 ns; Loc. = CLKCTRL_G3; Fanout = 50; COMB Node = 'CLK~clkctrl'
+        Info: 3: + IC(1.071 ns) + CELL(0.602 ns) = 2.888 ns; Loc. = LCFF_X57_Y27_N19; Fanout = 3; REG Node = 'addr_count[7]'
+        Info: Total cell delay = 1.638 ns ( 56.72 % )
+        Info: Total interconnect delay = 1.250 ns ( 43.28 % )
+Info: tco from clock "CLK" to destination pin "PCI_AD[8]" through register "base_ad[11]" is 23.963 ns
+    Info: + Longest clock path from clock "CLK" to source register is 2.889 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.036 ns) = 1.036 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'CLK'
+        Info: 2: + IC(0.179 ns) + CELL(0.000 ns) = 1.215 ns; Loc. = CLKCTRL_G3; Fanout = 50; COMB Node = 'CLK~clkctrl'
+        Info: 3: + IC(1.072 ns) + CELL(0.602 ns) = 2.889 ns; Loc. = LCFF_X56_Y27_N25; Fanout = 1; REG Node = 'base_ad[11]'
+        Info: Total cell delay = 1.638 ns ( 56.70 % )
+        Info: Total interconnect delay = 1.251 ns ( 43.30 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Longest register to pin delay is 20.797 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X56_Y27_N25; Fanout = 1; REG Node = 'base_ad[11]'
+        Info: 2: + IC(0.373 ns) + CELL(0.455 ns) = 0.828 ns; Loc. = LCCOMB_X56_Y27_N0; Fanout = 2; COMB Node = 'Equal2~58'
+        Info: 3: + IC(0.551 ns) + CELL(0.542 ns) = 1.921 ns; Loc. = LCCOMB_X56_Y27_N28; Fanout = 3; COMB Node = 'Equal2~61'
+        Info: 4: + IC(0.825 ns) + CELL(0.178 ns) = 2.924 ns; Loc. = LCCOMB_X59_Y27_N30; Fanout = 33; COMB Node = 'Equal4~50'
+        Info: 5: + IC(6.831 ns) + CELL(0.521 ns) = 10.276 ns; Loc. = LCCOMB_X1_Y27_N30; Fanout = 1; COMB Node = 'Selector15~251'
+        Info: 6: + IC(0.299 ns) + CELL(0.521 ns) = 11.096 ns; Loc. = LCCOMB_X1_Y27_N16; Fanout = 1; COMB Node = 'Selector15~252'
+        Info: 7: + IC(0.320 ns) + CELL(0.544 ns) = 11.960 ns; Loc. = LCCOMB_X1_Y27_N6; Fanout = 1; COMB Node = 'Selector15~253'
+        Info: 8: + IC(0.316 ns) + CELL(0.545 ns) = 12.821 ns; Loc. = LCCOMB_X1_Y27_N0; Fanout = 1; COMB Node = 'Selector15~254'
+        Info: 9: + IC(0.293 ns) + CELL(0.521 ns) = 13.635 ns; Loc. = LCCOMB_X1_Y27_N4; Fanout = 1; COMB Node = 'Selector15~256'
+        Info: 10: + IC(4.156 ns) + CELL(3.006 ns) = 20.797 ns; Loc. = PIN_AC17; Fanout = 0; PIN Node = 'PCI_AD[8]'
+        Info: Total cell delay = 6.833 ns ( 32.86 % )
+        Info: Total interconnect delay = 13.964 ns ( 67.14 % )
+Info: Longest tpd from source pin "DPRAM0_RW_DAT_READ[7]" to destination pin "PCI_AD[7]" is 18.929 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.884 ns) = 0.884 ns; Loc. = PIN_H26; Fanout = 1; PIN Node = 'DPRAM0_RW_DAT_READ[7]'
+    Info: 2: + IC(5.203 ns) + CELL(0.544 ns) = 6.631 ns; Loc. = LCCOMB_X64_Y25_N2; Fanout = 1; COMB Node = 'Selector14~251'
+    Info: 3: + IC(3.804 ns) + CELL(0.178 ns) = 10.613 ns; Loc. = LCCOMB_X27_Y7_N6; Fanout = 1; COMB Node = 'Selector14~252'
+    Info: 4: + IC(0.316 ns) + CELL(0.544 ns) = 11.473 ns; Loc. = LCCOMB_X27_Y7_N10; Fanout = 1; COMB Node = 'Selector14~253'
+    Info: 5: + IC(0.293 ns) + CELL(0.178 ns) = 11.944 ns; Loc. = LCCOMB_X27_Y7_N14; Fanout = 1; COMB Node = 'Selector14~254'
+    Info: 6: + IC(0.290 ns) + CELL(0.521 ns) = 12.755 ns; Loc. = LCCOMB_X27_Y7_N24; Fanout = 1; COMB Node = 'Selector14~256'
+    Info: 7: + IC(3.188 ns) + CELL(2.986 ns) = 18.929 ns; Loc. = PIN_F12; Fanout = 0; PIN Node = 'PCI_AD[7]'
+    Info: Total cell delay = 5.835 ns ( 30.83 % )
+    Info: Total interconnect delay = 13.094 ns ( 69.17 % )
+Info: th for register "state.read_dat_lsb" (data pin = "PCI_IRDYn", clock pin = "CLK") is -0.370 ns
+    Info: + Longest clock path from clock "CLK" to destination register is 2.889 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.036 ns) = 1.036 ns; Loc. = PIN_P2; Fanout = 1; CLK Node = 'CLK'
+        Info: 2: + IC(0.179 ns) + CELL(0.000 ns) = 1.215 ns; Loc. = CLKCTRL_G3; Fanout = 50; COMB Node = 'CLK~clkctrl'
+        Info: 3: + IC(1.072 ns) + CELL(0.602 ns) = 2.889 ns; Loc. = LCFF_X58_Y27_N17; Fanout = 5; REG Node = 'state.read_dat_lsb'
+        Info: Total cell delay = 1.638 ns ( 56.70 % )
+        Info: Total interconnect delay = 1.251 ns ( 43.30 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+    Info: - Shortest pin to register delay is 3.545 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.016 ns) = 1.016 ns; Loc. = PIN_C13; Fanout = 8; PIN Node = 'PCI_IRDYn'
+        Info: 2: + IC(2.256 ns) + CELL(0.177 ns) = 3.449 ns; Loc. = LCCOMB_X58_Y27_N16; Fanout = 1; COMB Node = 'Selector6~30'
+        Info: 3: + IC(0.000 ns) + CELL(0.096 ns) = 3.545 ns; Loc. = LCFF_X58_Y27_N17; Fanout = 5; REG Node = 'state.read_dat_lsb'
+        Info: Total cell delay = 1.289 ns ( 36.36 % )
+        Info: Total interconnect delay = 2.256 ns ( 63.64 % )
+Info: Quartus II Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Processing ended: Mon Jun 25 17:28:01 2007
+    Info: Elapsed time: 00:00:01
+
+

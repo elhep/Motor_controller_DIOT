@@ -1,0 +1,735 @@
+ -- Copyright (C) 1991-2006 Altera Corporation
+ -- Your use of Altera Corporation's design tools, logic functions 
+ -- and other software and tools, and its AMPP partner logic 
+ -- functions, and any output files any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Altera Program License 
+ -- Subscription Agreement, Altera MegaCore Function License 
+ -- Agreement, or other applicable license agreement, including, 
+ -- without limitation, that your use is for the sole purpose of 
+ -- programming logic devices manufactured by Altera and sold by 
+ -- Altera or its authorized distributors.  Please refer to the 
+ -- applicable agreement for further details.
+ -- 
+ -- This is a Quartus II output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus II input file. This file cannot be used
+ -- to make Quartus II pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus II help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (1.2V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ --					Bank 1:		3.3V
+ --					Bank 2:		3.3V
+ --					Bank 3:		3.3V
+ --					Bank 4:		3.3V
+ --					Bank 5:		3.3V
+ --					Bank 6:		3.3V
+ --					Bank 7:		3.3V
+ --					Bank 8:		3.3V
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --					It can also be used to report unused dedicated pins. The connection
+ --					on the board for unused dedicated pins depends on whether this will
+ --					be used in a future design. One example is device migration. When
+ --					using device migration, refer to the device pin-tables. If it is a
+ --					GND pin in the pin table or if it will not be used in a future design
+ --					for another purpose the it MUST be connected to GND. If it is an unused
+ --					dedicated pin, then it can be connected to a valid signal on the board
+ --					(low, high, or toggling) if that signal is required for a different
+ --					revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --					This pin should be connected to GND. It may also be connected  to a
+ --					valid signal  on the board  (low, high, or toggling)  if that signal
+ --					is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin.   This pin can either be left unconnected or
+ --           	    connected to GND.  Connecting this pin to GND will improve the
+ --           	    device's immunity to noise.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ ---------------------------------------------------------------------------------
+
+Quartus II Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+CHIP  "PCI_SLAVE"  ASSIGNED TO AN: EP2C35F672C7
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+GND                          : A2        : gnd    :                   :         :           :                
+VCCIO3                       : A3        : power  :                   : 3.3V    : 3         :                
+DPRAM1_R_DAT_READ[25]        : A4        : input  : LVTTL             :         : 3         : N              
+TEST2[2]                     : A5        : output : LVTTL             :         : 3         : N              
+TEST1[4]                     : A6        : output : LVTTL             :         : 3         : N              
+REGS_RW_DAT_WRITE[16]        : A7        : output : LVTTL             :         : 3         : N              
+TEST1[15]                    : A8        : output : LVTTL             :         : 3         : N              
+TEST2[11]                    : A9        : output : LVTTL             :         : 3         : N              
+REGS_RW_ADDR[3]              : A10       : output : LVTTL             :         : 3         : N              
+VCCIO3                       : A11       : power  :                   : 3.3V    : 3         :                
+GND                          : A12       : gnd    :                   :         :           :                
+GND+                         : A13       :        :                   :         : 4         :                
+TEST1[3]                     : A14       : output : LVTTL             :         : 4         : N              
+GND                          : A15       : gnd    :                   :         :           :                
+VCCIO4                       : A16       : power  :                   : 3.3V    : 4         :                
+DPRAM2_R_ADDR[1]             : A17       : output : LVTTL             :         : 4         : N              
+GND*                         : A18       :        :                   :         : 4         :                
+DPRAM3_R_ADDR[6]             : A19       : output : LVTTL             :         : 4         : N              
+PCI_AD[13]                   : A20       : bidir  : LVTTL             :         : 4         : N              
+DPRAM0_RW_DAT_WRITE[24]      : A21       : output : LVTTL             :         : 4         : N              
+GND*                         : A22       :        :                   :         : 4         :                
+PCI_AD[3]                    : A23       : bidir  : LVTTL             :         : 4         : N              
+VCCIO4                       : A24       : power  :                   : 3.3V    : 4         :                
+GND                          : A25       : gnd    :                   :         :           :                
+TEST2[14]                    : AA1       : output : LVTTL             :         : 1         : N              
+TEST2[21]                    : AA2       : output : LVTTL             :         : 1         : N              
+DPRAM0_RW_DAT_WRITE[18]      : AA3       : output : LVTTL             :         : 1         : N              
+REGS_RW_DAT_WRITE[4]         : AA4       : output : LVTTL             :         : 1         : N              
+REGS_RW_DAT_WRITE[20]        : AA5       : output : LVTTL             :         : 1         : N              
+TEST1[6]                     : AA6       : output : LVTTL             :         : 1         : N              
+TEST1[25]                    : AA7       : output : LVTTL             :         : 1         : N              
+VCCA_PLL1                    : AA8       : power  :                   : 1.2V    :           :                
+TEST1[14]                    : AA9       : output : LVTTL             :         : 8         : N              
+GND*                         : AA10      :        :                   :         : 8         :                
+TEST1[27]                    : AA11      : output : LVTTL             :         : 8         : N              
+REGS_R_DAT_READ[31]          : AA12      : input  : LVTTL             :         : 8         : N              
+DPRAM3_R_DATA[7]             : AA13      : input  : LVTTL             :         : 7         : N              
+GND*                         : AA14      :        :                   :         : 7         :                
+DPRAM2_R_DATA[7]             : AA15      : input  : LVTTL             :         : 7         : N              
+GND*                         : AA16      :        :                   :         : 7         :                
+PCI_AD[5]                    : AA17      : bidir  : LVTTL             :         : 7         : N              
+TEST2[27]                    : AA18      : output : LVTTL             :         : 7         : N              
+VCCA_PLL4                    : AA19      : power  :                   : 1.2V    :           :                
+GND*                         : AA20      :        :                   :         : 7         :                
+GND_PLL4                     : AA21      : gnd    :                   :         :           :                
+VCCIO6                       : AA22      : power  :                   : 3.3V    : 6         :                
+DPRAM0_RW_DAT_READ[29]       : AA23      : input  : LVTTL             :         : 6         : N              
+DPRAM0_RW_DAT_READ[5]        : AA24      : input  : LVTTL             :         : 6         : N              
+DPRAM3_R_DATA[5]             : AA25      : input  : LVTTL             :         : 6         : N              
+DPRAM1_R_DAT_READ[6]         : AA26      : input  : LVTTL             :         : 6         : N              
+TEST2[23]                    : AB1       : output : LVTTL             :         : 1         : N              
+TEST1[10]                    : AB2       : output : LVTTL             :         : 1         : N              
+GND*                         : AB3       :        :                   :         : 1         :                
+GND*                         : AB4       :        :                   :         : 1         :                
+VCCIO1                       : AB5       : power  :                   : 3.3V    : 1         :                
+VCCIO8                       : AB6       : power  :                   : 3.3V    : 8         :                
+GND                          : AB7       : gnd    :                   :         :           :                
+GND*                         : AB8       :        :                   :         : 8         :                
+VCCIO8                       : AB9       : power  :                   : 3.3V    : 8         :                
+TEST2[5]                     : AB10      : output : LVTTL             :         : 8         : N              
+GND                          : AB11      : gnd    :                   :         :           :                
+REGS_RW_DAT_READ[23]         : AB12      : input  : LVTTL             :         : 8         : N              
+VCCIO8                       : AB13      : power  :                   : 3.3V    : 8         :                
+VCCIO7                       : AB14      : power  :                   : 3.3V    : 7         :                
+GND*                         : AB15      :        :                   :         : 7         :                
+GND                          : AB16      : gnd    :                   :         :           :                
+VCCIO7                       : AB17      : power  :                   : 3.3V    : 7         :                
+REGS_R_ADDR[0]               : AB18      : output : LVTTL             :         : 7         : N              
+GND                          : AB19      : gnd    :                   :         :           :                
+DPRAM0_RW_DAT_WRITE[14]      : AB20      : output : LVTTL             :         : 7         : N              
+GND*                         : AB21      :        :                   :         : 7         :                
+VCCIO7                       : AB22      : power  :                   : 3.3V    : 7         :                
+REGS_R_DAT_READ[13]          : AB23      : input  : LVTTL             :         : 6         : N              
+REGS_RW_DAT_WRITE[15]        : AB24      : output : LVTTL             :         : 6         : N              
+DPRAM3_R_DATA[29]            : AB25      : input  : LVTTL             :         : 6         : N              
+DPRAM3_R_DATA[21]            : AB26      : input  : LVTTL             :         : 6         : N              
+DPRAM0_RW_DAT_WRITE[4]       : AC1       : output : LVTTL             :         : 1         : N              
+TEST1[13]                    : AC2       : output : LVTTL             :         : 1         : N              
+TEST2[30]                    : AC3       : output : LVTTL             :         : 1         : N              
+GND                          : AC4       : gnd    :                   :         :           :                
+DPRAM0_RW_DAT_WRITE[15]      : AC5       : output : LVTTL             :         : 8         : N              
+REGS_R_DAT_READ[12]          : AC6       : input  : LVTTL             :         : 8         : N              
+GND*                         : AC7       :        :                   :         : 8         :                
+TEST1[8]                     : AC8       : output : LVTTL             :         : 8         : N              
+GND*                         : AC9       :        :                   :         : 8         :                
+DPRAM0_RW_DAT_READ[15]       : AC10      : input  : LVTTL             :         : 8         : N              
+DPRAM3_R_DATA[31]            : AC11      : input  : LVTTL             :         : 8         : N              
+REGS_RW_DAT_READ[31]         : AC12      : input  : LVTTL             :         : 8         : N              
+GND+                         : AC13      :        :                   :         : 8         :                
+REGS_R_DAT_READ[23]          : AC14      : input  : LVTTL             :         : 7         : N              
+DPRAM2_R_DATA[31]            : AC15      : input  : LVTTL             :         : 7         : N              
+GND*                         : AC16      :        :                   :         : 7         :                
+PCI_AD[8]                    : AC17      : bidir  : LVTTL             :         : 7         : N              
+DPRAM0_RW_ADDR[0]            : AC18      : output : LVTTL             :         : 7         : N              
+GND*                         : AC19      :        :                   :         : 7         :                
+GND*                         : AC20      :        :                   :         : 7         :                
+GND*                         : AC21      :        :                   :         : 7         :                
+GND*                         : AC22      :        :                   :         : 7         :                
+TEST2[9]                     : AC23      : output : LVTTL             :         : 6         : N              
+NC                           : AC24      :        :                   :         :           :                
+DPRAM1_R_DAT_READ[29]        : AC25      : input  : LVTTL             :         : 6         : N              
+DPRAM2_R_DATA[21]            : AC26      : input  : LVTTL             :         : 6         : N              
+VCCIO1                       : AD1       : power  :                   : 3.3V    : 1         :                
+DPRAM0_RW_DAT_WRITE[20]      : AD2       : output : LVTTL             :         : 1         : N              
+REGS_RW_DAT_WRITE[18]        : AD3       : output : LVTTL             :         : 1         : N              
+GND*                         : AD4       :        :                   :         : 8         :                
+GND*                         : AD5       :        :                   :         : 8         :                
+GND*                         : AD6       :        :                   :         : 8         :                
+GND*                         : AD7       :        :                   :         : 8         :                
+TEST2[3]                     : AD8       : output : LVTTL             :         : 8         : N              
+GND                          : AD9       : gnd    :                   :         :           :                
+DPRAM3_R_DATA[23]            : AD10      : input  : LVTTL             :         : 8         : N              
+GND*                         : AD11      :        :                   :         : 8         :                
+GND*                         : AD12      :        :                   :         : 8         :                
+GND+                         : AD13      :        :                   :         : 8         :                
+GND                          : AD14      : gnd    :                   :         :           :                
+GND*                         : AD15      :        :                   :         : 7         :                
+GND*                         : AD16      :        :                   :         : 7         :                
+REGS_RW_ADDR[0]              : AD17      : output : LVTTL             :         : 7         : N              
+GND                          : AD18      : gnd    :                   :         :           :                
+GND*                         : AD19      :        :                   :         : 7         :                
+VCCIO7                       : AD20      : power  :                   : 3.3V    : 7         :                
+GND*                         : AD21      :        :                   :         : 7         :                
+PCI_AD[14]                   : AD22      : bidir  : LVTTL             :         : 7         : N              
+REGS_RW_DAT_READ[13]         : AD23      : input  : LVTTL             :         : 7         : N              
+TEST2[12]                    : AD24      : output : LVTTL             :         : 6         : N              
+TEST1[19]                    : AD25      : output : LVTTL             :         : 6         : N              
+VCCIO6                       : AD26      : power  :                   : 3.3V    : 6         :                
+GND                          : AE1       : gnd    :                   :         :           :                
+TEST1[17]                    : AE2       : output : LVTTL             :         : 1         : N              
+TEST2[7]                     : AE3       : output : LVTTL             :         : 1         : N              
+GND*                         : AE4       :        :                   :         : 8         :                
+GND*                         : AE5       :        :                   :         : 8         :                
+GND*                         : AE6       :        :                   :         : 8         :                
+DPRAM1_R_DAT_READ[23]        : AE7       : input  : LVTTL             :         : 8         : N              
+GND*                         : AE8       :        :                   :         : 8         :                
+TEST1[22]                    : AE9       : output : LVTTL             :         : 8         : N              
+GND*                         : AE10      :        :                   :         : 8         :                
+GND*                         : AE11      :        :                   :         : 8         :                
+GND*                         : AE12      :        :                   :         : 8         :                
+REGS_RW_DAT_READ[15]         : AE13      : input  : LVTTL             :         : 8         : N              
+REGS_R_DAT_READ[28]          : AE14      : input  : LVTTL             :         : 7         : N              
+GND*                         : AE15      :        :                   :         : 7         :                
+DPRAM1_R_DAT_READ[15]        : AE16      : input  : LVTTL             :         : 7         : N              
+TEST1[29]                    : AE17      : output : LVTTL             :         : 7         : N              
+TEST1[0]                     : AE18      : output : LVTTL             :         : 7         : N              
+GND*                         : AE19      :        :                   :         : 7         :                
+DPRAM3_R_ADDR[3]             : AE20      : output : LVTTL             :         : 7         : N              
+DPRAM3_R_ADDR[2]             : AE21      : output : LVTTL             :         : 7         : N              
+DPRAM2_R_DATA[13]            : AE22      : input  : LVTTL             :         : 7         : N              
+REGS_RW_DAT_READ[5]          : AE23      : input  : LVTTL             :         : 7         : N              
+~LVDS150p/nCEO~ / GND*       : AE24      : output : LVTTL             :         : 6         : N              
+TEST1[28]                    : AE25      : output : LVTTL             :         : 6         : N              
+GND                          : AE26      : gnd    :                   :         :           :                
+GND                          : AF2       : gnd    :                   :         :           :                
+VCCIO8                       : AF3       : power  :                   : 3.3V    : 8         :                
+GND*                         : AF4       :        :                   :         : 8         :                
+GND*                         : AF5       :        :                   :         : 8         :                
+TEST2[0]                     : AF6       : output : LVTTL             :         : 8         : N              
+TEST2[26]                    : AF7       : output : LVTTL             :         : 8         : N              
+GND*                         : AF8       :        :                   :         : 8         :                
+GND*                         : AF9       :        :                   :         : 8         :                
+GND*                         : AF10      :        :                   :         : 8         :                
+VCCIO8                       : AF11      : power  :                   : 3.3V    : 8         :                
+GND                          : AF12      : gnd    :                   :         :           :                
+REGS_R_DAT_READ[15]          : AF13      : input  : LVTTL             :         : 8         : N              
+DPRAM0_RW_DAT_READ[12]       : AF14      : input  : LVTTL             :         : 7         : N              
+GND                          : AF15      : gnd    :                   :         :           :                
+VCCIO7                       : AF16      : power  :                   : 3.3V    : 7         :                
+GND*                         : AF17      :        :                   :         : 7         :                
+DPRAM1_R_ADDR[0]             : AF18      : output : LVTTL             :         : 7         : N              
+GND*                         : AF19      :        :                   :         : 7         :                
+DPRAM2_R_ADDR[3]             : AF20      : output : LVTTL             :         : 7         : N              
+DPRAM2_R_ADDR[2]             : AF21      : output : LVTTL             :         : 7         : N              
+DPRAM2_R_DATA[29]            : AF22      : input  : LVTTL             :         : 7         : N              
+REGS_R_DAT_READ[22]          : AF23      : input  : LVTTL             :         : 7         : N              
+VCCIO7                       : AF24      : power  :                   : 3.3V    : 7         :                
+GND                          : AF25      : gnd    :                   :         :           :                
+GND                          : B1        : gnd    :                   :         :           :                
+TEST2[6]                     : B2        : output : LVTTL             :         : 2         : N              
+DPRAM0_RW_DAT_WRITE[7]       : B3        : output : LVTTL             :         : 2         : N              
+DPRAM0_RW_DAT_READ[8]        : B4        : input  : LVTTL             :         : 3         : N              
+GND*                         : B5        :        :                   :         : 3         :                
+DPRAM2_R_ADDR[9]             : B6        : output : LVTTL             :         : 3         : N              
+DPRAM0_RW_DAT_WRITE[16]      : B7        : output : LVTTL             :         : 3         : N              
+REGS_RW_ADDR[4]              : B8        : output : LVTTL             :         : 3         : N              
+GND*                         : B9        :        :                   :         : 3         :                
+DPRAM1_R_ADDR[3]             : B10       : output : LVTTL             :         : 3         : N              
+REGS_R_ADDR[2]               : B11       : output : LVTTL             :         : 3         : N              
+PCI_INTn                     : B12       : output : LVTTL             :         : 3         : N              
+GND+                         : B13       :        :                   :         : 4         :                
+GND*                         : B14       :        :                   :         : 4         :                
+GND*                         : B15       :        :                   :         : 4         :                
+DPRAM0_RW_ADDR[1]            : B16       : output : LVTTL             :         : 4         : N              
+DPRAM1_R_ADDR[1]             : B17       : output : LVTTL             :         : 4         : N              
+GND*                         : B18       :        :                   :         : 4         :                
+TEST1[20]                    : B19       : output : LVTTL             :         : 4         : N              
+DPRAM2_R_ADDR[0]             : B20       : output : LVTTL             :         : 4         : N              
+REGS_RW_DAT_WRITE[24]        : B21       : output : LVTTL             :         : 4         : N              
+GND*                         : B22       :        :                   :         : 4         :                
+DPRAM2_R_DATA[16]            : B23       : input  : LVTTL             :         : 4         : N              
+DPRAM0_RW_DAT_READ[9]        : B24       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_DAT_READ[0]         : B25       : input  : LVTTL             :         : 5         : N              
+GND                          : B26       : gnd    :                   :         :           :                
+VCCIO2                       : C1        : power  :                   : 3.3V    : 2         :                
+DPRAM0_RW_DAT_WRITE[23]      : C2        : output : LVTTL             :         : 2         : N              
+REGS_RW_DAT_WRITE[23]        : C3        : output : LVTTL             :         : 2         : N              
+DPRAM2_R_DATA[24]            : C4        : input  : LVTTL             :         : 3         : N              
+GND*                         : C5        :        :                   :         : 3         :                
+TEST1[16]                    : C6        : output : LVTTL             :         : 3         : N              
+DPRAM1_R_ADDR[6]             : C7        : output : LVTTL             :         : 3         : N              
+GND*                         : C8        :        :                   :         : 3         :                
+GND*                         : C9        :        :                   :         : 3         :                
+DPRAM0_RW_DAT_WRITE[12]      : C10       : output : LVTTL             :         : 3         : N              
+TEST1[18]                    : C11       : output : LVTTL             :         : 3         : N              
+TEST1[2]                     : C12       : output : LVTTL             :         : 3         : N              
+PCI_IRDYn                    : C13       : input  : LVTTL             :         : 3         : N              
+GND                          : C14       : gnd    :                   :         :           :                
+TEST2[25]                    : C15       : output : LVTTL             :         : 4         : N              
+REGS_RW_DAT_WRITE[13]        : C16       : output : LVTTL             :         : 4         : N              
+REGS_RW_DAT_WRITE[27]        : C17       : output : LVTTL             :         : 4         : N              
+GND                          : C18       : gnd    :                   :         :           :                
+DPRAM2_R_ADDR[5]             : C19       : output : LVTTL             :         : 4         : N              
+VCCIO4                       : C20       : power  :                   : 3.3V    : 4         :                
+TEST1[30]                    : C21       : output : LVTTL             :         : 4         : N              
+REGS_R_DAT_READ[17]          : C22       : input  : LVTTL             :         : 4         : N              
+DPRAM0_RW_DAT_READ[17]       : C23       : input  : LVTTL             :         : 4         : N              
+DPRAM2_R_ADDR[4]             : C24       : output : LVTTL             :         : 5         : N              
+DPRAM3_R_ADDR[4]             : C25       : output : LVTTL             :         : 5         : N              
+VCCIO5                       : C26       : power  :                   : 3.3V    : 5         :                
+TEST1[21]                    : D1        : output : LVTTL             :         : 2         : N              
+DPRAM0_RW_ADDR[4]            : D2        : output : LVTTL             :         : 2         : N              
+~nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : D3        : input  : LVTTL             :         : 2         : N              
+GND                          : D4        : gnd    :                   :         :           :                
+GND*                         : D5        :        :                   :         : 3         :                
+TEST2[19]                    : D6        : output : LVTTL             :         : 3         : N              
+DPRAM0_RW_ADDR[6]            : D7        : output : LVTTL             :         : 3         : N              
+GND*                         : D8        :        :                   :         : 3         :                
+PCI_AD[12]                   : D9        : bidir  : LVTTL             :         : 3         : N              
+REGS_RW_DAT_WRITE[0]         : D10       : output : LVTTL             :         : 3         : N              
+DPRAM0_RW_DAT_WRITE[3]       : D11       : output : LVTTL             :         : 3         : N              
+TEST2[4]                     : D12       : output : LVTTL             :         : 3         : N              
+INT_IN                       : D13       : input  : LVTTL             :         : 3         : N              
+TEST2[29]                    : D14       : output : LVTTL             :         : 4         : N              
+REGS_R_ADDR[1]               : D15       : output : LVTTL             :         : 4         : N              
+TEST1[1]                     : D16       : output : LVTTL             :         : 4         : N              
+DPRAM0_RW_DAT_WRITE[27]      : D17       : output : LVTTL             :         : 4         : N              
+DPRAM2_R_ADDR[6]             : D18       : output : LVTTL             :         : 4         : N              
+DPRAM3_R_ADDR[5]             : D19       : output : LVTTL             :         : 4         : N              
+DPRAM3_R_ADDR[0]             : D20       : output : LVTTL             :         : 4         : N              
+GND*                         : D21       :        :                   :         : 4         :                
+VCCIO4                       : D22       : power  :                   : 3.3V    : 4         :                
+DPRAM2_R_ADDR[7]             : D23       : output : LVTTL             :         : 5         : N              
+GND                          : D24       : gnd    :                   :         :           :                
+REGS_R_DAT_READ[16]          : D25       : input  : LVTTL             :         : 5         : N              
+DPRAM3_R_DATA[0]             : D26       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_ADDR[5]             : E1        : output : LVTTL             :         : 2         : N              
+TEST1[5]                     : E2        : output : LVTTL             :         : 2         : N              
+~ASDO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : E3        : input  : LVTTL             :         : 2         : N              
+GND_PLL3                     : E4        : gnd    :                   :         :           :                
+TEST2[31]                    : E5        : output : LVTTL             :         : 2         : N              
+VCCIO3                       : E6        : power  :                   : 3.3V    : 3         :                
+GND                          : E7        : gnd    :                   :         :           :                
+TEST1[31]                    : E8        : output : LVTTL             :         : 3         : N              
+VCCIO3                       : E9        : power  :                   : 3.3V    : 3         :                
+REGS_RW_DAT_WRITE[3]         : E10       : output : LVTTL             :         : 3         : N              
+GND                          : E11       : gnd    :                   :         :           :                
+REGS_RW_DAT_WRITE[7]         : E12       : output : LVTTL             :         : 3         : N              
+VCCIO3                       : E13       : power  :                   : 3.3V    : 3         :                
+VCCIO4                       : E14       : power  :                   : 3.3V    : 4         :                
+REGS_RW_ADDR[1]              : E15       : output : LVTTL             :         : 4         : N              
+GND                          : E16       : gnd    :                   :         :           :                
+VCCIO4                       : E17       : power  :                   : 3.3V    : 4         :                
+DPRAM0_RW_ADDR[7]            : E18       : output : LVTTL             :         : 4         : N              
+GND                          : E19       : gnd    :                   :         :           :                
+TEST1[7]                     : E20       : output : LVTTL             :         : 4         : N              
+GND_PLL2                     : E21       : gnd    :                   :         :           :                
+DPRAM0_RW_DAT_WRITE[11]      : E22       : output : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_WRITE[22]      : E23       : output : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_WRITE[6]       : E24       : output : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_READ[0]        : E25       : input  : LVTTL             :         : 5         : N              
+REGS_RW_WREN                 : E26       : output : LVTTL             :         : 5         : N              
+REGS_RW_DAT_READ[24]         : F1        : input  : LVTTL             :         : 2         : N              
+DPRAM2_R_DATA[8]             : F2        : input  : LVTTL             :         : 2         : N              
+REGS_RW_DAT_WRITE[19]        : F3        : output : LVTTL             :         : 2         : N              
+DPRAM1_R_ADDR[4]             : F4        : output : LVTTL             :         : 2         : N              
+VCCIO2                       : F5        : power  :                   : 3.3V    : 2         :                
+REGS_RW_DAT_WRITE[31]        : F6        : output : LVTTL             :         : 2         : N              
+DPRAM0_RW_DAT_WRITE[25]      : F7        : output : LVTTL             :         : 2         : N              
+GNDA_PLL3                    : F8        : gnd    :                   :         :           :                
+REGS_R_DAT_READ[9]           : F9        : input  : LVTTL             :         : 3         : N              
+REGS_RW_DAT_WRITE[28]        : F10       : output : LVTTL             :         : 3         : N              
+TEST1[23]                    : F11       : output : LVTTL             :         : 3         : N              
+PCI_AD[7]                    : F12       : bidir  : LVTTL             :         : 3         : N              
+DPRAM0_RW_ADDR[2]            : F13       : output : LVTTL             :         : 4         : N              
+DPRAM0_RW_DAT_WRITE[13]      : F14       : output : LVTTL             :         : 4         : N              
+GND*                         : F15       :        :                   :         : 4         :                
+DPRAM2_R_ADDR[8]             : F16       : output : LVTTL             :         : 4         : N              
+REGS_RW_DAT_WRITE[1]         : F17       : output : LVTTL             :         : 4         : N              
+GND*                         : F18       :        :                   :         : 4         :                
+GNDA_PLL2                    : F19       : gnd    :                   :         :           :                
+REGS_RW_DAT_WRITE[11]        : F20       : output : LVTTL             :         : 5         : N              
+TEST2[16]                    : F21       : output : LVTTL             :         : 5         : N              
+VCCIO5                       : F22       : power  :                   : 3.3V    : 5         :                
+PCI_AD[11]                   : F23       : bidir  : LVTTL             :         : 5         : N              
+REGS_R_DAT_READ[0]           : F24       : input  : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_READ[22]       : F25       : input  : LVTTL             :         : 5         : N              
+DPRAM2_R_DATA[0]             : F26       : input  : LVTTL             :         : 5         : N              
+DPRAM2_R_DATA[9]             : G1        : input  : LVTTL             :         : 2         : N              
+DPRAM0_RW_DAT_READ[25]       : G2        : input  : LVTTL             :         : 2         : N              
+DPRAM2_R_DATA[25]            : G3        : input  : LVTTL             :         : 2         : N              
+REGS_RW_DAT_WRITE[9]         : G4        : output : LVTTL             :         : 2         : N              
+REGS_R_ADDR[4]               : G5        : output : LVTTL             :         : 2         : N              
+DPRAM0_RW_DAT_WRITE[31]      : G6        : output : LVTTL             :         : 2         : N              
+GND_PLL3                     : G7        : gnd    :                   :         :           :                
+VCCA_PLL3                    : G8        : power  :                   : 1.2V    :           :                
+REGS_RW_DAT_READ[9]          : G9        : input  : LVTTL             :         : 3         : N              
+DPRAM0_RW_DAT_WRITE[28]      : G10       : output : LVTTL             :         : 3         : N              
+TEST2[20]                    : G11       : output : LVTTL             :         : 3         : N              
+GND*                         : G12       :        :                   :         : 3         :                
+REGS_RW_ADDR[2]              : G13       : output : LVTTL             :         : 4         : N              
+DPRAM0_RW_DAT_WRITE[0]       : G14       : output : LVTTL             :         : 4         : N              
+GND*                         : G15       :        :                   :         : 4         :                
+DPRAM3_R_ADDR[8]             : G16       : output : LVTTL             :         : 4         : N              
+DPRAM0_RW_DAT_WRITE[1]       : G17       : output : LVTTL             :         : 4         : N              
+DPRAM0_RW_DAT_WRITE[17]      : G18       : output : LVTTL             :         : 4         : N              
+VCCA_PLL2                    : G19       : power  :                   : 1.2V    :           :                
+GND_PLL2                     : G20       : gnd    :                   :         :           :                
+REGS_RW_DAT_WRITE[22]        : G21       : output : LVTTL             :         : 5         : N              
+REGS_RW_DAT_WRITE[6]         : G22       : output : LVTTL             :         : 5         : N              
+DPRAM0_RW_WREN               : G23       : output : LVTTL             :         : 5         : N              
+PCI_BEn[1]                   : G24       : input  : LVTTL             :         : 5         : N              
+PCI_BEn[0]                   : G25       : input  : LVTTL             :         : 5         : N              
+PCI_FRAMEn                   : G26       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_DAT_READ[24]        : H1        : input  : LVTTL             :         : 2         : N              
+REGS_R_DAT_READ[25]          : H2        : input  : LVTTL             :         : 2         : N              
+DPRAM0_RW_DAT_READ[24]       : H3        : input  : LVTTL             :         : 2         : N              
+REGS_RW_DAT_WRITE[29]        : H4        : output : LVTTL             :         : 2         : N              
+GND                          : H5        : gnd    :                   :         :           :                
+REGS_RW_DAT_WRITE[25]        : H6        : output : LVTTL             :         : 2         : N              
+VCCD_PLL3                    : H7        : power  :                   : 1.2V    :           :                
+TEST2[1]                     : H8        : output : LVTTL             :         : 3         : N              
+VCCIO3                       : H9        : power  :                   : 3.3V    : 3         :                
+DPRAM3_R_DATA[25]            : H10       : input  : LVTTL             :         : 3         : N              
+GND*                         : H11       :        :                   :         : 3         :                
+REGS_RW_DAT_WRITE[12]        : H12       : output : LVTTL             :         : 3         : N              
+GND                          : H13       : gnd    :                   :         :           :                
+GND                          : H14       : gnd    :                   :         :           :                
+DPRAM3_R_ADDR[1]             : H15       : output : LVTTL             :         : 4         : N              
+GND*                         : H16       :        :                   :         : 4         :                
+REGS_RW_DAT_WRITE[17]        : H17       : output : LVTTL             :         : 4         : N              
+VCCIO4                       : H18       : power  :                   : 3.3V    : 4         :                
+DPRAM3_R_DATA[17]            : H19       : input  : LVTTL             :         : 5         : N              
+VCCD_PLL2                    : H20       : power  :                   : 1.2V    :           :                
+DPRAM3_R_ADDR[7]             : H21       : output : LVTTL             :         : 5         : N              
+GND                          : H22       : gnd    :                   :         :           :                
+DPRAM1_R_DAT_READ[18]        : H23       : input  : LVTTL             :         : 5         : N              
+REGS_RW_DAT_READ[17]         : H24       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_DAT_READ[22]        : H25       : input  : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_READ[7]        : H26       : input  : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_WRITE[29]      : J1        : output : LVTTL             :         : 2         : N              
+DPRAM3_R_DATA[8]             : J2        : input  : LVTTL             :         : 2         : N              
+REGS_RW_DAT_READ[25]         : J3        : input  : LVTTL             :         : 2         : N              
+DPRAM3_R_DATA[24]            : J4        : input  : LVTTL             :         : 2         : N              
+DPRAM0_RW_DAT_WRITE[19]      : J5        : output : LVTTL             :         : 2         : N              
+REGS_R_DAT_READ[8]           : J6        : input  : LVTTL             :         : 2         : N              
+DPRAM0_RW_DAT_WRITE[9]       : J7        : output : LVTTL             :         : 2         : N              
+DPRAM1_R_DAT_READ[8]         : J8        : input  : LVTTL             :         : 2         : N              
+DPRAM1_R_DAT_READ[26]        : J9        : input  : LVTTL             :         : 3         : N              
+TEST2[24]                    : J10       : output : LVTTL             :         : 3         : N              
+DPRAM1_R_ADDR[2]             : J11       : output : LVTTL             :         : 3         : N              
+VCCIO3                       : J12       : power  :                   : 3.3V    : 3         :                
+REGS_R_ADDR[3]               : J13       : output : LVTTL             :         : 3         : N              
+DPRAM0_RW_ADDR[3]            : J14       : output : LVTTL             :         : 3         : N              
+VCCIO4                       : J15       : power  :                   : 3.3V    : 4         :                
+PCI_AD[1]                    : J16       : bidir  : LVTTL             :         : 4         : N              
+DPRAM1_R_ADDR[7]             : J17       : output : LVTTL             :         : 4         : N              
+GND*                         : J18       :        :                   :         : 4         :                
+VCCIO5                       : J19       : power  :                   : 3.3V    : 5         :                
+REGS_RW_DAT_READ[16]         : J20       : input  : LVTTL             :         : 5         : N              
+REGS_RW_DAT_READ[1]          : J21       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_DAT_READ[16]        : J22       : input  : LVTTL             :         : 5         : N              
+REGS_R_DAT_READ[1]           : J23       : input  : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_READ[3]        : J24       : input  : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_READ[1]        : J25       : input  : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_READ[21]       : J26       : input  : LVTTL             :         : 5         : N              
+REGS_R_DAT_READ[2]           : K1        : input  : LVTTL             :         : 2         : N              
+REGS_RW_DAT_WRITE[10]        : K2        : output : LVTTL             :         : 2         : N              
+DPRAM3_R_DATA[10]            : K3        : input  : LVTTL             :         : 2         : N              
+REGS_RW_DAT_READ[8]          : K4        : input  : LVTTL             :         : 2         : N              
+DPRAM0_RW_ADDR[5]            : K5        : output : LVTTL             :         : 2         : N              
+DPRAM3_R_ADDR[9]             : K6        : output : LVTTL             :         : 2         : N              
+PCI_AD[9]                    : K7        : bidir  : LVTTL             :         : 2         : N              
+REGS_R_DAT_READ[24]          : K8        : input  : LVTTL             :         : 2         : N              
+DPRAM3_R_DATA[9]             : K9        : input  : LVTTL             :         : 3         : N              
+VCCINT                       : K10       : power  :                   : 1.2V    :           :                
+VCCINT                       : K11       : power  :                   : 1.2V    :           :                
+VCCINT                       : K12       : power  :                   : 1.2V    :           :                
+VCCINT                       : K13       : power  :                   : 1.2V    :           :                
+VCCINT                       : K14       : power  :                   : 1.2V    :           :                
+VCCINT                       : K15       : power  :                   : 1.2V    :           :                
+PCI_AD[0]                    : K16       : bidir  : LVTTL             :         : 4         : N              
+PCI_TRDYn                    : K17       : output : LVTTL             :         : 4         : N              
+DPRAM2_R_DATA[1]             : K18       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_DAT_READ[3]         : K19       : input  : LVTTL             :         : 5         : N              
+GND                          : K20       : gnd    :                   :         :           :                
+DPRAM1_R_DAT_READ[17]        : K21       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_DAT_READ[7]         : K22       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_DAT_READ[9]         : K23       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_DAT_READ[21]        : K24       : input  : LVTTL             :         : 5         : N              
+DPRAM3_R_DATA[19]            : K25       : input  : LVTTL             :         : 5         : N              
+DPRAM3_R_DATA[3]             : K26       : input  : LVTTL             :         : 5         : N              
+VCCIO2                       : L1        : power  :                   : 3.3V    : 2         :                
+DPRAM0_RW_DAT_READ[10]       : L2        : input  : LVTTL             :         : 2         : N              
+DPRAM2_R_DATA[26]            : L3        : input  : LVTTL             :         : 2         : N              
+DPRAM1_R_DAT_READ[10]        : L4        : input  : LVTTL             :         : 2         : N              
+GND                          : L5        : gnd    :                   :         :           :                
+DPRAM2_R_DATA[18]            : L6        : input  : LVTTL             :         : 2         : N              
+DPRAM1_R_DAT_READ[2]         : L7        : input  : LVTTL             :         : 2         : N              
+TMS                          : L8        : input  :                   :         : 2         :                
+REGS_R_DAT_READ[18]          : L9        : input  : LVTTL             :         : 2         : N              
+REGS_RW_DAT_READ[2]          : L10       : input  : LVTTL             :         : 2         : N              
+VCCINT                       : L11       : power  :                   : 1.2V    :           :                
+GND                          : L12       : gnd    :                   :         :           :                
+GND                          : L13       : gnd    :                   :         :           :                
+GND                          : L14       : gnd    :                   :         :           :                
+GND                          : L15       : gnd    :                   :         :           :                
+VCCINT                       : L16       : power  :                   : 1.2V    :           :                
+VCCINT                       : L17       : power  :                   : 1.2V    :           :                
+VCCINT                       : L18       : power  :                   : 1.2V    :           :                
+DPRAM3_R_DATA[1]             : L19       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_DAT_READ[20]        : L20       : input  : LVTTL             :         : 5         : N              
+DPRAM2_R_DATA[17]            : L21       : input  : LVTTL             :         : 5         : N              
+GND                          : L22       : gnd    :                   :         :           :                
+DPRAM0_RW_DAT_READ[20]       : L23       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_DAT_READ[1]         : L24       : input  : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_READ[18]       : L25       : input  : LVTTL             :         : 5         : N              
+VCCIO5                       : L26       : power  :                   : 3.3V    : 5         :                
+GND                          : M1        : gnd    :                   :         :           :                
+REGS_R_DAT_READ[26]          : M2        : input  : LVTTL             :         : 2         : N              
+PCI_AD[2]                    : M3        : bidir  : LVTTL             :         : 2         : N              
+REGS_RW_DAT_READ[10]         : M4        : input  : LVTTL             :         : 2         : N              
+DPRAM3_R_DATA[18]            : M5        : input  : LVTTL             :         : 2         : N              
+TCK                          : M6        : input  :                   :         : 2         :                
+TDO                          : M7        : output :                   :         : 2         :                
+TDI                          : M8        : input  :                   :         : 2         :                
+VCCIO2                       : M9        : power  :                   : 3.3V    : 2         :                
+VCCINT                       : M10       : power  :                   : 1.2V    :           :                
+VCCINT                       : M11       : power  :                   : 1.2V    :           :                
+GND                          : M12       : gnd    :                   :         :           :                
+GND                          : M13       : gnd    :                   :         :           :                
+GND                          : M14       : gnd    :                   :         :           :                
+GND                          : M15       : gnd    :                   :         :           :                
+VCCINT                       : M16       : power  :                   : 1.2V    :           :                
+VCCINT                       : M17       : power  :                   : 1.2V    :           :                
+VCCIO5                       : M18       : power  :                   : 3.3V    : 5         :                
+DPRAM3_R_DATA[11]            : M19       : input  : LVTTL             :         : 5         : N              
+DPRAM2_R_DATA[11]            : M20       : input  : LVTTL             :         : 5         : N              
+DPRAM1_R_DAT_READ[19]        : M21       : input  : LVTTL             :         : 5         : N              
+REGS_RW_DAT_READ[3]          : M22       : input  : LVTTL             :         : 5         : N              
+REGS_R_DAT_READ[3]           : M23       : input  : LVTTL             :         : 5         : N              
+REGS_R_DAT_READ[11]          : M24       : input  : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_READ[27]       : M25       : input  : LVTTL             :         : 5         : N              
+GND                          : M26       : gnd    :                   :         :           :                
+GND+                         : N1        :        :                   :         : 2         :                
+GND+                         : N2        :        :                   :         : 2         :                
+DATA0                        : N3        : input  :                   :         : 2         :                
+nCE                          : N4        :        :                   :         : 2         :                
+VCCIO2                       : N5        : power  :                   : 3.3V    : 2         :                
+DCLK                         : N6        :        :                   :         : 2         :                
+nCONFIG                      : N7        :        :                   :         : 2         :                
+GND                          : N8        : gnd    :                   :         :           :                
+PCI_AD[10]                   : N9        : bidir  : LVTTL             :         : 2         : N              
+VCCINT                       : N10       : power  :                   : 1.2V    :           :                
+GND                          : N11       : gnd    :                   :         :           :                
+GND                          : N12       : gnd    :                   :         :           :                
+GND                          : N13       : gnd    :                   :         :           :                
+GND                          : N14       : gnd    :                   :         :           :                
+GND                          : N15       : gnd    :                   :         :           :                
+GND                          : N16       : gnd    :                   :         :           :                
+VCCINT                       : N17       : power  :                   : 1.2V    :           :                
+DPRAM3_R_DATA[16]            : N18       : input  : LVTTL             :         : 5         : N              
+GND                          : N19       : gnd    :                   :         :           :                
+DPRAM2_R_DATA[27]            : N20       : input  : LVTTL             :         : 5         : N              
+NC                           : N21       :        :                   :         :           :                
+VCCIO5                       : N22       : power  :                   : 3.3V    : 5         :                
+REGS_RW_DAT_READ[11]         : N23       : input  : LVTTL             :         : 5         : N              
+DPRAM0_RW_DAT_READ[19]       : N24       : input  : LVTTL             :         : 5         : N              
+DPRAM2_R_DATA[2]             : N25       : input  : LVTTL             :         : 5         : N              
+DPRAM3_R_DATA[2]             : N26       : input  : LVTTL             :         : 5         : N              
+RESET                        : P1        : input  : LVTTL             :         : 1         : N              
+CLK                          : P2        : input  : LVTTL             :         : 1         : N              
+DPRAM1_R_DAT_READ[27]        : P3        : input  : LVTTL             :         : 1         : N              
+DPRAM0_RW_DAT_READ[2]        : P4        : input  : LVTTL             :         : 1         : N              
+VCCIO1                       : P5        : power  :                   : 3.3V    : 1         :                
+DPRAM0_RW_DAT_WRITE[10]      : P6        : output : LVTTL             :         : 1         : N              
+REGS_RW_DAT_READ[26]         : P7        : input  : LVTTL             :         : 1         : N              
+GND                          : P8        : gnd    :                   :         :           :                
+REGS_R_DAT_READ[10]          : P9        : input  : LVTTL             :         : 2         : N              
+VCCINT                       : P10       : power  :                   : 1.2V    :           :                
+GND                          : P11       : gnd    :                   :         :           :                
+GND                          : P12       : gnd    :                   :         :           :                
+GND                          : P13       : gnd    :                   :         :           :                
+GND                          : P14       : gnd    :                   :         :           :                
+GND                          : P15       : gnd    :                   :         :           :                
+GND                          : P16       : gnd    :                   :         :           :                
+TEST2[8]                     : P17       : output : LVTTL             :         : 6         : N              
+REGS_RW_DAT_READ[0]          : P18       : input  : LVTTL             :         : 5         : N              
+GND                          : P19       : gnd    :                   :         :           :                
+MSEL0                        : P20       :        :                   :         : 6         :                
+MSEL1                        : P21       :        :                   :         : 6         :                
+VCCIO6                       : P22       : power  :                   : 3.3V    : 6         :                
+DPRAM3_R_DATA[27]            : P23       : input  : LVTTL             :         : 6         : N              
+REGS_R_DAT_READ[19]          : P24       : input  : LVTTL             :         : 6         : N              
+DPRAM3_R_DATA[12]            : P25       : input  : LVTTL             :         : 6         : N              
+DPRAM0_RW_DAT_READ[28]       : P26       : input  : LVTTL             :         : 6         : N              
+GND                          : R1        : gnd    :                   :         :           :                
+DPRAM2_R_DATA[10]            : R2        : input  : LVTTL             :         : 1         : N              
+DPRAM0_RW_DAT_READ[26]       : R3        : input  : LVTTL             :         : 1         : N              
+REGS_RW_DAT_READ[19]         : R4        : input  : LVTTL             :         : 1         : N              
+DPRAM3_R_DATA[26]            : R5        : input  : LVTTL             :         : 1         : N              
+REGS_RW_DAT_READ[20]         : R6        : input  : LVTTL             :         : 1         : N              
+DPRAM1_R_DAT_READ[12]        : R7        : input  : LVTTL             :         : 1         : N              
+REGS_RW_DAT_READ[7]          : R8        : input  : LVTTL             :         : 1         : N              
+VCCIO1                       : R9        : power  :                   : 3.3V    : 1         :                
+VCCINT                       : R10       : power  :                   : 1.2V    :           :                
+VCCINT                       : R11       : power  :                   : 1.2V    :           :                
+GND                          : R12       : gnd    :                   :         :           :                
+GND                          : R13       : gnd    :                   :         :           :                
+GND                          : R14       : gnd    :                   :         :           :                
+GND                          : R15       : gnd    :                   :         :           :                
+VCCINT                       : R16       : power  :                   : 1.2V    :           :                
+REGS_RW_DAT_WRITE[30]        : R17       : output : LVTTL             :         : 6         : N              
+VCCIO6                       : R18       : power  :                   : 3.3V    : 6         :                
+DPRAM3_R_DATA[6]             : R19       : input  : LVTTL             :         : 6         : N              
+REGS_RW_DAT_READ[27]         : R20       : input  : LVTTL             :         : 6         : N              
+GND                          : R21       : gnd    :                   :         :           :                
+nSTATUS                      : R22       :        :                   :         : 6         :                
+CONF_DONE                    : R23       :        :                   :         : 6         :                
+DPRAM0_RW_DAT_READ[11]       : R24       : input  : LVTTL             :         : 6         : N              
+DPRAM2_R_DATA[19]            : R25       : input  : LVTTL             :         : 6         : N              
+GND                          : R26       : gnd    :                   :         :           :                
+VCCIO1                       : T1        : power  :                   : 3.3V    : 1         :                
+TEST2[17]                    : T2        : output : LVTTL             :         : 1         : N              
+REGS_R_DAT_READ[27]          : T3        : input  : LVTTL             :         : 1         : N              
+REGS_R_DAT_READ[20]          : T4        : input  : LVTTL             :         : 1         : N              
+GND                          : T5        : gnd    :                   :         :           :                
+DPRAM3_R_DATA[28]            : T6        : input  : LVTTL             :         : 1         : N              
+DPRAM2_R_DATA[20]            : T7        : input  : LVTTL             :         : 1         : N              
+DPRAM3_R_DATA[15]            : T8        : input  : LVTTL             :         : 1         : N              
+DPRAM_ADDR_RST               : T9        : input  : LVTTL             :         : 1         : N              
+REGS_RW_DAT_READ[18]         : T10       : input  : LVTTL             :         : 1         : N              
+VCCINT                       : T11       : power  :                   : 1.2V    :           :                
+GND                          : T12       : gnd    :                   :         :           :                
+GND                          : T13       : gnd    :                   :         :           :                
+GND                          : T14       : gnd    :                   :         :           :                
+GND                          : T15       : gnd    :                   :         :           :                
+VCCINT                       : T16       : power  :                   : 1.2V    :           :                
+REGS_R_DAT_READ[6]           : T17       : input  : LVTTL             :         : 6         : N              
+DPRAM0_RW_DAT_READ[14]       : T18       : input  : LVTTL             :         : 6         : N              
+REGS_RW_DAT_READ[14]         : T19       : input  : LVTTL             :         : 6         : N              
+REGS_R_DAT_READ[14]          : T20       : input  : LVTTL             :         : 6         : N              
+REGS_RW_DAT_READ[22]         : T21       : input  : LVTTL             :         : 6         : N              
+DPRAM1_R_DAT_READ[11]        : T22       : input  : LVTTL             :         : 6         : N              
+DPRAM2_R_DATA[3]             : T23       : input  : LVTTL             :         : 6         : N              
+PCI_AD[6]                    : T24       : bidir  : LVTTL             :         : 6         : N              
+DPRAM0_RW_DAT_WRITE[30]      : T25       : output : LVTTL             :         : 6         : N              
+VCCIO6                       : T26       : power  :                   : 3.3V    : 6         :                
+REGS_R_DAT_READ[4]           : U1        : input  : LVTTL             :         : 1         : N              
+REGS_RW_DAT_READ[12]         : U2        : input  : LVTTL             :         : 1         : N              
+PCI_AD[4]                    : U3        : bidir  : LVTTL             :         : 1         : N              
+REGS_RW_DAT_READ[4]          : U4        : input  : LVTTL             :         : 1         : N              
+REGS_RW_DAT_WRITE[26]        : U5        : output : LVTTL             :         : 1         : N              
+DPRAM0_RW_DAT_WRITE[2]       : U6        : output : LVTTL             :         : 1         : N              
+REGS_RW_DAT_READ[28]         : U7        : input  : LVTTL             :         : 1         : N              
+GND                          : U8        : gnd    :                   :         :           :                
+DPRAM1_R_DAT_READ[28]        : U9        : input  : LVTTL             :         : 1         : N              
+DPRAM0_RW_DAT_READ[4]        : U10       : input  : LVTTL             :         : 1         : N              
+VCCINT                       : U11       : power  :                   : 1.2V    :           :                
+GND*                         : U12       :        :                   :         : 8         :                
+VCCINT                       : U13       : power  :                   : 1.2V    :           :                
+VCCINT                       : U14       : power  :                   : 1.2V    :           :                
+VCCINT                       : U15       : power  :                   : 1.2V    :           :                
+VCCINT                       : U16       : power  :                   : 1.2V    :           :                
+REGS_RW_DAT_WRITE[14]        : U17       : output : LVTTL             :         : 7         : N              
+DPRAM0_RW_DAT_READ[16]       : U18       : input  : LVTTL             :         : 7         : N              
+GND                          : U19       : gnd    :                   :         :           :                
+DPRAM0_RW_DAT_READ[30]       : U20       : input  : LVTTL             :         : 6         : N              
+DPRAM2_R_DATA[6]             : U21       : input  : LVTTL             :         : 6         : N              
+DPRAM2_R_DATA[5]             : U22       : input  : LVTTL             :         : 6         : N              
+DPRAM1_R_DAT_READ[14]        : U23       : input  : LVTTL             :         : 6         : N              
+DPRAM1_R_DAT_READ[30]        : U24       : input  : LVTTL             :         : 6         : N              
+DPRAM3_R_DATA[30]            : U25       : input  : LVTTL             :         : 6         : N              
+DPRAM2_R_DATA[14]            : U26       : input  : LVTTL             :         : 6         : N              
+DPRAM2_R_DATA[4]             : V1        : input  : LVTTL             :         : 1         : N              
+DPRAM3_R_DATA[4]             : V2        : input  : LVTTL             :         : 1         : N              
+DPRAM2_R_DATA[12]            : V3        : input  : LVTTL             :         : 1         : N              
+DPRAM3_R_DATA[20]            : V4        : input  : LVTTL             :         : 1         : N              
+TEST1[11]                    : V5        : output : LVTTL             :         : 1         : N              
+TEST2[10]                    : V6        : output : LVTTL             :         : 1         : N              
+TEST1[9]                     : V7        : output : LVTTL             :         : 1         : N              
+VCCIO1                       : V8        : power  :                   : 3.3V    : 1         :                
+REGS_RW_DAT_WRITE[5]         : V9        : output : LVTTL             :         : 8         : N              
+TEST2[28]                    : V10       : output : LVTTL             :         : 8         : N              
+GND*                         : V11       :        :                   :         : 8         :                
+VCCIO8                       : V12       : power  :                   : 3.3V    : 8         :                
+REGS_R_DAT_READ[7]           : V13       : input  : LVTTL             :         : 8         : N              
+DPRAM0_RW_DAT_READ[31]       : V14       : input  : LVTTL             :         : 8         : N              
+VCCIO7                       : V15       : power  :                   : 3.3V    : 7         :                
+VCCINT                       : V16       : power  :                   : 1.2V    :           :                
+GND*                         : V17       :        :                   :         : 7         :                
+GND*                         : V18       :        :                   :         : 7         :                
+VCCIO6                       : V19       : power  :                   : 3.3V    : 6         :                
+REGS_R_DAT_READ[5]           : V20       : input  : LVTTL             :         : 6         : N              
+REGS_RW_DAT_READ[29]         : V21       : input  : LVTTL             :         : 6         : N              
+REGS_RW_DAT_READ[21]         : V22       : input  : LVTTL             :         : 6         : N              
+REGS_RW_DAT_READ[6]          : V23       : input  : LVTTL             :         : 6         : N              
+DPRAM3_R_DATA[14]            : V24       : input  : LVTTL             :         : 6         : N              
+DPRAM2_R_DATA[30]            : V25       : input  : LVTTL             :         : 6         : N              
+REGS_R_DAT_READ[30]          : V26       : input  : LVTTL             :         : 6         : N              
+DPRAM2_R_DATA[28]            : W1        : input  : LVTTL             :         : 1         : N              
+DPRAM1_R_DAT_READ[4]         : W2        : input  : LVTTL             :         : 1         : N              
+REGS_RW_DAT_WRITE[21]        : W3        : output : LVTTL             :         : 1         : N              
+DPRAM0_RW_DAT_WRITE[21]      : W4        : output : LVTTL             :         : 1         : N              
+GND                          : W5        : gnd    :                   :         :           :                
+TEST2[13]                    : W6        : output : LVTTL             :         : 1         : N              
+GND_PLL1                     : W7        : gnd    :                   :         :           :                
+GND*                         : W8        :        :                   :         : 8         :                
+VCCIO8                       : W9        : power  :                   : 3.3V    : 8         :                
+TEST2[22]                    : W10       : output : LVTTL             :         : 8         : N              
+PCI_AD[15]                   : W11       : bidir  : LVTTL             :         : 8         : N              
+DPRAM2_R_DATA[23]            : W12       : input  : LVTTL             :         : 8         : N              
+GND                          : W13       : gnd    :                   :         :           :                
+GND                          : W14       : gnd    :                   :         :           :                
+DPRAM0_RW_DAT_WRITE[8]       : W15       : output : LVTTL             :         : 7         : N              
+DPRAM0_RW_DAT_WRITE[5]       : W16       : output : LVTTL             :         : 7         : N              
+REGS_RW_DAT_WRITE[8]         : W17       : output : LVTTL             :         : 7         : N              
+VCCIO7                       : W18       : power  :                   : 3.3V    : 7         :                
+GND*                         : W19       :        :                   :         : 7         :                
+GND_PLL4                     : W20       : gnd    :                   :         :           :                
+DPRAM3_R_DATA[13]            : W21       : input  : LVTTL             :         : 6         : N              
+GND                          : W22       : gnd    :                   :         :           :                
+DPRAM0_RW_DAT_READ[6]        : W23       : input  : LVTTL             :         : 6         : N              
+REGS_RW_DAT_READ[30]         : W24       : input  : LVTTL             :         : 6         : N              
+DPRAM2_R_DATA[22]            : W25       : input  : LVTTL             :         : 6         : N              
+DPRAM3_R_DATA[22]            : W26       : input  : LVTTL             :         : 6         : N              
+DPRAM0_RW_DAT_WRITE[26]      : Y1        : output : LVTTL             :         : 1         : N              
+NC                           : Y2        :        :                   :         :           :                
+REGS_RW_DAT_WRITE[2]         : Y3        : output : LVTTL             :         : 1         : N              
+TEST1[24]                    : Y4        : output : LVTTL             :         : 1         : N              
+TEST1[26]                    : Y5        : output : LVTTL             :         : 1         : N              
+GND_PLL1                     : Y6        : gnd    :                   :         :           :                
+VCCD_PLL1                    : Y7        : power  :                   : 1.2V    :           :                
+GNDA_PLL1                    : Y8        : gnd    :                   :         :           :                
+GND                          : Y9        : gnd    :                   :         :           :                
+TEST2[18]                    : Y10       : output : LVTTL             :         : 8         : N              
+GND*                         : Y11       :        :                   :         : 8         :                
+DPRAM2_R_DATA[15]            : Y12       : input  : LVTTL             :         : 8         : N              
+GND*                         : Y13       :        :                   :         : 7         :                
+DPRAM1_R_DAT_READ[31]        : Y14       : input  : LVTTL             :         : 7         : N              
+DPRAM0_RW_DAT_READ[23]       : Y15       : input  : LVTTL             :         : 7         : N              
+TEST2[15]                    : Y16       : output : LVTTL             :         : 7         : N              
+GND                          : Y17       : gnd    :                   :         :           :                
+GND*                         : Y18       :        :                   :         : 7         :                
+GNDA_PLL4                    : Y19       : gnd    :                   :         :           :                
+VCCD_PLL4                    : Y20       : power  :                   : 1.2V    :           :                
+TEST1[12]                    : Y21       : output : LVTTL             :         : 6         : N              
+DPRAM0_RW_DAT_READ[13]       : Y22       : input  : LVTTL             :         : 6         : N              
+DPRAM1_R_DAT_READ[5]         : Y23       : input  : LVTTL             :         : 6         : N              
+REGS_R_DAT_READ[21]          : Y24       : input  : LVTTL             :         : 6         : N              
+REGS_R_DAT_READ[29]          : Y25       : input  : LVTTL             :         : 6         : N              
+DPRAM1_R_DAT_READ[13]        : Y26       : input  : LVTTL             :         : 6         : N              

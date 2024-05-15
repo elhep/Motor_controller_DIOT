@@ -1,0 +1,316 @@
+Analysis & Synthesis report for AD5310BRM
+Fri Jul 13 15:15:46 2007
+Quartus II Version 7.1 Build 156 04/30/2007 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |tlv5637|state
+  8. State Machine - |tlv5637|Mstate
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Fri Jul 13 15:15:46 2007    ;
+; Quartus II Version          ; 7.1 Build 156 04/30/2007 SJ Full Version ;
+; Revision Name               ; AD5310BRM                                ;
+; Top-level Entity Name       ; tlv5637                                  ;
+; Family                      ; Stratix                                  ;
+; Total logic elements        ; 92                                       ;
+; Total pins                  ; 61                                       ;
+; Total virtual pins          ; 0                                        ;
+; Total memory bits           ; 0                                        ;
+; DSP block 9-bit elements    ; 0                                        ;
+; Total PLLs                  ; 0                                        ;
+; Total DLLs                  ; 0                                        ;
++-----------------------------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                            ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                         ; Setting            ; Default Value      ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                          ; tlv5637            ; AD5310BRM          ;
+; Family name                                                                    ; Stratix            ; Stratix            ;
+; Restructure Multiplexers                                                       ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                            ; Off                ; Off                ;
+; Preserve fewer node names                                                      ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                      ; Off                ; Off                ;
+; Verilog Version                                                                ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                   ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                                       ; Auto               ; Auto               ;
+; Safe State Machine                                                             ; Off                ; Off                ;
+; Extract Verilog State Machines                                                 ; On                 ; On                 ;
+; Extract VHDL State Machines                                                    ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                              ; Off                ; Off                ;
+; Add Pass-Through Logic to Inferred RAMs                                        ; On                 ; On                 ;
+; DSP Block Balancing                                                            ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                             ; On                 ; On                 ;
+; Power-Up Don't Care                                                            ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                   ; Off                ; Off                ;
+; Remove Duplicate Registers                                                     ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                           ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                         ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                          ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                           ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                            ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                 ; Off                ; Off                ;
+; Optimization Technique -- Stratix/Stratix GX                                   ; Balanced           ; Balanced           ;
+; Carry Chain Length -- Stratix/Stratix GX/Cyclone/MAX II/Cyclone II/Cyclone III ; 70                 ; 70                 ;
+; Auto Carry Chains                                                              ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                           ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                          ; Off                ; Off                ;
+; Perform gate-level register retiming                                           ; Off                ; Off                ;
+; Allow register retiming to trade off Tsu/Tco with Fmax                         ; On                 ; On                 ;
+; Auto ROM Replacement                                                           ; On                 ; On                 ;
+; Auto RAM Replacement                                                           ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                     ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                  ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                              ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                         ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                       ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                              ; Off                ; Off                ;
+; Auto Resource Sharing                                                          ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                             ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                             ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                  ; Off                ; Off                ;
+; Ignore translate_off and synthesis_off directives                              ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                             ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                             ; Off                ; Off                ;
+; Retiming Meta-Stability Register Sequence Length                               ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                              ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                           ; On                 ; On                 ;
+; Use smart compilation                                                          ; Off                ; Off                ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                             ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------+
+; tlv5637.vhd                      ; yes             ; User VHDL File  ; C:/DESIGNS/PCB/TRIC/VHDL/VHDL_v0.7/FPGA/TLV5637/tlv5637.vhd ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 92    ;
+;     -- Combinational with no register       ; 36    ;
+;     -- Register only                        ; 9     ;
+;     -- Combinational with a register        ; 47    ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 55    ;
+;     -- 3 input functions                    ; 10    ;
+;     -- 2 input functions                    ; 16    ;
+;     -- 1 input functions                    ; 2     ;
+;     -- 0 input functions                    ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 87    ;
+;     -- arithmetic mode                      ; 5     ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 8     ;
+;     -- asynchronous clear/load mode         ; 12    ;
+;                                             ;       ;
+; Total registers                             ; 56    ;
+; Total logic cells in carry chains           ; 6     ;
+; I/O pins                                    ; 61    ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 56    ;
+; Total fan-out                               ; 433   ;
+; Average fan-out                             ; 2.83  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                    ;
++----------------------------+-------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+; |tlv5637                   ; 92 (92)     ; 56           ; 0           ; 0            ; 0       ; 0         ; 0         ; 61   ; 0            ; 36 (36)      ; 9 (9)             ; 47 (47)          ; 6 (6)           ; 0 (0)      ; |tlv5637            ; work         ;
++----------------------------+-------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |tlv5637|state                                                                                           ;
++----------------+---------------+----------------+--------------+--------------+--------------+--------------+------------+
+; Name           ; state.next_tx ; state.data_end ; state.data_h ; state.data_l ; state.sync_h ; state.sync_l ; state.idle ;
++----------------+---------------+----------------+--------------+--------------+--------------+--------------+------------+
+; state.idle     ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0          ;
+; state.sync_l   ; 0             ; 0              ; 0            ; 0            ; 0            ; 1            ; 1          ;
+; state.sync_h   ; 0             ; 0              ; 0            ; 0            ; 1            ; 0            ; 1          ;
+; state.data_l   ; 0             ; 0              ; 0            ; 1            ; 0            ; 0            ; 1          ;
+; state.data_h   ; 0             ; 0              ; 1            ; 0            ; 0            ; 0            ; 1          ;
+; state.data_end ; 0             ; 1              ; 0            ; 0            ; 0            ; 0            ; 1          ;
+; state.next_tx  ; 1             ; 0              ; 0            ; 0            ; 0            ; 0            ; 1          ;
++----------------+---------------+----------------+--------------+--------------+--------------+--------------+------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |tlv5637|Mstate                                                                                                                                                                                ;
++----------------------------+---------------+---------------------------+--------------------+---------------------------+--------------------+----------------------------+---------------------+--------------+
+; Name                       ; Mstate.mready ; Mstate.mwait_dac_b_repeat ; Mstate.mwait_dac_b ; Mstate.mwait_dac_a_repeat ; Mstate.mwait_dac_a ; Mstate.mwait_config_repeat ; Mstate.mwait_config ; Mstate.midle ;
++----------------------------+---------------+---------------------------+--------------------+---------------------------+--------------------+----------------------------+---------------------+--------------+
+; Mstate.midle               ; 0             ; 0                         ; 0                  ; 0                         ; 0                  ; 0                          ; 0                   ; 0            ;
+; Mstate.mwait_config        ; 0             ; 0                         ; 0                  ; 0                         ; 0                  ; 0                          ; 1                   ; 1            ;
+; Mstate.mwait_config_repeat ; 0             ; 0                         ; 0                  ; 0                         ; 0                  ; 1                          ; 0                   ; 1            ;
+; Mstate.mwait_dac_a         ; 0             ; 0                         ; 0                  ; 0                         ; 1                  ; 0                          ; 0                   ; 1            ;
+; Mstate.mwait_dac_a_repeat  ; 0             ; 0                         ; 0                  ; 1                         ; 0                  ; 0                          ; 0                   ; 1            ;
+; Mstate.mwait_dac_b         ; 0             ; 0                         ; 1                  ; 0                         ; 0                  ; 0                          ; 0                   ; 1            ;
+; Mstate.mwait_dac_b_repeat  ; 0             ; 1                         ; 0                  ; 0                         ; 0                  ; 0                          ; 0                   ; 1            ;
+; Mstate.mready              ; 1             ; 0                         ; 0                  ; 0                         ; 0                  ; 0                          ; 0                   ; 1            ;
++----------------------------+---------------+---------------------------+--------------------+---------------------------+--------------------+----------------------------+---------------------+--------------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; Mstate.mwait_config_repeat            ; Stuck at GND due to stuck port data_in ;
+; Mstate.mwait_dac_a_repeat             ; Stuck at GND due to stuck port data_in ;
+; Mstate.mwait_dac_b_repeat             ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 3 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 56    ;
+; Number of registers using Synchronous Clear  ; 6     ;
+; Number of registers using Synchronous Load   ; 2     ;
+; Number of registers using Asynchronous Clear ; 12    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 54    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |tlv5637|shiftreg[0]       ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |tlv5637|shiftreg_2[13]    ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |tlv5637|shiftreg[9]       ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |tlv5637|shiftreg[1]       ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |tlv5637|Mstate~27         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 7.1 Build 156 04/30/2007 SJ Full Version
+    Info: Processing started: Fri Jul 13 15:15:42 2007
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tlv5637 -c AD5310BRM
+Info: Found 2 design units, including 1 entities, in source file tlv5637.vhd
+    Info: Found design unit 1: tlv5637-a
+    Info: Found entity 1: tlv5637
+Info: Elaborating entity "tlv5637" for the top level hierarchy
+Info: State machine "|tlv5637|state" contains 7 states
+Info: State machine "|tlv5637|Mstate" contains 8 states
+Info: Selected Auto state machine encoding method for state machine "|tlv5637|state"
+Info: Encoding result for state machine "|tlv5637|state"
+    Info: Completed encoding using 7 state bits
+        Info: Encoded state bit "state.next_tx"
+        Info: Encoded state bit "state.data_end"
+        Info: Encoded state bit "state.data_h"
+        Info: Encoded state bit "state.data_l"
+        Info: Encoded state bit "state.sync_h"
+        Info: Encoded state bit "state.sync_l"
+        Info: Encoded state bit "state.idle"
+    Info: State "|tlv5637|state.idle" uses code string "0000000"
+    Info: State "|tlv5637|state.sync_l" uses code string "0000011"
+    Info: State "|tlv5637|state.sync_h" uses code string "0000101"
+    Info: State "|tlv5637|state.data_l" uses code string "0001001"
+    Info: State "|tlv5637|state.data_h" uses code string "0010001"
+    Info: State "|tlv5637|state.data_end" uses code string "0100001"
+    Info: State "|tlv5637|state.next_tx" uses code string "1000001"
+Info: Selected Auto state machine encoding method for state machine "|tlv5637|Mstate"
+Info: Encoding result for state machine "|tlv5637|Mstate"
+    Info: Completed encoding using 8 state bits
+        Info: Encoded state bit "Mstate.mready"
+        Info: Encoded state bit "Mstate.mwait_dac_b_repeat"
+        Info: Encoded state bit "Mstate.mwait_dac_b"
+        Info: Encoded state bit "Mstate.mwait_dac_a_repeat"
+        Info: Encoded state bit "Mstate.mwait_dac_a"
+        Info: Encoded state bit "Mstate.mwait_config_repeat"
+        Info: Encoded state bit "Mstate.mwait_config"
+        Info: Encoded state bit "Mstate.midle"
+    Info: State "|tlv5637|Mstate.midle" uses code string "00000000"
+    Info: State "|tlv5637|Mstate.mwait_config" uses code string "00000011"
+    Info: State "|tlv5637|Mstate.mwait_config_repeat" uses code string "00000101"
+    Info: State "|tlv5637|Mstate.mwait_dac_a" uses code string "00001001"
+    Info: State "|tlv5637|Mstate.mwait_dac_a_repeat" uses code string "00010001"
+    Info: State "|tlv5637|Mstate.mwait_dac_b" uses code string "00100001"
+    Info: State "|tlv5637|Mstate.mwait_dac_b_repeat" uses code string "01000001"
+    Info: State "|tlv5637|Mstate.mready" uses code string "10000001"
+Warning: Reduced register "Mstate.mwait_config_repeat" with stuck data_in port to stuck value GND
+Warning: Reduced register "Mstate.mwait_dac_a_repeat" with stuck data_in port to stuck value GND
+Warning: Reduced register "Mstate.mwait_dac_b_repeat" with stuck data_in port to stuck value GND
+Warning: Output pins are stuck at VCC or GND
+    Warning: Pin "test3" stuck at VCC
+Info: Implemented 153 device resources after synthesis - the final resource count might be different
+    Info: Implemented 52 input pins
+    Info: Implemented 9 output pins
+    Info: Implemented 92 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Allocated 157 megabytes of memory during processing
+    Info: Processing ended: Fri Jul 13 15:15:46 2007
+    Info: Elapsed time: 00:00:04
+
+

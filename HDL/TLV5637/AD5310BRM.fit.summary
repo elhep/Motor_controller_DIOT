@@ -1,0 +1,14 @@
+Fitter Status : Successful - Fri Jul 13 15:16:00 2007
+Quartus II Version : 7.1 Build 156 04/30/2007 SJ Full Version
+Revision Name : AD5310BRM
+Top-level Entity Name : tlv5637
+Family : Stratix
+Device : EP1S10F484C5
+Timing Models : Final
+Total logic elements : 88 / 10,570 ( < 1 % )
+Total pins : 61 / 336 ( 18 % )
+Total virtual pins : 0
+Total memory bits : 0 / 920,448 ( 0 % )
+DSP block 9-bit elements : 0 / 48 ( 0 % )
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 2 ( 0 % )

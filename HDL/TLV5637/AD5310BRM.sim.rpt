@@ -1,0 +1,375 @@
+Simulator report for AD5310BRM
+Fri Jul 13 15:16:34 2007
+Quartus II Version 7.1 Build 156 04/30/2007 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 100.0 us     ;
+; Simulation Netlist Size     ; 149 nodes    ;
+; Simulation Coverage         ;      65.38 % ;
+; Total Number of Transitions ; 7512         ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Stratix      ;
+; Device                      ; EP1S10F484C5 ;
++-----------------------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                                                                       ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------+---------------+
+; Option                                                                                     ; Setting                                                     ; Default Value ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------+---------------+
+; Simulation mode                                                                            ; Timing                                                      ; Timing        ;
+; Start time                                                                                 ; 0 ns                                                        ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF                                                        ;               ;
+; Vector input source                                                                        ; C:\DESIGNS\PCB\TRIC\VHDL\VHDL_v0.7\FPGA\TLV5637\tlv5637.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On                                                          ; On            ;
+; Check outputs                                                                              ; Off                                                         ; Off           ;
+; Report simulation coverage                                                                 ; On                                                          ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On                                                          ; On            ;
+; Display missing 1-value coverage report                                                    ; On                                                          ; On            ;
+; Display missing 0-value coverage report                                                    ; On                                                          ; On            ;
+; Detect setup and hold time violations                                                      ; Off                                                         ; Off           ;
+; Detect glitches                                                                            ; Off                                                         ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off                                                         ; Off           ;
+; Generate Signal Activity File                                                              ; Off                                                         ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off                                                         ; Off           ;
+; Group bus channels in simulation results                                                   ; Off                                                         ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On                                                          ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE                                                  ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off                                                         ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off                                                         ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto                                                        ; Auto          ;
++--------------------------------------------------------------------------------------------+-------------------------------------------------------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      65.38 % ;
+; Total nodes checked                                 ; 149          ;
+; Total output ports checked                          ; 156          ;
+; Total output ports with complete 1/0-value coverage ; 102          ;
+; Total output ports with no 1/0-value coverage       ; 53           ;
+; Total output ports with no 1-value coverage         ; 54           ;
+; Total output ports with no 0-value coverage         ; 53           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                        ;
++------------------------------+----------------------------------+------------------+
+; Node Name                    ; Output Port Name                 ; Output Port Type ;
++------------------------------+----------------------------------+------------------+
+; |tlv5637|sync~reg0           ; |tlv5637|sync~reg0               ; regout           ;
+; |tlv5637|Mstate.midle        ; |tlv5637|Mstate.midle            ; regout           ;
+; |tlv5637|en_conv~0           ; |tlv5637|en_conv~0               ; combout          ;
+; |tlv5637|shift_count[0]      ; |tlv5637|shift_count[0]~295      ; cout0            ;
+; |tlv5637|shift_count[0]      ; |tlv5637|shift_count[0]~295COUT1 ; cout1            ;
+; |tlv5637|shift_count[1]      ; |tlv5637|shift_count[1]~296      ; cout0            ;
+; |tlv5637|shift_count[1]      ; |tlv5637|shift_count[1]~296COUT1 ; cout1            ;
+; |tlv5637|shift_count[2]      ; |tlv5637|shift_count[2]~297      ; cout0            ;
+; |tlv5637|shift_count[2]      ; |tlv5637|shift_count[2]~297COUT1 ; cout1            ;
+; |tlv5637|shift_count[3]      ; |tlv5637|shift_count[3]~298      ; cout             ;
+; |tlv5637|Equal0~48           ; |tlv5637|Equal0~48               ; combout          ;
+; |tlv5637|shift_count[4]      ; |tlv5637|shift_count[4]~299      ; cout0            ;
+; |tlv5637|Equal0~49           ; |tlv5637|Equal0~49               ; combout          ;
+; |tlv5637|state.data_h        ; |tlv5637|state.data_h            ; regout           ;
+; |tlv5637|state.data_l        ; |tlv5637|shift_enable~0          ; combout          ;
+; |tlv5637|state.data_l        ; |tlv5637|state.data_l            ; regout           ;
+; |tlv5637|data1~reg0          ; |tlv5637|data1~reg0              ; regout           ;
+; |tlv5637|data2~reg0          ; |tlv5637|data2~reg0              ; regout           ;
+; |tlv5637|sck_buffer          ; |tlv5637|sck_buffer              ; regout           ;
+; |tlv5637|state.data_end      ; |tlv5637|state.data_end          ; regout           ;
+; |tlv5637|state.next_tx       ; |tlv5637|Mstate~267              ; combout          ;
+; |tlv5637|state.next_tx       ; |tlv5637|state.next_tx           ; regout           ;
+; |tlv5637|Mstate~268          ; |tlv5637|Mstate~268              ; combout          ;
+; |tlv5637|state.sync_l        ; |tlv5637|state.sync_l            ; regout           ;
+; |tlv5637|state.idle          ; |tlv5637|state.idle              ; regout           ;
+; |tlv5637|state.sync_h        ; |tlv5637|process2~12             ; combout          ;
+; |tlv5637|state.sync_h        ; |tlv5637|state.sync_h            ; regout           ;
+; |tlv5637|data_temp           ; |tlv5637|data_temp               ; regout           ;
+; |tlv5637|data_2_temp         ; |tlv5637|data_2_temp             ; regout           ;
+; |tlv5637|state.sync_l~267    ; |tlv5637|state.sync_l~267        ; combout          ;
+; |tlv5637|shiftreg[15]        ; |tlv5637|shiftreg[15]            ; regout           ;
+; |tlv5637|shifter_load~21     ; |tlv5637|shifter_load~21         ; combout          ;
+; |tlv5637|shiftreg_2[15]      ; |tlv5637|shiftreg_2[15]          ; regout           ;
+; |tlv5637|Mstate.mwait_config ; |tlv5637|Mstate.mwait_config     ; regout           ;
+; |tlv5637|shiftreg[14]        ; |tlv5637|shiftreg[14]            ; regout           ;
+; |tlv5637|shiftreg_2[14]      ; |tlv5637|shiftreg_2[14]          ; regout           ;
+; |tlv5637|shiftreg[13]        ; |tlv5637|shiftreg[13]            ; regout           ;
+; |tlv5637|shiftreg_2[13]      ; |tlv5637|shiftreg_2[13]          ; regout           ;
+; |tlv5637|shiftreg[12]        ; |tlv5637|shiftreg[12]            ; regout           ;
+; |tlv5637|shiftreg_2[12]      ; |tlv5637|shiftreg_2[12]          ; regout           ;
+; |tlv5637|shiftreg[11]        ; |tlv5637|shiftreg[11]            ; regout           ;
+; |tlv5637|Mstate.mwait_dac_b  ; |tlv5637|WideOr1                 ; combout          ;
+; |tlv5637|Mstate.mwait_dac_b  ; |tlv5637|Mstate.mwait_dac_b      ; regout           ;
+; |tlv5637|shiftreg_2[11]      ; |tlv5637|shiftreg_2[11]          ; regout           ;
+; |tlv5637|shiftreg[10]        ; |tlv5637|shiftreg[10]            ; regout           ;
+; |tlv5637|shiftreg~1598       ; |tlv5637|shiftreg~1598           ; combout          ;
+; |tlv5637|shiftreg_2[10]      ; |tlv5637|shiftreg_2[10]          ; regout           ;
+; |tlv5637|shiftreg_2~1460     ; |tlv5637|shiftreg_2~1460         ; combout          ;
+; |tlv5637|shiftreg[9]         ; |tlv5637|shiftreg[9]             ; regout           ;
+; |tlv5637|shiftreg~1600       ; |tlv5637|shiftreg~1600           ; combout          ;
+; |tlv5637|shiftreg_2[9]       ; |tlv5637|shiftreg_2[9]           ; regout           ;
+; |tlv5637|shiftreg_2~1462     ; |tlv5637|shiftreg_2~1462         ; combout          ;
+; |tlv5637|shiftreg[8]         ; |tlv5637|shiftreg[8]             ; regout           ;
+; |tlv5637|shiftreg~1602       ; |tlv5637|shiftreg~1602           ; combout          ;
+; |tlv5637|shiftreg_2[8]       ; |tlv5637|shiftreg_2[8]           ; regout           ;
+; |tlv5637|shiftreg_2~1464     ; |tlv5637|shiftreg_2~1464         ; combout          ;
+; |tlv5637|shiftreg[7]         ; |tlv5637|shiftreg[7]             ; regout           ;
+; |tlv5637|shiftreg~1604       ; |tlv5637|shiftreg~1604           ; combout          ;
+; |tlv5637|shiftreg_2[7]       ; |tlv5637|shiftreg_2[7]           ; regout           ;
+; |tlv5637|shiftreg_2~1466     ; |tlv5637|shiftreg_2~1466         ; combout          ;
+; |tlv5637|shiftreg[6]         ; |tlv5637|shiftreg[6]             ; regout           ;
+; |tlv5637|shiftreg~1606       ; |tlv5637|shiftreg~1606           ; combout          ;
+; |tlv5637|shiftreg_2[6]       ; |tlv5637|shiftreg_2[6]           ; regout           ;
+; |tlv5637|shiftreg_2~1468     ; |tlv5637|shiftreg_2~1468         ; combout          ;
+; |tlv5637|shiftreg[5]         ; |tlv5637|shiftreg[5]             ; regout           ;
+; |tlv5637|shiftreg~1608       ; |tlv5637|shiftreg~1608           ; combout          ;
+; |tlv5637|shiftreg_2[5]       ; |tlv5637|shiftreg_2[5]           ; regout           ;
+; |tlv5637|shiftreg_2~1470     ; |tlv5637|shiftreg_2~1470         ; combout          ;
+; |tlv5637|shiftreg[4]         ; |tlv5637|shiftreg[4]             ; regout           ;
+; |tlv5637|shiftreg~1610       ; |tlv5637|shiftreg~1610           ; combout          ;
+; |tlv5637|shiftreg_2[4]       ; |tlv5637|shiftreg_2[4]           ; regout           ;
+; |tlv5637|shiftreg_2~1472     ; |tlv5637|shiftreg_2~1472         ; combout          ;
+; |tlv5637|shiftreg[3]         ; |tlv5637|shiftreg[3]             ; regout           ;
+; |tlv5637|shiftreg~1612       ; |tlv5637|shiftreg~1612           ; combout          ;
+; |tlv5637|shiftreg_2[3]       ; |tlv5637|shiftreg_2[3]           ; regout           ;
+; |tlv5637|shiftreg_2~1474     ; |tlv5637|shiftreg_2~1474         ; combout          ;
+; |tlv5637|shiftreg[2]         ; |tlv5637|shiftreg[2]             ; regout           ;
+; |tlv5637|shiftreg~1614       ; |tlv5637|shiftreg~1614           ; combout          ;
+; |tlv5637|shiftreg_2[2]       ; |tlv5637|shiftreg_2[2]           ; regout           ;
+; |tlv5637|shiftreg_2~1476     ; |tlv5637|shiftreg_2~1476         ; combout          ;
+; |tlv5637|shiftreg[1]         ; |tlv5637|shiftreg[1]             ; regout           ;
+; |tlv5637|shiftreg~1616       ; |tlv5637|shiftreg~1616           ; combout          ;
+; |tlv5637|shiftreg_2[1]       ; |tlv5637|shiftreg_2[1]           ; regout           ;
+; |tlv5637|shiftreg_2~1478     ; |tlv5637|shiftreg_2~1478         ; combout          ;
+; |tlv5637|shiftreg[0]         ; |tlv5637|shiftreg[0]             ; regout           ;
+; |tlv5637|shiftreg_2[0]       ; |tlv5637|shiftreg_2[0]           ; regout           ;
+; |tlv5637|Mstate.mwait_dac_a  ; |tlv5637|shiftreg~1619           ; combout          ;
+; |tlv5637|Mstate.mwait_dac_a  ; |tlv5637|Mstate.mwait_dac_a      ; regout           ;
+; |tlv5637|shiftreg_2~1481     ; |tlv5637|shiftreg_2~1481         ; combout          ;
+; |tlv5637|data_temp~200       ; |tlv5637|data_temp~200           ; combout          ;
+; |tlv5637|shiftreg[15]~1621   ; |tlv5637|shiftreg[15]~1621       ; combout          ;
+; |tlv5637|clk                 ; |tlv5637|clk~corein              ; combout          ;
+; |tlv5637|update_DACs         ; |tlv5637|update_DACs~corein      ; combout          ;
+; |tlv5637|clk_en              ; |tlv5637|clk_en~corein           ; combout          ;
+; |tlv5637|sync                ; |tlv5637|sync                    ; padio            ;
+; |tlv5637|update_done         ; |tlv5637|update_done             ; padio            ;
+; |tlv5637|test1               ; |tlv5637|test1                   ; padio            ;
+; |tlv5637|test2               ; |tlv5637|test2                   ; padio            ;
+; |tlv5637|test4               ; |tlv5637|test4                   ; padio            ;
+; |tlv5637|data1               ; |tlv5637|data1                   ; padio            ;
+; |tlv5637|data2               ; |tlv5637|data2                   ; padio            ;
+; |tlv5637|sck                 ; |tlv5637|sck                     ; padio            ;
++------------------------------+----------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++----------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                           ;
++----------------------------------------+----------------------------------------+------------------+
+; Node Name                              ; Output Port Name                       ; Output Port Type ;
++----------------------------------------+----------------------------------------+------------------+
+; |tlv5637|shift_count[4]                ; |tlv5637|shift_count[4]~299COUT1       ; cout1            ;
+; |tlv5637|shiftreg~1618                 ; |tlv5637|shiftreg~1618                 ; combout          ;
+; |tlv5637|shiftreg_2~1480               ; |tlv5637|shiftreg_2~1480               ; combout          ;
+; |tlv5637|reset                         ; |tlv5637|reset~corein                  ; combout          ;
+; |tlv5637|dac1A_data[11]                ; |tlv5637|dac1A_data[11]~corein         ; combout          ;
+; |tlv5637|dac1B_data[11]                ; |tlv5637|dac1B_data[11]~corein         ; combout          ;
+; |tlv5637|dac2A_data[11]                ; |tlv5637|dac2A_data[11]~corein         ; combout          ;
+; |tlv5637|dac2B_data[11]                ; |tlv5637|dac2B_data[11]~corein         ; combout          ;
+; |tlv5637|dac1A_data[10]                ; |tlv5637|dac1A_data[10]~corein         ; combout          ;
+; |tlv5637|dac1B_data[10]                ; |tlv5637|dac1B_data[10]~corein         ; combout          ;
+; |tlv5637|dac2A_data[10]                ; |tlv5637|dac2A_data[10]~corein         ; combout          ;
+; |tlv5637|dac2B_data[10]                ; |tlv5637|dac2B_data[10]~corein         ; combout          ;
+; |tlv5637|dac1A_data[9]                 ; |tlv5637|dac1A_data[9]~corein          ; combout          ;
+; |tlv5637|dac1B_data[9]                 ; |tlv5637|dac1B_data[9]~corein          ; combout          ;
+; |tlv5637|dac2A_data[9]                 ; |tlv5637|dac2A_data[9]~corein          ; combout          ;
+; |tlv5637|dac2B_data[9]                 ; |tlv5637|dac2B_data[9]~corein          ; combout          ;
+; |tlv5637|dac1A_data[8]                 ; |tlv5637|dac1A_data[8]~corein          ; combout          ;
+; |tlv5637|dac1B_data[8]                 ; |tlv5637|dac1B_data[8]~corein          ; combout          ;
+; |tlv5637|dac2A_data[8]                 ; |tlv5637|dac2A_data[8]~corein          ; combout          ;
+; |tlv5637|dac2B_data[8]                 ; |tlv5637|dac2B_data[8]~corein          ; combout          ;
+; |tlv5637|dac1A_data[7]                 ; |tlv5637|dac1A_data[7]~corein          ; combout          ;
+; |tlv5637|dac1B_data[7]                 ; |tlv5637|dac1B_data[7]~corein          ; combout          ;
+; |tlv5637|dac2A_data[7]                 ; |tlv5637|dac2A_data[7]~corein          ; combout          ;
+; |tlv5637|dac2B_data[7]                 ; |tlv5637|dac2B_data[7]~corein          ; combout          ;
+; |tlv5637|dac1A_data[6]                 ; |tlv5637|dac1A_data[6]~corein          ; combout          ;
+; |tlv5637|dac1B_data[6]                 ; |tlv5637|dac1B_data[6]~corein          ; combout          ;
+; |tlv5637|dac2A_data[6]                 ; |tlv5637|dac2A_data[6]~corein          ; combout          ;
+; |tlv5637|dac2B_data[6]                 ; |tlv5637|dac2B_data[6]~corein          ; combout          ;
+; |tlv5637|dac1A_data[5]                 ; |tlv5637|dac1A_data[5]~corein          ; combout          ;
+; |tlv5637|dac1B_data[5]                 ; |tlv5637|dac1B_data[5]~corein          ; combout          ;
+; |tlv5637|dac2A_data[5]                 ; |tlv5637|dac2A_data[5]~corein          ; combout          ;
+; |tlv5637|dac2B_data[5]                 ; |tlv5637|dac2B_data[5]~corein          ; combout          ;
+; |tlv5637|dac1A_data[4]                 ; |tlv5637|dac1A_data[4]~corein          ; combout          ;
+; |tlv5637|dac1B_data[4]                 ; |tlv5637|dac1B_data[4]~corein          ; combout          ;
+; |tlv5637|dac2A_data[4]                 ; |tlv5637|dac2A_data[4]~corein          ; combout          ;
+; |tlv5637|dac2B_data[4]                 ; |tlv5637|dac2B_data[4]~corein          ; combout          ;
+; |tlv5637|dac1A_data[3]                 ; |tlv5637|dac1A_data[3]~corein          ; combout          ;
+; |tlv5637|dac1B_data[3]                 ; |tlv5637|dac1B_data[3]~corein          ; combout          ;
+; |tlv5637|dac2A_data[3]                 ; |tlv5637|dac2A_data[3]~corein          ; combout          ;
+; |tlv5637|dac2B_data[3]                 ; |tlv5637|dac2B_data[3]~corein          ; combout          ;
+; |tlv5637|dac1A_data[2]                 ; |tlv5637|dac1A_data[2]~corein          ; combout          ;
+; |tlv5637|dac1B_data[2]                 ; |tlv5637|dac1B_data[2]~corein          ; combout          ;
+; |tlv5637|dac2A_data[2]                 ; |tlv5637|dac2A_data[2]~corein          ; combout          ;
+; |tlv5637|dac2B_data[2]                 ; |tlv5637|dac2B_data[2]~corein          ; combout          ;
+; |tlv5637|dac1B_data[1]                 ; |tlv5637|dac1B_data[1]~corein          ; combout          ;
+; |tlv5637|dac1A_data[1]                 ; |tlv5637|dac1A_data[1]~corein          ; combout          ;
+; |tlv5637|dac2B_data[1]                 ; |tlv5637|dac2B_data[1]~corein          ; combout          ;
+; |tlv5637|dac2A_data[1]                 ; |tlv5637|dac2A_data[1]~corein          ; combout          ;
+; |tlv5637|dac1A_data[0]                 ; |tlv5637|dac1A_data[0]~corein          ; combout          ;
+; |tlv5637|dac1B_data[0]                 ; |tlv5637|dac1B_data[0]~corein          ; combout          ;
+; |tlv5637|dac2A_data[0]                 ; |tlv5637|dac2A_data[0]~corein          ; combout          ;
+; |tlv5637|dac2B_data[0]                 ; |tlv5637|dac2B_data[0]~corein          ; combout          ;
+; |tlv5637|test3                         ; |tlv5637|test3                         ; padio            ;
+; |tlv5637|~STRATIX_FITTER_CREATED_GND~I ; |tlv5637|~STRATIX_FITTER_CREATED_GND~I ; combout          ;
++----------------------------------------+----------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++----------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                           ;
++----------------------------------------+----------------------------------------+------------------+
+; Node Name                              ; Output Port Name                       ; Output Port Type ;
++----------------------------------------+----------------------------------------+------------------+
+; |tlv5637|shift_count[4]                ; |tlv5637|shift_count[4]~299COUT1       ; cout1            ;
+; |tlv5637|shiftreg~1618                 ; |tlv5637|shiftreg~1618                 ; combout          ;
+; |tlv5637|shiftreg_2~1480               ; |tlv5637|shiftreg_2~1480               ; combout          ;
+; |tlv5637|dac1A_data[11]                ; |tlv5637|dac1A_data[11]~corein         ; combout          ;
+; |tlv5637|dac1B_data[11]                ; |tlv5637|dac1B_data[11]~corein         ; combout          ;
+; |tlv5637|dac2A_data[11]                ; |tlv5637|dac2A_data[11]~corein         ; combout          ;
+; |tlv5637|dac2B_data[11]                ; |tlv5637|dac2B_data[11]~corein         ; combout          ;
+; |tlv5637|dac1A_data[10]                ; |tlv5637|dac1A_data[10]~corein         ; combout          ;
+; |tlv5637|dac1B_data[10]                ; |tlv5637|dac1B_data[10]~corein         ; combout          ;
+; |tlv5637|dac2A_data[10]                ; |tlv5637|dac2A_data[10]~corein         ; combout          ;
+; |tlv5637|dac2B_data[10]                ; |tlv5637|dac2B_data[10]~corein         ; combout          ;
+; |tlv5637|dac1A_data[9]                 ; |tlv5637|dac1A_data[9]~corein          ; combout          ;
+; |tlv5637|dac1B_data[9]                 ; |tlv5637|dac1B_data[9]~corein          ; combout          ;
+; |tlv5637|dac2A_data[9]                 ; |tlv5637|dac2A_data[9]~corein          ; combout          ;
+; |tlv5637|dac2B_data[9]                 ; |tlv5637|dac2B_data[9]~corein          ; combout          ;
+; |tlv5637|dac1A_data[8]                 ; |tlv5637|dac1A_data[8]~corein          ; combout          ;
+; |tlv5637|dac1B_data[8]                 ; |tlv5637|dac1B_data[8]~corein          ; combout          ;
+; |tlv5637|dac2A_data[8]                 ; |tlv5637|dac2A_data[8]~corein          ; combout          ;
+; |tlv5637|dac2B_data[8]                 ; |tlv5637|dac2B_data[8]~corein          ; combout          ;
+; |tlv5637|dac1A_data[7]                 ; |tlv5637|dac1A_data[7]~corein          ; combout          ;
+; |tlv5637|dac1B_data[7]                 ; |tlv5637|dac1B_data[7]~corein          ; combout          ;
+; |tlv5637|dac2A_data[7]                 ; |tlv5637|dac2A_data[7]~corein          ; combout          ;
+; |tlv5637|dac2B_data[7]                 ; |tlv5637|dac2B_data[7]~corein          ; combout          ;
+; |tlv5637|dac1A_data[6]                 ; |tlv5637|dac1A_data[6]~corein          ; combout          ;
+; |tlv5637|dac1B_data[6]                 ; |tlv5637|dac1B_data[6]~corein          ; combout          ;
+; |tlv5637|dac2A_data[6]                 ; |tlv5637|dac2A_data[6]~corein          ; combout          ;
+; |tlv5637|dac2B_data[6]                 ; |tlv5637|dac2B_data[6]~corein          ; combout          ;
+; |tlv5637|dac1A_data[5]                 ; |tlv5637|dac1A_data[5]~corein          ; combout          ;
+; |tlv5637|dac1B_data[5]                 ; |tlv5637|dac1B_data[5]~corein          ; combout          ;
+; |tlv5637|dac2A_data[5]                 ; |tlv5637|dac2A_data[5]~corein          ; combout          ;
+; |tlv5637|dac2B_data[5]                 ; |tlv5637|dac2B_data[5]~corein          ; combout          ;
+; |tlv5637|dac1A_data[4]                 ; |tlv5637|dac1A_data[4]~corein          ; combout          ;
+; |tlv5637|dac1B_data[4]                 ; |tlv5637|dac1B_data[4]~corein          ; combout          ;
+; |tlv5637|dac2A_data[4]                 ; |tlv5637|dac2A_data[4]~corein          ; combout          ;
+; |tlv5637|dac2B_data[4]                 ; |tlv5637|dac2B_data[4]~corein          ; combout          ;
+; |tlv5637|dac1A_data[3]                 ; |tlv5637|dac1A_data[3]~corein          ; combout          ;
+; |tlv5637|dac1B_data[3]                 ; |tlv5637|dac1B_data[3]~corein          ; combout          ;
+; |tlv5637|dac2A_data[3]                 ; |tlv5637|dac2A_data[3]~corein          ; combout          ;
+; |tlv5637|dac2B_data[3]                 ; |tlv5637|dac2B_data[3]~corein          ; combout          ;
+; |tlv5637|dac1A_data[2]                 ; |tlv5637|dac1A_data[2]~corein          ; combout          ;
+; |tlv5637|dac1B_data[2]                 ; |tlv5637|dac1B_data[2]~corein          ; combout          ;
+; |tlv5637|dac2A_data[2]                 ; |tlv5637|dac2A_data[2]~corein          ; combout          ;
+; |tlv5637|dac2B_data[2]                 ; |tlv5637|dac2B_data[2]~corein          ; combout          ;
+; |tlv5637|dac1B_data[1]                 ; |tlv5637|dac1B_data[1]~corein          ; combout          ;
+; |tlv5637|dac1A_data[1]                 ; |tlv5637|dac1A_data[1]~corein          ; combout          ;
+; |tlv5637|dac2B_data[1]                 ; |tlv5637|dac2B_data[1]~corein          ; combout          ;
+; |tlv5637|dac2A_data[1]                 ; |tlv5637|dac2A_data[1]~corein          ; combout          ;
+; |tlv5637|dac1A_data[0]                 ; |tlv5637|dac1A_data[0]~corein          ; combout          ;
+; |tlv5637|dac1B_data[0]                 ; |tlv5637|dac1B_data[0]~corein          ; combout          ;
+; |tlv5637|dac2A_data[0]                 ; |tlv5637|dac2A_data[0]~corein          ; combout          ;
+; |tlv5637|dac2B_data[0]                 ; |tlv5637|dac2B_data[0]~corein          ; combout          ;
+; |tlv5637|test3                         ; |tlv5637|test3                         ; padio            ;
+; |tlv5637|~STRATIX_FITTER_CREATED_GND~I ; |tlv5637|~STRATIX_FITTER_CREATED_GND~I ; combout          ;
++----------------------------------------+----------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 7.1 Build 156 04/30/2007 SJ Full Version
+    Info: Processing started: Fri Jul 13 15:16:30 2007
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off tlv5637 -c AD5310BRM
+Info: Using vector source file "C:/DESIGNS/PCB/TRIC/VHDL/VHDL_v0.7/FPGA/TLV5637/tlv5637.vwf"
+Warning: Can't display state machine states -- register holding state machine bit "|tlv5637|Mstate.mwait_dac_b_repeat" was synthesized away
+Warning: Can't display state machine states -- register holding state machine bit "|tlv5637|Mstate.mwait_dac_a_repeat" was synthesized away
+Warning: Can't display state machine states -- register holding state machine bit "|tlv5637|Mstate.mwait_config_repeat" was synthesized away
+Warning: Vector source file C:/DESIGNS/PCB/TRIC/VHDL/VHDL_v0.7/FPGA/TLV5637/tlv5637.vwf contains corrupted display information -- correcting display information
+    Warning: Found invalid display line - Bus signal shiftreg has more children signals than children display lines
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      65.38 %
+Info: Number of transitions in simulation is 7512
+Info: Quartus II Simulator was successful. 0 errors, 5 warnings
+    Info: Allocated 98 megabytes of memory during processing
+    Info: Processing ended: Fri Jul 13 15:16:34 2007
+    Info: Elapsed time: 00:00:04
+
+

@@ -1,0 +1,336 @@
+Analysis & Synthesis report for PCI_SLAVE
+Mon Jun 25 17:27:22 2007
+Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |PCI_SLAVE|state
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                       ;
++------------------------------------+-----------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Jun 25 17:27:22 2007         ;
+; Quartus II Version                 ; 6.0 Build 202 06/20/2006 SP 1 SJ Full Version ;
+; Revision Name                      ; PCI_SLAVE                                     ;
+; Top-level Entity Name              ; PCI_SLAVE                                     ;
+; Family                             ; Cyclone II                                    ;
+; Total logic elements               ; 181                                           ;
+; Total registers                    ; 50                                            ;
+; Total pins                         ; 394                                           ;
+; Total virtual pins                 ; 0                                             ;
+; Total memory bits                  ; 0                                             ;
+; Embedded Multiplier 9-bit elements ; 0                                             ;
+; Total PLLs                         ; 0                                             ;
++------------------------------------+-----------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                ;
++--------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                             ; Setting            ; Default Value      ;
++--------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                             ; EP2C35F672C7       ;                    ;
+; Top-level entity name                                              ; PCI_SLAVE          ; PCI_SLAVE          ;
+; Family name                                                        ; Cyclone II         ; Stratix            ;
+; Type of Retiming Performed During Resynthesis                      ; Full               ;                    ;
+; Resynthesis Optimization Effort                                    ; Normal             ;                    ;
+; Physical Synthesis Level for Resynthesis                           ; Normal             ;                    ;
+; Use Generated Physical Constraints File                            ; On                 ;                    ;
+; Use smart compilation                                              ; Off                ; Off                ;
+; Restructure Multiplexers                                           ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                ; Off                ; Off                ;
+; Preserve fewer node names                                          ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                          ; Off                ; Off                ;
+; Verilog Version                                                    ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                       ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                           ; Auto               ; Auto               ;
+; Extract Verilog State Machines                                     ; On                 ; On                 ;
+; Extract VHDL State Machines                                        ; On                 ; On                 ;
+; Add Pass-Through Logic to Inferred RAMs                            ; On                 ; On                 ;
+; DSP Block Balancing                                                ; Auto               ; Auto               ;
+; Maximum DSP Block Usage                                            ; Unlimited          ; Unlimited          ;
+; NOT Gate Push-Back                                                 ; On                 ; On                 ;
+; Power-Up Don't Care                                                ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                       ; Off                ; Off                ;
+; Remove Duplicate Registers                                         ; On                 ; On                 ;
+; Ignore CARRY Buffers                                               ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                             ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                              ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                          ; Off                ; Off                ;
+; Ignore LCELL Buffers                                               ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                     ; Off                ; Off                ;
+; Optimization Technique -- Cyclone II                               ; Balanced           ; Balanced           ;
+; Carry Chain Length -- Stratix/Stratix GX/Cyclone/MAX II/Cyclone II ; 70                 ; 70                 ;
+; Auto Carry Chains                                                  ; On                 ; On                 ;
+; Auto Open-Drain Pins                                               ; On                 ; On                 ;
+; Remove Duplicate Logic                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                              ; Off                ; Off                ;
+; Perform gate-level register retiming                               ; Off                ; Off                ;
+; Allow register retiming to trade off Tsu/Tco with Fmax             ; On                 ; On                 ;
+; Auto ROM Replacement                                               ; On                 ; On                 ;
+; Auto RAM Replacement                                               ; On                 ; On                 ;
+; Auto Shift Register Replacement                                    ; On                 ; On                 ;
+; Auto Clock Enable Replacement                                      ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                  ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                             ; Off                ; Off                ;
+; Auto Resource Sharing                                              ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                 ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                 ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                      ; Off                ; Off                ;
+; Maximum Number of M4K Memory Blocks                                ; Unlimited          ; Unlimited          ;
+; Ignore translate_off and translate_on Synthesis Directives         ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                 ; Off                ; Off                ;
+; Retiming Meta-Stability Register Sequence Length                   ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                       ; Normal compilation ; Normal compilation ;
+; HDL message level                                                  ; Level2             ; Level2             ;
++--------------------------------------------------------------------+--------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                 ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                    ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+
+; PCI_SLAVE.vhd                    ; yes             ; User VHDL File  ; C:/DESIGNS/PCB/TRIC/VHDL/VHDL_v0.7/FPGA/PCI_SLAVE/PCI_SLAVE.vhd ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 181   ;
+; Total combinational functions               ; 181   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 133   ;
+;     -- 3 input functions                    ; 26    ;
+;     -- <=2 input functions                  ; 22    ;
+;         -- Combinational cells for routing  ; 0     ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 166   ;
+;     -- arithmetic mode                      ; 15    ;
+; Total registers                             ; 50    ;
+; I/O pins                                    ; 394   ;
+; Maximum fan-out node                        ; CLK   ;
+; Maximum fan-out                             ; 50    ;
+; Total fan-out                               ; 964   ;
+; Average fan-out                             ; 1.54  ;
++---------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                 ;
++----------------------------+-------------------+--------------+-------------+------+--------------+---------+-----------+------+--------------+---------------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ;
++----------------------------+-------------------+--------------+-------------+------+--------------+---------+-----------+------+--------------+---------------------+
+; |PCI_SLAVE                 ; 181 (181)         ; 50 (50)      ; 0           ; 0    ; 0            ; 0       ; 0         ; 394  ; 0            ; |PCI_SLAVE          ;
++----------------------------+-------------------+--------------+-------------+------+--------------+---------+-----------+------+--------------+---------------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |PCI_SLAVE|state                                                                                                                         ;
++---------------------+--------------------+--------------------+----------------+----------------+---------------------+---------------------+------------+
+; Name                ; state.read_dat_lsb ; state.read_dat_msb ; state.set_trdy ; state.deselect ; state.write_dat_lsb ; state.write_dat_msb ; state.idle ;
++---------------------+--------------------+--------------------+----------------+----------------+---------------------+---------------------+------------+
+; state.idle          ; 0                  ; 0                  ; 0              ; 0              ; 0                   ; 0                   ; 0          ;
+; state.write_dat_msb ; 0                  ; 0                  ; 0              ; 0              ; 0                   ; 1                   ; 1          ;
+; state.write_dat_lsb ; 0                  ; 0                  ; 0              ; 0              ; 1                   ; 0                   ; 1          ;
+; state.deselect      ; 0                  ; 0                  ; 0              ; 1              ; 0                   ; 0                   ; 1          ;
+; state.set_trdy      ; 0                  ; 0                  ; 1              ; 0              ; 0                   ; 0                   ; 1          ;
+; state.read_dat_msb  ; 0                  ; 1                  ; 0              ; 0              ; 0                   ; 0                   ; 1          ;
+; state.read_dat_lsb  ; 1                  ; 0                  ; 0              ; 0              ; 0                   ; 0                   ; 1          ;
++---------------------+--------------------+--------------------+----------------+----------------+---------------------+---------------------+------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 50    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 25    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 18    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |PCI_SLAVE|Selector2       ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 128 LEs              ; 16 LEs                 ; No         ; |PCI_SLAVE|Selector22      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+    Info: Processing started: Mon Jun 25 17:27:17 2007
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PCI_SLAVE -c PCI_SLAVE
+Info: Found 2 design units, including 1 entities, in source file PCI_SLAVE.vhd
+    Info: Found design unit 1: PCI_SLAVE-PCI_SLAVE_architecture
+    Info: Found entity 1: PCI_SLAVE
+Info: Elaborating entity "PCI_SLAVE" for the top level hierarchy
+Info (10041): Verilog HDL or VHDL info at PCI_SLAVE.vhd(345): inferred latch for "latch_MSB"
+Info: State machine "|PCI_SLAVE|state" contains 7 states
+Info: Selected Auto state machine encoding method for state machine "|PCI_SLAVE|state"
+Info: Encoding result for state machine "|PCI_SLAVE|state"
+    Info: Completed encoding using 7 state bits
+        Info: Encoded state bit "state.read_dat_lsb"
+        Info: Encoded state bit "state.read_dat_msb"
+        Info: Encoded state bit "state.set_trdy"
+        Info: Encoded state bit "state.deselect"
+        Info: Encoded state bit "state.write_dat_lsb"
+        Info: Encoded state bit "state.write_dat_msb"
+        Info: Encoded state bit "state.idle"
+    Info: State "|PCI_SLAVE|state.idle" uses code string "0000000"
+    Info: State "|PCI_SLAVE|state.write_dat_msb" uses code string "0000011"
+    Info: State "|PCI_SLAVE|state.write_dat_lsb" uses code string "0000101"
+    Info: State "|PCI_SLAVE|state.deselect" uses code string "0001001"
+    Info: State "|PCI_SLAVE|state.set_trdy" uses code string "0010001"
+    Info: State "|PCI_SLAVE|state.read_dat_msb" uses code string "0100001"
+    Info: State "|PCI_SLAVE|state.read_dat_lsb" uses code string "1000001"
+Warning: Output pins are stuck at VCC or GND
+    Warning: Pin "TEST1[6]" stuck at GND
+    Warning: Pin "TEST1[8]" stuck at GND
+    Warning: Pin "TEST1[9]" stuck at GND
+    Warning: Pin "TEST1[10]" stuck at GND
+    Warning: Pin "TEST1[11]" stuck at GND
+    Warning: Pin "TEST1[12]" stuck at GND
+    Warning: Pin "TEST1[13]" stuck at GND
+    Warning: Pin "TEST1[14]" stuck at GND
+    Warning: Pin "TEST1[15]" stuck at GND
+    Warning: Pin "TEST1[16]" stuck at GND
+    Warning: Pin "TEST1[17]" stuck at GND
+    Warning: Pin "TEST1[18]" stuck at GND
+    Warning: Pin "TEST1[19]" stuck at GND
+    Warning: Pin "TEST1[20]" stuck at GND
+    Warning: Pin "TEST1[21]" stuck at GND
+    Warning: Pin "TEST1[22]" stuck at GND
+    Warning: Pin "TEST1[23]" stuck at GND
+    Warning: Pin "TEST1[24]" stuck at GND
+    Warning: Pin "TEST1[25]" stuck at GND
+    Warning: Pin "TEST1[26]" stuck at GND
+    Warning: Pin "TEST1[27]" stuck at GND
+    Warning: Pin "TEST1[28]" stuck at GND
+    Warning: Pin "TEST1[29]" stuck at GND
+    Warning: Pin "TEST1[30]" stuck at GND
+    Warning: Pin "TEST1[31]" stuck at GND
+    Warning: Pin "TEST2[0]" stuck at GND
+    Warning: Pin "TEST2[1]" stuck at GND
+    Warning: Pin "TEST2[2]" stuck at GND
+    Warning: Pin "TEST2[3]" stuck at GND
+    Warning: Pin "TEST2[4]" stuck at GND
+    Warning: Pin "TEST2[5]" stuck at GND
+    Warning: Pin "TEST2[6]" stuck at GND
+    Warning: Pin "TEST2[7]" stuck at GND
+    Warning: Pin "TEST2[8]" stuck at GND
+    Warning: Pin "TEST2[9]" stuck at GND
+    Warning: Pin "TEST2[10]" stuck at GND
+    Warning: Pin "TEST2[11]" stuck at GND
+    Warning: Pin "TEST2[12]" stuck at GND
+    Warning: Pin "TEST2[13]" stuck at GND
+    Warning: Pin "TEST2[14]" stuck at GND
+    Warning: Pin "TEST2[15]" stuck at GND
+    Warning: Pin "TEST2[16]" stuck at GND
+    Warning: Pin "TEST2[17]" stuck at GND
+    Warning: Pin "TEST2[18]" stuck at GND
+    Warning: Pin "TEST2[19]" stuck at GND
+    Warning: Pin "TEST2[20]" stuck at GND
+    Warning: Pin "TEST2[21]" stuck at GND
+    Warning: Pin "TEST2[22]" stuck at GND
+    Warning: Pin "TEST2[23]" stuck at GND
+    Warning: Pin "TEST2[24]" stuck at GND
+    Warning: Pin "TEST2[25]" stuck at GND
+    Warning: Pin "TEST2[26]" stuck at GND
+    Warning: Pin "TEST2[27]" stuck at GND
+    Warning: Pin "TEST2[28]" stuck at GND
+    Warning: Pin "TEST2[29]" stuck at GND
+    Warning: Pin "TEST2[30]" stuck at GND
+    Warning: Pin "TEST2[31]" stuck at GND
+Warning: Output pin "REGS_RW_DAT_WRITE[0]" driven by bidirectional pin "PCI_AD[0]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[0]" driven by bidirectional pin "PCI_AD[0]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[1]" driven by bidirectional pin "PCI_AD[1]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[1]" driven by bidirectional pin "PCI_AD[1]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[2]" driven by bidirectional pin "PCI_AD[2]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[2]" driven by bidirectional pin "PCI_AD[2]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[3]" driven by bidirectional pin "PCI_AD[3]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[3]" driven by bidirectional pin "PCI_AD[3]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[4]" driven by bidirectional pin "PCI_AD[4]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[4]" driven by bidirectional pin "PCI_AD[4]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[5]" driven by bidirectional pin "PCI_AD[5]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[5]" driven by bidirectional pin "PCI_AD[5]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[6]" driven by bidirectional pin "PCI_AD[6]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[6]" driven by bidirectional pin "PCI_AD[6]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[7]" driven by bidirectional pin "PCI_AD[7]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[7]" driven by bidirectional pin "PCI_AD[7]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[8]" driven by bidirectional pin "PCI_AD[8]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[8]" driven by bidirectional pin "PCI_AD[8]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[9]" driven by bidirectional pin "PCI_AD[9]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[9]" driven by bidirectional pin "PCI_AD[9]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[10]" driven by bidirectional pin "PCI_AD[10]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[10]" driven by bidirectional pin "PCI_AD[10]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[11]" driven by bidirectional pin "PCI_AD[11]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[11]" driven by bidirectional pin "PCI_AD[11]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[12]" driven by bidirectional pin "PCI_AD[12]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[12]" driven by bidirectional pin "PCI_AD[12]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[13]" driven by bidirectional pin "PCI_AD[13]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[13]" driven by bidirectional pin "PCI_AD[13]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[14]" driven by bidirectional pin "PCI_AD[14]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[14]" driven by bidirectional pin "PCI_AD[14]" cannot be tri-stated
+Warning: Output pin "REGS_RW_DAT_WRITE[15]" driven by bidirectional pin "PCI_AD[15]" cannot be tri-stated
+Warning: Output pin "DPRAM0_RW_DAT_WRITE[15]" driven by bidirectional pin "PCI_AD[15]" cannot be tri-stated
+Info: Implemented 600 device resources after synthesis - the final resource count might be different
+    Info: Implemented 200 input pins
+    Info: Implemented 178 output pins
+    Info: Implemented 16 bidirectional pins
+    Info: Implemented 206 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 90 warnings
+    Info: Processing ended: Mon Jun 25 17:27:22 2007
+    Info: Elapsed time: 00:00:06
+
+
