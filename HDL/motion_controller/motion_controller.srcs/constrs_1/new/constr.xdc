@@ -28,3 +28,11 @@ set_property PACKAGE_PIN T20 [get_ports spi_clk]
 set_property PACKAGE_PIN U20 [get_ports spi_cs]
 set_property PACKAGE_PIN V20 [get_ports spi_miso]
 set_property PACKAGE_PIN W20 [get_ports spi_mosi]
+
+set_property IOSTANDARD LVCMOS33 [get_ports uart_rxd]
+set_property IOSTANDARD LVCMOS33 [get_ports uart_txd]
+set_property PACKAGE_PIN Y18 [get_ports uart_rxd]
+set_property PACKAGE_PIN W18 [get_ports uart_txd]
+
+set_property IOSTANDARD LVCMOS33 [get_ports eth_rst]
+set_property PACKAGE_PIN E17 [get_ports eth_rst]

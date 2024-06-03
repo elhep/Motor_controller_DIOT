@@ -42,6 +42,18 @@ columns 9
 
 ## FPGA Digital System
 
+# DDS Core configuration 
+- Requirements - sin/cos frequency in the range of Hz
+Configuration:
+- Input clock - 5 MHz
+- Phase gen + sin/cos lut 
+- Standard mode
+- 48 bits phase increment input width
+- 10 bit out signal width
+- phase output disabled
+
+For Phase increment equal to 1000 we achieve 
+
 ## PCB design
 
 ## Tests
