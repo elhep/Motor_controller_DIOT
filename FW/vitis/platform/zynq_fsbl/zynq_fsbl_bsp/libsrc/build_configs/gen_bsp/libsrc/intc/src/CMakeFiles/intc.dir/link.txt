@@ -1,0 +1,2 @@
+arm-none-eabi-ar qc libintc.a CMakeFiles/intc.dir/xintc.c.obj CMakeFiles/intc.dir/xintc_g.c.obj CMakeFiles/intc.dir/xintc_intr.c.obj CMakeFiles/intc.dir/xintc_l.c.obj CMakeFiles/intc.dir/xintc_options.c.obj CMakeFiles/intc.dir/xintc_selftest.c.obj
+C:/Xilinx/Vitis/2023.2/gnu/aarch32/nt/gcc-arm-none-eabi/bin/arm-none-eabi-ranlib.exe libintc.a

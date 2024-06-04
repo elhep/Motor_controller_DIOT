@@ -1,0 +1,12 @@
+axi_gpio_0:
+- axi_gpio
+- gpio
+axi_quad_spi_0:
+- axi_quad_spi
+- spi
+axi_uartlite_0:
+- axi_uartlite
+- uartlite
+microblaze_0_axi_intc:
+- axi_intc
+- intc
