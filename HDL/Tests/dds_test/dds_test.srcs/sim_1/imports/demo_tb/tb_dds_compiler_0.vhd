@@ -79,7 +79,7 @@ architecture tb of tb_dds_compiler_0 is
   -----------------------------------------------------------------------
   -- Timing constants
   -----------------------------------------------------------------------
-  constant CLOCK_PERIOD : time := 100 ns;
+  constant CLOCK_PERIOD : time := 200 ns;
   constant T_HOLD       : time := 10 ns;
   constant T_STROBE     : time := CLOCK_PERIOD - (1 ns);
 
@@ -106,15 +106,56 @@ architecture tb of tb_dds_compiler_0 is
   -----------------------------------------------------------------------
 
   -- Phase slave channel alias signals
-  signal s_axis_phase_tdata_inc        : std_logic_vector(43 downto 0) := (others => '0');
+  signal s_axis_phase_tdata_inc        : std_logic_vector(47 downto 0) := (others => '0');
 
   -- Data master channel alias signals
   signal m_axis_data_tdata_cosine      : std_logic_vector(9 downto 0) := (others => '0');
   signal m_axis_data_tdata_sine        : std_logic_vector(9 downto 0) := (others => '0');
 
+   signal reset : STD_LOGIC := '0';
+   signal update_DACs : STD_LOGIC := '1';
+   signal dac1A_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac1B_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac2A_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac2B_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal sync : STD_LOGIC;
+   signal update_done : std_logic;
+   signal test1 : STD_LOGIC;
+   signal test2 : STD_LOGIC;
+   signal test3 : STD_LOGIC;
+ 
+   signal test4 : STD_LOGIC;
+   signal data1 : STD_LOGIC;
+   signal data2 : STD_LOGIC;
+   signal sck : STD_LOGIC;
+   signal clk_en : STD_LOGIC;
+   signal clk : STD_LOGIC;
 
   signal end_of_simulation : boolean := false;
      
+  component tlv5637 IS
+	PORT
+	(
+		clk : IN STD_LOGIC;
+		reset : IN STD_LOGIC;
+		update_DACs : IN STD_LOGIC;
+		dac1A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac1B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac2A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac2B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		clk_en : IN STD_LOGIC;
+		sync : OUT STD_LOGIC;
+		update_done : out std_logic;
+		test1 : OUT STD_LOGIC;
+		test2 : OUT STD_LOGIC;
+		test3 : OUT STD_LOGIC;
+		test4 : OUT STD_LOGIC;
+		data1 : OUT STD_LOGIC;
+		data2 : OUT STD_LOGIC;
+		sck : OUT STD_LOGIC
+	);
+    end component tlv5637;
+	
 begin
 
   -----------------------------------------------------------------------
@@ -130,6 +171,27 @@ begin
       ,m_axis_data_tdata               => m_axis_data_tdata
       );
 
+    tlv5637_ip : tlv5637
+	port map
+	(
+		clk           => aclk,
+		reset         => reset,
+		update_DACs   => update_DACs,
+		dac1A_data => dac1A_data,
+		dac1B_data => dac1B_data,
+		dac2A_data => dac2A_data,
+		dac2B_data => dac2B_data,
+		clk_en => '1',
+		sync => sync,
+		update_done => update_done,
+		test1 => test1,
+		test2 => test2,
+		test3 => test3,
+		test4 => test4,
+		data1 => data1,
+		data2 => data2,
+		sck => sck
+	);
   -----------------------------------------------------------------------
   -- Generate clock
   -----------------------------------------------------------------------
@@ -156,25 +218,25 @@ begin
 
   stimuli : process
   
-    variable phase : unsigned(43 downto 0);
+    variable phase : unsigned(47 downto 0);
   begin
 
     -- Drive inputs T_HOLD time after rising edge of clock
     wait until rising_edge(aclk);
     wait for T_HOLD;
-
-    phase := "00000000000000000000000000000000000000000000";
+    reset <= '1';
+    phase := "000000000000000000000000000000000000000000000000";
     -- Input a constant phase increment each cycle, and run for long enough to produce 5 periods of outputs
-    for cycle in 0 to 2400000 loop
+    for cycle in 0 to 4200000 loop
       s_axis_phase_tvalid  <= '1';
       s_axis_phase_tdata <= (others => '0');  -- set unused TDATA bits to zero
-      s_axis_phase_tdata(43 downto 0) <=  std_logic_vector(phase);  -- constant phase increment
+      s_axis_phase_tdata(47 downto 0) <= std_logic_vector(phase);  -- constant phase increment
       wait for CLOCK_PERIOD;
-      phase := phase + to_unsigned(10,44);
+      phase := phase + to_unsigned(100,48);
     end loop;
     s_axis_phase_tvalid <= '0';
 
-     -- End of test
+    -- End of test
     end_of_simulation <= true;           
     report "Not a real failure. Simulation finished successfully. Test completed successfully" severity failure;
     wait;
@@ -216,11 +278,17 @@ begin
   -----------------------------------------------------------------------
 
   -- Phase slave channel alias signals
-  s_axis_phase_tdata_inc        <= s_axis_phase_tdata(43 downto 0);
+  s_axis_phase_tdata_inc        <= s_axis_phase_tdata(47 downto 0);
 
   -- Data master channel alias signals: update these only when they are valid
   m_axis_data_tdata_cosine      <= m_axis_data_tdata(9 downto 0) when m_axis_data_tvalid = '1';
   m_axis_data_tdata_sine        <= m_axis_data_tdata(25 downto 16) when m_axis_data_tvalid = '1';
+  
+  dac1A_data(9 downto 0) <= m_axis_data_tdata_cosine;
+  dac1B_data(9 downto 0) <= m_axis_data_tdata_sine;
+  
+  dac2A_data(9 downto 0) <= m_axis_data_tdata_cosine;
+  dac2B_data(9 downto 0) <= m_axis_data_tdata_sine;
 
 end tb;
 
