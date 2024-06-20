@@ -33,28 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity motion_controller is
   port (
-    DDR_addr : inout STD_LOGIC_VECTOR ( 14 downto 0 );
-    DDR_ba : inout STD_LOGIC_VECTOR ( 2 downto 0 );
-    DDR_cas_n : inout STD_LOGIC;
-    DDR_ck_n : inout STD_LOGIC;
-    DDR_ck_p : inout STD_LOGIC;
-    DDR_cke : inout STD_LOGIC;
-    DDR_cs_n : inout STD_LOGIC;
-    DDR_dm : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_dq : inout STD_LOGIC_VECTOR ( 31 downto 0 );
-    DDR_dqs_n : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_odt : inout STD_LOGIC;
-    DDR_ras_n : inout STD_LOGIC;
-    DDR_reset_n : inout STD_LOGIC;
-    DDR_we_n : inout STD_LOGIC;
-    FIXED_IO_ddr_vrn : inout STD_LOGIC;
-    FIXED_IO_ddr_vrp : inout STD_LOGIC;
-    FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
-    FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC;
-    clk_125MHz : in STD_LOGIC;
+    clk_100MHz : in STD_LOGIC;
     dip_switches_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
     led_4bits_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     reset : in STD_LOGIC;
@@ -63,36 +42,14 @@ entity motion_controller is
     spi_clk : inout STD_LOGIC;
     spi_cs : in STD_LOGIC;
     uart_rxd : in STD_LOGIC;
-    uart_txd : out STD_LOGIC;
-    eth_rst : out std_logic
+    uart_txd : out STD_LOGIC
   );
 end motion_controller;
 
 architecture Behavioral of motion_controller is
     component mc_design_wrapper is
         port (
-        DDR_addr : inout STD_LOGIC_VECTOR ( 14 downto 0 );
-        DDR_ba : inout STD_LOGIC_VECTOR ( 2 downto 0 );
-        DDR_cas_n : inout STD_LOGIC;
-        DDR_ck_n : inout STD_LOGIC;
-        DDR_ck_p : inout STD_LOGIC;
-        DDR_cke : inout STD_LOGIC;
-        DDR_cs_n : inout STD_LOGIC;
-        DDR_dm : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-        DDR_dq : inout STD_LOGIC_VECTOR ( 31 downto 0 );
-        DDR_dqs_n : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-        DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-        DDR_odt : inout STD_LOGIC;
-        DDR_ras_n : inout STD_LOGIC;
-        DDR_reset_n : inout STD_LOGIC;
-        DDR_we_n : inout STD_LOGIC;
-        FIXED_IO_ddr_vrn : inout STD_LOGIC;
-        FIXED_IO_ddr_vrp : inout STD_LOGIC;
-        FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
-        FIXED_IO_ps_clk : inout STD_LOGIC;
-        FIXED_IO_ps_porb : inout STD_LOGIC;
-        FIXED_IO_ps_srstb : inout STD_LOGIC;
-        clk_125MHz : in STD_LOGIC;
+        clk_100MHz : in STD_LOGIC;
         dip_switches_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );    
         gpio_rtl_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
         reset : in STD_LOGIC;
@@ -114,28 +71,7 @@ begin
 
 mc_wrapper_i: component mc_design_wrapper
      port map (
-        DDR_addr            => DDR_addr,          			
-        DDR_ba              => DDR_ba,            
-        DDR_cas_n           => DDR_cas_n,         
-        DDR_ck_n            => DDR_ck_n,          
-        DDR_ck_p            => DDR_ck_p,          
-        DDR_cke             => DDR_cke,           
-        DDR_cs_n            => DDR_cs_n,            
-        DDR_dm              => DDR_dm,            
-        DDR_dq              => DDR_dq,            
-        DDR_dqs_n           => DDR_dqs_n,         
-        DDR_dqs_p           => DDR_dqs_p,         
-        DDR_odt             => DDR_odt,           
-        DDR_ras_n           => DDR_ras_n,         
-        DDR_reset_n         => DDR_reset_n,       
-        DDR_we_n            => DDR_we_n,          
-        FIXED_IO_ddr_vrn    => FIXED_IO_ddr_vrn,  
-        FIXED_IO_ddr_vrp    => FIXED_IO_ddr_vrp,  
-        FIXED_IO_mio        => FIXED_IO_mio,      
-        FIXED_IO_ps_clk     => FIXED_IO_ps_clk,   
-        FIXED_IO_ps_porb    => FIXED_IO_ps_porb,  
-        FIXED_IO_ps_srstb   => FIXED_IO_ps_srstb, 
-        clk_125MHz => clk_125MHz,
+        clk_100MHz => clk_100MHz,
         dip_switches_4bits_tri_i => dip_switches_4bits_tri_i,
         gpio_rtl_tri_o => gpio_rtl_tri_o,
         reset => reset,
@@ -148,17 +84,16 @@ mc_wrapper_i: component mc_design_wrapper
         uart_txd => uart_txd
     );
     
-   process (clk_125MHz)
+   process (clk_100MHz)
     begin
-        if rising_edge(clk_125MHz) then
+        if rising_edge(clk_100MHz) then
             -- Increment the counter
             counter <= counter + 1;
         end if;
     end process;
     
     -- Generate LED drive signal (1 Hz frequency)
-    led_4bits_tri_o(0) <= '1' when counter < 62500000 else '0'; -- 1 Hz = 125 MHz / 125000000   
+    led_4bits_tri_o(0) <= '1' when counter < 50000000 else '0'; -- 1 Hz = 125 MHz / 125000000   
     led_4bits_tri_o(3 downto 1) <= gpio_rtl_tri_o(3 downto 1);
-    eth_rst <= '1';
     
 end Behavioral;

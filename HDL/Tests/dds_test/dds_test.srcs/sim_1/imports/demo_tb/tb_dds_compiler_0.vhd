@@ -79,7 +79,8 @@ architecture tb of tb_dds_compiler_0 is
   -----------------------------------------------------------------------
   -- Timing constants
   -----------------------------------------------------------------------
-  constant CLOCK_PERIOD : time := 200 ns;
+  constant CLOCK_PERIOD : time := 100 us;
+  constant CLOCK_PERIOD2 : time := 500 ns;
   constant T_HOLD       : time := 10 ns;
   constant T_STROBE     : time := CLOCK_PERIOD - (1 ns);
 
@@ -88,11 +89,12 @@ architecture tb of tb_dds_compiler_0 is
   -----------------------------------------------------------------------
 
   -- General inputs
-  signal aclk                            : std_logic := '0';  -- the master clock
+  signal aclk                            : std_logic := '0';  -- 1 MHz DDS clock
+  signal aclk2                            : std_logic := '0';  -- 2 MHz DAC control clock
 
   -- Phase slave channel signals
   signal s_axis_phase_tvalid             : std_logic := '0';  -- payload is valid
-  signal s_axis_phase_tdata              : std_logic_vector(47 downto 0) := (others => '0');  -- data payload
+  signal s_axis_phase_tdata              : std_logic_vector(15 downto 0) := (others => '0');  -- data payload
 
   -- Data master channel signals
   signal m_axis_data_tvalid              : std_logic := '0';  -- payload is valid
@@ -106,13 +108,14 @@ architecture tb of tb_dds_compiler_0 is
   -----------------------------------------------------------------------
 
   -- Phase slave channel alias signals
-  signal s_axis_phase_tdata_inc        : std_logic_vector(47 downto 0) := (others => '0');
+  signal s_axis_phase_tdata_inc        : std_logic_vector(15 downto 0) := (others => '0');
 
   -- Data master channel alias signals
   signal m_axis_data_tdata_cosine      : std_logic_vector(9 downto 0) := (others => '0');
   signal m_axis_data_tdata_sine        : std_logic_vector(9 downto 0) := (others => '0');
 
-   signal reset : STD_LOGIC := '0';
+   signal reset : STD_LOGIC := '1';
+   signal reset2 : STD_LOGIC := '0';
    signal update_DACs : STD_LOGIC := '1';
    signal dac1A_data : STD_LOGIC_VECTOR(11 downto 0);
    signal dac1B_data : STD_LOGIC_VECTOR(11 downto 0);
@@ -129,7 +132,9 @@ architecture tb of tb_dds_compiler_0 is
    signal data2 : STD_LOGIC;
    signal sck : STD_LOGIC;
    signal clk_en : STD_LOGIC;
-   signal clk : STD_LOGIC;
+   signal clk : STD_LOGIC := '0';
+   
+   signal aclken : STD_LOGIC := '1';
 
   signal end_of_simulation : boolean := false;
      
@@ -164,24 +169,25 @@ begin
 
   dut : entity work.dds_compiler_0
     port map (
-      aclk                            => aclk
-      ,s_axis_phase_tvalid             => s_axis_phase_tvalid
-      ,s_axis_phase_tdata              => s_axis_phase_tdata
-      ,m_axis_data_tvalid              => m_axis_data_tvalid
-      ,m_axis_data_tdata               => m_axis_data_tdata
+      aclk                             => aclk, 
+      aclken => aclken,
+      s_axis_phase_tvalid             => s_axis_phase_tvalid,
+      s_axis_phase_tdata              => s_axis_phase_tdata,
+      m_axis_data_tvalid              => m_axis_data_tvalid,
+      m_axis_data_tdata               => m_axis_data_tdata
       );
 
     tlv5637_ip : tlv5637
 	port map
 	(
-		clk           => aclk,
-		reset         => reset,
+		clk           => aclk2,
+		reset         => reset2,
 		update_DACs   => update_DACs,
 		dac1A_data => dac1A_data,
 		dac1B_data => dac1B_data,
 		dac2A_data => dac2A_data,
 		dac2B_data => dac2B_data,
-		clk_en => '1',
+		clk_en => clk_en,
 		sync => sync,
 		update_done => update_done,
 		test1 => test1,
@@ -211,37 +217,121 @@ begin
       end loop;
     end if;
   end process clock_gen;
+  
+  
+  clock_gen2 : process
+  begin
+    aclk2 <= '0';
+    if (end_of_simulation) then
+      wait;
+    else
+      wait for CLOCK_PERIOD2/2;
+      loop
+        aclk2 <= '0';
+        wait for CLOCK_PERIOD2/4;
+        aclk2 <= '1';
+        wait for CLOCK_PERIOD2/4;
+      end loop;
+    end if;
+  end process clock_gen2;
 
   -----------------------------------------------------------------------
   -- Generate inputs
   -----------------------------------------------------------------------
 
-  stimuli : process
+--  stimuli : process
   
-    variable phase : unsigned(47 downto 0);
-  begin
+--    --variable phase : unsigned(47 downto 0);
+--  begin
 
-    -- Drive inputs T_HOLD time after rising edge of clock
-    wait until rising_edge(aclk);
-    wait for T_HOLD;
-    reset <= '1';
-    phase := "000000000000000000000000000000000000000000000000";
+--    -- Drive inputs T_HOLD time after rising edge of clock
+--    wait until rising_edge(aclk);
+--    wait for T_HOLD;
+--    reset <= '1';
+--    reset2 <= '0';
+    --phase := "000000000000000000000000000000000000000000000000";
+    
+    --s_axis_phase_tvalid <= '0';
     -- Input a constant phase increment each cycle, and run for long enough to produce 5 periods of outputs
-    for cycle in 0 to 4200000 loop
-      s_axis_phase_tvalid  <= '1';
-      s_axis_phase_tdata <= (others => '0');  -- set unused TDATA bits to zero
-      s_axis_phase_tdata(47 downto 0) <= std_logic_vector(phase);  -- constant phase increment
-      wait for CLOCK_PERIOD;
-      phase := phase + to_unsigned(100,48);
-    end loop;
-    s_axis_phase_tvalid <= '0';
+--    for cycle in 0 to 4200000 loop
+--      --s_axis_phase_tvalid  <= '1';
+--      s_axis_phase_tdata <= (others => '0');  -- set unused TDATA bits to zero
+--      s_axis_phase_tdata(47 downto 0) <= std_logic_vector(phase);  -- constant phase increment
+--      wait for CLOCK_PERIOD;
+--      phase := phase + to_unsigned(100,48);
+      
+----      if(cycle > 300000 and cycle < 350000) then
+----        s_axis_phase_tvalid <= '0';
+----      else
+----        s_axis_phase_tvalid <= '1';
+----      end if;
+      
+      
+--    end loop;
+    --s_axis_phase_tvalid <= '0';
+
+--    s_axis_phase_tvalid <= '1';
+--    s_axis_phase_tdata  <= (others => '0');  -- set unused TDATA bits to zero
+--    s_axis_phase_tdata(47 downto 0) <= "000000000000000000000000000000000000000000000000";  -- constant phase increment
+--    wait for CLOCK_PERIOD * 20;
+
+--    -- Pause the core by deasserting TVALID of the phase slave channel
+--    s_axis_phase_tvalid <= '0';
+--    wait for CLOCK_PERIOD * 10;
+--    s_axis_phase_tvalid <= '1';
+--    wait for CLOCK_PERIOD * 20;
+
+--    -- Deassert clock enable for a bit
+--    aclken <= '0';
+--    wait for CLOCK_PERIOD * 10;
+--    aclken <= '1';
+--    wait for CLOCK_PERIOD * 20;
+
 
     -- End of test
-    end_of_simulation <= true;           
-    report "Not a real failure. Simulation finished successfully. Test completed successfully" severity failure;
-    wait;
+    --end_of_simulation <= true;           
+    --report "Not a real failure. Simulation finished successfully. Test completed successfully" severity failure;
+    --wait;
 
-  end process stimuli;
+  --end process stimuli;
+  
+    -- Generate inputs
+  -----------------------------------------------------------------------
+
+  stimuli2 : process
+    begin
+    -- Drive inputs T_HOLD time after rising edge of clock
+    wait until rising_edge(aclk2);
+    if update_done = '0' then
+        update_DACs <= '0';
+    else
+        update_DACs <= '1';
+    end if;
+  end process stimuli2;
+  
+  
+  stimuli3 : process
+  
+    variable data : unsigned(11 downto 0);
+    
+    variable phase : unsigned(15 downto 0) := (others => '0');
+  begin
+    -- Drive inputs T_HOLD time after rising edge of clock
+    wait until rising_edge(aclk);
+
+    if(sync = '1') then
+        s_axis_phase_tvalid <= '1';    
+        aclken <= '1';
+        phase := phase + to_unsigned(1,16);
+      
+        s_axis_phase_tdata(15 downto 0) <= std_logic_vector(phase);  -- constant phase increment
+    else
+        s_axis_phase_tvalid <= '0';
+        s_axis_phase_tdata(15 downto 0) <= (others => '0');
+        aclken <= '0';
+    end if;
+
+  end process stimuli3;
 
   -----------------------------------------------------------------------
   -- Check outputs
@@ -278,17 +368,31 @@ begin
   -----------------------------------------------------------------------
 
   -- Phase slave channel alias signals
-  s_axis_phase_tdata_inc        <= s_axis_phase_tdata(47 downto 0);
+  s_axis_phase_tdata_inc        <= s_axis_phase_tdata(15 downto 0);
+  clk_en <= '1';
+  --update_DACs <= not update_done;
 
   -- Data master channel alias signals: update these only when they are valid
   m_axis_data_tdata_cosine      <= m_axis_data_tdata(9 downto 0) when m_axis_data_tvalid = '1';
   m_axis_data_tdata_sine        <= m_axis_data_tdata(25 downto 16) when m_axis_data_tvalid = '1';
   
-  dac1A_data(9 downto 0) <= m_axis_data_tdata_cosine;
-  dac1B_data(9 downto 0) <= m_axis_data_tdata_sine;
+--  dac1A_data <= "101101101010";
+--  dac1B_data <= "110110110110";
   
-  dac2A_data(9 downto 0) <= m_axis_data_tdata_cosine;
-  dac2B_data(9 downto 0) <= m_axis_data_tdata_sine;
+--  dac2A_data <= "101101101010";
+--  dac2B_data <= "101101101011";
+
+--    dac1A_data <= m_axis_data_tdata_cosine & "00";
+--    dac1B_data <= m_axis_data_tdata_sine & "00";
+    
+--    dac2A_data <= m_axis_data_tdata_cosine & "00";
+--    dac2B_data <= m_axis_data_tdata_sine & "00";
+
+    dac1A_data <= "00" & m_axis_data_tdata_cosine;
+    dac1B_data <= "00" & m_axis_data_tdata_sine;
+    
+    dac2A_data <= "00" & m_axis_data_tdata_cosine;
+    dac2B_data <= "00" & m_axis_data_tdata_sine;
 
 end tb;
 

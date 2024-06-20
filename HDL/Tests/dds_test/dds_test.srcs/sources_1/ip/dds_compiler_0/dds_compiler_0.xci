@@ -9,7 +9,7 @@
       "component_parameters": {
         "Component_Name": [ { "value": "dds_compiler_0", "resolve_type": "user", "usage": "all" } ],
         "PartsPresent": [ { "value": "Phase_Generator_and_SIN_COS_LUT", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
-        "DDS_Clock_Rate": [ { "value": "5", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+        "DDS_Clock_Rate": [ { "value": "0.01", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
         "Channels": [ { "value": "1", "resolve_type": "user", "usage": "all" } ],
         "Mode_of_Operation": [ { "value": "Standard", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "Modulus": [ { "value": "9", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -17,7 +17,7 @@
         "Spurious_Free_Dynamic_Range": [ { "value": "45", "resolve_type": "user", "format": "float", "usage": "all" } ],
         "Frequency_Resolution": [ { "value": "0.4", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
         "Noise_Shaping": [ { "value": "None", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
-        "Phase_Width": [ { "value": "48", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "Phase_Width": [ { "value": "16", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Output_Width": [ { "value": "10", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Phase_Increment": [ { "value": "Streaming", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "Resync": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
@@ -31,17 +31,17 @@
         "DSP48_Use": [ { "value": "Minimal", "resolve_type": "user", "usage": "all" } ],
         "Has_Phase_Out": [ { "value": "false", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "DATA_Has_TLAST": [ { "value": "Not_Required", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
-        "Has_TREADY": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+        "Has_TREADY": [ { "value": "false", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "S_PHASE_Has_TUSER": [ { "value": "Not_Required", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "S_PHASE_TUSER_Width": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M_DATA_Has_TUSER": [ { "value": "Not_Required", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
-        "M_PHASE_Has_TUSER": [ { "value": "Not_Required", "resolve_type": "user", "usage": "all" } ],
+        "M_PHASE_Has_TUSER": [ { "value": "Not_Required", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "S_CONFIG_Sync_Mode": [ { "value": "On_Vector", "resolve_type": "user", "usage": "all" } ],
         "OUTPUT_FORM": [ { "value": "Twos_Complement", "resolve_type": "user", "usage": "all" } ],
         "Latency_Configuration": [ { "value": "Auto", "resolve_type": "user", "usage": "all" } ],
         "Latency": [ { "value": "3", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "Has_ARESETn": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
-        "Has_ACLKEN": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+        "Has_ACLKEN": [ { "value": "true", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "Output_Frequency1": [ { "value": "0", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
         "PINC1": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "Phase_Offset_Angles1": [ { "value": "0", "resolve_type": "user", "format": "float", "usage": "all" } ],
@@ -115,7 +115,7 @@
         "C_XDEVICEFAMILY": [ { "value": "zynq", "resolve_type": "generated", "usage": "all" } ],
         "C_MODE_OF_OPERATION": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_MODULUS": [ { "value": "9", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_ACCUMULATOR_WIDTH": [ { "value": "48", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_ACCUMULATOR_WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_CHANNELS": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_HAS_PHASE_OUT": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_HAS_PHASEGEN": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
@@ -138,12 +138,12 @@
         "C_USE_DSP48": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_POR_MODE": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_AMPLITUDE": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_HAS_ACLKEN": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_HAS_ACLKEN": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_HAS_ARESETN": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_HAS_TLAST": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_HAS_TREADY": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_HAS_S_PHASE": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_S_PHASE_TDATA_WIDTH": [ { "value": "48", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_S_PHASE_TDATA_WIDTH": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_S_PHASE_HAS_TUSER": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_S_PHASE_TUSER_WIDTH": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_HAS_S_CONFIG": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
@@ -187,8 +187,9 @@
     "boundary": {
       "ports": {
         "aclk": [ { "direction": "in", "driver_value": "0x0" } ],
+        "aclken": [ { "direction": "in", "driver_value": "0x1" } ],
         "s_axis_phase_tvalid": [ { "direction": "in", "driver_value": "0x0" } ],
-        "s_axis_phase_tdata": [ { "direction": "in", "size_left": "47", "size_right": "0", "driver_value": "0" } ],
+        "s_axis_phase_tdata": [ { "direction": "in", "size_left": "15", "size_right": "0", "driver_value": "0" } ],
         "m_axis_data_tvalid": [ { "direction": "out", "driver_value": "0x0" } ],
         "m_axis_data_tdata": [ { "direction": "out", "size_left": "31", "size_right": "0", "driver_value": "0" } ]
       },
@@ -270,7 +271,7 @@
           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
           "mode": "slave",
           "parameters": {
-            "TDATA_NUM_BYTES": [ { "value": "6", "value_src": "auto", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "TDATA_NUM_BYTES": [ { "value": "2", "value_src": "auto", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "TDEST_WIDTH": [ { "value": "0", "value_src": "constant", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "TID_WIDTH": [ { "value": "0", "value_src": "constant", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "TUSER_WIDTH": [ { "value": "0", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
@@ -323,6 +324,9 @@
           "mode": "slave",
           "parameters": {
             "POLARITY": [ { "value": "ACTIVE_HIGH", "value_src": "constant", "usage": "all" } ]
+          },
+          "port_maps": {
+            "CE": [ { "physical_name": "aclken" } ]
           }
         },
         "M_AXIS_DATA": {
