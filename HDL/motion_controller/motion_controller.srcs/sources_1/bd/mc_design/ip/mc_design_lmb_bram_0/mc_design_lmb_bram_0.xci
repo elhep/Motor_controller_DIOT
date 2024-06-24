@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "mc_design_lmb_bram_0",
-    "cell_name": "lmb_bram",
+    "cell_name": "microblaze_0_local_memory/lmb_bram",
     "component_reference": "xilinx.com:ip:blk_mem_gen:8.4",
     "ip_revision": "7",
     "gen_directory": "../../../../../../motion_controller.gen/sources_1/bd/mc_design/ip/mc_design_lmb_bram_0",

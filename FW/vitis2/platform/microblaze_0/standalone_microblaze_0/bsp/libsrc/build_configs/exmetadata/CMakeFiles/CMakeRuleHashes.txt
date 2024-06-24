@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+7944d1940557f986bfea8bad08dd6e16 CMakeFiles/gpio_example
+53eb1b265647f2d2503c6fae3f74b1b5 CMakeFiles/intc_example
+d3bac9bb9039f2d4c340751234c2d838 CMakeFiles/spi_example
+8b692607320647f358fa8ac9790e61de CMakeFiles/uartlite_example

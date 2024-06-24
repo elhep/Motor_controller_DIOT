@@ -10,7 +10,7 @@ entity quad is
            count : out STD_LOGIC_VECTOR(7 downto 0));
 end quad;
 
-architecture Behavioral of quad is
+    architecture Behavioral of quad is
     signal quadA_delayed, quadB_delayed : STD_LOGIC_VECTOR(2 downto 0);
     signal count_enable, count_direction : STD_LOGIC;
     signal count_internal : UNSIGNED(7 downto 0);
@@ -20,7 +20,7 @@ begin
     begin
         if rising_edge(clk) then
             quadA_delayed <= quadA_delayed(1 downto 0) & quadA;
-            quadB_delayed <= quadB_delayed(1 downto 0) & quadB;
+            quadB_delayed <= quadB_delayed(1 downto 0) & quadB;                 
         end if;
     end process;
 

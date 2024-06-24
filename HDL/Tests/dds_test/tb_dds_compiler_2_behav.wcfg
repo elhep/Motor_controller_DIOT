@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_motion_controller_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_motion_controller" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.022323462 ms"></ZoomStartTime>
+      <ZoomEndTime time="1,097.522323463 ms"></ZoomEndTime>
+      <Cursor1Time time="94.522323462 ms"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="340"></NameColumnWidth>
+      <ValueColumnWidth column_width="135"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="89" />
+   <wave_markers>
+      <marker time="311522323462" label="" />
+   </wave_markers>
+   <wvobject fp_name="/tb_motion_controller/clk_dds" type="logic">
+      <obj_property name="ElementShortName">clk_dds</obj_property>
+      <obj_property name="ObjectShortName">clk_dds</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/clk_dac" type="logic">
+      <obj_property name="ElementShortName">clk_dac</obj_property>
+      <obj_property name="ObjectShortName">clk_dac</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/phase_inc_threshold" type="array">
+      <obj_property name="ElementShortName">phase_inc_threshold[31:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_inc_threshold[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/phase_inc_delta" type="array">
+      <obj_property name="ElementShortName">phase_inc_delta[15:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_inc_delta[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/channel_status" type="logic">
+      <obj_property name="ElementShortName">channel_status</obj_property>
+      <obj_property name="ObjectShortName">channel_status</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/dac_dataA" type="logic">
+      <obj_property name="ElementShortName">dac_dataA</obj_property>
+      <obj_property name="ObjectShortName">dac_dataA</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/dac_dataB" type="logic">
+      <obj_property name="ElementShortName">dac_dataB</obj_property>
+      <obj_property name="ObjectShortName">dac_dataB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/dac_sck" type="logic">
+      <obj_property name="ElementShortName">dac_sck</obj_property>
+      <obj_property name="ObjectShortName">dac_sck</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/quadA" type="logic">
+      <obj_property name="ElementShortName">quadA</obj_property>
+      <obj_property name="ObjectShortName">quadA</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/quadB" type="logic">
+      <obj_property name="ElementShortName">quadB</obj_property>
+      <obj_property name="ObjectShortName">quadB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/index" type="logic">
+      <obj_property name="ElementShortName">index</obj_property>
+      <obj_property name="ObjectShortName">index</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/clk_dac" type="logic">
+      <obj_property name="ElementShortName">clk_dac</obj_property>
+      <obj_property name="ObjectShortName">clk_dac</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/clk_dds" type="logic">
+      <obj_property name="ElementShortName">clk_dds</obj_property>
+      <obj_property name="ObjectShortName">clk_dds</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/phase_inc_threshold" type="array">
+      <obj_property name="ElementShortName">phase_inc_threshold[31:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_inc_threshold[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/phase_inc_delta" type="array">
+      <obj_property name="ElementShortName">phase_inc_delta[15:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_inc_delta[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/channel_status" type="logic">
+      <obj_property name="ElementShortName">channel_status</obj_property>
+      <obj_property name="ObjectShortName">channel_status</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dac_dataA" type="logic">
+      <obj_property name="ElementShortName">dac_dataA</obj_property>
+      <obj_property name="ObjectShortName">dac_dataA</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dac_dataB" type="logic">
+      <obj_property name="ElementShortName">dac_dataB</obj_property>
+      <obj_property name="ObjectShortName">dac_dataB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dac_sck" type="logic">
+      <obj_property name="ElementShortName">dac_sck</obj_property>
+      <obj_property name="ObjectShortName">dac_sck</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/s_axis_phase_tvalid" type="logic">
+      <obj_property name="ElementShortName">s_axis_phase_tvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axis_phase_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/s_axis_phase_tdata" type="array">
+      <obj_property name="ElementShortName">s_axis_phase_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_phase_tdata[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/m_axis_data_tvalid" type="logic">
+      <obj_property name="ElementShortName">m_axis_data_tvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axis_data_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/m_axis_data_tdata" type="array">
+      <obj_property name="ElementShortName">m_axis_data_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_data_tdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/s_axis_phase_tdata_inc" type="array">
+      <obj_property name="ElementShortName">s_axis_phase_tdata_inc[15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_phase_tdata_inc[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/m_axis_data_tdata_cosine" type="array">
+      <obj_property name="ElementShortName">m_axis_data_tdata_cosine[9:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_data_tdata_cosine[9:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/m_axis_data_tdata_sine" type="array">
+      <obj_property name="ElementShortName">m_axis_data_tdata_sine[9:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_data_tdata_sine[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/update_DACs" type="logic">
+      <obj_property name="ElementShortName">update_DACs</obj_property>
+      <obj_property name="ObjectShortName">update_DACs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dac1A_data" type="array">
+      <obj_property name="ElementShortName">dac1A_data[11:0]</obj_property>
+      <obj_property name="ObjectShortName">dac1A_data[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dac1B_data" type="array">
+      <obj_property name="ElementShortName">dac1B_data[11:0]</obj_property>
+      <obj_property name="ObjectShortName">dac1B_data[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dac2A_data" type="array">
+      <obj_property name="ElementShortName">dac2A_data[11:0]</obj_property>
+      <obj_property name="ObjectShortName">dac2A_data[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dac2B_data" type="array">
+      <obj_property name="ElementShortName">dac2B_data[11:0]</obj_property>
+      <obj_property name="ObjectShortName">dac2B_data[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/sync" type="logic">
+      <obj_property name="ElementShortName">sync</obj_property>
+      <obj_property name="ObjectShortName">sync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/update_done" type="logic">
+      <obj_property name="ElementShortName">update_done</obj_property>
+      <obj_property name="ObjectShortName">update_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/test1" type="logic">
+      <obj_property name="ElementShortName">test1</obj_property>
+      <obj_property name="ObjectShortName">test1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/test2" type="logic">
+      <obj_property name="ElementShortName">test2</obj_property>
+      <obj_property name="ObjectShortName">test2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/test3" type="logic">
+      <obj_property name="ElementShortName">test3</obj_property>
+      <obj_property name="ObjectShortName">test3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/test4" type="logic">
+      <obj_property name="ElementShortName">test4</obj_property>
+      <obj_property name="ObjectShortName">test4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/clk_en" type="logic">
+      <obj_property name="ElementShortName">clk_en</obj_property>
+      <obj_property name="ObjectShortName">clk_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/aclken" type="logic">
+      <obj_property name="ElementShortName">aclken</obj_property>
+      <obj_property name="ObjectShortName">aclken</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/phase_inc_cnt" type="array">
+      <obj_property name="ElementShortName">phase_inc_cnt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_inc_cnt[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/channel_en" type="logic">
+      <obj_property name="ElementShortName">channel_en</obj_property>
+      <obj_property name="ObjectShortName">channel_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/channel_start" type="logic">
+      <obj_property name="ElementShortName">channel_start</obj_property>
+      <obj_property name="ObjectShortName">channel_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dds_ins/aclk" type="logic">
+      <obj_property name="ElementShortName">aclk</obj_property>
+      <obj_property name="ObjectShortName">aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dds_ins/aclken" type="logic">
+      <obj_property name="ElementShortName">aclken</obj_property>
+      <obj_property name="ObjectShortName">aclken</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dds_ins/s_axis_phase_tvalid" type="logic">
+      <obj_property name="ElementShortName">s_axis_phase_tvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axis_phase_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dds_ins/s_axis_phase_tdata" type="array">
+      <obj_property name="ElementShortName">s_axis_phase_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_phase_tdata[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dds_ins/m_axis_data_tvalid" type="logic">
+      <obj_property name="ElementShortName">m_axis_data_tvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axis_data_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/dds_ins/m_axis_data_tdata" type="array">
+      <obj_property name="ElementShortName">m_axis_data_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_data_tdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/Mstate" type="other">
+      <obj_property name="ElementShortName">Mstate</obj_property>
+      <obj_property name="ObjectShortName">Mstate</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/shift_count" type="other">
+      <obj_property name="ElementShortName">shift_count</obj_property>
+      <obj_property name="ObjectShortName">shift_count</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/shiftreg" type="array">
+      <obj_property name="ElementShortName">shiftreg[15:0]</obj_property>
+      <obj_property name="ObjectShortName">shiftreg[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/dac1_data" type="array">
+      <obj_property name="ElementShortName">dac1_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dac1_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/dac2_data" type="array">
+      <obj_property name="ElementShortName">dac2_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dac2_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/shiftreg_2" type="array">
+      <obj_property name="ElementShortName">shiftreg_2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">shiftreg_2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/update_DACs" type="logic">
+      <obj_property name="ElementShortName">update_DACs</obj_property>
+      <obj_property name="ObjectShortName">update_DACs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/dac1A_data" type="array">
+      <obj_property name="ElementShortName">dac1A_data[11:0]</obj_property>
+      <obj_property name="ObjectShortName">dac1A_data[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/dac1B_data" type="array">
+      <obj_property name="ElementShortName">dac1B_data[11:0]</obj_property>
+      <obj_property name="ObjectShortName">dac1B_data[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/dac2A_data" type="array">
+      <obj_property name="ElementShortName">dac2A_data[11:0]</obj_property>
+      <obj_property name="ObjectShortName">dac2A_data[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/dac2B_data" type="array">
+      <obj_property name="ElementShortName">dac2B_data[11:0]</obj_property>
+      <obj_property name="ObjectShortName">dac2B_data[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/clk_en" type="logic">
+      <obj_property name="ElementShortName">clk_en</obj_property>
+      <obj_property name="ObjectShortName">clk_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/sync" type="logic">
+      <obj_property name="ElementShortName">sync</obj_property>
+      <obj_property name="ObjectShortName">sync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/tlv5637_ip/update_done" type="logic">
+      <obj_property name="ElementShortName">update_done</obj_property>
+      <obj_property name="ObjectShortName">update_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/sin_cos_inst/sync_flag" type="logic">
+      <obj_property name="ElementShortName">sync_flag</obj_property>
+      <obj_property name="ObjectShortName">sync_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/quadA" type="logic">
+      <obj_property name="ElementShortName">quadA</obj_property>
+      <obj_property name="ObjectShortName">quadA</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/quadB" type="logic">
+      <obj_property name="ElementShortName">quadB</obj_property>
+      <obj_property name="ObjectShortName">quadB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/index" type="logic">
+      <obj_property name="ElementShortName">index</obj_property>
+      <obj_property name="ObjectShortName">index</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/count" type="array">
+      <obj_property name="ElementShortName">count[7:0]</obj_property>
+      <obj_property name="ObjectShortName">count[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/quadA_delayed" type="array">
+      <obj_property name="ElementShortName">quadA_delayed[2:0]</obj_property>
+      <obj_property name="ObjectShortName">quadA_delayed[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/quadB_delayed" type="array">
+      <obj_property name="ElementShortName">quadB_delayed[2:0]</obj_property>
+      <obj_property name="ObjectShortName">quadB_delayed[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/count_enable" type="logic">
+      <obj_property name="ElementShortName">count_enable</obj_property>
+      <obj_property name="ObjectShortName">count_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/count_direction" type="logic">
+      <obj_property name="ElementShortName">count_direction</obj_property>
+      <obj_property name="ObjectShortName">count_direction</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/count_internal" type="array">
+      <obj_property name="ElementShortName">count_internal[7:0]</obj_property>
+      <obj_property name="ObjectShortName">count_internal[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/quadA" type="logic">
+      <obj_property name="ElementShortName">quadA</obj_property>
+      <obj_property name="ObjectShortName">quadA</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/quadB" type="logic">
+      <obj_property name="ElementShortName">quadB</obj_property>
+      <obj_property name="ObjectShortName">quadB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/index" type="logic">
+      <obj_property name="ElementShortName">index</obj_property>
+      <obj_property name="ObjectShortName">index</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/count" type="array">
+      <obj_property name="ElementShortName">count[7:0]</obj_property>
+      <obj_property name="ObjectShortName">count[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/quadA_delayed" type="array">
+      <obj_property name="ElementShortName">quadA_delayed[2:0]</obj_property>
+      <obj_property name="ObjectShortName">quadA_delayed[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/quadB_delayed" type="array">
+      <obj_property name="ElementShortName">quadB_delayed[2:0]</obj_property>
+      <obj_property name="ObjectShortName">quadB_delayed[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/count_enable" type="logic">
+      <obj_property name="ElementShortName">count_enable</obj_property>
+      <obj_property name="ObjectShortName">count_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/count_direction" type="logic">
+      <obj_property name="ElementShortName">count_direction</obj_property>
+      <obj_property name="ObjectShortName">count_direction</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_motion_controller/mc_inst/quad_inst/count_internal" type="array">
+      <obj_property name="ElementShortName">count_internal[7:0]</obj_property>
+      <obj_property name="ObjectShortName">count_internal[7:0]</obj_property>
+   </wvobject>
+</wave_config>

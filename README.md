@@ -14,9 +14,9 @@ Multi channel biphase motor controller for optics alignment
 
 ## Design
 Motion controller is an FPGA based control system based on Magneto board. It uses CMOD-A7 as main control unit. 
-It is used as a controller for optics adjustment. The control is done through SPI interface which has a mapped register
-that allows the user to set a phase of one of the 8 sin/cos channels that are connected to 2-phase stepper motors. 
-MC also has a quadrature input that will serve as TBD.
+It is used as a controller for optics adjustment. The control is done through SPI interface which allows for register based 
+control of the 8 sin/cos channels that are connected to 2-phase stepper motors. 
+MC also has a quadrature input for optical sensors that can be read out through SPI.  
 
 ## Block diagram
 ```mermaid
@@ -41,18 +41,26 @@ columns 9
 ```
 
 ## FPGA Digital System
+Digital system of motion controller is depicted in the diagram below. The design is a mix of IPs and microblaze soft core for SPI handling. 
+The host controls MC through SPI that is handled by microblaze which set and reads registers controlling sin/cos channels and quadrature inputs. 
+
 
 # DDS Core configuration 
 - Requirements - sin/cos frequency in the range of Hz
 Configuration:
-- Input clock - 5 MHz
+- Input clock - 1 MHz
 - Phase gen + sin/cos lut 
 - Standard mode
-- 48 bits phase increment input width
+- 32 bits phase increment input width
 - 10 bit out signal width
 - phase output disabled
+- aclken signal enabled
 
 For Phase increment equal to 1000 we achieve 
+
+# Control system
+The main control of the motion controller is done through SPI interface. SPI is designed in FPGA and controlled through microblaze MCU. 
+The 
 
 ## PCB design
 

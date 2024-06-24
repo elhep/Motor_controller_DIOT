@@ -1,0 +1,2 @@
+mb-ar qc libspi.a CMakeFiles/spi.dir/xspi.c.obj CMakeFiles/spi.dir/xspi_g.c.obj CMakeFiles/spi.dir/xspi_options.c.obj CMakeFiles/spi.dir/xspi_selftest.c.obj CMakeFiles/spi.dir/xspi_sinit.c.obj CMakeFiles/spi.dir/xspi_stats.c.obj
+C:/Xilinx/Vitis/2023.2/gnu/microblaze/nt/bin/mb-ranlib.exe libspi.a
