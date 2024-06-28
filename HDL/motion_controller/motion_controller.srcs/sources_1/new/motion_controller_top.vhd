@@ -47,11 +47,9 @@ entity motion_controller_top is
         dac_dataA : out STD_LOGIC;
         dac_dataB : out STD_LOGIC;
         dac_sck : out STD_LOGIC;
-        clk : in STD_LOGIC;
         quadA : in STD_LOGIC;
         quadB : in STD_LOGIC;
-        index : in STD_LOGIC;
-        count : out STD_LOGIC_VECTOR(7 downto 0)
+        index : in STD_LOGIC
    );
 end motion_controller_top;
 
@@ -85,7 +83,7 @@ end component mc_design_wrapper;
          clk_dds : in std_logic;
          reset : in std_logic;
          phase_inc_threshold : in std_logic_vector(31 downto 0);
-         phase_inc_delta : in std_logic_vector(15 downto 0);
+         phase_inc_delta : in std_logic_vector(31 downto 0);
          channel_status : out std_logic; 
          dac_dataA : out std_logic;
          dac_dataB : out std_logic;
@@ -116,7 +114,7 @@ end component mc_design_wrapper;
    signal clk_dac : std_logic;
    signal clk_dds : std_logic;
    signal phase_inc_threshold : std_logic_vector(31 downto 0);
-   signal phase_inc_delta : std_logic_vector(15 downto 0);
+   signal phase_inc_delta : std_logic_vector(31 downto 0);
    signal channel_status : std_logic; 
    signal dac_dataA_tmp : std_logic;
    signal dac_dataB_tmp : std_logic;
@@ -163,7 +161,7 @@ begin
     
      ila_i: entity work.ila_0
      port map (
-        clk => clk_dds,
+        clk => clk_1MHz,
         probe0 => probe0,
         probe1 => probe1,
         probe2 => probe2,
@@ -204,7 +202,7 @@ begin
       quadA           => quadA,
       quadB           => quadB,
       index           => index,
-      count           => count
+      count           => quad_count
       );
       
    -- blinky

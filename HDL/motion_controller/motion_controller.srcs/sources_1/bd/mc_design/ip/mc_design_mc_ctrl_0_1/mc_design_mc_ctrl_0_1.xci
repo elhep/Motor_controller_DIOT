@@ -4,7 +4,7 @@
     "xci_name": "mc_design_mc_ctrl_0_1",
     "cell_name": "mc_ctrl_0",
     "component_reference": "xilinx.com:user:mc_ctrl:1.0",
-    "ip_revision": "6",
+    "ip_revision": "7",
     "gen_directory": "../../../../../../motion_controller.gen/sources_1/bd/mc_design/ip/mc_design_mc_ctrl_0_1",
     "parameters": {
       "component_parameters": {
@@ -33,7 +33,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "6" } ],
+        "IPREVISION": [ { "value": "7" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../motion_controller.gen/sources_1/bd/mc_design/ip/mc_design_mc_ctrl_0_1" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],

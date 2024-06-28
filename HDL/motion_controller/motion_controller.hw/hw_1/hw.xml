@@ -5,8 +5,14 @@
 <!-- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.        -->
 
 <hwsession version="1" minor="2">
-  <device name="xc7z010_1" gui_info=""/>
+  <device name="xc7a35t_0" gui_info=""/>
   <ObjectList object_type="hw_device" gui_info="">
+    <Object name="xc7a35t_0" gui_info="">
+      <Properties Property="FULL_PROBES.FILE" value="$_project_name_.runs/impl_1/debug_nets.ltx"/>
+      <Properties Property="PROBES.FILE" value="$_project_name_.runs/impl_1/debug_nets.ltx"/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/impl_1/$_project_name__top.bit"/>
+      <Properties Property="SLR.COUNT" value="1"/>
+    </Object>
     <Object name="xc7z010_1" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value=""/>
       <Properties Property="PROBES.FILE" value=""/>
@@ -14,5 +20,173 @@
       <Properties Property="SLR.COUNT" value="1"/>
     </Object>
   </ObjectList>
-  <probeset name="hw project" active="false"/>
+  <probeset name="hw project" active="false">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="ila_i"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value=""/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="dac_dataA_OBUF"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="ila_i"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value=""/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="dac_sck_OBUF"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="ila_i"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value=""/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="sin_cos_ch1_phase_inc_delta[31]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[30]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[29]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[28]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[27]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[26]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[25]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[24]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[23]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[22]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[21]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[20]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[19]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[18]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[17]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[16]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[15]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[14]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[13]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[12]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[11]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[10]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[9]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[8]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[7]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[6]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[5]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[4]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[3]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[2]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[1]"/>
+        <net name="sin_cos_ch1_phase_inc_delta[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="ila_i"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value=""/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="sin_cos_ch1_phase_inc_threshold[31]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[30]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[29]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[28]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[27]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[26]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[25]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[24]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[23]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[22]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[21]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[20]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[19]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[18]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[17]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[16]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[15]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[14]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[13]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[12]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[11]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[10]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[9]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[8]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[7]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[6]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[5]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[4]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[3]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[2]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[1]"/>
+        <net name="sin_cos_ch1_phase_inc_threshold[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="ila_i"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value=""/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="sin_cos_ch1_reset"/>
+      </nets>
+    </probe>
+  </probeset>
 </hwsession>

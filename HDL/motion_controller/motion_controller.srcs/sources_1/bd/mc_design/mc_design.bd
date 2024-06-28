@@ -1610,7 +1610,7 @@
       },
       "mc_ctrl_0": {
         "vlnv": "xilinx.com:user:mc_ctrl:1.0",
-        "ip_revision": "6",
+        "ip_revision": "7",
         "xci_name": "mc_design_mc_ctrl_0_1",
         "xci_path": "ip\\mc_design_mc_ctrl_0_1\\mc_design_mc_ctrl_0_1.xci",
         "inst_hier_path": "mc_ctrl_0"
