@@ -1,0 +1,36 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "tcf-debug",
+			"request": "launch",
+			"name": "xspi_slave_polled_example_app_hw_1",
+			"debugType": "baremetal-fpga",
+			"attachToRunningTargetOptions": {
+				"targetSetupMode": "standalone",
+				"executeScript": true,
+				"scriptPath": ""
+			},
+			"autoAttachProcessChildren": false,
+			"target": {
+				"targetConnectionId": "Local",
+				"peersIniPath": "../../../.peers.ini",
+				"context": "fpga"
+			},
+			"targetSetup": {
+				"resetSystem": false,
+				"programDevice": false,
+				"bitstreamFile": "${workspaceFolder}\\xspi_slave_polled_example\\_ide\\bitstream\\motion_controller_top.bit",
+				"downloadElf": [
+					{
+						"core": "microblaze_0",
+						"resetProcessor": true,
+						"elfFile": "${workspaceFolder}\\xspi_slave_polled_example\\build\\xspi_slave_polled_example.elf",
+						"stopAtEntry": true
+					}
+				]
+			},
+			"internalConsoleOptions": "openOnSessionStart"
+		}
+	]
+}

@@ -1,0 +1,6 @@
+C:/Users/piotr/Dropbox/Projects2/FPGA/motion_controller/FW/vitis_cmod2/platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/exmetadata/CMakeFiles/gpio_example.dir
+C:/Users/piotr/Dropbox/Projects2/FPGA/motion_controller/FW/vitis_cmod2/platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/exmetadata/CMakeFiles/spi_example.dir
+C:/Users/piotr/Dropbox/Projects2/FPGA/motion_controller/FW/vitis_cmod2/platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/exmetadata/CMakeFiles/uartlite_example.dir
+C:/Users/piotr/Dropbox/Projects2/FPGA/motion_controller/FW/vitis_cmod2/platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/exmetadata/CMakeFiles/intc_example.dir
+C:/Users/piotr/Dropbox/Projects2/FPGA/motion_controller/FW/vitis_cmod2/platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/exmetadata/CMakeFiles/edit_cache.dir
+C:/Users/piotr/Dropbox/Projects2/FPGA/motion_controller/FW/vitis_cmod2/platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/exmetadata/CMakeFiles/rebuild_cache.dir
