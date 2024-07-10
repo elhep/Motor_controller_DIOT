@@ -2,3 +2,6 @@
 *.gen/
 *.runs/
 *.ip_user_files/
+*.Zip
+*__Previews/*
+*.SchDocPreview

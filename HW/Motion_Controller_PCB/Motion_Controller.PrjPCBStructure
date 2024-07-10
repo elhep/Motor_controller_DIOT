@@ -1,0 +1,9 @@
+Record=TopLevelDocument|FileName=Motion_Controller.schdoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=Motion_Controller.schdoc|Designator=EEM_connector|SchDesignator=EEM_connector|FileName=EEM_connector_Magneto.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=EEM_connector_Magneto.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Motion_Controller.schdoc|Designator=U_DIOT_Connectors|SchDesignator=U_DIOT_Connectors|FileName=DIOT_Connectors_Magneto.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=DIOT_Connectors_Magneto.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Motion_Controller.schdoc|Designator=U_Supply_Magneto|SchDesignator=U_Supply_Magneto|FileName=Supply_Magneto.SchDoc|SheetNumber=4|SymbolType=Normal|RawFileName=Supply_Magneto.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=NoMainPathDocument|SourceDocument=Motion_Controller.schdoc|FileName=CMOD_A7.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=Motion_Controller.schdoc|FileName=DAC_TLV5637.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=Motion_Controller.schdoc|FileName=MC_Power_Stage.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=Motion_Controller.schdoc|FileName=QUAD.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=Motion_Controller.schdoc|FileName=RJ45.SchDoc|SheetNumber=5
