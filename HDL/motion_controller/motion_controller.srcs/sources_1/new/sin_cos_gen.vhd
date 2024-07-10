@@ -139,7 +139,7 @@ begin
             phase_inc_cnt <= std_logic_vector(unsigned(phase_inc_cnt) - 1);
         end if;  
     end if;
-  end process phase_inc_cnt_proc;
+  end process phase_inc_cnt_proc; 
  
   -----------------------------------------------------------------------
   -- Generate inputs

@@ -6,6 +6,7 @@ entity mc_ctrl_v1_0_S00_AXI is
 	generic (
 		-- Users to add parameters here
 
+        MAX_CHANNELS : integer := 8;
 		-- User parameters ends
 		-- Do not modify the parameters beyond this line
 
@@ -18,9 +19,23 @@ entity mc_ctrl_v1_0_S00_AXI is
 		-- Users to add ports here
 		gpio : out std_logic;
 		
+        sin_cos_ch0_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch0_phase_inc_delta : out std_logic_vector(31 downto 0);
         sin_cos_ch1_phase_inc_threshold : out std_logic_vector(31 downto 0);
         sin_cos_ch1_phase_inc_delta : out std_logic_vector(31 downto 0);
-        sin_cos_ch1_reset : out std_logic;
+        sin_cos_ch2_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch2_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch3_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch3_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch4_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch4_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch5_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch5_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch6_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch6_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch7_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch7_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
         
         quad_count : in std_logic_vector(7 downto 0);
         quad_index : out std_logic;
@@ -322,7 +337,7 @@ begin
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 4
-	                --slv_reg4(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                slv_reg4(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
 	            end loop;
 	          when b"00101" =>
@@ -426,7 +441,7 @@ begin
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 17
-	                slv_reg17(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                -- slv_reg17(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
 	            end loop;
 	          when b"10010" =>
@@ -756,14 +771,28 @@ begin
 
 
 	-- Add user logic here
-	gpio <= slv_reg0(0);
+	gpio <= slv_reg0(9);
 		
-    sin_cos_ch1_phase_inc_threshold <= slv_reg1;
-    sin_cos_ch1_phase_inc_delta <= slv_reg2;
-    sin_cos_ch1_reset <= slv_reg0(1);
+    sin_cos_ch0_phase_inc_threshold <= slv_reg1;
+    sin_cos_ch0_phase_inc_delta <= slv_reg2;
+    sin_cos_ch1_phase_inc_threshold <= slv_reg3;
+    sin_cos_ch1_phase_inc_delta <= slv_reg4;
+    sin_cos_ch2_phase_inc_threshold <= slv_reg5;
+    sin_cos_ch2_phase_inc_delta <= slv_reg6;
+    sin_cos_ch3_phase_inc_threshold <= slv_reg7;
+    sin_cos_ch3_phase_inc_delta <= slv_reg8;
+    sin_cos_ch4_phase_inc_threshold <= slv_reg9;
+    sin_cos_ch4_phase_inc_delta <= slv_reg10;
+    sin_cos_ch5_phase_inc_threshold <= slv_reg11;
+    sin_cos_ch5_phase_inc_delta <= slv_reg12;
+    sin_cos_ch6_phase_inc_threshold <= slv_reg13;
+    sin_cos_ch6_phase_inc_delta <= slv_reg14;
+    sin_cos_ch7_phase_inc_threshold <= slv_reg15;
+    sin_cos_ch7_phase_inc_delta <= slv_reg16;
+    sin_cos_reset <= slv_reg0(7 downto 0);
         
-    slv_reg4(7 downto 0) <= quad_count;
-    quad_index <= slv_reg3(0);
+    slv_reg17(7 downto 0) <= quad_count;
+    quad_index <= slv_reg0(8);
 	-- User logic ends
 
 end arch_imp;

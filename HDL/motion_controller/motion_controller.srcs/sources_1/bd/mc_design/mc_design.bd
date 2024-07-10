@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC947A3C27D5BE72E",
+      "boundary_crc": "0xDA53809A9904FEC5",
       "device": "xc7a35tcpg236-1",
       "gen_directory": "../../../../motion_controller.gen/sources_1/bd/mc_design",
       "name": "mc_design",
@@ -150,7 +150,7 @@
         "direction": "I",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "mc_design_clk_100MHz",
+            "value": "mc_design_clk_12MHz",
             "value_src": "default"
           },
           "FREQ_HZ": {
@@ -227,9 +227,84 @@
         "left": "31",
         "right": "0"
       },
-      "sin_cos_ch1_reset": {
+      "quad_index": {
+        "direction": "O"
+      },
+      "sin_cos_ch0_phase_inc_threshold": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch0_phase_inc_delta": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch2_phase_inc_threshold": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch2_phase_inc_delta": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch3_phase_inc_threshold": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch3_phase_inc_delta": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch4_phase_inc_threshold": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch4_phase_inc_delta": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch5_phase_inc_threshold": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch5_phase_inc_delta": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch6_phase_inc_threshold": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch6_phase_inc_delta": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch7_phase_inc_threshold": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_ch7_phase_inc_delta": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "sin_cos_reset": {
         "type": "rst",
         "direction": "O",
+        "left": "7",
+        "right": "0",
         "parameters": {
           "INSERT_VIP": {
             "value": "0",
@@ -240,9 +315,6 @@
             "value_src": "default"
           }
         }
-      },
-      "quad_index": {
-        "direction": "O"
       }
     },
     "components": {
@@ -1610,7 +1682,7 @@
       },
       "mc_ctrl_0": {
         "vlnv": "xilinx.com:user:mc_ctrl:1.0",
-        "ip_revision": "7",
+        "ip_revision": "10",
         "xci_name": "mc_design_mc_ctrl_0_1",
         "xci_path": "ip\\mc_design_mc_ctrl_0_1\\mc_design_mc_ctrl_0_1.xci",
         "inst_hier_path": "mc_ctrl_0"
@@ -1739,6 +1811,18 @@
           "quad_index"
         ]
       },
+      "mc_ctrl_0_sin_cos_ch0_phase_inc_delta": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch0_phase_inc_delta",
+          "sin_cos_ch0_phase_inc_delta"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch0_phase_inc_threshold": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch0_phase_inc_threshold",
+          "sin_cos_ch0_phase_inc_threshold"
+        ]
+      },
       "mc_ctrl_0_sin_cos_ch1_phase_inc_delta": {
         "ports": [
           "mc_ctrl_0/sin_cos_ch1_phase_inc_delta",
@@ -1751,10 +1835,82 @@
           "sin_cos_ch1_phase_inc_threshold"
         ]
       },
-      "mc_ctrl_0_sin_cos_ch1_reset": {
+      "mc_ctrl_0_sin_cos_ch2_phase_inc_delta": {
         "ports": [
-          "mc_ctrl_0/sin_cos_ch1_reset",
-          "sin_cos_ch1_reset"
+          "mc_ctrl_0/sin_cos_ch2_phase_inc_delta",
+          "sin_cos_ch2_phase_inc_delta"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch2_phase_inc_threshold": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch2_phase_inc_threshold",
+          "sin_cos_ch2_phase_inc_threshold"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch3_phase_inc_delta": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch3_phase_inc_delta",
+          "sin_cos_ch3_phase_inc_delta"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch3_phase_inc_threshold": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch3_phase_inc_threshold",
+          "sin_cos_ch3_phase_inc_threshold"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch4_phase_inc_delta": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch4_phase_inc_delta",
+          "sin_cos_ch4_phase_inc_delta"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch4_phase_inc_threshold": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch4_phase_inc_threshold",
+          "sin_cos_ch4_phase_inc_threshold"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch5_phase_inc_delta": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch5_phase_inc_delta",
+          "sin_cos_ch5_phase_inc_delta"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch5_phase_inc_threshold": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch5_phase_inc_threshold",
+          "sin_cos_ch5_phase_inc_threshold"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch6_phase_inc_delta": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch6_phase_inc_delta",
+          "sin_cos_ch6_phase_inc_delta"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch6_phase_inc_threshold": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch6_phase_inc_threshold",
+          "sin_cos_ch6_phase_inc_threshold"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch7_phase_inc_delta": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch7_phase_inc_delta",
+          "sin_cos_ch7_phase_inc_delta"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_ch7_phase_inc_threshold": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_ch7_phase_inc_threshold",
+          "sin_cos_ch7_phase_inc_threshold"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_reset": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_reset",
+          "sin_cos_reset"
         ]
       },
       "mdm_1_debug_sys_rst": {

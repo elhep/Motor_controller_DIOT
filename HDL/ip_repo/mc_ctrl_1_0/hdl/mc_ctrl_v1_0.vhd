@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity mc_ctrl_v1_0 is
 	generic (
 		-- Users to add parameters here
-
+        MAX_CHANNELS : integer := 8;
 		-- User parameters ends
 		-- Do not modify the parameters beyond this line
 
@@ -18,9 +18,23 @@ entity mc_ctrl_v1_0 is
 		-- Users to add ports here
 		gpio : out std_logic;
 		
+        sin_cos_ch0_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch0_phase_inc_delta : out std_logic_vector(31 downto 0);
         sin_cos_ch1_phase_inc_threshold : out std_logic_vector(31 downto 0);
         sin_cos_ch1_phase_inc_delta : out std_logic_vector(31 downto 0);
-        sin_cos_ch1_reset : out std_logic;
+        sin_cos_ch2_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch2_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch3_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch3_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch4_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch4_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch5_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch5_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch6_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch6_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch7_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch7_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
         
         quad_count : in std_logic_vector(7 downto 0);
         quad_index : out std_logic;
@@ -63,9 +77,23 @@ architecture arch_imp of mc_ctrl_v1_0 is
 		);
 		port (
 		gpio : out std_logic;
+        sin_cos_ch0_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch0_phase_inc_delta : out std_logic_vector(31 downto 0);
         sin_cos_ch1_phase_inc_threshold : out std_logic_vector(31 downto 0);
         sin_cos_ch1_phase_inc_delta : out std_logic_vector(31 downto 0);
-        sin_cos_ch1_reset : out std_logic;
+        sin_cos_ch2_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch2_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch3_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch3_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch4_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch4_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch5_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch5_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch6_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch6_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_ch7_phase_inc_threshold : out std_logic_vector(31 downto 0);
+        sin_cos_ch7_phase_inc_delta : out std_logic_vector(31 downto 0);
+        sin_cos_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
         quad_count : in std_logic_vector(7 downto 0);
         quad_index : out std_logic;
 		S_AXI_ACLK	: in std_logic;
@@ -102,9 +130,23 @@ mc_ctrl_v1_0_S00_AXI_inst : mc_ctrl_v1_0_S00_AXI
 	)
 	port map (
 		gpio => gpio,
+        sin_cos_ch0_phase_inc_threshold => sin_cos_ch0_phase_inc_threshold,
+        sin_cos_ch0_phase_inc_delta => sin_cos_ch0_phase_inc_delta,
         sin_cos_ch1_phase_inc_threshold => sin_cos_ch1_phase_inc_threshold,
         sin_cos_ch1_phase_inc_delta => sin_cos_ch1_phase_inc_delta,
-        sin_cos_ch1_reset => sin_cos_ch1_reset,
+        sin_cos_ch2_phase_inc_threshold => sin_cos_ch2_phase_inc_threshold,
+        sin_cos_ch2_phase_inc_delta => sin_cos_ch2_phase_inc_delta,
+        sin_cos_ch3_phase_inc_threshold => sin_cos_ch3_phase_inc_threshold,
+        sin_cos_ch3_phase_inc_delta => sin_cos_ch3_phase_inc_delta,
+        sin_cos_ch4_phase_inc_threshold => sin_cos_ch4_phase_inc_threshold,
+        sin_cos_ch4_phase_inc_delta => sin_cos_ch4_phase_inc_delta,
+        sin_cos_ch5_phase_inc_threshold => sin_cos_ch5_phase_inc_threshold,
+        sin_cos_ch5_phase_inc_delta => sin_cos_ch5_phase_inc_delta,
+        sin_cos_ch6_phase_inc_threshold => sin_cos_ch6_phase_inc_threshold,
+        sin_cos_ch6_phase_inc_delta => sin_cos_ch6_phase_inc_delta,
+        sin_cos_ch7_phase_inc_threshold => sin_cos_ch7_phase_inc_threshold,
+        sin_cos_ch7_phase_inc_delta => sin_cos_ch7_phase_inc_delta,
+        sin_cos_reset => sin_cos_reset,
         quad_count => quad_count,
         quad_index => quad_index,
 		S_AXI_ACLK	=> s00_axi_aclk,
