@@ -339,23 +339,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document18]
-DocumentPath=POWER_STAGE_CHANNEL.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=8
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=FNJZHTKT
-
-[Document19]
 DocumentPath=TOP.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -372,7 +355,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=THWZBYUU
 
-[Document20]
+[Document19]
 DocumentPath=ARDUINO.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -389,7 +372,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=THZRINIK
 
-[Document21]
+[Document20]
 DocumentPath=ARDUINO.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -406,7 +389,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document22]
+[Document21]
 DocumentPath=EEM_CONN.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -423,7 +406,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document23]
+[Document22]
 DocumentPath=DIOT_CONN.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -440,41 +423,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document24]
-DocumentPath=POWER_STAGE_CHANNEL.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document25]
-DocumentPath=RJ45.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document26]
+[Document23]
 DocumentPath=..\Magneto-master\Magneto-master\Magneto_PCB\Magneto1\Magneto.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -491,7 +440,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document27]
+[Document24]
 DocumentPath=..\Magneto-master\Magneto-master\Magneto_PCB\Magneto1\Magneto.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -508,7 +457,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document28]
+[Document25]
 DocumentPath=Motion_Controller.PCBDOC
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -525,7 +474,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GQRKTQYD
 
-[Document29]
+[Document26]
 DocumentPath=DCDC.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -541,6 +490,40 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=XVEMYBGJ
+
+[Document27]
+DocumentPath=ENCODER.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=12
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=WSMYUJDY
+
+[Document28]
+DocumentPath=Motion_Controller.Annotation
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
 
 [ProjectVariant1]
 UniqueId=2558F9DA-C9AE-43C5-9A9E-E53791504C3A
@@ -1499,7 +1482,7 @@ SortLocation=0
 ReplaceSubparts=0
 MatchParameter1=Comment
 MatchStrictly1=1
-PhysicalNamingFormat=$Component_$RoomName
+PhysicalNamingFormat=$ComponentPrefix$GlobalIndex$ComponentPart
 GlobalIndexSortOrder=3
 GlobalIndexSortLocation=0
 
