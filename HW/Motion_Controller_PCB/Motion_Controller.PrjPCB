@@ -44,6 +44,7 @@ CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
+CurrentVariant=DIOT
 
 [Preferences]
 PrefsVaultGUID=
@@ -475,23 +476,6 @@ GenerateClassCluster=0
 DocumentUniqueId=GQRKTQYD
 
 [Document26]
-DocumentPath=DCDC.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=11
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=XVEMYBGJ
-
-[Document27]
 DocumentPath=ENCODER.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -508,7 +492,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=WSMYUJDY
 
-[Document28]
+[Document27]
 DocumentPath=Motion_Controller.Annotation
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -525,7 +509,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document29]
+[Document28]
 DocumentPath=Motion_Controller.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -547,13 +531,19 @@ UniqueId=2558F9DA-C9AE-43C5-9A9E-E53791504C3A
 Description=DIOT
 AllowFabrication=0
 ParameterCount=0
-VariationCount=5
-Variation1=Designator=J2|UniqueId=\JPWEXVOQ\EUEACKES|Kind=1|AlternatePart=
-Variation2=Designator=IC6|UniqueId=\JPWEXVOQ\FPFTOIHA|Kind=1|AlternatePart=
-Variation3=Designator=J1|UniqueId=\XINCUUYP\AAVKWXIT|Kind=1|AlternatePart=
-Variation4=Designator=CON1|UniqueId=\XINCUUYP\FAHBSEOH|Kind=1|AlternatePart=
-Variation5=Designator=FL1|UniqueId=\XINCUUYP\CSTXATXL|Kind=1|AlternatePart=
-ParamVariationCount=0
+VariationCount=7
+Variation1=Designator=J2|UniqueId=\XRUFHRWT\AOEFHRTP|Kind=1|AlternatePart=
+Variation2=Designator=IC6|UniqueId=\XRUFHRWT\DSRXWJKX|Kind=1|AlternatePart==Device
+ParamVariation1=ParameterName=Comment|VariantValue==Device
+ParamDesignator1=IC6
+Variation3=Designator=J1|UniqueId=\EXDCRHUC\QMJUCLPC|Kind=1|AlternatePart=
+Variation4=Designator=CON1|UniqueId=\JQWZTXGJ\VNKICYRW|Kind=1|AlternatePart=
+Variation5=Designator=FL1|UniqueId=\JQWZTXGJ\OXEKBZLW|Kind=0|AlternatePart==Value
+ParamVariation2=ParameterName=Comment|VariantValue==Value
+ParamDesignator2=FL1
+Variation6=Designator=R73|UniqueId=\DUYQEMSM\FKIQJTSC|Kind=1|AlternatePart=
+Variation7=Designator=R74|UniqueId=\DUYQEMSM\OEMJOJNY|Kind=1|AlternatePart=
+ParamVariationCount=2
 
 [Configuration1]
 Name=Default Configuration
