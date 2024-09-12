@@ -531,7 +531,7 @@ UniqueId=2558F9DA-C9AE-43C5-9A9E-E53791504C3A
 Description=DIOT
 AllowFabrication=0
 ParameterCount=0
-VariationCount=7
+VariationCount=41
 Variation1=Designator=J2|UniqueId=\XRUFHRWT\AOEFHRTP|Kind=1|AlternatePart=
 Variation2=Designator=IC6|UniqueId=\XRUFHRWT\DSRXWJKX|Kind=1|AlternatePart==Device
 ParamVariation1=ParameterName=Comment|VariantValue==Device
@@ -543,7 +543,45 @@ ParamVariation2=ParameterName=Comment|VariantValue==Value
 ParamDesignator2=FL1
 Variation6=Designator=R73|UniqueId=\DUYQEMSM\FKIQJTSC|Kind=1|AlternatePart=
 Variation7=Designator=R74|UniqueId=\DUYQEMSM\OEMJOJNY|Kind=1|AlternatePart=
+Variation8=Designator=C53|UniqueId=\XMJJOWNG|Kind=1|AlternatePart=
+Variation9=Designator=C52|UniqueId=\NEECSDEU|Kind=1|AlternatePart=
+Variation10=Designator=C30A|UniqueId=\1ESCVAGII\MVWXJEZZ|Kind=1|AlternatePart=
+Variation11=Designator=R119A|UniqueId=\1ESCVAGII\ITTOXMZJ|Kind=1|AlternatePart=
+Variation12=Designator=C30B|UniqueId=\2ESCVAGII\MVWXJEZZ|Kind=1|AlternatePart=
+Variation13=Designator=R119B|UniqueId=\2ESCVAGII\ITTOXMZJ|Kind=1|AlternatePart=
+Variation14=Designator=C30C|UniqueId=\3ESCVAGII\MVWXJEZZ|Kind=1|AlternatePart=
+Variation15=Designator=R119C|UniqueId=\3ESCVAGII\ITTOXMZJ|Kind=1|AlternatePart=
+Variation16=Designator=C30D|UniqueId=\4ESCVAGII\MVWXJEZZ|Kind=1|AlternatePart=
+Variation17=Designator=R119D|UniqueId=\4ESCVAGII\ITTOXMZJ|Kind=1|AlternatePart=
+Variation18=Designator=C30E|UniqueId=\5ESCVAGII\MVWXJEZZ|Kind=1|AlternatePart=
+Variation19=Designator=R119E|UniqueId=\5ESCVAGII\ITTOXMZJ|Kind=1|AlternatePart=
+Variation20=Designator=C30F|UniqueId=\6ESCVAGII\MVWXJEZZ|Kind=1|AlternatePart=
+Variation21=Designator=R119F|UniqueId=\6ESCVAGII\ITTOXMZJ|Kind=1|AlternatePart=
+Variation22=Designator=C30G|UniqueId=\7ESCVAGII\MVWXJEZZ|Kind=1|AlternatePart=
+Variation23=Designator=R119G|UniqueId=\7ESCVAGII\ITTOXMZJ|Kind=1|AlternatePart=
+Variation24=Designator=C30H|UniqueId=\8ESCVAGII\MVWXJEZZ|Kind=1|AlternatePart=
+Variation25=Designator=R119H|UniqueId=\8ESCVAGII\ITTOXMZJ|Kind=1|AlternatePart=
+Variation26=Designator=C30I|UniqueId=\1OCIOZSSJ\MVWXJEZZ|Kind=1|AlternatePart=
+Variation27=Designator=R119I|UniqueId=\1OCIOZSSJ\ITTOXMZJ|Kind=1|AlternatePart=
+Variation28=Designator=C30J|UniqueId=\2OCIOZSSJ\MVWXJEZZ|Kind=1|AlternatePart=
+Variation29=Designator=R119J|UniqueId=\2OCIOZSSJ\ITTOXMZJ|Kind=1|AlternatePart=
+Variation30=Designator=C30K|UniqueId=\3OCIOZSSJ\MVWXJEZZ|Kind=1|AlternatePart=
+Variation31=Designator=R119K|UniqueId=\3OCIOZSSJ\ITTOXMZJ|Kind=1|AlternatePart=
+Variation32=Designator=C30L|UniqueId=\4OCIOZSSJ\MVWXJEZZ|Kind=1|AlternatePart=
+Variation33=Designator=R119L|UniqueId=\4OCIOZSSJ\ITTOXMZJ|Kind=1|AlternatePart=
+Variation34=Designator=C30M|UniqueId=\5OCIOZSSJ\MVWXJEZZ|Kind=1|AlternatePart=
+Variation35=Designator=R119M|UniqueId=\5OCIOZSSJ\ITTOXMZJ|Kind=1|AlternatePart=
+Variation36=Designator=C30N|UniqueId=\6OCIOZSSJ\MVWXJEZZ|Kind=1|AlternatePart=
+Variation37=Designator=R119N|UniqueId=\6OCIOZSSJ\ITTOXMZJ|Kind=1|AlternatePart=
+Variation38=Designator=C30O|UniqueId=\7OCIOZSSJ\MVWXJEZZ|Kind=1|AlternatePart=
+Variation39=Designator=R119O|UniqueId=\7OCIOZSSJ\ITTOXMZJ|Kind=1|AlternatePart=
+Variation40=Designator=C30P|UniqueId=\8OCIOZSSJ\MVWXJEZZ|Kind=1|AlternatePart=
+Variation41=Designator=R119P|UniqueId=\8OCIOZSSJ\ITTOXMZJ|Kind=1|AlternatePart=
 ParamVariationCount=2
+
+[GeneratedDocument1]
+DocumentPath=Project Outputs for Zotino\BOM\Bill of Materials-Motion_Controller.xlsx
+DItemRevisionGUID=
 
 [Configuration1]
 Name=Default Configuration
