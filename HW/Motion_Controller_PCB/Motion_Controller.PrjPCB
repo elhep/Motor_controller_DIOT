@@ -221,7 +221,7 @@ GenerateClassCluster=0
 DocumentUniqueId=CGJFOPIN
 
 [Document11]
-DocumentPath=..\..\..\..\..\..\..\..\..\CernLib\Capacitors.DbLib
+DocumentPath=..\..\..\..\CernLib\Capacitors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -238,7 +238,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document12]
-DocumentPath=..\..\..\..\..\..\..\..\..\CernLib\Connectors.DbLib
+DocumentPath=..\..\..\..\CernLib\Connectors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -255,7 +255,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document13]
-DocumentPath=..\..\..\..\..\..\..\..\..\CernLib\Eletro-mechanical.DbLib
+DocumentPath=..\..\..\..\CernLib\Eletro-mechanical.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -272,7 +272,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document14]
-DocumentPath=..\..\..\..\..\..\..\..\..\CernLib\ICs And Semiconductors.DbLib
+DocumentPath=..\..\..\..\CernLib\ICs And Semiconductors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -289,7 +289,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document15]
-DocumentPath=..\..\..\..\..\..\..\..\..\CernLib\Inductors & Transformers.DbLib
+DocumentPath=..\..\..\..\CernLib\Inductors & Transformers.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -306,7 +306,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document16]
-DocumentPath=..\..\..\..\..\..\..\..\..\CernLib\Resistors.DbLib
+DocumentPath=..\..\..\..\CernLib\Resistors.DbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -526,6 +526,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document29]
+DocumentPath=push-to-aisler-odb.Outjob
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
 [ProjectVariant1]
 UniqueId=2558F9DA-C9AE-43C5-9A9E-E53791504C3A
 Description=DIOT
@@ -581,6 +598,114 @@ ParamVariationCount=2
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for Zotino\BOM\Bill of Materials-Motion_Controller.xlsx
+DItemRevisionGUID=
+
+[GeneratedDocument2]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\comp_+_bot\components
+DItemRevisionGUID=
+
+[GeneratedDocument3]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\comp_+_top\components
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=Project Outputs\odb\steps\pcb\eda\data
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\bottomoverlay\features
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\bottompaste\features
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\bottomsolder\features
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\comp_+_bot\features
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\comp_+_top\features
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\dielectric1\features
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\dielectric2\features
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\dielectric3\features
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\drill_non-plated_l4-l1\features
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\drill_plated_l4-l1\features
+DItemRevisionGUID=
+
+[GeneratedDocument15]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\g2\features
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\l1\features
+DItemRevisionGUID=
+
+[GeneratedDocument17]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\l3\features
+DItemRevisionGUID=
+
+[GeneratedDocument18]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\l4\features
+DItemRevisionGUID=
+
+[GeneratedDocument19]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\topoverlay\features
+DItemRevisionGUID=
+
+[GeneratedDocument20]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\toppaste\features
+DItemRevisionGUID=
+
+[GeneratedDocument21]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\topsolder\features
+DItemRevisionGUID=
+
+[GeneratedDocument22]
+DocumentPath=Project Outputs\odb\matrix\matrix
+DItemRevisionGUID=
+
+[GeneratedDocument23]
+DocumentPath=Project Outputs\Motion_Controller.REP
+DItemRevisionGUID=
+
+[GeneratedDocument24]
+DocumentPath=Project Outputs\odb\steps\pcb\netlists\cadnet\netlist
+DItemRevisionGUID=
+
+[GeneratedDocument25]
+DocumentPath=Project Outputs\odb\steps\pcb\profile
+DItemRevisionGUID=
+
+[GeneratedDocument26]
+DocumentPath=Project Outputs\odb\steps\pcb\stephdr
+DItemRevisionGUID=
+
+[GeneratedDocument27]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\drill_non-plated_l4-l1\tools
+DItemRevisionGUID=
+
+[GeneratedDocument28]
+DocumentPath=Project Outputs\odb\steps\pcb\layers\drill_plated_l4-l1\tools
 DItemRevisionGUID=
 
 [Configuration1]
@@ -1099,6 +1224,36 @@ OutputName12=Web Review Data
 OutputDocumentPath12=
 OutputVariantName12=
 OutputDefault12=0
+OutputType13=Ansoft Neutral
+OutputName13=Ansoft Neutral (AutoPCB)
+OutputDocumentPath13=
+OutputVariantName13=
+OutputDefault13=0
+OutputType14=HyperLynx
+OutputName14=HyperLynx (AutoPCB)
+OutputDocumentPath14=
+OutputVariantName14=
+OutputDefault14=0
+OutputType15=MathWorks
+OutputName15=MathWorks (AutoPCB)
+OutputDocumentPath15=
+OutputVariantName15=
+OutputDefault15=0
+OutputType16=Orcad v7 Capture Design
+OutputName16=Orcad v7 Capture Design (AutoSCH)
+OutputDocumentPath16=
+OutputVariantName16=
+OutputDefault16=0
+OutputType17=P-CAD ASCII
+OutputName17=P-CAD ASCII (AutoPCB)
+OutputDocumentPath17=
+OutputVariantName17=
+OutputDefault17=0
+OutputType18=P-CAD V16 Schematic Design
+OutputName18=P-CAD V16 Schematic Design (AutoSCH)
+OutputDocumentPath18=
+OutputVariantName18=
+OutputDefault18=0
 
 [OutputGroup10]
 Name=PostProcess Outputs
