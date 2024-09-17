@@ -56,7 +56,8 @@ Configuration:
 - phase output disabled
 - aclken signal enabled
 
-For Phase increment equal to 1000 we achieve 
+DDS core clock is set to 1 MHz and is enabled when sync signal of TLV5675 IP is high to capture sin/cos output of the NCO. The phase increment value is 
+
 
 # Control system
 The main control of the motion controller is done through SPI interface. SPI is designed in FPGA and controlled through microblaze MCU. 
