@@ -526,6 +526,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=APAQAQXO
 
+[Document29]
+DocumentPath=push-to-aisler-odb.Outjob
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
 [ProjectVariant1]
 UniqueId=2558F9DA-C9AE-43C5-9A9E-E53791504C3A
 Description=DIOT
