@@ -42,6 +42,8 @@ ENTITY tlv5637 IS
 		dac1B_data : IN STD_LOGIC_VECTOR(11 downto 0);
 		dac2A_data : IN STD_LOGIC_VECTOR(11 downto 0);
 		dac2B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac3A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac3B_data : IN STD_LOGIC_VECTOR(11 downto 0);
 		clk_en : IN STD_LOGIC;
 		sync : OUT STD_LOGIC;
 		update_done : out std_logic;
@@ -51,6 +53,7 @@ ENTITY tlv5637 IS
 		test4 : OUT STD_LOGIC;
 		data1 : OUT STD_LOGIC;
 		data2 : OUT STD_LOGIC;
+		data3 : OUT STD_LOGIC;
 		sck : OUT STD_LOGIC
 	);
 	
@@ -87,9 +90,10 @@ ARCHITECTURE a OF tlv5637 IS
 	SIGNAL Mstate: STATE_MAIN;
     signal shift_count : integer range 0 to 35;
     signal shiftreg,
-			dac1_data,
-			dac2_data : std_logic_vector (15 downto 0);
+			dac1_data,dac2_data,
+			dac3_data : std_logic_vector (15 downto 0);
     signal shiftreg_2 : std_logic_vector (15 downto 0);
+    signal shiftreg_3 : std_logic_vector (15 downto 0);
     signal  shift_enable,
 		 	shifter_load,
 			sck_temp,sck_buffer,
@@ -97,6 +101,7 @@ ARCHITECTURE a OF tlv5637 IS
 		    shift_reset,
 			data_temp,
 			data_2_temp,
+			data_3_temp,
 		    stop_shift,
 			en_conv	 : std_logic ;
 			
@@ -209,6 +214,15 @@ WITH Mstate  SELECT
 							"1100" & dac2B_data when Mwait_DAC_B_repeat,	--Write data to DAC A and update DAC B with BUFFER content
 							"1100" & dac2B_data when Mready;
 
+WITH Mstate  SELECT
+		dac3_data	<=		"1101" & DAC_CONFIG when Midle,					--Write data to control register
+							"1101" & DAC_CONFIG when Mwait_config,			--Write data to control register
+							"1101" & DAC_CONFIG when Mwait_config_repeat,	--Write data to control register
+							"0101" & dac3A_data when Mwait_DAC_A,			--Write data to BUFFER							
+							"0101" & dac3A_data when Mwait_DAC_A_repeat,	--Write data to BUFFER			
+							"1100" & dac3B_data when Mwait_DAC_B,			--Write data to DAC A and update DAC B with BUFFER content
+							"1100" & dac3B_data when Mwait_DAC_B_repeat,	--Write data to DAC A and update DAC B with BUFFER content
+							"1100" & dac3B_data when Mready;
 --***********************************************************************************************************************************************
 --*******************************************	data transfer state machine	*********************************************************************
 --***********************************************************************************************************************************************
@@ -346,15 +360,10 @@ if clk'event and clk='1' then
 	if clk_en = '1' then
 		data1<=data_temp; 
 		data2<=data_2_temp; 
+		data3<=data_3_temp;
 	end if;
 end if;	
 end process;
-
-
-
-
-
-
 
 
 Process (clk)
@@ -364,13 +373,16 @@ Process (clk)
 		 	if shifter_load = '1' then
 				shiftreg <= dac1_data;
 				shiftreg_2 <= dac2_data;
+				shiftreg_3 <= dac3_data;
 		--	elsif sck_buffer='1' then
 			else
 			   	if (shift_enable) = '1'  THEN
 			    	shiftreg(15 downto 0) <= shiftreg (14 downto 0) & '0';
 					shiftreg_2(15 downto 0) <= shiftreg_2 (14 downto 0) & '0';
+					shiftreg_3(15 downto 0) <= shiftreg_3 (14 downto 0) & '0';
 					data_temp <=shiftreg(15);
 					data_2_temp <=shiftreg_2(15);
+					data_3_temp <=shiftreg_3(15);
 				end if;
 			end if;
 		end if;
@@ -385,14 +397,4 @@ test3<='1';
 test4<=shift_enable;
 
 
-
-
-
-
-
-
 END a;
-
-
-
-

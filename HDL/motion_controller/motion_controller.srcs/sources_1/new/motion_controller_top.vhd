@@ -47,7 +47,17 @@ entity motion_controller_top is
         -- TODO: Expand to 8 channels
         dac_dataA : out std_logic_vector(MAX_CHANNELS-1 downto 0);
         dac_dataB : out std_logic_vector(MAX_CHANNELS-1 downto 0);
-        dac_sck :   out std_logic_vector(MAX_CHANNELS-1 downto 0);
+       
+        dac_dataA : out std_logic;
+        dac_dataB : out std_logic;
+        dac_dataC : out std_logic;
+        dac_dataD : out std_logic;
+        dac_dataE : out std_logic;
+        dac_dataF : out std_logic;
+        dac_dataG : out std_logic;
+        dac_dataH : out std_logic;
+        dac_sck : out std_logic;
+        dac_sck :   out std_logic;
         quadA : in STD_LOGIC;
         quadB : in STD_LOGIC;
         index : in STD_LOGIC
@@ -89,22 +99,31 @@ architecture Behavioral of motion_controller_top is
     spi_rtl_spisel : in STD_LOGIC;
     spi_rtl_ss_io : inout STD_LOGIC_VECTOR ( 0 to 0 );
     uart_rxd : in STD_LOGIC;
-    uart_txd : out STD_LOGIC
+    uart_txd : out STD_LOGIC;
+    led1 : out STD_LOGIC;
+    led2 : out STD_LOGIC
   );
 end component mc_design_wrapper;
 
-   component sin_cos_gen is
-   port (clk_dac : in std_logic;
+component sin_cos_gen is
+   port (
+         clk_dac : in std_logic;
          clk_dds : in std_logic;
          reset : in std_logic;
          phase_inc_threshold : in std_logic_vector(31 downto 0);
-         phase_inc_delta : in std_logic_vector(31 downto 0);
+         phase_inc_delta : in std_logic_vector(15 downto 0);
          channel_status : out std_logic; 
          dac_dataA : out std_logic;
          dac_dataB : out std_logic;
+         dac_dataC : out std_logic;
+         dac_dataD : out std_logic;
+         dac_dataE : out std_logic;
+         dac_dataF : out std_logic;
+         dac_dataG : out std_logic;
+         dac_dataH : out std_logic;
          dac_sck : out std_logic
          );
-    end component sin_cos_gen;
+end component sin_cos_gen;
      
     component quad is
     Port ( clk : in STD_LOGIC;
@@ -143,9 +162,18 @@ end component mc_design_wrapper;
    signal clk_dac : std_logic;
    signal clk_dds : std_logic;                      
    signal channel_status : STD_LOGIC_VECTOR ( 7 downto 0 ); 
-   signal dac_dataA_tmp : std_logic_vector(MAX_CHANNELS-1 downto 0);
-   signal dac_dataB_tmp : std_logic_vector(MAX_CHANNELS-1 downto 0);
-   signal dac_sck_tmp : std_logic_vector(MAX_CHANNELS-1 downto 0);
+   --signal dac_dataA_tmp : std_logic_vector(MAX_CHANNELS-1 downto 0);
+   --signal dac_dataB_tmp : std_logic_vector(MAX_CHANNELS-1 downto 0);
+   --signal dac_sck_tmp : std_logic_vector(MAX_CHANNELS-1 downto 0);
+   signal dac_dataA_tmp : std_logic;
+   signal dac_dataB_tmp : std_logic;
+   signal dac_dataC_tmp : std_logic;
+   signal dac_dataD_tmp : std_logic;
+   signal dac_dataE_tmp : std_logic;
+   signal dac_dataF_tmp : std_logic;
+   signal dac_dataG_tmp : std_logic;
+   signal dac_dataH_tmp : std_logic;
+   signal dac_sck_tmp : std_logic;
    signal led_2bits_tri_o_tmp : STD_LOGIC_VECTOR ( 1 downto 0 );
    signal counter : integer range 0 to 12000000; -- Counter for 1 Hz frequency
    signal probe0 :  STD_LOGIC_VECTOR(0 DOWNTO 0);
@@ -166,6 +194,8 @@ end component mc_design_wrapper;
    signal clk_out6 : std_logic;
    signal clk_out7 : std_logic;
    signal locked : std_logic;
+   signal led1 : std_logic;
+   signal led2 : std_logic;
  
    signal phase_inc_delta : array_type(0 to MAX_CHANNELS - 1);
    --signal sin_cos_reset : STD_LOGIC_VECTOR(7 downto 0);
@@ -239,21 +269,42 @@ begin
         clk_in1 => clk_12Mhz
  );
  
- GEN_INSTANCES:
-    for I in 0 to MAX_CHANNELS - 1 generate
+ --GEN_INSTANCES:
+ --   for I in 0 to MAX_CHANNELS - 1 generate
  
-   sin_cos_inst : sin_cos_gen
+--   sin_cos_inst : sin_cos_gen
+--   port map (
+--        clk_dac             => clk_100kHz,
+--        clk_dds             => clk_1mhz,
+--        reset               => sin_cos_reset(I),
+--        phase_inc_threshold => phase_inc_threshold(I),
+--        phase_inc_delta     => phase_inc_delta(I),
+--        channel_status      => channel_status(I),
+--        dac_dataA           => dac_dataA_tmp(I),
+--        dac_dataB           => dac_dataB_tmp(I),
+--        dac_sck             => dac_sck_tmp
+--        );
+        
+sin_cos_inst : sin_cos_gen
    port map (
-        clk_dac             => clk_100kHz,
-        clk_dds             => clk_1mhz,
-        reset               => sin_cos_reset(I),
-        phase_inc_threshold => phase_inc_threshold(I),
-        phase_inc_delta     => phase_inc_delta(I),
-        channel_status      => channel_status(I),
-        dac_dataA           => dac_dataA_tmp(I),
-        dac_dataB           => dac_dataB_tmp(I),
-        dac_sck             => dac_sck_tmp(I));
-    end generate GEN_INSTANCES;
+        clk_dac             => clk_dac,
+        clk_dds             => clk_dds,
+        reset               => sin_cos_reset(0),
+        phase_inc_threshold => phase_inc_threshold(0),
+        phase_inc_delta     => phase_inc_delta(0),
+        channel_status      => channel_status(0),
+        dac_dataA           => dac_dataA_tmp,
+        dac_dataB           => dac_dataB_tmp,
+        dac_dataC           => dac_dataC_tmp,
+        dac_dataD           => dac_dataD_tmp,
+        dac_dataE           => dac_dataE_tmp,
+        dac_dataF           => dac_dataF_tmp,
+        dac_dataG           => dac_dataG_tmp,
+        dac_dataH           => dac_dataH_tmp,
+        dac_sck             => dac_sck_tmp
+   );
+           
+   -- end generate GEN_INSTANCES;
            
       
     quad_inst : quad
@@ -283,15 +334,23 @@ begin
     probe9 <= sin_cos_ch1_phase_inc_delta;
     
     probe0(0) <= sin_cos_reset(0);
-    probe1(0) <= dac_sck_tmp(0);
+    probe1(0) <= dac_sck_tmp;
     probe2(0) <= dac_dataA_tmp(0);
     
     probe5(0) <= sin_cos_reset(1);
-    probe6(0) <= dac_sck_tmp(1);
+    probe6(0) <= dac_sck_tmp;
     probe7(0) <= dac_dataA_tmp(1);
+    led1 <= gpio_mc(0);
+    led2 <= gpio_mc(1);
     
     dac_dataA <= dac_dataA_tmp;
     dac_dataB <= dac_dataB_tmp;
+    dac_dataC <= dac_dataC_tmp;
+    dac_dataD <= dac_dataD_tmp;
+    dac_dataE <= dac_dataE_tmp;
+    dac_dataF <= dac_dataF_tmp;
+    dac_dataG <= dac_dataG_tmp;
+    dac_dataH <= dac_dataH_tmp;
     dac_sck <= dac_sck_tmp;
     
     phase_inc_threshold(0) <= sin_cos_ch0_phase_inc_threshold;

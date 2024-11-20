@@ -4,14 +4,21 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 entity sin_cos_gen is
-   port (clk_dac : in std_logic;
+   port (
+         clk_dac : in std_logic;
          clk_dds : in std_logic;
          reset : in std_logic;
          phase_inc_threshold : in std_logic_vector(31 downto 0);
-         phase_inc_delta : in std_logic_vector(31 downto 0);
+         phase_inc_delta : in std_logic_vector(15 downto 0);
          channel_status : out std_logic; 
          dac_dataA : out std_logic;
          dac_dataB : out std_logic;
+         dac_dataC : out std_logic;
+         dac_dataD : out std_logic;
+         dac_dataE : out std_logic;
+         dac_dataF : out std_logic;
+         dac_dataG : out std_logic;
+         dac_dataH : out std_logic;
          dac_sck : out std_logic
          );
 end sin_cos_gen;
@@ -28,14 +35,14 @@ architecture behav of sin_cos_gen is
 
   -- Phase slave channel signals
   signal s_axis_phase_tvalid             : std_logic := '0';  -- payload is valid
-  signal s_axis_phase_tdata              : std_logic_vector(31 downto 0) := (others => '0');  -- data payload
+  signal s_axis_phase_tdata              : std_logic_vector(15 downto 0) := (others => '0');  -- data payload
 
   -- Data master channel signals
   signal m_axis_data_tvalid              : std_logic := '0';  -- payload is valid
   signal m_axis_data_tdata               : std_logic_vector(31 downto 0) := (others => '0');  -- data payload
 
   -- Phase slave channel alias signals
-  signal s_axis_phase_tdata_inc        : std_logic_vector(31 downto 0) := (others => '0');
+  signal s_axis_phase_tdata_inc        : std_logic_vector(15 downto 0) := (others => '0');
 
   -- Data master channel alias signals
   signal m_axis_data_tdata_cosine      : std_logic_vector(9 downto 0) := (others => '0');
@@ -46,6 +53,18 @@ architecture behav of sin_cos_gen is
    signal dac1B_data : STD_LOGIC_VECTOR(11 downto 0);
    signal dac2A_data : STD_LOGIC_VECTOR(11 downto 0);
    signal dac2B_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac3A_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac3B_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac4A_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac4B_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac5A_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac5B_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac6A_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac6B_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac7A_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac7B_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac8A_data : STD_LOGIC_VECTOR(11 downto 0);
+   signal dac8B_data : STD_LOGIC_VECTOR(11 downto 0);
    signal sync : STD_LOGIC;
    signal update_done : std_logic;
    signal test1 : STD_LOGIC;
@@ -61,7 +80,7 @@ architecture behav of sin_cos_gen is
    signal channel_en : std_logic := '0'; 
    signal channel_start : std_logic := '0';
      
-  component tlv5637 IS
+component tlv5637 IS
 	PORT
 	(
 		clk : IN STD_LOGIC;
@@ -71,18 +90,36 @@ architecture behav of sin_cos_gen is
 		dac1B_data : IN STD_LOGIC_VECTOR(11 downto 0);
 		dac2A_data : IN STD_LOGIC_VECTOR(11 downto 0);
 		dac2B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac3A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac3B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac4A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac4B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac5A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac5B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac6A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac6B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac7A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac7B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac8A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac8B_data : IN STD_LOGIC_VECTOR(11 downto 0);
 		clk_en : IN STD_LOGIC;
 		sync : OUT STD_LOGIC;
-		update_done : out std_logic;
+		update_done : OUT STD_LOGIC;
 		test1 : OUT STD_LOGIC;
 		test2 : OUT STD_LOGIC;
 		test3 : OUT STD_LOGIC;
 		test4 : OUT STD_LOGIC;
 		data1 : OUT STD_LOGIC;
 		data2 : OUT STD_LOGIC;
+		data3 : OUT STD_LOGIC;
+		data4 : OUT STD_LOGIC;
+		data5 : OUT STD_LOGIC;
+		data6 : OUT STD_LOGIC;
+		data7 : OUT STD_LOGIC;
+		data8 : OUT STD_LOGIC;
 		sck : OUT STD_LOGIC
 	);
-    end component tlv5637;
+end component tlv5637;
     
 begin
 
@@ -100,7 +137,7 @@ begin
       m_axis_data_tdata               => m_axis_data_tdata
       );
       
-    tlv5637_ip : tlv5637
+tlv5637_ip : tlv5637
 	port map
 	(
 		clk           => clk_dac,
@@ -110,6 +147,18 @@ begin
 		dac1B_data    => dac1B_data,
 		dac2A_data    => dac2A_data,
 		dac2B_data    => dac2B_data,
+		dac3A_data    => dac3A_data,
+		dac3B_data    => dac3B_data,
+		dac4A_data    => dac4A_data,
+		dac4B_data    => dac4B_data,
+		dac5A_data    => dac5A_data,
+		dac5B_data    => dac5B_data,
+		dac6A_data    => dac6A_data,
+		dac6B_data    => dac6B_data,
+		dac7A_data    => dac7A_data,
+		dac7B_data    => dac7B_data,
+		dac8A_data    => dac8A_data,
+		dac8B_data    => dac8B_data,
 		clk_en        => clk_en,
 		sync          => sync,
 		update_done   => update_done,
@@ -119,6 +168,12 @@ begin
 		test4         => test4,
 		data1         => dac_dataA,
 		data2         => dac_dataB,
+		data3         => dac_dataC,
+		data4         => dac_dataD,
+		data5         => dac_dataE,
+		data6         => dac_dataF,
+		data7         => dac_dataG,
+		data8         => dac_dataH,
 		sck           => dac_sck
 	);
   -----------------------------------------------------------------------
@@ -139,7 +194,7 @@ begin
             phase_inc_cnt <= std_logic_vector(unsigned(phase_inc_cnt) - 1);
         end if;  
     end if;
-  end process phase_inc_cnt_proc; 
+  end process phase_inc_cnt_proc;
  
   -----------------------------------------------------------------------
   -- Generate inputs
@@ -160,12 +215,12 @@ begin
   
   
   dds_dac : process(clk_dds, reset)
-    variable phase : unsigned(31 downto 0) := (others => '0');
+    variable phase : unsigned(15 downto 0) := (others => '0');
     --variable sync_flag : std_logic := '0';
   begin
      if reset = '1' then
         s_axis_phase_tvalid <= '0';
-        s_axis_phase_tdata(31 downto 0) <= (others => '0');
+        s_axis_phase_tdata(15 downto 0) <= (others => '0');
         aclken <= '0';
     elsif rising_edge(clk_dds) then
         --DAC update
@@ -173,13 +228,13 @@ begin
             s_axis_phase_tvalid <= '1';    
             aclken <= '1';
             phase := phase + unsigned(phase_inc_delta);
-            s_axis_phase_tdata(31 downto 0) <= std_logic_vector(phase);  -- constant phase increment
+            s_axis_phase_tdata(15 downto 0) <= std_logic_vector(phase);  -- constant phase increment
             sync_flag <= '1';
         elsif(sync = '1' and update_done = '1') then
             sync_flag <= '0';
         else
             s_axis_phase_tvalid <= '0';
-            s_axis_phase_tdata(31 downto 0) <= (others => '0');
+            s_axis_phase_tdata(15 downto 0) <= (others => '0');
             aclken <= '0';
         end if;
     end if;
@@ -187,7 +242,7 @@ begin
   end process dds_dac;
 
   -- Phase slave channel alias signals
-  s_axis_phase_tdata_inc        <= s_axis_phase_tdata(31 downto 0);
+  s_axis_phase_tdata_inc        <= s_axis_phase_tdata(15 downto 0);
   clk_en <= '1';
 
   -- Data master channel alias signals: update these only when they are valid
@@ -200,6 +255,24 @@ begin
   dac2A_data <= m_axis_data_tdata_cosine & "00";
   dac2B_data <= m_axis_data_tdata_sine & "00";
   
+  dac3A_data <= m_axis_data_tdata_cosine & "00";
+  dac3B_data <= m_axis_data_tdata_sine & "00";
+  
+  dac4A_data <= m_axis_data_tdata_cosine & "00";
+  dac4B_data <= m_axis_data_tdata_sine & "00";
+  
+  dac5A_data <= m_axis_data_tdata_cosine & "00";
+  dac5B_data <= m_axis_data_tdata_sine & "00";
+  
+  dac6A_data <= m_axis_data_tdata_cosine & "00";
+  dac6B_data <= m_axis_data_tdata_sine & "00";
+  
+  dac7A_data <= m_axis_data_tdata_cosine & "00";
+  dac7B_data <= m_axis_data_tdata_sine & "00";
+  
+  dac8A_data <= m_axis_data_tdata_cosine & "00";
+  dac8B_data <= m_axis_data_tdata_sine & "00";
+
   channel_status <= channel_en;
 
 --    For easy debugging

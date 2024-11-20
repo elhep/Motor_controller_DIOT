@@ -31,9 +31,7 @@ USE ieee.std_logic_1164.all;
 
 
 --  Entity Declaration
-
 ENTITY tlv5637 IS
-	-- {{ALTERA_IO_BEGIN}} DO NOT REMOVE THIS LINE!
 	PORT
 	(
 		clk : IN STD_LOGIC;
@@ -43,19 +41,35 @@ ENTITY tlv5637 IS
 		dac1B_data : IN STD_LOGIC_VECTOR(11 downto 0);
 		dac2A_data : IN STD_LOGIC_VECTOR(11 downto 0);
 		dac2B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac3A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac3B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac4A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac4B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac5A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac5B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac6A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac6B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac7A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac7B_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac8A_data : IN STD_LOGIC_VECTOR(11 downto 0);
+		dac8B_data : IN STD_LOGIC_VECTOR(11 downto 0);
 		clk_en : IN STD_LOGIC;
 		sync : OUT STD_LOGIC;
-		update_done : out std_logic;
+		update_done : OUT STD_LOGIC;
 		test1 : OUT STD_LOGIC;
 		test2 : OUT STD_LOGIC;
 		test3 : OUT STD_LOGIC;
 		test4 : OUT STD_LOGIC;
 		data1 : OUT STD_LOGIC;
 		data2 : OUT STD_LOGIC;
+		data3 : OUT STD_LOGIC;
+		data4 : OUT STD_LOGIC;
+		data5 : OUT STD_LOGIC;
+		data6 : OUT STD_LOGIC;
+		data7 : OUT STD_LOGIC;
+		data8 : OUT STD_LOGIC;
 		sck : OUT STD_LOGIC
 	);
-	-- {{ALTERA_IO_END}} DO NOT REMOVE THIS LINE!
-	
 END tlv5637;
 
 
@@ -88,19 +102,15 @@ ARCHITECTURE a OF tlv5637 IS
 	SIGNAL state: STATE_TYPE;
 	SIGNAL Mstate: STATE_MAIN;
     signal shift_count : integer range 0 to 35;
-    signal shiftreg,
-			dac1_data,
-			dac2_data : std_logic_vector (15 downto 0);
-    signal shiftreg_2 : std_logic_vector (15 downto 0);
-    signal  shift_enable,
-		 	shifter_load,
-			sck_temp,sck_buffer,
-			sync_temp,
-		    shift_reset,
-			data_temp,
-			data_2_temp,
-		    stop_shift,
-			en_conv	 : std_logic ;
+	SIGNAL shiftreg,
+			dac1_data, dac2_data, dac3_data, dac4_data,
+			dac5_data, dac6_data, dac7_data, dac8_data : STD_LOGIC_VECTOR (15 downto 0);
+	SIGNAL shiftreg_2, shiftreg_3, shiftreg_4,
+			shiftreg_5, shiftreg_6, shiftreg_7, shiftreg_8 : STD_LOGIC_VECTOR (15 downto 0);
+	SIGNAL shift_enable, shifter_load, sck_temp, sck_buffer,
+			sync_temp, shift_reset, data_temp, data_2_temp,
+			data_3_temp, data_4_temp, data_5_temp, data_6_temp,
+			data_7_temp, data_8_temp, stop_shift, en_conv : STD_LOGIC;
 			
 	constant DAC_CONFIG : std_logic_vector (11 downto 0) := "000000000010" ;			
 BEGIN
@@ -189,28 +199,86 @@ WITH Mstate  SELECT
 							'1' when Mwait_DAC_B_repeat,
 							'0' when Mready;
 				
+						
+WITH Mstate SELECT
+    dac1_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+                 "0101" & dac1A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
+                 "0101" & dac1A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
+                 "1100" & dac1B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac1B_data WHEN Mwait_DAC_B_repeat,       -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac1B_data WHEN Mready;
 
-WITH Mstate  SELECT
-		dac1_data	<=		"1101" & DAC_CONFIG when Midle,					--Write data to control register
-							"1101" & DAC_CONFIG when Mwait_config,			--Write data to control register
-							"1101" & DAC_CONFIG when Mwait_config_repeat,	--Write data to control register
-							"0101" & dac1A_data when Mwait_DAC_A,			--Write data to BUFFER						
-							"0101" & dac1A_data when Mwait_DAC_A_repeat,	--Write data to BUFFER
-							"1100" & dac1B_data when Mwait_DAC_B,   		--Write data to DAC A and update DAC B with BUFFER content
-							"1100" & dac1B_data when Mwait_DAC_B_repeat,   	--Write data to DAC A and update DAC B with BUFFER content
-							"1100" & dac1B_data when Mready;
-							
-							
-WITH Mstate  SELECT
-		dac2_data	<=		"1101" & DAC_CONFIG when Midle,					--Write data to control register
-							"1101" & DAC_CONFIG when Mwait_config,			--Write data to control register
-							"1101" & DAC_CONFIG when Mwait_config_repeat,	--Write data to control register
-							"0101" & dac2A_data when Mwait_DAC_A,			--Write data to BUFFER							
-							"0101" & dac2A_data when Mwait_DAC_A_repeat,	--Write data to BUFFER			
-							"1100" & dac2B_data when Mwait_DAC_B,			--Write data to DAC A and update DAC B with BUFFER content
-							"1100" & dac2B_data when Mwait_DAC_B_repeat,	--Write data to DAC A and update DAC B with BUFFER content
-							"1100" & dac2B_data when Mready;
+WITH Mstate SELECT
+    dac2_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+                 "0101" & dac2A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
+                 "0101" & dac2A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
+                 "1100" & dac2B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac2B_data WHEN Mwait_DAC_B_repeat,       -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac2B_data WHEN Mready;
 
+WITH Mstate SELECT
+    dac3_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+                 "0101" & dac3A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
+                 "0101" & dac3A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
+                 "1100" & dac3B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac3B_data WHEN Mwait_DAC_B_repeat,       -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac3B_data WHEN Mready;
+
+WITH Mstate SELECT
+    dac4_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+                 "0101" & dac4A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
+                 "0101" & dac4A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
+                 "1100" & dac4B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac4B_data WHEN Mwait_DAC_B_repeat,       -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac4B_data WHEN Mready;
+
+WITH Mstate SELECT
+    dac5_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+                 "0101" & dac5A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
+                 "0101" & dac5A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
+                 "1100" & dac5B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac5B_data WHEN Mwait_DAC_B_repeat,       -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac5B_data WHEN Mready;
+
+WITH Mstate SELECT
+    dac6_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+                 "0101" & dac6A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
+                 "0101" & dac6A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
+                 "1100" & dac6B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac6B_data WHEN Mwait_DAC_B_repeat,       -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac6B_data WHEN Mready;
+
+WITH Mstate SELECT
+    dac7_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+                 "0101" & dac7A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
+                 "0101" & dac7A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
+                 "1100" & dac7B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac7B_data WHEN Mwait_DAC_B_repeat,       -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac7B_data WHEN Mready;
+
+WITH Mstate SELECT
+    dac8_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+                 "0101" & dac8A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
+                 "0101" & dac8A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
+                 "1100" & dac8B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac8B_data WHEN Mwait_DAC_B_repeat,       -- Write data to DAC A and update DAC B with BUFFER content
+                 "1100" & dac8B_data WHEN Mready;
 --***********************************************************************************************************************************************
 --*******************************************	data transfer state machine	*********************************************************************
 --***********************************************************************************************************************************************
@@ -342,37 +410,55 @@ end if;
 end process;
 
 	sck<=sck_buffer;
+-- Process to handle data signals for 8 channels
 process(clk)
 begin
-if clk'event and clk='1' then
-	if clk_en = '1' then
-		data1<=data_temp; 
-		data2<=data_2_temp; 
-	end if;
-end if;	
-end process;
-
-
-
-
-
-
-
-
-Process (clk)
-	begin
 	if clk'event and clk='1' then
 		if clk_en = '1' then
-		 	if shifter_load = '1' then
-				shiftreg <= dac1_data;
+			data1 <= data_temp; 
+			data2 <= data_2_temp; 
+			data3 <= data_3_temp;
+			data4 <= data_4_temp;
+			data5 <= data_5_temp;
+			data6 <= data_6_temp;
+			data7 <= data_7_temp;
+			data8 <= data_8_temp;
+		end if;
+	end if;	
+end process;
+
+-- Process to handle shift registers for 8 channels
+process(clk)
+begin
+	if clk'event and clk='1' then
+		if clk_en = '1' then
+			if shifter_load = '1' then
+				shiftreg   <= dac1_data;
 				shiftreg_2 <= dac2_data;
-		--	elsif sck_buffer='1' then
+				shiftreg_3 <= dac3_data;
+				shiftreg_4 <= dac4_data;
+				shiftreg_5 <= dac5_data;
+				shiftreg_6 <= dac6_data;
+				shiftreg_7 <= dac7_data;
+				shiftreg_8 <= dac8_data;
 			else
-			   	if (shift_enable) = '1'  THEN
-			    	shiftreg(15 downto 0) <= shiftreg (14 downto 0) & '0';
-					shiftreg_2(15 downto 0) <= shiftreg_2 (14 downto 0) & '0';
-					data_temp <=shiftreg(15);
-					data_2_temp <=shiftreg_2(15);
+				if (shift_enable) = '1' then
+					shiftreg(15 downto 0)   <= shiftreg(14 downto 0) & '0';
+					shiftreg_2(15 downto 0) <= shiftreg_2(14 downto 0) & '0';
+					shiftreg_3(15 downto 0) <= shiftreg_3(14 downto 0) & '0';
+					shiftreg_4(15 downto 0) <= shiftreg_4(14 downto 0) & '0';
+					shiftreg_5(15 downto 0) <= shiftreg_5(14 downto 0) & '0';
+					shiftreg_6(15 downto 0) <= shiftreg_6(14 downto 0) & '0';
+					shiftreg_7(15 downto 0) <= shiftreg_7(14 downto 0) & '0';
+					shiftreg_8(15 downto 0) <= shiftreg_8(14 downto 0) & '0';
+					data_temp   <= shiftreg(15);
+					data_2_temp <= shiftreg_2(15);
+					data_3_temp <= shiftreg_3(15);
+					data_4_temp <= shiftreg_4(15);
+					data_5_temp <= shiftreg_5(15);
+					data_6_temp <= shiftreg_6(15);
+					data_7_temp <= shiftreg_7(15);
+					data_8_temp <= shiftreg_8(15);
 				end if;
 			end if;
 		end if;
@@ -388,7 +474,3 @@ test4<=shift_enable;
 
 
 END a;
-
-
-
-

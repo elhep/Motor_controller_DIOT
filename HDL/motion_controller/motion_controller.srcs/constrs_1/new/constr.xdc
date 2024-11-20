@@ -114,6 +114,7 @@ set_property PACKAGE_PIN U1 [get_ports {dac_sck[5]}]
 set_property PACKAGE_PIN T3 [get_ports {dac_sck[6]}]
 set_property PACKAGE_PIN R3 [get_ports {dac_sck[7]}]
 
+
 create_debug_core u_ila_0 ila
 set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
 set_property ALL_PROBE_SAME_MU_CNT 2 [get_debug_cores u_ila_0]
@@ -166,7 +167,9 @@ create_debug_port u_ila_1 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe3]
 set_property port_width 32 [get_debug_ports u_ila_1/probe3]
 connect_debug_port u_ila_1/probe3 [get_nets [list {sin_cos_ch1_phase_inc_delta[0]} {sin_cos_ch1_phase_inc_delta[1]} {sin_cos_ch1_phase_inc_delta[2]} {sin_cos_ch1_phase_inc_delta[3]} {sin_cos_ch1_phase_inc_delta[4]} {sin_cos_ch1_phase_inc_delta[5]} {sin_cos_ch1_phase_inc_delta[6]} {sin_cos_ch1_phase_inc_delta[7]} {sin_cos_ch1_phase_inc_delta[8]} {sin_cos_ch1_phase_inc_delta[9]} {sin_cos_ch1_phase_inc_delta[10]} {sin_cos_ch1_phase_inc_delta[11]} {sin_cos_ch1_phase_inc_delta[12]} {sin_cos_ch1_phase_inc_delta[13]} {sin_cos_ch1_phase_inc_delta[14]} {sin_cos_ch1_phase_inc_delta[15]} {sin_cos_ch1_phase_inc_delta[16]} {sin_cos_ch1_phase_inc_delta[17]} {sin_cos_ch1_phase_inc_delta[18]} {sin_cos_ch1_phase_inc_delta[19]} {sin_cos_ch1_phase_inc_delta[20]} {sin_cos_ch1_phase_inc_delta[21]} {sin_cos_ch1_phase_inc_delta[22]} {sin_cos_ch1_phase_inc_delta[23]} {sin_cos_ch1_phase_inc_delta[24]} {sin_cos_ch1_phase_inc_delta[25]} {sin_cos_ch1_phase_inc_delta[26]} {sin_cos_ch1_phase_inc_delta[27]} {sin_cos_ch1_phase_inc_delta[28]} {sin_cos_ch1_phase_inc_delta[29]} {sin_cos_ch1_phase_inc_delta[30]} {sin_cos_ch1_phase_inc_delta[31]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports dac_sck]
+set_property PACKAGE_PIN L3 [get_ports dac_sck]
 set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
 set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
-connect_debug_port dbg_hub/clk [get_nets u_ila_1_clk_out1]
+connect_debug_port dbg_hub/clk [get_nets clk_12MHz_IBUF]
