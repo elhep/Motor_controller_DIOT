@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xDA53809A9904FEC5",
+      "boundary_crc": "0x9FEF943E3ACC717C",
       "device": "xc7a35tcpg236-1",
       "gen_directory": "../../../../motion_controller.gen/sources_1/bd/mc_design",
       "name": "mc_design",
@@ -38,7 +38,8 @@
       "mdm_1": "",
       "axi_gpio_0": "",
       "axi_uartlite_0": "",
-      "mc_ctrl_0": ""
+      "mc_ctrl_0": "",
+      "axi_quad_spi_1": ""
     },
     "interface_ports": {
       "spi_rtl": {
@@ -140,6 +141,73 @@
             "direction": "O",
             "left": "1",
             "right": "0"
+          }
+        }
+      },
+      "qspi_flash": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:spi:1.0",
+        "vlnv": "xilinx.com:interface:spi_rtl:1.0",
+        "port_maps": {
+          "IO0_I": {
+            "physical_name": "qspi_flash_io0_i",
+            "direction": "I"
+          },
+          "IO0_O": {
+            "physical_name": "qspi_flash_io0_o",
+            "direction": "O"
+          },
+          "IO0_T": {
+            "physical_name": "qspi_flash_io0_t",
+            "direction": "O"
+          },
+          "IO1_I": {
+            "physical_name": "qspi_flash_io1_i",
+            "direction": "I"
+          },
+          "IO1_O": {
+            "physical_name": "qspi_flash_io1_o",
+            "direction": "O"
+          },
+          "IO1_T": {
+            "physical_name": "qspi_flash_io1_t",
+            "direction": "O"
+          },
+          "IO2_I": {
+            "physical_name": "qspi_flash_io2_i",
+            "direction": "I"
+          },
+          "IO2_O": {
+            "physical_name": "qspi_flash_io2_o",
+            "direction": "O"
+          },
+          "IO2_T": {
+            "physical_name": "qspi_flash_io2_t",
+            "direction": "O"
+          },
+          "IO3_I": {
+            "physical_name": "qspi_flash_io3_i",
+            "direction": "I"
+          },
+          "IO3_O": {
+            "physical_name": "qspi_flash_io3_o",
+            "direction": "O"
+          },
+          "IO3_T": {
+            "physical_name": "qspi_flash_io3_t",
+            "direction": "O"
+          },
+          "SS_I": {
+            "physical_name": "qspi_flash_ss_i",
+            "direction": "I"
+          },
+          "SS_O": {
+            "physical_name": "qspi_flash_ss_o",
+            "direction": "O"
+          },
+          "SS_T": {
+            "physical_name": "qspi_flash_ss_t",
+            "direction": "O"
           }
         }
       }
@@ -467,7 +535,7 @@
             "value": "6.000"
           },
           "MMCM_CLKOUT1_DIVIDE": {
-            "value": "6"
+            "value": "12"
           },
           "MMCM_CLKOUT2_DIVIDE": {
             "value": "6"
@@ -1686,6 +1754,21 @@
         "xci_name": "mc_design_mc_ctrl_0_1",
         "xci_path": "ip\\mc_design_mc_ctrl_0_1\\mc_design_mc_ctrl_0_1.xci",
         "inst_hier_path": "mc_ctrl_0"
+      },
+      "axi_quad_spi_1": {
+        "vlnv": "xilinx.com:ip:axi_quad_spi:3.2",
+        "ip_revision": "28",
+        "xci_name": "mc_design_axi_quad_spi_1_0",
+        "xci_path": "ip\\mc_design_axi_quad_spi_1_0\\mc_design_axi_quad_spi_1_0.xci",
+        "inst_hier_path": "axi_quad_spi_1",
+        "parameters": {
+          "QSPI_BOARD_INTERFACE": {
+            "value": "qspi_flash"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -1705,6 +1788,12 @@
         "interface_ports": [
           "spi_rtl",
           "axi_quad_spi_0/SPI_0"
+        ]
+      },
+      "axi_quad_spi_1_SPI_0": {
+        "interface_ports": [
+          "qspi_flash",
+          "axi_quad_spi_1/SPI_0"
         ]
       },
       "axi_uartlite_0_UART": {
@@ -1735,6 +1824,12 @@
         "interface_ports": [
           "microblaze_0_axi_periph/M03_AXI",
           "axi_uartlite_0/S_AXI"
+        ]
+      },
+      "microblaze_0_axi_periph_M04_AXI": {
+        "interface_ports": [
+          "microblaze_0_axi_periph/M04_AXI",
+          "axi_quad_spi_1/AXI_LITE"
         ]
       },
       "microblaze_0_axi_periph_M05_AXI": {
@@ -1785,6 +1880,12 @@
         "ports": [
           "clk_12MHz",
           "clk_wiz/clk_in1"
+        ]
+      },
+      "clk_wiz_clk_out2": {
+        "ports": [
+          "clk_wiz/clk_out2",
+          "axi_quad_spi_1/ext_spi_clk"
         ]
       },
       "clk_wiz_clk_out5": {
@@ -1941,7 +2042,8 @@
           "rst_clk_wiz_100M/slowest_sync_clk",
           "microblaze_0_axi_periph/M04_ACLK",
           "microblaze_0_axi_periph/M05_ACLK",
-          "mc_ctrl_0/s00_axi_aclk"
+          "mc_ctrl_0/s00_axi_aclk",
+          "axi_quad_spi_1/s_axi_aclk"
         ]
       },
       "microblaze_0_intr": {
@@ -1991,7 +2093,8 @@
           "microblaze_0_axi_periph/M03_ARESETN",
           "microblaze_0_axi_periph/M04_ARESETN",
           "microblaze_0_axi_periph/M05_ARESETN",
-          "mc_ctrl_0/s00_axi_aresetn"
+          "mc_ctrl_0/s00_axi_aresetn",
+          "axi_quad_spi_1/s_axi_aresetn"
         ]
       }
     },
@@ -2008,6 +2111,12 @@
               "SEG_axi_quad_spi_0_Reg": {
                 "address_block": "/axi_quad_spi_0/AXI_LITE/Reg",
                 "offset": "0x44A00000",
+                "range": "64K",
+                "offset_high_param": "C_HIGHADDR"
+              },
+              "SEG_axi_quad_spi_1_Reg": {
+                "address_block": "/axi_quad_spi_1/AXI_LITE/Reg",
+                "offset": "0x44A20000",
                 "range": "64K",
                 "offset_high_param": "C_HIGHADDR"
               },
@@ -2047,6 +2156,21 @@
             }
           }
         }
+      }
+    },
+    "elf_association": {
+      "file": {
+        "name": "..\\..\\imports\\build\\xspi_slave_polled_example.elf",
+        "type": "ELF",
+        "checksum": "841099384",
+        "IsVisible": "1",
+        "ScopedToRef": "mc_design",
+        "ScopedToCell": [
+          "microblaze_0"
+        ],
+        "UsedIn": [
+          "implementation"
+        ]
       }
     }
   }

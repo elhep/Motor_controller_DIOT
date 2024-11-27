@@ -106,7 +106,7 @@ CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 CMAKE_C_LINK_FLAGS:STRING= -Wl,--no-relax -Wl,--gc-sections
 
 //Path to a program.
-CMAKE_DLLTOOL:FILEPATH=C:/Xilinx/Vivado/2023.2/tps/mingw/6.2.0/win64.o/nt/bin/dlltool.exe
+CMAKE_DLLTOOL:FILEPATH=CMAKE_DLLTOOL-NOTFOUND
 
 //Flags used by the linker during all build types.
 CMAKE_EXE_LINKER_FLAGS:STRING=

@@ -44,9 +44,15 @@ entity motion_controller_top is
         uart_txd : out STD_LOGIC;
         led_2bits_tri_o : out STD_LOGIC_VECTOR ( 1 downto 0 );
         push_buttons_1bit_tri_i : in STD_LOGIC;
+        
+        qspi_flash_io0_io : inout STD_LOGIC;
+        qspi_flash_io1_io : inout STD_LOGIC;
+        qspi_flash_io2_io : inout STD_LOGIC;
+        qspi_flash_io3_io : inout STD_LOGIC;
+        qspi_flash_ss_io : inout STD_LOGIC;
         -- TODO: Expand to 8 channels
-        dac_dataA : out std_logic_vector(MAX_CHANNELS-1 downto 0);
-        dac_dataB : out std_logic_vector(MAX_CHANNELS-1 downto 0);
+        --dac_dataA : out std_logic_vector(MAX_CHANNELS-1 downto 0);
+        --dac_dataB : out std_logic_vector(MAX_CHANNELS-1 downto 0);
        
         dac_dataA : out std_logic;
         dac_dataB : out std_logic;
@@ -57,10 +63,10 @@ entity motion_controller_top is
         dac_dataG : out std_logic;
         dac_dataH : out std_logic;
         dac_sck : out std_logic;
-        dac_sck :   out std_logic;
         quadA : in STD_LOGIC;
         quadB : in STD_LOGIC;
-        index : in STD_LOGIC
+        index : in STD_LOGIC;
+        led1 : out STD_LOGIC
    );
 end motion_controller_top;
 
@@ -73,6 +79,11 @@ architecture Behavioral of motion_controller_top is
     gpio_mc : out STD_LOGIC;
     led_2bits_tri_o : out STD_LOGIC_VECTOR ( 1 downto 0 );
     push_buttons_1bit_tri_i : in STD_LOGIC;
+    qspi_flash_io0_io : inout STD_LOGIC;
+    qspi_flash_io1_io : inout STD_LOGIC;
+    qspi_flash_io2_io : inout STD_LOGIC;
+    qspi_flash_io3_io : inout STD_LOGIC;
+    qspi_flash_ss_io : inout STD_LOGIC;
     quad_count : in STD_LOGIC_VECTOR ( 7 downto 0 );
     quad_index : out STD_LOGIC;
     reset : in STD_LOGIC;
@@ -99,9 +110,7 @@ architecture Behavioral of motion_controller_top is
     spi_rtl_spisel : in STD_LOGIC;
     spi_rtl_ss_io : inout STD_LOGIC_VECTOR ( 0 to 0 );
     uart_rxd : in STD_LOGIC;
-    uart_txd : out STD_LOGIC;
-    led1 : out STD_LOGIC;
-    led2 : out STD_LOGIC
+    uart_txd : out STD_LOGIC
   );
 end component mc_design_wrapper;
 
@@ -111,7 +120,7 @@ component sin_cos_gen is
          clk_dds : in std_logic;
          reset : in std_logic;
          phase_inc_threshold : in std_logic_vector(31 downto 0);
-         phase_inc_delta : in std_logic_vector(15 downto 0);
+         phase_inc_delta : in std_logic_vector(31 downto 0);
          channel_status : out std_logic; 
          dac_dataA : out std_logic;
          dac_dataB : out std_logic;
@@ -194,8 +203,6 @@ end component sin_cos_gen;
    signal clk_out6 : std_logic;
    signal clk_out7 : std_logic;
    signal locked : std_logic;
-   signal led1 : std_logic;
-   signal led2 : std_logic;
  
    signal phase_inc_delta : array_type(0 to MAX_CHANNELS - 1);
    --signal sin_cos_reset : STD_LOGIC_VECTOR(7 downto 0);
@@ -212,6 +219,11 @@ begin
         gpio_mc                         => gpio_mc,
         led_2bits_tri_o                 => led_2bits_tri_o_tmp,
         push_buttons_1bit_tri_i         => push_buttons_1bit_tri_i,
+        qspi_flash_io0_io               => qspi_flash_io0_io,
+        qspi_flash_io1_io               => qspi_flash_io1_io,
+        qspi_flash_io2_io               => qspi_flash_io2_io,
+        qspi_flash_io3_io               => qspi_flash_io3_io,
+        qspi_flash_ss_io                => qspi_flash_ss_io,
         quad_count                      => quad_count,
         quad_index                      => quad_index,
         sin_cos_ch0_phase_inc_delta     => sin_cos_ch0_phase_inc_delta,
@@ -335,14 +347,13 @@ sin_cos_inst : sin_cos_gen
     
     probe0(0) <= sin_cos_reset(0);
     probe1(0) <= dac_sck_tmp;
-    probe2(0) <= dac_dataA_tmp(0);
+    probe2(0) <= dac_dataA_tmp;
     
     probe5(0) <= sin_cos_reset(1);
     probe6(0) <= dac_sck_tmp;
-    probe7(0) <= dac_dataA_tmp(1);
-    led1 <= gpio_mc(0);
-    led2 <= gpio_mc(1);
-    
+    probe7(0) <= dac_dataB_tmp;
+    led1 <= gpio_mc;
+   
     dac_dataA <= dac_dataA_tmp;
     dac_dataB <= dac_dataB_tmp;
     dac_dataC <= dac_dataC_tmp;

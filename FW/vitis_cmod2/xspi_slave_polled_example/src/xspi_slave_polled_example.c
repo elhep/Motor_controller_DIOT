@@ -130,13 +130,14 @@ void* MC_CTRL_BaseAddress = (void*)(0x44A10000);
 typedef enum {
     CONFIG,
     READ,
-    WRITE
+    WRITE,
+    RESET
 } cmd_t;
 
 int mc_ctrl_reg_offset [] = {
-    MC_CTRL_S00_AXI_SLV_REG1_OFFSET
+    MC_CTRL_S00_AXI_SLV_REG1_OFFSET,
     MC_CTRL_S00_AXI_SLV_REG2_OFFSET
-}
+};
 
 
 
@@ -211,18 +212,18 @@ int main(void)
 	return XST_SUCCESS;
 }
 
-typedef enum {
-    CONFIG,
-    SET,
-    GET,
-    LAST_COMMAND
-} cmd_t;
+// typedef enum {
+//     CONFIG,
+//     SET,
+//     GET,
+//     LAST_COMMAND
+// } cmd_t;
 
-typedef enum {
-    THRESHOLD_REG,
-    PHASE_INC_DELTA_REG,
-    RESET
-} mc_ch_reg_t;
+// typedef enum {
+//     THRESHOLD_REG,
+//     PHASE_INC_DELTA_REG,
+//     RESET
+// } mc_ch_reg_t;
 
 
 static int CommandReceive(XSpi *SpiInstancePtr,u8* CommandBuffer){
