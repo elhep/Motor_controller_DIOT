@@ -16,7 +16,7 @@ void setup() {
   pinMode(MUX_PIN, OUTPUT);
   digitalWrite(CS_PIN, HIGH);
   digitalWrite(MUX_OE_PIN, HIGH);
-  digitalWrite(MUX_PIN, LOW);
+  digitalWrite(MUX_PIN, HIGH);
 }
 
 void loop() {

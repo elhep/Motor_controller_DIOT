@@ -164,11 +164,13 @@ int main(void)
 
 
 	Status = SpiSlavePolledExample(&SpiInstance, XPAR_XSPI_0_BASEADDR);
+    if(Status != XST_SUCCESS) xil_printf("FAIL\r\n");
 
     int res = XST_SUCCESS; 
     while(res == XST_SUCCESS){
-        res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+        res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 1);
         int data = ReadBuffer[0];
+        xil_printf("SPI: %d\r\n", data);
         switch(data){
             case CONFIG: 
             {
@@ -251,7 +253,7 @@ static int SpiInit(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	Status = XSpi_CfgInitialize(SpiInstancePtr, ConfigPtr,
 				    ConfigPtr->BaseAddress);
 	if (Status != XST_SUCCESS) {
-        xil_printf("\r\nFAIL\r\n");
+        xil_printf("\r\nFAIL1\r\n");
 		return XST_FAILURE;
 	}
 
@@ -263,7 +265,7 @@ static int SpiInit(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	Status = XSpi_SetOptions(SpiInstancePtr, XSP_CLK_PHASE_1_OPTION |
 				 XSP_CLK_ACTIVE_LOW_OPTION);
 	if (Status != XST_SUCCESS) {
-        xil_printf("\r\nFAIL\r\n");
+        xil_printf("\r\nFAIL2\r\n");
 		return XST_FAILURE;
 	}
 
@@ -322,11 +324,13 @@ static int SpiSlavePolledExample(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	ConfigPtr = XSpi_LookupConfig(BaseAddress);
 #endif
 	if (ConfigPtr == NULL) {
+        xil_printf("\r\nFAIL3\r\n");
 		return XST_FAILURE;
 	}
 	Status = XSpi_CfgInitialize(SpiInstancePtr, ConfigPtr,
 				    ConfigPtr->BaseAddress);
 	if (Status != XST_SUCCESS) {
+        xil_printf("\r\nFAIL4 %d\r\n", Status);
 		return XST_FAILURE;
 	}
 
@@ -338,6 +342,7 @@ static int SpiSlavePolledExample(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	Status = XSpi_SetOptions(SpiInstancePtr, XSP_CLK_PHASE_1_OPTION |
 				 XSP_CLK_ACTIVE_LOW_OPTION);
 	if (Status != XST_SUCCESS) {
+        xil_printf("\r\nFAIL5\r\n");
 		return XST_FAILURE;
 	}
 
@@ -365,7 +370,7 @@ static int SpiSlavePolledExample(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	 * Prepare the data buffers for transmission and to send/receive data
 	 * when the SPI device is selected by a master.
 	 */
-	XSpi_Transfer(SpiInstancePtr, ReadBuffer, ReadBuffer, BUFFER_SIZE);
+	XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
 
 	/*
 	 * Print all the data received from the master so that it can be
