@@ -29,12 +29,15 @@ void loop() {
 void processCommand(String command) {
   if (command.startsWith("SPI")) {
     digitalWrite(CS_PIN, LOW);
-    SPI.beginTransaction(SPISettings(1562500, MSBFIRST, SPI_MODE1));
+    SPI.beginTransaction(SPISettings(1562500, MSBFIRST, SPI_MODE0));
     int len = 4;
     byte temp[16] = {};
     byte resp[16] = {};
     for(int i = 0; i < len; i++){
       temp[i] = command.substring(4).toInt();
+    }
+    for(int i = 0; i < len; i++){  
+      Serial.println(temp[i], HEX);
     }
     for(int i = 0; i < len; i++){
       resp[i] = SPI.transfer(temp[i]);

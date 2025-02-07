@@ -198,9 +198,10 @@ int main(void)
             {
                 int channel = ReadBuffer[1]; //0-7
                 int reg = ReadBuffer[2]; // 0 - threshold, 1 - phase inc delta, 2- reset, 
-                int val = *((uint32_t*)ReadBuffer[3]);
+                int val = ReadBuffer[3];
                 xil_printf("\r\nCMD:0x%x CH:0x%x R:0x%x Val:0x%x\r\n", cmd, channel, reg, val);
-                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg]+(channel-1)*4,val);
+                //MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg]+(channel-1)*4,val);
+                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg],val);
                 break;
             }
             case RESET: 
@@ -215,7 +216,7 @@ int main(void)
                 xil_printf("\r\n will blink led\r\n");
                 for(int i = 0; i < 10; i++){
                     MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,1 << 9);
-                    sleep(1);
+                    sleep(2);
                     MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,0);
                 }
                 break;
