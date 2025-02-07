@@ -402,6 +402,9 @@
           "Master_mode": {
             "value": "0"
           },
+          "Multiples16": {
+            "value": "4"
+          },
           "QSPI_BOARD_INTERFACE": {
             "value": "Custom"
           },
@@ -2160,9 +2163,9 @@
     },
     "elf_association": {
       "file": {
-        "name": "..\\..\\imports\\build\\xspi_slave_polled_example.elf",
+        "name": "..\\..\\..\\..\\..\\..\\FW\\vitis_cmod2\\xspi_slave_polled_example\\build\\xspi_slave_polled_example.elf",
         "type": "ELF",
-        "checksum": "841099384",
+        "checksum": "1612718589",
         "IsVisible": "1",
         "ScopedToRef": "mc_design",
         "ScopedToCell": [

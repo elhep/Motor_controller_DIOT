@@ -69,13 +69,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="41"/>
-    <Option Name="WTModelSimExportSim" Val="41"/>
-    <Option Name="WTQuestaExportSim" Val="41"/>
+    <Option Name="WTXSimExportSim" Val="43"/>
+    <Option Name="WTModelSimExportSim" Val="43"/>
+    <Option Name="WTQuestaExportSim" Val="43"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="41"/>
-    <Option Name="WTRivieraExportSim" Val="41"/>
-    <Option Name="WTActivehdlExportSim" Val="41"/>
+    <Option Name="WTVcsExportSim" Val="43"/>
+    <Option Name="WTRivieraExportSim" Val="43"/>
+    <Option Name="WTActivehdlExportSim" Val="43"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -208,6 +208,12 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../FW/vitis_cmod2/xspi_slave_polled_example/build/xspi_slave_polled_example.elf"/>
           <Attr Name="ImportTime" Val="1732672315"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="IsVisible" Val="1"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../FW/vitis_cmod2/xspi_slave_polled_example/build/xspi_slave_polled_example.elf">
+        <FileInfo>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="ScopedToRef" Val="mc_design"/>
           <Attr Name="ScopedToCell" Val="microblaze_0"/>
@@ -455,7 +461,7 @@
         <ReportConfig DisplayName="synthesis_report" Name="synth_1_copy_1_synth_synthesis_report_0" Spec="" RunStep="synth_design" ReportFile="motion_controller_top.vds">
           <ReportConfigOption Name="dummy_option" Type="string"/>
         </ReportConfig>
-        <ReportConfig DisplayName="Utilization - Synth Design" Name="synth_1_copy_1_synth_report_utilization_0" Spec="report_utilization" RunStep="synth_design" ReportFile="motion_controller_top_utilization_synth_1.rpt" Version="1" Minor="0">
+        <ReportConfig DisplayName="Utilization - Synth Design" Name="synth_1_copy_1_synth_report_utilization_0" Spec="report_utilization" RunStep="synth_design" ReportFile="motion_controller_top_utilization_synth.rpt" Version="1" Minor="0">
           <ReportConfigOption Name="dummy_option" Type="string"/>
           <ReportConfigOutputOption Name="pb" Type="string" Value=""/>
         </ReportConfig>

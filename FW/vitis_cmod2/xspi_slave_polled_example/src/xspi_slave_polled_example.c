@@ -127,11 +127,14 @@ void* MC_CTRL_BaseAddress = (void*)(0x44A10000);
 #define FW_VER_MAJOR 0
 #define FW_VER_MINOR 1
 
+#define SPI_MAX_BYTES_TRANSFERED 4
+
 typedef enum {
     CONFIG,
     READ,
     WRITE,
-    RESET
+    RESET,
+    TEST
 } cmd_t;
 
 int mc_ctrl_reg_offset [] = {
@@ -148,11 +151,11 @@ int main(void)
 	int Status;
 
     MC_CTRL_Reg_SelfTest(MC_CTRL_BaseAddress);
-    MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,1 << 1);
-    sleep(1);
-    MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,0);
-    MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG1_OFFSET,0xFFF01234);
-    MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG2_OFFSET,0x20);
+    //MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,1 << 1);
+    //sleep(1);
+    //MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,0);
+    //MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG1_OFFSET,0xFFF01234);
+    //MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG2_OFFSET,0x20);
     // while(1){
     //     MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG1_OFFSET,0xFFFF1234);
     //     MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG2_OFFSET,0x20);
@@ -163,25 +166,32 @@ int main(void)
     SpiInit(&SpiInstance, XPAR_XSPI_0_BASEADDR);
 
 
-	Status = SpiSlavePolledExample(&SpiInstance, XPAR_XSPI_0_BASEADDR);
-    if(Status != XST_SUCCESS) xil_printf("FAIL\r\n");
+	//Status = SpiSlavePolledExample(&SpiInstance, XPAR_XSPI_0_BASEADDR);
+    //if(Status != XST_SUCCESS) xil_printf("FAIL\r\n");
 
     int res = XST_SUCCESS; 
     while(res == XST_SUCCESS){
-        res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 1);
-        int data = ReadBuffer[0];
-        xil_printf("SPI: %d\r\n", data);
-        switch(data){
+        res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, SPI_MAX_BYTES_TRANSFERED);
+        xil_printf("\r\nReceived data is:\r\n");
+	    for(int Count = 0; Count < BUFFER_SIZE; Count++) {
+		    xil_printf("0x%x \r\n", ReadBuffer[Count]);
+	    }
+        int cmd = ReadBuffer[0];
+        xil_printf("SPI: %d\r\n", cmd);
+        switch(cmd){
             case CONFIG: 
             {
-                xil_printf("\r\nCMD:0x%x\r\n", data);
+                xil_printf("\r\nCMD:0x%x\r\n", cmd);
+                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,ReadBuffer[1] << 16 | ReadBuffer[2] << 8 | ReadBuffer[3]);
                 //Set LED
                 //Self test
                 //Config clock
+                break;
             }
             case READ: 
             {
-                xil_printf("\r\nCMD:0x%x\r\n", data);
+                xil_printf("\r\nCMD:0x%x\r\n", cmd);
+                break;
 
             }
             case WRITE:
@@ -189,28 +199,32 @@ int main(void)
                 int channel = ReadBuffer[1]; //0-7
                 int reg = ReadBuffer[2]; // 0 - threshold, 1 - phase inc delta, 2- reset, 
                 int val = *((uint32_t*)ReadBuffer[3]);
-                xil_printf("\r\nCMD:0x%x CH:0x%x R:0x%x Val:0x%x\r\n", data, channel, reg, val);
+                xil_printf("\r\nCMD:0x%x CH:0x%x R:0x%x Val:0x%x\r\n", cmd, channel, reg, val);
                 MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg]+(channel-1)*4,val);
+                break;
             }
             case RESET: 
             {
-                xil_printf("\r\nCMD:0x%x\r\n", data);
-
+                xil_printf("\r\nCMD:0x%x\r\n", cmd);
+                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,0xFF);
+                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,0);
+                break;
             }
+            case TEST:
+            {
+                xil_printf("\r\n will blink led\r\n");
+                for(int i = 0; i < 10; i++){
+                    MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,1 << 9);
+                    sleep(1);
+                    MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,0);
+                }
+                break;
+            }
+            default:
+                break;
         }
     }
     
-
-	/*
-	 * Print all the data received from the master so that it can be
-	 * compared with the data sent by the master.
-	 */
-	xil_printf("\r\nReceived data is:\r\n");
-	for(int Count = 0; Count < BUFFER_SIZE; Count++) {
-		xil_printf("0x%x \r\n", ReadBuffer[Count]);
-	}
-
-	//xil_printf("Successfully ran Spi slave polled Example\r\n");
 	return XST_SUCCESS;
 }
 
