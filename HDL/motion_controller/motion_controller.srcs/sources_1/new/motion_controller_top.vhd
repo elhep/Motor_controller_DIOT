@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -63,6 +64,7 @@ entity motion_controller_top is
         dac_dataG : out std_logic;
         dac_dataH : out std_logic;
         dac_sck : out std_logic;
+        dac_sync : out std_logic;
         quadA : in STD_LOGIC;
         quadB : in STD_LOGIC;
         index : in STD_LOGIC;
@@ -130,7 +132,8 @@ component sin_cos_gen is
          dac_dataF : out std_logic;
          dac_dataG : out std_logic;
          dac_dataH : out std_logic;
-         dac_sck : out std_logic
+         dac_sck : out std_logic;
+         dac_sync : out std_logic
          );
 end component sin_cos_gen;
      
@@ -184,7 +187,8 @@ end component sin_cos_gen;
    signal dac_dataH_tmp : std_logic;
    signal dac_sck_tmp : std_logic;
    signal led_2bits_tri_o_tmp : STD_LOGIC_VECTOR ( 1 downto 0 );
-   signal counter : integer range 0 to 12000000; -- Counter for 1 Hz frequency
+   ---signal counter : integer range 0 to 12000000; -- Counter for 1 Hz frequency
+   signal counter : unsigned(23 downto 0) := (others => '0');
    signal probe0 :  STD_LOGIC_VECTOR(0 DOWNTO 0);
    signal probe1 :  STD_LOGIC_VECTOR(0 DOWNTO 0);
    signal probe2 :  STD_LOGIC_VECTOR(0 DOWNTO 0);
@@ -252,20 +256,6 @@ begin
         uart_txd                        => uart_txd
     ); 
     
-     ila_i: entity work.ila_0
-     port map (
-        clk => clk_12Mhz,
-        probe0 => probe0,
-        probe1 => probe1,
-        probe2 => probe2,
-        probe3 => probe3,
-        probe4 => probe4,
-        probe5 => probe5,
-        probe6 => probe6,
-        probe7 => probe7,
-        probe8 => probe8,
-        probe9 => probe9 
-    ); 
 -- DAC clock generation 100 kHz
  clk_wiz_i : entity work.clk_wiz_0 
  port map (
@@ -299,8 +289,8 @@ begin
         
 sin_cos_inst : sin_cos_gen
    port map (
-        clk_dac             => clk_dac,
-        clk_dds             => clk_dds,
+        clk_dac             => clk_100kHz,
+        clk_dds             => clk_1mhz,
         reset               => sin_cos_reset(0),
         phase_inc_threshold => phase_inc_threshold(0),
         phase_inc_delta     => phase_inc_delta(0),
@@ -313,7 +303,8 @@ sin_cos_inst : sin_cos_gen
         dac_dataF           => dac_dataF_tmp,
         dac_dataG           => dac_dataG_tmp,
         dac_dataH           => dac_dataH_tmp,
-        dac_sck             => dac_sck_tmp
+        dac_sck             => dac_sck_tmp,
+        dac_sync            => dac_sync
    );
            
    -- end generate GEN_INSTANCES;
@@ -338,20 +329,10 @@ sin_cos_inst : sin_cos_gen
     end process;
  
     -- Generate LED drive signal (1 Hz frequency)
-    led_2bits_tri_o(1) <= '1' when counter < 6000000 else '0'; -- 1 Hz = 12 MHz / 6000000   
+    --led_2bits_tri_o(1) <= '1' when counter < 6000000 else '0'; -- 1 Hz = 12 MHz / 6000000   
+    led_2bits_tri_o(1) <= counter(23);
     led_2bits_tri_o(0) <= led_2bits_tri_o_tmp(0);
-    probe3 <= sin_cos_ch0_phase_inc_threshold;
-    probe4 <= sin_cos_ch0_phase_inc_delta;
-    probe8 <= sin_cos_ch1_phase_inc_threshold;
-    probe9 <= sin_cos_ch1_phase_inc_delta;
     
-    probe0(0) <= sin_cos_reset(0);
-    probe1(0) <= dac_sck_tmp;
-    probe2(0) <= dac_dataA_tmp;
-    
-    probe5(0) <= sin_cos_reset(1);
-    probe6(0) <= dac_sck_tmp;
-    probe7(0) <= dac_dataB_tmp;
     led1 <= gpio_mc;
    
     dac_dataA <= dac_dataA_tmp;

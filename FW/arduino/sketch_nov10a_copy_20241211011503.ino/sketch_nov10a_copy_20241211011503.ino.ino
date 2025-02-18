@@ -22,37 +22,54 @@ void setup() {
 void loop() {
   if (Serial.available()) {
     String command = Serial.readStringUntil('\n');
+    command.trim();  // Remove extra spaces or newlines
     processCommand(command);
   }
 }
 
 void processCommand(String command) {
   if (command.startsWith("SPI")) {
-    digitalWrite(CS_PIN, LOW);
-    SPI.beginTransaction(SPISettings(1562500, MSBFIRST, SPI_MODE0));
-    int len = 4;
-    byte temp[16] = {};
-    byte resp[16] = {};
-    for(int i = 0; i < len; i++){
-      temp[i] = command.substring(4).toInt();
-    }
-    for(int i = 0; i < len; i++){  
-      Serial.println(temp[i], HEX);
-    }
-    for(int i = 0; i < len; i++){
-      resp[i] = SPI.transfer(temp[i]);
-    }
-    //byte response = SPI.transfer(command.substring(4).toInt());
-    SPI.endTransaction();
-    digitalWrite(CS_PIN, HIGH);
-    //Serial.println(response, HEX);
-    for(int i = 0; i < len; i++){  
-      Serial.println(resp[i], HEX);
-    }
+    processSPICommand(command);
   } else if (command == "READ_VOLTAGES") {
     readVoltages();
   } else if (command.startsWith("MUX")) {
     controlMUX(command.substring(4).toInt());
+  }
+}
+
+void processSPICommand(String command) {
+  digitalWrite(CS_PIN, LOW);
+  SPI.beginTransaction(SPISettings(1562500, MSBFIRST, SPI_MODE0));
+
+  // Extract numbers from command
+  command.remove(0, 4);  // Remove "SPI " from the start
+  command.trim();
+  
+  byte temp[16] = {0};
+  byte resp[16] = {0};
+  int len = 0;
+
+  char *token = strtok((char *)command.c_str(), " ");
+  while (token != NULL && len < 16) {
+    temp[len] = (byte)atoi(token);
+    len++;
+    token = strtok(NULL, " ");
+  }
+
+  // Send SPI data and receive response
+  for (int i = 0; i < len; i++) {
+    Serial.print("Sending: 0x");
+    Serial.println(temp[i], HEX);
+    resp[i] = SPI.transfer(temp[i]);
+  }
+
+  SPI.endTransaction();
+  digitalWrite(CS_PIN, HIGH);
+
+  // Print received SPI data
+  for (int i = 0; i < len; i++) {
+    Serial.print("Received: 0x");
+    Serial.println(resp[i], HEX);
   }
 }
 

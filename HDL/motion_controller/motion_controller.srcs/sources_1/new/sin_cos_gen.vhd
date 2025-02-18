@@ -19,7 +19,8 @@ entity sin_cos_gen is
          dac_dataF : out std_logic;
          dac_dataG : out std_logic;
          dac_dataH : out std_logic;
-         dac_sck : out std_logic
+         dac_sck : out std_logic;
+         dac_sync : out std_logic
          );
 end sin_cos_gen;
 
@@ -47,6 +48,7 @@ architecture behav of sin_cos_gen is
   -- Data master channel alias signals
   signal m_axis_data_tdata_cosine      : std_logic_vector(9 downto 0) := (others => '0');
   signal m_axis_data_tdata_sine        : std_logic_vector(9 downto 0) := (others => '0');
+
 
    signal update_DACs : STD_LOGIC := '1';
    signal dac1A_data : STD_LOGIC_VECTOR(11 downto 0);
@@ -80,6 +82,20 @@ architecture behav of sin_cos_gen is
    signal channel_en : std_logic := '0'; 
    signal channel_start : std_logic := '0';
      
+   
+attribute MARK_DEBUG : string;
+attribute MARK_DEBUG of update_DACs: signal is "TRUE";  
+attribute MARK_DEBUG of sync: signal is "TRUE";  
+attribute MARK_DEBUG of dac1A_data: signal is "TRUE";  
+attribute MARK_DEBUG of dac1B_data: signal is "TRUE";  
+attribute MARK_DEBUG of clk_en: signal is "TRUE";  
+attribute MARK_DEBUG of channel_en: signal is "TRUE";  
+attribute MARK_DEBUG of channel_start: signal is "TRUE";  
+attribute MARK_DEBUG of m_axis_data_tdata_cosine: signal is "TRUE";  
+attribute MARK_DEBUG of m_axis_data_tdata_sine: signal is "TRUE"; 
+attribute MARK_DEBUG of phase_inc_cnt: signal is "TRUE";
+attribute MARK_DEBUG of phase_inc_threshold: signal is "TRUE";
+
 component tlv5637 IS
 	PORT
 	(
@@ -120,6 +136,7 @@ component tlv5637 IS
 		sck : OUT STD_LOGIC
 	);
 end component tlv5637;
+    
     
 begin
 
@@ -176,6 +193,8 @@ tlv5637_ip : tlv5637
 		data8         => dac_dataH,
 		sck           => dac_sck
 	);
+
+	
   -----------------------------------------------------------------------
   -- Generate clock
   -----------------------------------------------------------------------
@@ -244,13 +263,13 @@ tlv5637_ip : tlv5637
   -- Phase slave channel alias signals
   s_axis_phase_tdata_inc        <= s_axis_phase_tdata(31 downto 0);
   clk_en <= '1';
-
+  dac_sync <= sync;
   -- Data master channel alias signals: update these only when they are valid
   m_axis_data_tdata_cosine      <= m_axis_data_tdata(9 downto 0) when m_axis_data_tvalid = '1';
   m_axis_data_tdata_sine        <= m_axis_data_tdata(25 downto 16) when m_axis_data_tvalid = '1';
   
-  dac1A_data <= m_axis_data_tdata_cosine & "00";
-  dac1B_data <= m_axis_data_tdata_sine & "00";
+  dac1A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
+  dac1B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
     
   dac2A_data <= m_axis_data_tdata_cosine & "00";
   dac2B_data <= m_axis_data_tdata_sine & "00";
@@ -275,10 +294,13 @@ tlv5637_ip : tlv5637
 
   channel_status <= channel_en;
 
+
+
 --    For easy debugging
 --    dac1A_data <= "00" & m_axis_data_tdata_cosine;
 --    dac1B_data <= "00" & m_axis_data_tdata_sine;
-    
+--    dac1A_data <=  x"B55";
+--    dac1B_data <=  x"A13"; 
 --    dac2A_data <= "00" & m_axis_data_tdata_cosine;
 --    dac2B_data <= "00" & m_axis_data_tdata_sine;
 

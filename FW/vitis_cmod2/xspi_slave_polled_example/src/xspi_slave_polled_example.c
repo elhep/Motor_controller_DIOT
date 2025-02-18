@@ -198,7 +198,8 @@ int main(void)
             {
                 int channel = ReadBuffer[1]; //0-7
                 int reg = ReadBuffer[2]; // 0 - threshold, 1 - phase inc delta, 2- reset, 
-                int val = ReadBuffer[3];
+                //int val = ReadBuffer[3];
+                int val = 0xFFF00000;
                 xil_printf("\r\nCMD:0x%x CH:0x%x R:0x%x Val:0x%x\r\n", cmd, channel, reg, val);
                 //MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg]+(channel-1)*4,val);
                 MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg],val);
