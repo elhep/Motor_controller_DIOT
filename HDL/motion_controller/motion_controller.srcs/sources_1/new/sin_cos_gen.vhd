@@ -271,26 +271,26 @@ tlv5637_ip : tlv5637
   dac1A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
   dac1B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
     
-  dac2A_data <= m_axis_data_tdata_cosine & "00";
-  dac2B_data <= m_axis_data_tdata_sine & "00";
+  dac2A_data <= x"800";
+  dac2B_data <= x"800";
   
-  dac3A_data <= m_axis_data_tdata_cosine & "00";
-  dac3B_data <= m_axis_data_tdata_sine & "00";
+  dac3A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
+  dac3B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
   
-  dac4A_data <= m_axis_data_tdata_cosine & "00";
-  dac4B_data <= m_axis_data_tdata_sine & "00";
+  dac4A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
+  dac4B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
   
-  dac5A_data <= m_axis_data_tdata_cosine & "00";
-  dac5B_data <= m_axis_data_tdata_sine & "00";
+  dac5A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
+  dac5B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
   
-  dac6A_data <= m_axis_data_tdata_cosine & "00";
-  dac6B_data <= m_axis_data_tdata_sine & "00";
+  dac6A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
+  dac6B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
   
-  dac7A_data <= m_axis_data_tdata_cosine & "00";
-  dac7B_data <= m_axis_data_tdata_sine & "00";
+  dac7A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
+  dac7B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
   
-  dac8A_data <= m_axis_data_tdata_cosine & "00";
-  dac8B_data <= m_axis_data_tdata_sine & "00";
+  dac8A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
+  dac8B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
 
   channel_status <= channel_en;
 

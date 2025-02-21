@@ -112,7 +112,8 @@ ARCHITECTURE a OF tlv5637 IS
 			data_3_temp, data_4_temp, data_5_temp, data_6_temp,
 			data_7_temp, data_8_temp, stop_shift, en_conv : STD_LOGIC;
 			
-	constant DAC_CONFIG : std_logic_vector (11 downto 0) := "000000000010" ;			
+	--constant DAC_CONFIG : std_logic_vector (11 downto 0) := "000000000010" ;			
+	constant DAC_CONFIG : std_logic_vector (11 downto 0) := "000000000001" ;	
 BEGIN
  
 
@@ -201,9 +202,17 @@ WITH Mstate  SELECT
 				
 						
 WITH Mstate SELECT
-    dac1_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+--    dac1_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+--                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+--                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+--                 "0101" & dac1A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
+--                 "0101" & dac1A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
+--                 "1100" & dac1B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
+--                 "1100" & dac1B_data WHEN Mwait_DAC_B_repeat,       -- Write data to DAC A and update DAC B with BUFFER content
+--                 "1100" & dac1B_data WHEN Mready;
+    dac1_data <= "1001" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
                  "0101" & dac1A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
                  "0101" & dac1A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
                  "1100" & dac1B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
