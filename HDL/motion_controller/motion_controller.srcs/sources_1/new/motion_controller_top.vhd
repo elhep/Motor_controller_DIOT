@@ -65,9 +65,9 @@ entity motion_controller_top is
         dac_dataH : out std_logic;
         dac_sck : out std_logic;
         dac_sync : out std_logic;
-        quadA : in STD_LOGIC;
-        quadB : in STD_LOGIC;
-        index : in STD_LOGIC;
+        enc_a1 : in STD_LOGIC;
+        enc_b1 : in STD_LOGIC;
+        enc_r1 : in STD_LOGIC;
         led1 : out STD_LOGIC
    );
 end motion_controller_top;
@@ -86,7 +86,7 @@ architecture Behavioral of motion_controller_top is
     qspi_flash_io2_io : inout STD_LOGIC;
     qspi_flash_io3_io : inout STD_LOGIC;
     qspi_flash_ss_io : inout STD_LOGIC;
-    quad_count : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    quad_count : in STD_LOGIC_VECTOR ( 31 downto 0 );
     quad_index : out STD_LOGIC;
     reset : in STD_LOGIC;
     sin_cos_ch0_phase_inc_delta     : out STD_LOGIC_VECTOR ( 31 downto 0 );    
@@ -142,7 +142,7 @@ end component sin_cos_gen;
            quadA : in STD_LOGIC;
            quadB : in STD_LOGIC;
            index : in STD_LOGIC; -- New reset input
-           count : out STD_LOGIC_VECTOR(7 downto 0));
+           count : out STD_LOGIC_VECTOR(31 downto 0));
     end component quad;
 
    type array_type is array (natural range <>) of std_logic_vector(31 downto 0);
@@ -151,7 +151,7 @@ end component sin_cos_gen;
    signal channel_start : std_logic := '0';
    signal clk_1mhz : STD_LOGIC;
    signal gpio_mc : STD_LOGIC;
-   signal quad_count : STD_LOGIC_VECTOR ( 7 downto 0 );
+   signal quad_count : STD_LOGIC_VECTOR (31 downto 0 );
    signal quad_index : STD_LOGIC;
    signal sin_cos_ch0_phase_inc_delta : STD_LOGIC_VECTOR ( 31 downto 0 );
    signal sin_cos_ch0_phase_inc_threshold : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -213,6 +213,13 @@ end component sin_cos_gen;
    signal phase_inc_threshold : array_type(0 to MAX_CHANNELS - 1);
 
    
+attribute MARK_DEBUG : string;
+attribute MARK_DEBUG of enc_a1: signal is "TRUE";  
+attribute MARK_DEBUG of enc_b1: signal is "TRUE";  
+attribute MARK_DEBUG of enc_r1: signal is "TRUE";  
+attribute MARK_DEBUG of quad_count: signal is "TRUE";  
+attribute MARK_DEBUG of clk_100kHz: signal is "TRUE";  
+
 begin
    
    mc_wrapper_i: component mc_design_wrapper
@@ -309,15 +316,16 @@ sin_cos_inst : sin_cos_gen
            
    -- end generate GEN_INSTANCES;
            
-      
-    quad_inst : quad
-    port map (
-      clk             => clk_100kHz, 
-      quadA           => quadA,
-      quadB           => quadB,
-      index           => index,
-      count           => quad_count
-      );
+--GEN_INSTANCES:
+--   for I in 0 to MAX_CHANNELS - 1 generate
+   quad_inst : quad
+   port map (
+     clk             => clk_100kHz, 
+     quadA           => enc_a1,
+     quadB           => enc_b1,
+     index           => enc_r1,
+     count           => quad_count
+  );
       
    -- blinky
    process (clk_12MHz)

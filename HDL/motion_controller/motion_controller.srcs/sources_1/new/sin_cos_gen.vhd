@@ -210,7 +210,7 @@ tlv5637_ip : tlv5637
             phase_inc_cnt <= (others => '0');
         else
             channel_en <= '1';
-            phase_inc_cnt <= std_logic_vector(unsigned(phase_inc_cnt) - 1);
+            phase_inc_cnt <= std_logic_vector(unsigned(phase_inc_cnt)-1);
         end if;  
     end if;
   end process phase_inc_cnt_proc;
@@ -265,32 +265,32 @@ tlv5637_ip : tlv5637
   clk_en <= '1';
   dac_sync <= sync;
   -- Data master channel alias signals: update these only when they are valid
-  m_axis_data_tdata_cosine      <= m_axis_data_tdata(9 downto 0) when m_axis_data_tvalid = '1';
-  m_axis_data_tdata_sine        <= m_axis_data_tdata(25 downto 16) when m_axis_data_tvalid = '1';
+  m_axis_data_tdata_sine      <= m_axis_data_tdata(9 downto 0) when m_axis_data_tvalid = '1';
+  m_axis_data_tdata_cosine        <= m_axis_data_tdata(25 downto 16) when m_axis_data_tvalid = '1';
   
-  dac1A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
-  dac1B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac1A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac1B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
     
   dac2A_data <= x"800";
   dac2B_data <= x"800";
   
-  dac3A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
-  dac3B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac3A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac3B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
   
-  dac4A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
-  dac4B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac4A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac4B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
   
-  dac5A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
-  dac5B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac5A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac5B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
   
-  dac6A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
-  dac6B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac6A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac6B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
   
-  dac7A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
-  dac7B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac7A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac7B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
   
-  dac8A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
-  dac8B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac8A_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_sine)+2**9) & "00";
+  dac8B_data <= std_logic_vector(UNSIGNED(m_axis_data_tdata_cosine)+2**9) & "00";
 
   channel_status <= channel_en;
 

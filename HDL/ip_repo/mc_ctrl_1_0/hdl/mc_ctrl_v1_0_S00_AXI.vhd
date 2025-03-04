@@ -37,7 +37,7 @@ entity mc_ctrl_v1_0_S00_AXI is
         sin_cos_ch7_phase_inc_delta : out std_logic_vector(31 downto 0);
         sin_cos_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
         
-        quad_count : in std_logic_vector(7 downto 0);
+        quad_count : in std_logic_vector(31 downto 0);
         quad_index : out std_logic;
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -791,7 +791,7 @@ begin
     sin_cos_ch7_phase_inc_delta <= slv_reg16;
     sin_cos_reset <= slv_reg0(7 downto 0);
         
-    slv_reg17(7 downto 0) <= quad_count;
+    slv_reg17(31 downto 0) <= quad_count;
     quad_index <= slv_reg0(8);
 	-- User logic ends
 

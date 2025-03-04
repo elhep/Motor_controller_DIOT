@@ -7,13 +7,13 @@ entity quad is
            quadA : in STD_LOGIC;
            quadB : in STD_LOGIC;
            index : in STD_LOGIC; -- New reset input
-           count : out STD_LOGIC_VECTOR(7 downto 0));
+           count : out STD_LOGIC_VECTOR(31 downto 0));
 end quad;
 
     architecture Behavioral of quad is
     signal quadA_delayed, quadB_delayed : STD_LOGIC_VECTOR(2 downto 0);
     signal count_enable, count_direction : STD_LOGIC;
-    signal count_internal : UNSIGNED(7 downto 0);
+    signal count_internal : UNSIGNED(31 downto 0);
 begin
 
     process(clk)

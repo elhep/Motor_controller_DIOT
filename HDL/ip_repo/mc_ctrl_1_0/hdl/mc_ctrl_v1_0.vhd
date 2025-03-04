@@ -36,7 +36,7 @@ entity mc_ctrl_v1_0 is
         sin_cos_ch7_phase_inc_delta : out std_logic_vector(31 downto 0);
         sin_cos_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
         
-        quad_count : in std_logic_vector(7 downto 0);
+        quad_count : in std_logic_vector(31 downto 0);
         quad_index : out std_logic;
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -94,7 +94,7 @@ architecture arch_imp of mc_ctrl_v1_0 is
         sin_cos_ch7_phase_inc_threshold : out std_logic_vector(31 downto 0);
         sin_cos_ch7_phase_inc_delta : out std_logic_vector(31 downto 0);
         sin_cos_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
-        quad_count : in std_logic_vector(7 downto 0);
+        quad_count : in std_logic_vector(31 downto 0);
         quad_index : out std_logic;
 		S_AXI_ACLK	: in std_logic;
 		S_AXI_ARESETN	: in std_logic;

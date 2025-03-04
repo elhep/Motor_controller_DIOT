@@ -8,6 +8,14 @@ const int SCK_PIN = 13;
 const int MUX_OE_PIN = 3;
 const int MUX_PIN = 4;
 
+enum {
+  CONFIG,
+  READ,
+  WRITE,
+  RESET,
+  TEST
+} commands_t;
+
 void setup() {
   Serial.begin(9600);
   SPI.begin();
@@ -27,6 +35,8 @@ void loop() {
   }
 }
 
+void readVoltages();
+
 void processCommand(String command) {
   if (command.startsWith("SPI")) {
     processSPICommand(command);
@@ -34,6 +44,15 @@ void processCommand(String command) {
     readVoltages();
   } else if (command.startsWith("MUX")) {
     controlMUX(command.substring(4).toInt());
+  }
+}
+
+void sendSPIdata(byte *resp, byte *data, byte len){
+    // Send SPI data and receive response
+  for (int i = 0; i < len; i++) {
+    Serial.print("Sending: 0x");
+    Serial.println(data[i], HEX);
+    resp[i] = SPI.transfer(data[i]);
   }
 }
 
@@ -45,24 +64,77 @@ void processSPICommand(String command) {
   command.remove(0, 4);  // Remove "SPI " from the start
   command.trim();
   
-  byte temp[16] = {0};
+  long data_uart[16] = {0};
+  byte data_spi[16] = {0};
   byte resp[16] = {0};
   int len = 0;
 
   char *token = strtok((char *)command.c_str(), " ");
   while (token != NULL && len < 16) {
-    temp[len] = (byte)atoi(token);
+    //data_uart[len] = (uint32_t)atoi(token);
+    data_uart[len] = strtoul(token, NULL, 16);
+    Serial.print("data_uart: 0x");
+    Serial.println(data_uart[len], HEX);
     len++;
     token = strtok(NULL, " ");
   }
+  byte cmd = (byte)data_uart[0];
+  //Analysing the commands
+  switch(cmd){
+      case CONFIG: 
+      {
+        data_spi[0] = cmd;
+        data_spi[1] = (data_uart[1] >> 24) & 0xFF;
+        data_spi[2] = (data_uart[1] >> 16) & 0xFF;
+        data_spi[3] = (data_uart[1] >> 8) & 0xFF;
+        data_spi[4] = data_uart[1] & 0xFF;
+        sendSPIdata(resp,data_spi,5);
+        break;
+      }
+      case READ:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+      {
+        data_spi[0] = cmd;
+        data_spi[1] = (byte)data_uart[1]; //channel
+        data_spi[2] = (byte)data_uart[2]; //register
+        data_spi[3] = 0;
+        data_spi[4] = 0;
+        data_spi[5] = 0;
+        data_spi[6] = 0;
+        sendSPIdata(resp,data_spi,7);
+        //Serial.print("Read reg: 0x", resp);
+        break;
+      }
+      case WRITE:
+      {
+        data_spi[0] = cmd;
+        data_spi[1] = (byte)data_uart[1]; //channel
+        data_spi[2] = (byte)data_uart[2]; //register
+        Serial.print("Write: 0x");
+        Serial.println(data_uart[3], HEX);
+        data_spi[3] = (data_uart[3] >> 24) & 0xFF;
+        data_spi[4] = (data_uart[3] >> 16) & 0xFF;
+        data_spi[5] = (data_uart[3] >> 8) & 0xFF;
+        data_spi[6] = data_uart[3] & 0xFF;
+        sendSPIdata(resp,data_spi,7);
+        break;
+      }
+      case RESET:
+      {
+        data_spi[0] = cmd;
+        sendSPIdata(resp,data_spi,1);
+        break;
+      }
+      case TEST:
+      {
+        data_spi[0] = cmd;
+        sendSPIdata(resp,data_spi,1);
+        break;
+      }
+      default:
+        break;
+    }
 
-  // Send SPI data and receive response
-  for (int i = 0; i < len; i++) {
-    Serial.print("Sending: 0x");
-    Serial.println(temp[i], HEX);
-    resp[i] = SPI.transfer(temp[i]);
-  }
-
+  
   SPI.endTransaction();
   digitalWrite(CS_PIN, HIGH);
 

@@ -138,8 +138,10 @@ typedef enum {
 } cmd_t;
 
 int mc_ctrl_reg_offset [] = {
+    //MC_CTRL_S00_AXI_SLV_REG0_OFFSET,
     MC_CTRL_S00_AXI_SLV_REG1_OFFSET,
-    MC_CTRL_S00_AXI_SLV_REG2_OFFSET
+    MC_CTRL_S00_AXI_SLV_REG2_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG3_OFFSET
 };
 
 
@@ -171,18 +173,21 @@ int main(void)
 
     int res = XST_SUCCESS; 
     while(res == XST_SUCCESS){
-        res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, SPI_MAX_BYTES_TRANSFERED);
-        xil_printf("\r\nReceived data is:\r\n");
-	    for(int Count = 0; Count < BUFFER_SIZE; Count++) {
-		    xil_printf("0x%x \r\n", ReadBuffer[Count]);
-	    }
+        res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 1);
+        // xil_printf("\r\nReceived data is:\r\n");
+        // xil_printf("0x%x \r\n", ReadBuffer[Count]);
+	    // for(int Count = 0; Count < BUFFER_SIZE; Count++) {
+		//     xil_printf("0x%x \r\n", ReadBuffer[Count]);
+	    // }
         int cmd = ReadBuffer[0];
-        xil_printf("SPI: %d\r\n", cmd);
+        xil_printf("CMD: %d\r\n", cmd);
         switch(cmd){
             case CONFIG: 
             {
-                xil_printf("\r\nCMD:0x%x\r\n", cmd);
-                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,ReadBuffer[1] << 16 | ReadBuffer[2] << 8 | ReadBuffer[3]);
+                res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 4);
+                xil_printf("\r\nReceived data is: 0x%x \r\n",ReadBuffer[0] << 24 | ReadBuffer[1] << 16 | ReadBuffer[2] << 8 | ReadBuffer[3] & 0xFF);
+                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,ReadBuffer[0] << 24 | ReadBuffer[1] << 16 | ReadBuffer[2] << 8 | ReadBuffer[3] & 0xFF);
+
                 //Set LED
                 //Self test
                 //Config clock
@@ -190,35 +195,49 @@ int main(void)
             }
             case READ: 
             {
-                xil_printf("\r\nCMD:0x%x\r\n", cmd);
+                // //xil_printf("\r\nCMD:0x%x\r\n", cmd);
+                // res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 1);
+                // int reg = ReadBuffer[0];
+                // //int reg = ReadBuffer[1];                
+                
+                // uint32_t val = MC_CTRL_mReadReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg]);
+                // xil_printf("\r\nReading reg[0x%x] : 0x%x \r\n",reg, val);
+                // WriteBuffer[0] = reg & 0xFF;
+                // WriteBuffer[1] = (reg >> 8) & 0xFF;
+                // WriteBuffer[2] = (reg >> 16) & 0xFF;
+                // WriteBuffer[3] = (reg >> 24) & 0xFF;
+                // res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 4);
                 break;
 
             }
             case WRITE:
             {
-                int channel = ReadBuffer[1]; //0-7
-                int reg = ReadBuffer[2]; // 0 - threshold, 1 - phase inc delta, 2- reset, 
-                //int val = ReadBuffer[3];
-                int val = 0xFFF00000;
-                xil_printf("\r\nCMD:0x%x CH:0x%x R:0x%x Val:0x%x\r\n", cmd, channel, reg, val);
+                res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 6);
+                int channel = ReadBuffer[0]; //0-7
+                int reg = ReadBuffer[1]; // 0 - threshold, 1 - phase inc delta, 2- reset, 
+                int val = ReadBuffer[2] << 24 | ReadBuffer[3] << 16 | ReadBuffer[4] << 8 | (ReadBuffer[5] & 0xFF);
+                
+                xil_printf("\r\nWRITE:0x%x CH:0x%x R:0x%x Val:0x%x\r\n", cmd, channel, reg, val);
                 //MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg]+(channel-1)*4,val);
-                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg],val);
+                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg],val); 
                 break;
             }
             case RESET: 
             {
-                xil_printf("\r\nCMD:0x%x\r\n", cmd);
+                //xil_printf("\r\n CMD:0x%x\r\n", cmd);
                 MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,0xFF);
                 MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,0);
+                //MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,0xFF);
                 break;
             }
             case TEST:
             {
-                xil_printf("\r\n will blink led\r\n");
+                //xil_printf("\r\n will blink led\r\n");
                 for(int i = 0; i < 10; i++){
                     MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,1 << 9);
-                    sleep(2);
+                    sleep(1);
                     MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,0);
+                    sleep(1);
                 }
                 break;
             }

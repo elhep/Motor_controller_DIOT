@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x9FEF943E3ACC717C",
+      "boundary_crc": "0xDB5EE5BBEBB526AE",
       "device": "xc7a35tcpg236-1",
       "gen_directory": "../../../../motion_controller.gen/sources_1/bd/mc_design",
       "name": "mc_design",
@@ -253,7 +253,7 @@
       },
       "quad_count": {
         "direction": "I",
-        "left": "7",
+        "left": "31",
         "right": "0"
       },
       "clk_1MHz": {
@@ -1753,7 +1753,7 @@
       },
       "mc_ctrl_0": {
         "vlnv": "xilinx.com:user:mc_ctrl:1.0",
-        "ip_revision": "10",
+        "ip_revision": "11",
         "xci_name": "mc_design_mc_ctrl_0_1",
         "xci_path": "ip\\mc_design_mc_ctrl_0_1\\mc_design_mc_ctrl_0_1.xci",
         "inst_hier_path": "mc_ctrl_0"
@@ -2045,8 +2045,8 @@
           "rst_clk_wiz_100M/slowest_sync_clk",
           "microblaze_0_axi_periph/M04_ACLK",
           "microblaze_0_axi_periph/M05_ACLK",
-          "mc_ctrl_0/s00_axi_aclk",
-          "axi_quad_spi_1/s_axi_aclk"
+          "axi_quad_spi_1/s_axi_aclk",
+          "mc_ctrl_0/s00_axi_aclk"
         ]
       },
       "microblaze_0_intr": {
@@ -2096,8 +2096,8 @@
           "microblaze_0_axi_periph/M03_ARESETN",
           "microblaze_0_axi_periph/M04_ARESETN",
           "microblaze_0_axi_periph/M05_ARESETN",
-          "mc_ctrl_0/s00_axi_aresetn",
-          "axi_quad_spi_1/s_axi_aresetn"
+          "axi_quad_spi_1/s_axi_aresetn",
+          "mc_ctrl_0/s00_axi_aresetn"
         ]
       }
     },
@@ -2165,7 +2165,7 @@
       "file": {
         "name": "..\\..\\..\\..\\..\\..\\FW\\vitis_cmod2\\xspi_slave_polled_example\\build\\xspi_slave_polled_example.elf",
         "type": "ELF",
-        "checksum": "1126220220",
+        "checksum": "3921590955",
         "IsVisible": "1",
         "ScopedToRef": "mc_design",
         "ScopedToCell": [
