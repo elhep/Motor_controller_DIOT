@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xDB5EE5BBEBB526AE",
+      "boundary_crc": "0xA77B6CA4D210D58F",
       "device": "xc7a35tcpg236-1",
       "gen_directory": "../../../../motion_controller.gen/sources_1/bd/mc_design",
       "name": "mc_design",
@@ -368,11 +368,25 @@
         "left": "31",
         "right": "0"
       },
-      "sin_cos_reset": {
+      "sin_cos_channel_reset": {
         "type": "rst",
         "direction": "O",
         "left": "7",
         "right": "0",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "sin_cos_reset": {
+        "type": "rst",
+        "direction": "O",
         "parameters": {
           "INSERT_VIP": {
             "value": "0",
@@ -1753,7 +1767,7 @@
       },
       "mc_ctrl_0": {
         "vlnv": "xilinx.com:user:mc_ctrl:1.0",
-        "ip_revision": "11",
+        "ip_revision": "12",
         "xci_name": "mc_design_mc_ctrl_0_1",
         "xci_path": "ip\\mc_design_mc_ctrl_0_1\\mc_design_mc_ctrl_0_1.xci",
         "inst_hier_path": "mc_ctrl_0"
@@ -2009,6 +2023,12 @@
         "ports": [
           "mc_ctrl_0/sin_cos_ch7_phase_inc_threshold",
           "sin_cos_ch7_phase_inc_threshold"
+        ]
+      },
+      "mc_ctrl_0_sin_cos_channel_reset": {
+        "ports": [
+          "mc_ctrl_0/sin_cos_channel_reset",
+          "sin_cos_channel_reset"
         ]
       },
       "mc_ctrl_0_sin_cos_reset": {

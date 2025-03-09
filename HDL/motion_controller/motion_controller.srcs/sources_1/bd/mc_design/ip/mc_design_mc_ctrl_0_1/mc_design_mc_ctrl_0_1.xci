@@ -4,7 +4,7 @@
     "xci_name": "mc_design_mc_ctrl_0_1",
     "cell_name": "mc_ctrl_0",
     "component_reference": "xilinx.com:user:mc_ctrl:1.0",
-    "ip_revision": "11",
+    "ip_revision": "12",
     "gen_directory": "../../../../../../motion_controller.gen/sources_1/bd/mc_design/ip/mc_design_mc_ctrl_0_1",
     "parameters": {
       "component_parameters": {
@@ -35,7 +35,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "11" } ],
+        "IPREVISION": [ { "value": "12" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../motion_controller.gen/sources_1/bd/mc_design/ip/mc_design_mc_ctrl_0_1" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
@@ -63,7 +63,8 @@
         "sin_cos_ch6_phase_inc_delta": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
         "sin_cos_ch7_phase_inc_threshold": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
         "sin_cos_ch7_phase_inc_delta": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
-        "sin_cos_reset": [ { "direction": "out", "size_left": "7", "size_right": "0" } ],
+        "sin_cos_channel_reset": [ { "direction": "out", "size_left": "7", "size_right": "0" } ],
+        "sin_cos_reset": [ { "direction": "out" } ],
         "quad_count": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
         "quad_index": [ { "direction": "out" } ],
         "s00_axi_aclk": [ { "direction": "in" } ],
@@ -179,6 +180,18 @@
           },
           "port_maps": {
             "CLK": [ { "physical_name": "s00_axi_aclk" } ]
+          }
+        },
+        "sin_cos_channel_reset": {
+          "vlnv": "xilinx.com:signal:reset:1.0",
+          "abstraction_type": "xilinx.com:signal:reset_rtl:1.0",
+          "mode": "master",
+          "parameters": {
+            "POLARITY": [ { "value": "ACTIVE_LOW", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "RST": [ { "physical_name": "sin_cos_channel_reset" } ]
           }
         },
         "sin_cos_reset": {

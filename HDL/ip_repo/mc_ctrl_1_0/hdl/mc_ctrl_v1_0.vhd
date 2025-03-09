@@ -34,8 +34,8 @@ entity mc_ctrl_v1_0 is
         sin_cos_ch6_phase_inc_delta : out std_logic_vector(31 downto 0);
         sin_cos_ch7_phase_inc_threshold : out std_logic_vector(31 downto 0);
         sin_cos_ch7_phase_inc_delta : out std_logic_vector(31 downto 0);
-        sin_cos_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
-        
+        sin_cos_channel_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
+        sin_cos_reset : out std_logic;        
         quad_count : in std_logic_vector(31 downto 0);
         quad_index : out std_logic;
 		-- User ports ends
@@ -63,6 +63,7 @@ entity mc_ctrl_v1_0 is
 		s00_axi_rdata	: out std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0);
 		s00_axi_rresp	: out std_logic_vector(1 downto 0);
 		s00_axi_rvalid	: out std_logic;
+		
 		s00_axi_rready	: in std_logic
 	);
 end mc_ctrl_v1_0;
@@ -93,7 +94,8 @@ architecture arch_imp of mc_ctrl_v1_0 is
         sin_cos_ch6_phase_inc_delta : out std_logic_vector(31 downto 0);
         sin_cos_ch7_phase_inc_threshold : out std_logic_vector(31 downto 0);
         sin_cos_ch7_phase_inc_delta : out std_logic_vector(31 downto 0);
-        sin_cos_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
+        sin_cos_channel_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
+        sin_cos_reset : out std_logic;
         quad_count : in std_logic_vector(31 downto 0);
         quad_index : out std_logic;
 		S_AXI_ACLK	: in std_logic;

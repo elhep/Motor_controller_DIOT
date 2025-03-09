@@ -22,6 +22,8 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+use work.slv_array_pkg.all;
+
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -105,7 +107,8 @@ architecture Behavioral of motion_controller_top is
     sin_cos_ch6_phase_inc_threshold : out STD_LOGIC_VECTOR ( 31 downto 0 );
     sin_cos_ch7_phase_inc_delta     : out STD_LOGIC_VECTOR ( 31 downto 0 );    
     sin_cos_ch7_phase_inc_threshold : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    sin_cos_reset : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    sin_cos_reset : out STD_LOGIC;
+    sin_cos_channel_reset : out STD_LOGIC_VECTOR ( 7 downto 0 );
     spi_rtl_io0_io : inout STD_LOGIC;
     spi_rtl_io1_io : inout STD_LOGIC;
     spi_rtl_sck_io : inout STD_LOGIC;
@@ -121,9 +124,10 @@ component sin_cos_gen is
          clk_dac : in std_logic;
          clk_dds : in std_logic;
          reset : in std_logic;
-         phase_inc_threshold : in std_logic_vector(31 downto 0);
-         phase_inc_delta : in std_logic_vector(31 downto 0);
-         channel_status : out std_logic; 
+         reset_channel : in std_logic_vector(MAX_CHANNELS-1 downto 0);
+         phase_inc_threshold : in slv_array(0 to MAX_CHANNELS-1);
+         phase_inc_delta : in slv_array(0 to MAX_CHANNELS-1);
+         channel_status : out std_logic_vector(MAX_CHANNELS-1 downto 0); 
          dac_dataA : out std_logic;
          dac_dataB : out std_logic;
          dac_dataC : out std_logic;
@@ -145,7 +149,7 @@ end component sin_cos_gen;
            count : out STD_LOGIC_VECTOR(31 downto 0));
     end component quad;
 
-   type array_type is array (natural range <>) of std_logic_vector(31 downto 0);
+   --type array_type is array (natural range <>) of std_logic_vector(31 downto 0);
    signal phase_in_cnt : std_logic_vector(31 downto 0) := (others => '1');
    signal channel_en : std_logic := '0'; 
    signal channel_start : std_logic := '0';
@@ -169,7 +173,8 @@ end component sin_cos_gen;
    signal sin_cos_ch6_phase_inc_threshold : STD_LOGIC_VECTOR ( 31 downto 0 );
    signal sin_cos_ch7_phase_inc_delta : STD_LOGIC_VECTOR ( 31 downto 0 );
    signal sin_cos_ch7_phase_inc_threshold : STD_LOGIC_VECTOR ( 31 downto 0 );
-   signal sin_cos_reset : STD_LOGIC_VECTOR ( 7 downto 0 );
+   signal sin_cos_channel_reset : STD_LOGIC_VECTOR ( 7 downto 0 );
+   signal sin_cos_reset : STD_LOGIC;
    signal spisel : std_logic_vector(0 downto 0) := "0";
    signal clk_dac : std_logic;
    signal clk_dds : std_logic;                      
@@ -208,9 +213,9 @@ end component sin_cos_gen;
    signal clk_out7 : std_logic;
    signal locked : std_logic;
  
-   signal phase_inc_delta : array_type(0 to MAX_CHANNELS - 1);
+   signal phase_inc_delta : slv_array(0 to MAX_CHANNELS - 1);
    --signal sin_cos_reset : STD_LOGIC_VECTOR(7 downto 0);
-   signal phase_inc_threshold : array_type(0 to MAX_CHANNELS - 1);
+   signal phase_inc_threshold : slv_array(0 to MAX_CHANNELS - 1);
 
    
 attribute MARK_DEBUG : string;
@@ -253,6 +258,7 @@ begin
         sin_cos_ch6_phase_inc_threshold => sin_cos_ch6_phase_inc_threshold,
         sin_cos_ch7_phase_inc_delta     => sin_cos_ch7_phase_inc_delta,
         sin_cos_ch7_phase_inc_threshold => sin_cos_ch7_phase_inc_threshold,     
+        sin_cos_channel_reset           => sin_cos_channel_reset,
         sin_cos_reset                   => sin_cos_reset,
         spi_rtl_io0_io                  => spi_mosi,
         spi_rtl_io1_io                  => spi_miso,
@@ -298,10 +304,11 @@ sin_cos_inst : sin_cos_gen
    port map (
         clk_dac             => clk_100kHz,
         clk_dds             => clk_1mhz,
-        reset               => sin_cos_reset(0),
-        phase_inc_threshold => phase_inc_threshold(0),
-        phase_inc_delta     => phase_inc_delta(0),
-        channel_status      => channel_status(0),
+        reset               => sin_cos_reset,
+        reset_channel       => sin_cos_channel_reset,
+        phase_inc_threshold => phase_inc_threshold,
+        phase_inc_delta     => phase_inc_delta,
+        channel_status      => channel_status,
         dac_dataA           => dac_dataA_tmp,
         dac_dataB           => dac_dataB_tmp,
         dac_dataC           => dac_dataC_tmp,
