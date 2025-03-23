@@ -221,9 +221,11 @@ int main(void)
                 WriteBuffer[2] = (val >> 8) & 0xFF;
                 WriteBuffer[1] = (val >> 16) & 0xFF;
                 WriteBuffer[0] = (val >> 24) & 0xFF;
-                res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 4);
                 
                 xil_printf("\r\n%x %x %x %x\r\n",WriteBuffer[0], WriteBuffer[1],WriteBuffer[2],WriteBuffer[3]);
+                // TODO: For some reason first byte is duplicated when sending, so need to send 5 bytes.
+                res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 5);
+                
                 break;
 
             }

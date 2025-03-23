@@ -122,6 +122,8 @@ void processSPICommand(String command) {
         sendSPIdata(resp,&data_spi[3],5);
         //sendSPIdata(resp,data_spi,7);
         //Serial.print("Read reg: 0x");
+        uint32_t reg = (uint32_t)resp[1] << 24 | (uint32_t)resp[2] << 16 | (uint32_t)resp[3] << 8 | (uint32_t)resp[4];
+        Serial.println(reg, HEX);
         Serial.println(resp[0], HEX);
         Serial.println(resp[1], HEX);
         Serial.println(resp[2], HEX);
