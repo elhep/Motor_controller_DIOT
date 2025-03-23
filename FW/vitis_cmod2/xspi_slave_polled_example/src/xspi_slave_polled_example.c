@@ -141,14 +141,27 @@ int mc_ctrl_reg_offset [] = {
     //MC_CTRL_S00_AXI_SLV_REG0_OFFSET,
     MC_CTRL_S00_AXI_SLV_REG1_OFFSET,
     MC_CTRL_S00_AXI_SLV_REG2_OFFSET,
-    MC_CTRL_S00_AXI_SLV_REG3_OFFSET
+    MC_CTRL_S00_AXI_SLV_REG3_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG4_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG5_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG6_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG7_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG8_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG9_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG10_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG11_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG12_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG13_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG14_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG15_OFFSET,
+    MC_CTRL_S00_AXI_SLV_REG16_OFFSET
 };
 
 
 
 int main(void)
 {
-    xil_printf("Motion controller FW VER %d.%d\r\n", FW_VER_MAJOR, FW_VER_MINOR);
+    //xil_printf("MC FW VER %d.%d\r\n", FW_VER_MAJOR, FW_VER_MINOR);
 
 	int Status;
 
@@ -173,40 +186,44 @@ int main(void)
 
     int res = XST_SUCCESS; 
     while(res == XST_SUCCESS){
+        for(int i = 0; i < BUFFER_SIZE; i++){
+            WriteBuffer[i] = 0;
+            ReadBuffer[i] = 0;
+        }
         res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 1);
         // xil_printf("\r\nReceived data is:\r\n");
         // xil_printf("0x%x \r\n", ReadBuffer[Count]);
 	    // for(int Count = 0; Count < BUFFER_SIZE; Count++) {
 		//     xil_printf("0x%x \r\n", ReadBuffer[Count]);
 	    // }
+
         int cmd = ReadBuffer[0];
-        xil_printf("CMD: %d\r\n", cmd);
+        //xil_printf("CMD: %d\r\n", cmd);
         switch(cmd){
             case CONFIG: 
             {
-                res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 4);
-                xil_printf("\r\nReceived data is: 0x%x \r\n",ReadBuffer[0] << 24 | ReadBuffer[1] << 16 | ReadBuffer[2] << 8 | ReadBuffer[3] & 0xFF);
-                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,ReadBuffer[0] << 24 | ReadBuffer[1] << 16 | ReadBuffer[2] << 8 | ReadBuffer[3] & 0xFF);
+                // res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 4);
+                // //xil_printf("\r\nRX: 0x%x \r\n",ReadBuffer[0] << 24 | ReadBuffer[1] << 16 | ReadBuffer[2] << 8 | ReadBuffer[3] & 0xFF);
+                // MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,MC_CTRL_S00_AXI_SLV_REG0_OFFSET,ReadBuffer[0] << 24 | ReadBuffer[1] << 16 | ReadBuffer[2] << 8 | ReadBuffer[3] & 0xFF);
 
-                //Set LED
-                //Self test
-                //Config clock
                 break;
             }
             case READ: 
             {
-                // //xil_printf("\r\nCMD:0x%x\r\n", cmd);
-                // res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 1);
-                // int reg = ReadBuffer[0];
-                // //int reg = ReadBuffer[1];                
+                // xil_printf("\r\nCMD:0x%x\r\n", cmd);
+                res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 2);
+                int channel = ReadBuffer[0];
+                int reg = ReadBuffer[1];                
                 
-                // uint32_t val = MC_CTRL_mReadReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg]);
-                // xil_printf("\r\nReading reg[0x%x] : 0x%x \r\n",reg, val);
-                // WriteBuffer[0] = reg & 0xFF;
-                // WriteBuffer[1] = (reg >> 8) & 0xFF;
-                // WriteBuffer[2] = (reg >> 16) & 0xFF;
-                // WriteBuffer[3] = (reg >> 24) & 0xFF;
-                // res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 4);
+                uint32_t val = MC_CTRL_mReadReg(MC_CTRL_BaseAddress,(channel+1)*8 - 4 + reg*4);
+                xil_printf("\r\n%x %x \r\n",(channel+1)*8 - 4 + reg*4, val);
+                WriteBuffer[3] = val & 0xFF;
+                WriteBuffer[2] = (val >> 8) & 0xFF;
+                WriteBuffer[1] = (val >> 16) & 0xFF;
+                WriteBuffer[0] = (val >> 24) & 0xFF;
+                res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 4);
+                
+                xil_printf("\r\n%x %x %x %x\r\n",WriteBuffer[0], WriteBuffer[1],WriteBuffer[2],WriteBuffer[3]);
                 break;
 
             }
@@ -214,12 +231,14 @@ int main(void)
             {
                 res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 6);
                 int channel = ReadBuffer[0]; //0-7
-                int reg = ReadBuffer[1]; // 0 - threshold, 1 - phase inc delta, 2- reset, 
+                int reg = ReadBuffer[1]; // 0 - threshold, 1 - phase inc delta
                 int val = ReadBuffer[2] << 24 | ReadBuffer[3] << 16 | ReadBuffer[4] << 8 | (ReadBuffer[5] & 0xFF);
-                
-                xil_printf("\r\nWRITE:0x%x CH:0x%x R:0x%x Val:0x%x\r\n", cmd, channel, reg, val);
+                xil_printf("\r\n %x \r\n", val);
+                //xil_printf("\r\nWRITE:0x%x CH:0x%x R:0x%x Val:0x%x Tst:0x%d\r\n", cmd, channel, reg, val, (channel+1)*8 - 4 + reg*4);
                 //MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg]+(channel-1)*4,val);
-                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,mc_ctrl_reg_offset[reg],val); 
+                //MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,(channel+1)*4 + reg*4 mc_ctrl_reg_offset[reg],val);
+                
+                MC_CTRL_mWriteReg(MC_CTRL_BaseAddress,(channel+1)*8 - 4 + reg*4,val); 
                 break;
             }
             case RESET: 
@@ -274,8 +293,6 @@ static int SpiInit(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	int Status;
 	u32 Count;
 
-	xil_printf("\r\nInit SPI...\r\n");
-
 	/*
 	 * Initialize the SPI driver so that it's ready to use, specify the
 	 * device ID that is generated in xparameters.h.
@@ -288,7 +305,6 @@ static int SpiInit(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	Status = XSpi_CfgInitialize(SpiInstancePtr, ConfigPtr,
 				    ConfigPtr->BaseAddress);
 	if (Status != XST_SUCCESS) {
-        xil_printf("\r\nFAIL1\r\n");
 		return XST_FAILURE;
 	}
 
@@ -300,7 +316,6 @@ static int SpiInit(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	Status = XSpi_SetOptions(SpiInstancePtr, XSP_CLK_PHASE_1_OPTION |
 				 XSP_CLK_ACTIVE_LOW_OPTION);
 	if (Status != XST_SUCCESS) {
-        xil_printf("\r\nFAIL2\r\n");
 		return XST_FAILURE;
 	}
 
@@ -346,8 +361,8 @@ static int SpiSlavePolledExample(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	int Status;
 	u32 Count;
 
-	xil_printf("\r\nEntering the Spi Slave Polled Example.\r\n");
-	xil_printf("Waiting for data from SPI master\r\n");
+	//xil_printf("\r\nEntering the Spi Slave Polled Example.\r\n");
+	//xil_printf("Waiting for data from SPI master\r\n");
 
 	/*
 	 * Initialize the SPI driver so that it's ready to use, specify the
@@ -359,13 +374,11 @@ static int SpiSlavePolledExample(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	ConfigPtr = XSpi_LookupConfig(BaseAddress);
 #endif
 	if (ConfigPtr == NULL) {
-        xil_printf("\r\nFAIL3\r\n");
 		return XST_FAILURE;
 	}
 	Status = XSpi_CfgInitialize(SpiInstancePtr, ConfigPtr,
 				    ConfigPtr->BaseAddress);
 	if (Status != XST_SUCCESS) {
-        xil_printf("\r\nFAIL4 %d\r\n", Status);
 		return XST_FAILURE;
 	}
 
@@ -377,7 +390,6 @@ static int SpiSlavePolledExample(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	Status = XSpi_SetOptions(SpiInstancePtr, XSP_CLK_PHASE_1_OPTION |
 				 XSP_CLK_ACTIVE_LOW_OPTION);
 	if (Status != XST_SUCCESS) {
-        xil_printf("\r\nFAIL5\r\n");
 		return XST_FAILURE;
 	}
 
@@ -411,12 +423,12 @@ static int SpiSlavePolledExample(XSpi *SpiInstancePtr, UINTPTR BaseAddress)
 	 * Print all the data received from the master so that it can be
 	 * compared with the data sent by the master.
 	 */
-	xil_printf("\r\nReceived data is:\r\n");
-	for (Count = 0; Count < BUFFER_SIZE; Count++) {
-		xil_printf("0x%x \r\n", ReadBuffer[Count]);
-	}
+	//xil_printf("\r\nReceived data is:\r\n");
+	//for (Count = 0; Count < BUFFER_SIZE; Count++) {
+	//	xil_printf("0x%x \r\n", ReadBuffer[Count]);
+	//}
 
-	xil_printf("\r\nExiting the Spi Slave Polled Example.\r\n");
+	//xil_printf("\r\nExiting the Spi Slave Polled Example.\r\n");
 
 	return XST_SUCCESS;
 }

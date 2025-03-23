@@ -37,7 +37,14 @@ entity mc_ctrl_v1_0_S00_AXI is
         sin_cos_ch7_phase_inc_delta : out std_logic_vector(31 downto 0);
         sin_cos_channel_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
         sin_cos_reset : out std_logic;        
-        quad_count : in std_logic_vector(31 downto 0);
+        quad_count0 : in std_logic_vector(31 downto 0);
+        quad_count1 : in std_logic_vector(31 downto 0);
+        quad_count2 : in std_logic_vector(31 downto 0);
+        quad_count3 : in std_logic_vector(31 downto 0);
+        quad_count4 : in std_logic_vector(31 downto 0);
+        quad_count5 : in std_logic_vector(31 downto 0);
+        quad_count6 : in std_logic_vector(31 downto 0);   
+        quad_count7 : in std_logic_vector(31 downto 0);   
         quad_index : out std_logic;
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -449,7 +456,7 @@ begin
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 18
-	                slv_reg18(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                -- slv_reg18(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
 	            end loop;
 	          when b"10011" =>
@@ -457,7 +464,7 @@ begin
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 19
-	                slv_reg19(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                -- slv_reg19(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
 	            end loop;
 	          when b"10100" =>
@@ -465,7 +472,7 @@ begin
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 20
-	                slv_reg20(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                -- slv_reg20(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
 	            end loop;
 	          when b"10101" =>
@@ -473,7 +480,7 @@ begin
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 21
-	                slv_reg21(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                -- slv_reg21(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
 	            end loop;
 	          when b"10110" =>
@@ -481,7 +488,7 @@ begin
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 22
-	                slv_reg22(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                -- slv_reg22(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
 	            end loop;
 	          when b"10111" =>
@@ -489,7 +496,7 @@ begin
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 23
-	                slv_reg23(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                -- slv_reg23(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
 	            end loop;
 	          when b"11000" =>
@@ -497,7 +504,7 @@ begin
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 24
-	                slv_reg24(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                -- slv_reg24(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
 	            end loop;
 	          when b"11001" =>
@@ -792,7 +799,14 @@ begin
     sin_cos_ch7_phase_inc_delta <= slv_reg16;
     sin_cos_channel_reset <= slv_reg0(7 downto 0);
     sin_cos_reset <= slv_reg0(10);
-    slv_reg17(31 downto 0) <= quad_count;
+    slv_reg17(31 downto 0) <= quad_count0;
+    slv_reg18(31 downto 0) <= quad_count1;
+    slv_reg19(31 downto 0) <= quad_count2;
+    slv_reg20(31 downto 0) <= quad_count3;
+    slv_reg21(31 downto 0) <= quad_count4;
+    slv_reg22(31 downto 0) <= quad_count5;
+    slv_reg23(31 downto 0) <= quad_count6;
+    slv_reg24(31 downto 0) <= quad_count7;
     quad_index <= slv_reg0(8);
 	-- User logic ends
 

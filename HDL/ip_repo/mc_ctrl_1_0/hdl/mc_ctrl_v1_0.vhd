@@ -36,7 +36,14 @@ entity mc_ctrl_v1_0 is
         sin_cos_ch7_phase_inc_delta : out std_logic_vector(31 downto 0);
         sin_cos_channel_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
         sin_cos_reset : out std_logic;        
-        quad_count : in std_logic_vector(31 downto 0);
+        quad_count0 : in std_logic_vector(31 downto 0);
+        quad_count1 : in std_logic_vector(31 downto 0);
+        quad_count2 : in std_logic_vector(31 downto 0);
+        quad_count3 : in std_logic_vector(31 downto 0);
+        quad_count4 : in std_logic_vector(31 downto 0);
+        quad_count5 : in std_logic_vector(31 downto 0);
+        quad_count6 : in std_logic_vector(31 downto 0);
+        quad_count7 : in std_logic_vector(31 downto 0);
         quad_index : out std_logic;
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -96,7 +103,14 @@ architecture arch_imp of mc_ctrl_v1_0 is
         sin_cos_ch7_phase_inc_delta : out std_logic_vector(31 downto 0);
         sin_cos_channel_reset : out std_logic_vector(MAX_CHANNELS-1 downto 0);
         sin_cos_reset : out std_logic;
-        quad_count : in std_logic_vector(31 downto 0);
+        quad_count0 : in std_logic_vector(31 downto 0);
+        quad_count1 : in std_logic_vector(31 downto 0);
+        quad_count2 : in std_logic_vector(31 downto 0);
+        quad_count3 : in std_logic_vector(31 downto 0);
+        quad_count4 : in std_logic_vector(31 downto 0);
+        quad_count5 : in std_logic_vector(31 downto 0);
+        quad_count6 : in std_logic_vector(31 downto 0);
+        quad_count7 : in std_logic_vector(31 downto 0);
         quad_index : out std_logic;
 		S_AXI_ACLK	: in std_logic;
 		S_AXI_ARESETN	: in std_logic;
@@ -149,7 +163,14 @@ mc_ctrl_v1_0_S00_AXI_inst : mc_ctrl_v1_0_S00_AXI
         sin_cos_ch7_phase_inc_threshold => sin_cos_ch7_phase_inc_threshold,
         sin_cos_ch7_phase_inc_delta => sin_cos_ch7_phase_inc_delta,
         sin_cos_reset => sin_cos_reset,
-        quad_count => quad_count,
+        quad_count0 => quad_count0,
+        quad_count1 => quad_count1,
+        quad_count2 => quad_count2,
+        quad_count3 => quad_count3,
+        quad_count4 => quad_count4,
+        quad_count5 => quad_count5,
+        quad_count6 => quad_count6,
+        quad_count7 => quad_count7,
         quad_index => quad_index,
 		S_AXI_ACLK	=> s00_axi_aclk,
 		S_AXI_ARESETN	=> s00_axi_aresetn,

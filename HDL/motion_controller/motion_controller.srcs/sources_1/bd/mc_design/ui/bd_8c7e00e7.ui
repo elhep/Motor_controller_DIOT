@@ -1,103 +1,119 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.871595",
-   "Default View_TopLeft":"793,291",
+   "Default View_ScaleFactor":"0.239316",
+   "Default View_TopLeft":"-226,-71",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 threadsafe
 #  -string -flagsOSRD
-preplace port spi_rtl -pg 1 -lvl 8 -x 3450 -y 330 -defaultsOSRD
-preplace port uart -pg 1 -lvl 8 -x 3450 -y 1070 -defaultsOSRD
-preplace port push_buttons_1bit -pg 1 -lvl 8 -x 3450 -y 420 -defaultsOSRD
-preplace port led_2bits -pg 1 -lvl 8 -x 3450 -y 570 -defaultsOSRD
-preplace port qspi_flash -pg 1 -lvl 8 -x 3450 -y 720 -defaultsOSRD
-preplace port port-id_clk_12MHz -pg 1 -lvl 0 -x -40 -y 1200 -defaultsOSRD
-preplace port port-id_reset -pg 1 -lvl 0 -x -40 -y 640 -defaultsOSRD
-preplace port port-id_clk_1MHz -pg 1 -lvl 8 -x 3450 -y 1200 -defaultsOSRD
-preplace port port-id_gpio_mc -pg 1 -lvl 8 -x 3450 -y 1040 -defaultsOSRD
-preplace port port-id_quad_index -pg 1 -lvl 8 -x 3450 -y 1010 -defaultsOSRD
-preplace port port-id_sin_cos_reset -pg 1 -lvl 8 -x 3450 -y 930 -defaultsOSRD
-preplace portBus quad_count -pg 1 -lvl 0 -x -40 -y 610 -defaultsOSRD
-preplace portBus sin_cos_ch1_phase_inc_threshold -pg 1 -lvl 8 -x 3450 -y 480 -defaultsOSRD
-preplace portBus sin_cos_ch1_phase_inc_delta -pg 1 -lvl 8 -x 3450 -y 750 -defaultsOSRD
-preplace portBus sin_cos_ch0_phase_inc_threshold -pg 1 -lvl 8 -x 3450 -y 360 -defaultsOSRD
-preplace portBus sin_cos_ch0_phase_inc_delta -pg 1 -lvl 8 -x 3450 -y 390 -defaultsOSRD
-preplace portBus sin_cos_ch2_phase_inc_threshold -pg 1 -lvl 8 -x 3450 -y 450 -defaultsOSRD
-preplace portBus sin_cos_ch2_phase_inc_delta -pg 1 -lvl 8 -x 3450 -y 510 -defaultsOSRD
-preplace portBus sin_cos_ch3_phase_inc_threshold -pg 1 -lvl 8 -x 3450 -y 540 -defaultsOSRD
-preplace portBus sin_cos_ch3_phase_inc_delta -pg 1 -lvl 8 -x 3450 -y 630 -defaultsOSRD
-preplace portBus sin_cos_ch4_phase_inc_threshold -pg 1 -lvl 8 -x 3450 -y 600 -defaultsOSRD
-preplace portBus sin_cos_ch4_phase_inc_delta -pg 1 -lvl 8 -x 3450 -y 660 -defaultsOSRD
-preplace portBus sin_cos_ch5_phase_inc_threshold -pg 1 -lvl 8 -x 3450 -y 690 -defaultsOSRD
-preplace portBus sin_cos_ch5_phase_inc_delta -pg 1 -lvl 8 -x 3450 -y 870 -defaultsOSRD
-preplace portBus sin_cos_ch6_phase_inc_threshold -pg 1 -lvl 8 -x 3450 -y 780 -defaultsOSRD
-preplace portBus sin_cos_ch6_phase_inc_delta -pg 1 -lvl 8 -x 3450 -y 810 -defaultsOSRD
-preplace portBus sin_cos_ch7_phase_inc_threshold -pg 1 -lvl 8 -x 3450 -y 840 -defaultsOSRD
-preplace portBus sin_cos_ch7_phase_inc_delta -pg 1 -lvl 8 -x 3450 -y 970 -defaultsOSRD
-preplace portBus sin_cos_channel_reset -pg 1 -lvl 8 -x 3450 -y 900 -defaultsOSRD
-preplace inst axi_quad_spi_0 -pg 1 -lvl 4 -x 1780 -y 840 -defaultsOSRD
-preplace inst clk_wiz -pg 1 -lvl 4 -x 1780 -y 1190 -defaultsOSRD
-preplace inst rst_clk_wiz_100M -pg 1 -lvl 5 -x 2220 -y 860 -defaultsOSRD
-preplace inst microblaze_0 -pg 1 -lvl 3 -x 1210 -y 820 -defaultsOSRD
-preplace inst microblaze_0_local_memory -pg 1 -lvl 4 -x 1780 -y 1000 -defaultsOSRD
-preplace inst microblaze_0_axi_periph -pg 1 -lvl 6 -x 2750 -y 250 -defaultsOSRD
-preplace inst microblaze_0_axi_intc -pg 1 -lvl 7 -x 3230 -y 510 -defaultsOSRD
-preplace inst microblaze_0_xlconcat -pg 1 -lvl 6 -x 2750 -y 550 -defaultsOSRD
-preplace inst mdm_1 -pg 1 -lvl 3 -x 1210 -y 980 -defaultsOSRD
-preplace inst axi_gpio_0 -pg 1 -lvl 2 -x 750 -y 650 -defaultsOSRD
-preplace inst axi_uartlite_0 -pg 1 -lvl 2 -x 750 -y 850 -defaultsOSRD
+preplace port spi_rtl -pg 1 -lvl 8 -x 3810 -y 200 -defaultsOSRD
+preplace port uart -pg 1 -lvl 8 -x 3810 -y 1130 -defaultsOSRD
+preplace port push_buttons_1bit -pg 1 -lvl 8 -x 3810 -y 290 -defaultsOSRD
+preplace port led_2bits -pg 1 -lvl 8 -x 3810 -y 440 -defaultsOSRD
+preplace port qspi_flash -pg 1 -lvl 8 -x 3810 -y 590 -defaultsOSRD
+preplace port port-id_clk_12MHz -pg 1 -lvl 0 -x -60 -y 1200 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x -60 -y 600 -defaultsOSRD
+preplace port port-id_clk_1MHz -pg 1 -lvl 8 -x 3810 -y 1280 -defaultsOSRD
+preplace port port-id_gpio_mc -pg 1 -lvl 8 -x 3810 -y 1100 -defaultsOSRD
+preplace port port-id_sin_cos_reset -pg 1 -lvl 8 -x 3810 -y 770 -defaultsOSRD
+preplace port port-id_quad_index5 -pg 1 -lvl 8 -x 3810 -y 10 -defaultsOSRD
+preplace port port-id_quad_index -pg 1 -lvl 8 -x 3810 -y 890 -defaultsOSRD
+preplace portBus sin_cos_ch1_phase_inc_threshold -pg 1 -lvl 8 -x 3810 -y 350 -defaultsOSRD
+preplace portBus sin_cos_ch1_phase_inc_delta -pg 1 -lvl 8 -x 3810 -y 620 -defaultsOSRD
+preplace portBus sin_cos_ch0_phase_inc_threshold -pg 1 -lvl 8 -x 3810 -y 230 -defaultsOSRD
+preplace portBus sin_cos_ch0_phase_inc_delta -pg 1 -lvl 8 -x 3810 -y 260 -defaultsOSRD
+preplace portBus sin_cos_ch2_phase_inc_threshold -pg 1 -lvl 8 -x 3810 -y 320 -defaultsOSRD
+preplace portBus sin_cos_ch2_phase_inc_delta -pg 1 -lvl 8 -x 3810 -y 380 -defaultsOSRD
+preplace portBus sin_cos_ch3_phase_inc_threshold -pg 1 -lvl 8 -x 3810 -y 410 -defaultsOSRD
+preplace portBus sin_cos_ch3_phase_inc_delta -pg 1 -lvl 8 -x 3810 -y 500 -defaultsOSRD
+preplace portBus sin_cos_ch4_phase_inc_threshold -pg 1 -lvl 8 -x 3810 -y 470 -defaultsOSRD
+preplace portBus sin_cos_ch4_phase_inc_delta -pg 1 -lvl 8 -x 3810 -y 530 -defaultsOSRD
+preplace portBus sin_cos_ch5_phase_inc_threshold -pg 1 -lvl 8 -x 3810 -y 560 -defaultsOSRD
+preplace portBus sin_cos_ch5_phase_inc_delta -pg 1 -lvl 8 -x 3810 -y 740 -defaultsOSRD
+preplace portBus sin_cos_ch6_phase_inc_threshold -pg 1 -lvl 8 -x 3810 -y 650 -defaultsOSRD
+preplace portBus sin_cos_ch6_phase_inc_delta -pg 1 -lvl 8 -x 3810 -y 680 -defaultsOSRD
+preplace portBus sin_cos_ch7_phase_inc_threshold -pg 1 -lvl 8 -x 3810 -y 710 -defaultsOSRD
+preplace portBus sin_cos_ch7_phase_inc_delta -pg 1 -lvl 8 -x 3810 -y 1160 -defaultsOSRD
+preplace portBus sin_cos_channel_reset -pg 1 -lvl 8 -x 3810 -y 860 -defaultsOSRD
+preplace portBus quad_count4 -pg 1 -lvl 0 -x -60 -y 790 -defaultsOSRD
+preplace portBus quad_count3 -pg 1 -lvl 0 -x -60 -y 730 -defaultsOSRD
+preplace portBus quad_count6 -pg 1 -lvl 0 -x -60 -y 850 -defaultsOSRD
+preplace portBus quad_count5 -pg 1 -lvl 0 -x -60 -y 880 -defaultsOSRD
+preplace portBus quad_count2 -pg 1 -lvl 0 -x -60 -y 760 -defaultsOSRD
+preplace portBus quad_count0 -pg 1 -lvl 0 -x -60 -y 670 -defaultsOSRD
+preplace portBus quad_count1 -pg 1 -lvl 0 -x -60 -y 700 -defaultsOSRD
+preplace portBus quad_count7 -pg 1 -lvl 0 -x -60 -y 820 -defaultsOSRD
+preplace inst axi_quad_spi_0 -pg 1 -lvl 4 -x 1910 -y 840 -defaultsOSRD
+preplace inst clk_wiz -pg 1 -lvl 4 -x 1910 -y 1190 -defaultsOSRD
+preplace inst rst_clk_wiz_100M -pg 1 -lvl 5 -x 2400 -y 860 -defaultsOSRD
+preplace inst microblaze_0 -pg 1 -lvl 3 -x 1340 -y 820 -defaultsOSRD
+preplace inst microblaze_0_local_memory -pg 1 -lvl 4 -x 1910 -y 1000 -defaultsOSRD
+preplace inst microblaze_0_axi_periph -pg 1 -lvl 6 -x 3060 -y 250 -defaultsOSRD
+preplace inst microblaze_0_axi_intc -pg 1 -lvl 7 -x 3590 -y 510 -defaultsOSRD
+preplace inst microblaze_0_xlconcat -pg 1 -lvl 6 -x 3060 -y 550 -defaultsOSRD
+preplace inst mdm_1 -pg 1 -lvl 3 -x 1340 -y 980 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 2 -x 860 -y 650 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 2 -x 860 -y 850 -defaultsOSRD
 preplace inst mc_ctrl_0 -pg 1 -lvl 1 -x 240 -y 760 -defaultsOSRD
 preplace inst axi_quad_spi_1 -pg 1 -lvl 1 -x 240 -y 280 -defaultsOSRD
-preplace netloc axi_quad_spi_0_ip2intc_irpt 1 4 2 2010J 550 2530J
+preplace netloc axi_quad_spi_0_ip2intc_irpt 1 4 2 2080J 550 2830J
 preplace netloc clk_100MHz_1 1 0 4 NJ 1200 N 1200 N 1200 N
-preplace netloc clk_wiz_clk_out2 1 0 5 40 190 NJ 190 NJ 190 NJ 190 1890
-preplace netloc clk_wiz_clk_out5 1 4 4 NJ 1200 NJ 1200 NJ 1200 NJ
-preplace netloc clk_wiz_locked 1 4 1 2050 900n
-preplace netloc mc_ctrl_0_gpio1 1 1 7 440J 490 NJ 490 1560J 500 NJ 500 2500J 1040 NJ 1040 NJ
-preplace netloc mc_ctrl_0_quad_index 1 1 7 NJ 950 880J 660 NJ 660 NJ 660 2450J 860 NJ 860 3350J
-preplace netloc mc_ctrl_0_sin_cos_ch0_phase_inc_delta 1 1 7 530J 500 NJ 500 1550J 510 NJ 510 2540J 800 2980J 340 3430J
-preplace netloc mc_ctrl_0_sin_cos_ch0_phase_inc_threshold 1 1 7 550J 510 NJ 510 1540J 520 NJ 520 2580J 780 2990J 350 3420J
-preplace netloc mc_ctrl_0_sin_cos_ch1_phase_inc_delta 1 1 7 460J 520 NJ 520 1530J 530 NJ 530 2510J 870 NJ 870 3400J
-preplace netloc mc_ctrl_0_sin_cos_ch1_phase_inc_threshold 1 1 7 560J 570 NJ 570 1600J 580 NJ 580 2530J 690 2950J 370 3400J
-preplace netloc mc_ctrl_0_sin_cos_ch2_phase_inc_delta 1 1 7 580J 730 860J 690 NJ 690 1970J 670 2490J 820 3030J 390 3360J
-preplace netloc mc_ctrl_0_sin_cos_ch2_phase_inc_threshold 1 1 7 480J 1050 NJ 1050 1600J 700 1950J 730 NJ 730 2960J 360 3410J
-preplace netloc mc_ctrl_0_sin_cos_ch3_phase_inc_delta 1 1 7 460J 1090 NJ 1090 1630J 710 NJ 710 NJ 710 3040J 650 3430J
-preplace netloc mc_ctrl_0_sin_cos_ch3_phase_inc_threshold 1 1 7 550J 760 860J 1070 1650J 730 1930J 760 NJ 760 3050J 620 3360J
-preplace netloc mc_ctrl_0_sin_cos_ch4_phase_inc_delta 1 1 7 440J 1080 NJ 1080 1640J 720 NJ 720 2440J 830 3100J 660 NJ
-preplace netloc mc_ctrl_0_sin_cos_ch4_phase_inc_threshold 1 1 7 450J 430 NJ 430 NJ 430 NJ 430 2590J 770 3010J 380 3380J
-preplace netloc mc_ctrl_0_sin_cos_ch5_phase_inc_delta 1 1 7 610J 750 900J 710 1580J 650 1940J 970 2430J 960 NJ 960 3430J
-preplace netloc mc_ctrl_0_sin_cos_ch5_phase_inc_threshold 1 1 7 620J 770 890J 700 1570J 490 1980J 980 NJ 980 3110J 690 NJ
-preplace netloc mc_ctrl_0_sin_cos_ch6_phase_inc_delta 1 1 7 470J 440 NJ 440 NJ 440 NJ 440 2400J 810 NJ 810 NJ
-preplace netloc mc_ctrl_0_sin_cos_ch6_phase_inc_threshold 1 1 7 570J 530 NJ 530 1520J 540 NJ 540 2520J 790 NJ 790 3430J
-preplace netloc mc_ctrl_0_sin_cos_ch7_phase_inc_delta 1 1 7 590J 540 NJ 540 1510J 550 2000J 560 2480J 970 NJ 970 NJ
-preplace netloc mc_ctrl_0_sin_cos_ch7_phase_inc_threshold 1 1 7 600J 560 NJ 560 1490J 600 NJ 600 2470J 880 NJ 880 3420J
-preplace netloc mdm_1_debug_sys_rst 1 3 2 1450 640 1900J
-preplace netloc microblaze_0_Clk 1 0 7 30 500 520 960 950 1060 1590 630 1920 640 2560 840 3070
-preplace netloc microblaze_0_intr 1 6 1 3000J 520n
-preplace netloc quad_count_1 1 0 1 -20 610n
-preplace netloc reset 1 0 5 -10J 510 540 550 NJ 550 1500 560 1990J
-preplace netloc rst_clk_wiz_100M_bus_struct_reset 1 3 3 1660 570 NJ 570 2390J
-preplace netloc rst_clk_wiz_100M_mb_reset 1 2 5 960 480 NJ 480 NJ 480 2420J 850 3090
-preplace netloc rst_clk_wiz_100M_peripheral_aresetn 1 0 7 10 1010 630 740 910 720 1610 420 NJ 420 2410 890 3080
-preplace netloc mc_ctrl_0_sin_cos_channel_reset 1 1 7 470J 940 920J 680 NJ 680 2020J 690 2430J 900 NJ 900 NJ
-preplace netloc mc_ctrl_0_sin_cos_reset 1 1 7 NJ 930 930J 910 1620J 750 1910J 960 2400J 930 NJ 930 NJ
-preplace netloc axi_gpio_0_GPIO 1 2 6 880J 620 NJ 620 NJ 620 NJ 620 2970J 400 3390J
-preplace netloc axi_gpio_0_GPIO2 1 2 6 860J 590 NJ 590 2030J 630 NJ 630 NJ 630 3370J
-preplace netloc axi_quad_spi_0_SPI_0 1 4 4 2030 680 N 680 2940 330 N
-preplace netloc axi_quad_spi_1_SPI_0 1 1 7 NJ 260 NJ 260 NJ 260 NJ 260 2460J 720 NJ 720 NJ
-preplace netloc axi_uartlite_0_UART 1 2 6 870J 670 NJ 670 1960J 700 NJ 700 NJ 700 3370J
-preplace netloc microblaze_0_axi_dp 1 3 3 1480J 60 NJ 60 NJ
-preplace netloc microblaze_0_axi_periph_M01_AXI 1 3 4 1670 740 NJ 740 NJ 740 2930
-preplace netloc microblaze_0_axi_periph_M02_AXI 1 1 6 630 450 NJ 450 NJ 450 2040J 750 NJ 750 2920
-preplace netloc microblaze_0_axi_periph_M03_AXI 1 1 6 640 460 NJ 460 NJ 460 NJ 460 2600J 670 2910
-preplace netloc microblaze_0_axi_periph_M04_AXI 1 0 7 20 410 NJ 410 NJ 410 NJ 410 NJ 410 2610J 660 2900
-preplace netloc microblaze_0_axi_periph_M05_AXI 1 0 7 40 470 NJ 470 NJ 470 NJ 470 2050J 650 NJ 650 2890
-preplace netloc microblaze_0_debug 1 2 2 970 730 1440
-preplace netloc microblaze_0_dlmb_1 1 3 1 1470 800n
-preplace netloc microblaze_0_ilmb_1 1 3 1 1460 820n
-preplace netloc microblaze_0_intc_axi 1 6 1 3020 200n
-preplace netloc microblaze_0_interrupt 1 2 6 980 610 NJ 610 NJ 610 2570J 640 NJ 640 3350
-levelinfo -pg 1 -40 240 750 1210 1780 2220 2750 3230 3450
-pagesize -pg 1 -db -bbox -sgen -210 0 3750 1320
+preplace netloc clk_wiz_clk_out2 1 0 5 40 190 NJ 190 NJ 190 NJ 190 2020
+preplace netloc clk_wiz_clk_out5 1 4 4 NJ 1200 NJ 1200 NJ 1200 3780J
+preplace netloc clk_wiz_locked 1 4 1 2130 900n
+preplace netloc mc_ctrl_0_gpio1 1 1 7 440J 490 NJ 490 1630J 500 NJ 500 2680J 1100 NJ 1100 NJ
+preplace netloc mc_ctrl_0_sin_cos_ch0_phase_inc_delta 1 1 7 640J 500 NJ 500 1620J 510 NJ 510 2840J 800 3310J 260 NJ
+preplace netloc mc_ctrl_0_sin_cos_ch0_phase_inc_threshold 1 1 7 650J 510 NJ 510 1610J 520 NJ 520 2860J 780 3290J 230 NJ
+preplace netloc mc_ctrl_0_sin_cos_ch1_phase_inc_delta 1 1 7 450J 520 NJ 520 1600J 530 NJ 530 2890J 700 3280J 340 3750J
+preplace netloc mc_ctrl_0_sin_cos_ch1_phase_inc_threshold 1 1 7 700J 530 NJ 530 1590J 540 NJ 540 2820J 710 3300J 350 NJ
+preplace netloc mc_ctrl_0_sin_cos_ch2_phase_inc_delta 1 1 7 690J 730 1000J 710 NJ 710 NJ 710 2630J 820 3380J 360 3770J
+preplace netloc mc_ctrl_0_sin_cos_ch2_phase_inc_threshold 1 1 7 700J 740 990J 690 NJ 690 2050J 960 NJ 960 3370J 320 NJ
+preplace netloc mc_ctrl_0_sin_cos_ch3_phase_inc_delta 1 1 7 680J 760 990J 1050 1730J 700 NJ 700 2690J 720 3320J 370 3740J
+preplace netloc mc_ctrl_0_sin_cos_ch3_phase_inc_threshold 1 1 7 670J 1060 NJ 1060 1760J 720 NJ 720 2650J 730 3340J 380 3760J
+preplace netloc mc_ctrl_0_sin_cos_ch4_phase_inc_delta 1 1 7 470J 1070 NJ 1070 1770J 730 NJ 730 2640J 770 3350J 390 3720J
+preplace netloc mc_ctrl_0_sin_cos_ch4_phase_inc_threshold 1 1 7 470J 430 NJ 430 NJ 430 NJ 430 2900J 740 3360J 400 3730J
+preplace netloc mc_ctrl_0_sin_cos_ch5_phase_inc_delta 1 1 7 660J 440 NJ 440 NJ 440 NJ 440 2700J 870 NJ 870 3770J
+preplace netloc mc_ctrl_0_sin_cos_ch5_phase_inc_threshold 1 1 7 720J 770 1010J 700 1710J 620 2060J 970 NJ 970 3460J 630 3720J
+preplace netloc mc_ctrl_0_sin_cos_ch6_phase_inc_delta 1 1 7 460J 540 NJ 540 1580J 550 2040J 560 2670J 840 NJ 840 3730J
+preplace netloc mc_ctrl_0_sin_cos_ch6_phase_inc_threshold 1 1 7 650J 930 1040J 910 1720J 630 2040J 980 NJ 980 3470J 650 NJ
+preplace netloc mc_ctrl_0_sin_cos_ch7_phase_inc_delta 1 1 7 730J 570 980J 580 NJ 580 NJ 580 2610J 1160 NJ 1160 NJ
+preplace netloc mc_ctrl_0_sin_cos_ch7_phase_inc_threshold 1 1 7 710J 560 990J 590 NJ 590 NJ 590 2660J 810 NJ 810 3750J
+preplace netloc mc_ctrl_0_sin_cos_channel_reset 1 1 7 630J 940 1030J 680 NJ 680 NJ 680 2600J 860 NJ 860 NJ
+preplace netloc mc_ctrl_0_sin_cos_reset 1 1 7 440J 1090 NJ 1090 1780J 740 NJ 740 2580J 850 NJ 850 3780J
+preplace netloc mdm_1_debug_sys_rst 1 3 2 1680 490 2100J
+preplace netloc microblaze_0_Clk 1 0 7 30 500 620 960 1080 1080 1740 650 2110 640 2910 790 3430
+preplace netloc microblaze_0_intr 1 6 1 3330J 520n
+preplace netloc reset 1 0 5 -40J 510 630 550 NJ 550 1570 560 2030J
+preplace netloc rst_clk_wiz_100M_bus_struct_reset 1 3 3 1790 610 NJ 610 2570J
+preplace netloc rst_clk_wiz_100M_mb_reset 1 2 5 1090 570 NJ 570 NJ 570 2620J 830 3450
+preplace netloc rst_clk_wiz_100M_peripheral_aresetn 1 0 7 20 1010 740 750 1050 720 1750 480 NJ 480 2810 880 3440
+preplace netloc quad_count4_0_1 1 0 1 -30J 760n
+preplace netloc quad_count3_0_1 1 0 1 -30J 730n
+preplace netloc quad_count6_0_1 1 0 1 -10J 800n
+preplace netloc quad_count5_0_1 1 0 1 -20J 780n
+preplace netloc quad_count2_0_1 1 0 1 -40J 720n
+preplace netloc quad_count0_0_1 1 0 1 -40J 670n
+preplace netloc quad_count1_0_1 1 0 1 NJ 700
+preplace netloc quad_count7_0_1 1 0 1 NJ 820
+preplace netloc mc_ctrl_0_quad_index5 1 7 1 NJ 10
+preplace netloc mc_ctrl_0_quad_index 1 1 7 NJ 950 1020J 670 NJ 670 NJ 670 2590J 890 NJ 890 NJ
+preplace netloc axi_gpio_0_GPIO 1 2 6 NJ 640 NJ 640 2070J 630 NJ 630 3270J 290 NJ
+preplace netloc axi_gpio_0_GPIO2 1 2 6 970J 0 NJ 0 NJ 0 NJ 0 3360J 330 3780J
+preplace netloc axi_quad_spi_0_SPI_0 1 4 4 2090 690 N 690 3260 200 N
+preplace netloc axi_quad_spi_1_SPI_0 1 1 7 NJ 260 NJ 260 NJ 260 NJ 260 2870J 640 NJ 640 3730J
+preplace netloc axi_uartlite_0_UART 1 2 6 980J 660 NJ 660 NJ 660 2830J 680 NJ 680 3710J
+preplace netloc microblaze_0_axi_dp 1 3 3 1700J 60 NJ 60 NJ
+preplace netloc microblaze_0_axi_periph_M01_AXI 1 3 4 1800 750 2070J 760 NJ 760 3240
+preplace netloc microblaze_0_axi_periph_M02_AXI 1 1 6 740 450 NJ 450 NJ 450 2130J 750 NJ 750 3230
+preplace netloc microblaze_0_axi_periph_M03_AXI 1 1 6 750 460 NJ 460 NJ 460 NJ 460 2920J 670 3220
+preplace netloc microblaze_0_axi_periph_M04_AXI 1 0 7 10 420 NJ 420 NJ 420 NJ 420 NJ 420 2850J 660 3210
+preplace netloc microblaze_0_axi_periph_M05_AXI 1 0 7 40 470 NJ 470 NJ 470 NJ 470 2120J 650 NJ 650 3200
+preplace netloc microblaze_0_debug 1 2 2 1100 730 1570
+preplace netloc microblaze_0_dlmb_1 1 3 1 1710 800n
+preplace netloc microblaze_0_ilmb_1 1 3 1 1690 820n
+preplace netloc microblaze_0_intc_axi 1 6 1 3250 200n
+preplace netloc microblaze_0_interrupt 1 2 6 1110 600 NJ 600 NJ 600 2880J 620 NJ 620 3710
+levelinfo -pg 1 -60 240 860 1340 1910 2400 3060 3590 3810
+pagesize -pg 1 -db -bbox -sgen -240 -10 4110 1320
 "
 }
 {

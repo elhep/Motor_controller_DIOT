@@ -67,9 +67,9 @@ entity motion_controller_top is
         dac_dataH : out std_logic;
         dac_sck : out std_logic;
         dac_sync : out std_logic;
-        enc_a1 : in STD_LOGIC;
-        enc_b1 : in STD_LOGIC;
-        enc_r1 : in STD_LOGIC;
+        enc_a : in std_logic_vector(MAX_CHANNELS-1 downto 0);
+        enc_b : in std_logic_vector(MAX_CHANNELS-1 downto 0);
+        enc_r : in std_logic_vector(MAX_CHANNELS-1 downto 0);
         led1 : out STD_LOGIC
    );
 end motion_controller_top;
@@ -88,7 +88,14 @@ architecture Behavioral of motion_controller_top is
     qspi_flash_io2_io : inout STD_LOGIC;
     qspi_flash_io3_io : inout STD_LOGIC;
     qspi_flash_ss_io : inout STD_LOGIC;
-    quad_count : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    quad_count0 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    quad_count1 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    quad_count2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    quad_count3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    quad_count4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    quad_count5 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    quad_count6 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    quad_count7 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     quad_index : out STD_LOGIC;
     reset : in STD_LOGIC;
     sin_cos_ch0_phase_inc_delta     : out STD_LOGIC_VECTOR ( 31 downto 0 );    
@@ -155,7 +162,15 @@ end component sin_cos_gen;
    signal channel_start : std_logic := '0';
    signal clk_1mhz : STD_LOGIC;
    signal gpio_mc : STD_LOGIC;
-   signal quad_count : STD_LOGIC_VECTOR (31 downto 0 );
+   --signal quad_count : STD_LOGIC_VECTOR (31 downto 0 );
+   signal quad_count0 : STD_LOGIC_VECTOR ( 31 downto 0 );
+   signal quad_count1 : STD_LOGIC_VECTOR ( 31 downto 0 );
+   signal quad_count2 : STD_LOGIC_VECTOR ( 31 downto 0 );
+   signal quad_count3 : STD_LOGIC_VECTOR ( 31 downto 0 );
+   signal quad_count4 : STD_LOGIC_VECTOR ( 31 downto 0 );
+   signal quad_count5 : STD_LOGIC_VECTOR ( 31 downto 0 );
+   signal quad_count6 : STD_LOGIC_VECTOR ( 31 downto 0 );
+   signal quad_count7 : STD_LOGIC_VECTOR ( 31 downto 0 );
    signal quad_index : STD_LOGIC;
    signal sin_cos_ch0_phase_inc_delta : STD_LOGIC_VECTOR ( 31 downto 0 );
    signal sin_cos_ch0_phase_inc_threshold : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -212,18 +227,23 @@ end component sin_cos_gen;
    signal clk_out6 : std_logic;
    signal clk_out7 : std_logic;
    signal locked : std_logic;
- 
+   signal quad_count : slv_array(0 to MAX_CHANNELS - 1);
    signal phase_inc_delta : slv_array(0 to MAX_CHANNELS - 1);
    --signal sin_cos_reset : STD_LOGIC_VECTOR(7 downto 0);
    signal phase_inc_threshold : slv_array(0 to MAX_CHANNELS - 1);
 
    
 attribute MARK_DEBUG : string;
-attribute MARK_DEBUG of enc_a1: signal is "TRUE";  
-attribute MARK_DEBUG of enc_b1: signal is "TRUE";  
-attribute MARK_DEBUG of enc_r1: signal is "TRUE";  
-attribute MARK_DEBUG of quad_count: signal is "TRUE";  
+attribute MARK_DEBUG of enc_a: signal is "TRUE";  
+attribute MARK_DEBUG of enc_b: signal is "TRUE";  
+attribute MARK_DEBUG of enc_r: signal is "TRUE";  
+--attribute MARK_DEBUG of quad_count: signal is "TRUE";  
 attribute MARK_DEBUG of clk_100kHz: signal is "TRUE";  
+
+attribute MARK_DEBUG of sin_cos_ch0_phase_inc_delta: signal is "TRUE";  
+attribute MARK_DEBUG of sin_cos_ch0_phase_inc_threshold: signal is "TRUE";  
+attribute MARK_DEBUG of sin_cos_ch1_phase_inc_delta: signal is "TRUE";  
+attribute MARK_DEBUG of sin_cos_ch1_phase_inc_threshold: signal is "TRUE";  
 
 begin
    
@@ -240,7 +260,14 @@ begin
         qspi_flash_io2_io               => qspi_flash_io2_io,
         qspi_flash_io3_io               => qspi_flash_io3_io,
         qspi_flash_ss_io                => qspi_flash_ss_io,
-        quad_count                      => quad_count,
+        quad_count0                     => quad_count0,
+        quad_count1                     => quad_count1,
+        quad_count2                     => quad_count2,
+        quad_count3                     => quad_count3,
+        quad_count4                     => quad_count4,
+        quad_count5                     => quad_count5,
+        quad_count6                     => quad_count6,
+        quad_count7                     => quad_count7,
         quad_index                      => quad_index,
         sin_cos_ch0_phase_inc_delta     => sin_cos_ch0_phase_inc_delta,
         sin_cos_ch0_phase_inc_threshold => sin_cos_ch0_phase_inc_threshold,
@@ -323,17 +350,19 @@ sin_cos_inst : sin_cos_gen
            
    -- end generate GEN_INSTANCES;
            
---GEN_INSTANCES:
---   for I in 0 to MAX_CHANNELS - 1 generate
+GEN_QUAD_INSTANCES:
+   for I in 0 to MAX_CHANNELS - 1 generate
    quad_inst : quad
    port map (
      clk             => clk_100kHz, 
-     quadA           => enc_a1,
-     quadB           => enc_b1,
-     index           => enc_r1,
-     count           => quad_count
+     quadA           => enc_a(I),
+     quadB           => enc_b(I),
+     index           => enc_r(I),
+     count           => quad_count(I)
   );
-      
+  end generate GEN_QUAD_INSTANCES;     
+  
+  
    -- blinky
    process (clk_12MHz)
     begin
@@ -376,5 +405,15 @@ sin_cos_inst : sin_cos_gen
     phase_inc_delta(6) <= sin_cos_ch6_phase_inc_delta;
     phase_inc_threshold(7) <= sin_cos_ch7_phase_inc_threshold;
     phase_inc_delta(7) <= sin_cos_ch7_phase_inc_delta;
+    
+    quad_count0  <= quad_count(0);
+    quad_count1  <= quad_count(1);
+    quad_count2  <= quad_count(2);
+    quad_count3  <= quad_count(3);
+    quad_count4  <= quad_count(4);
+    quad_count5  <= quad_count(5);
+    quad_count6  <= quad_count(6);
+    quad_count7  <= quad_count(7);
+    
     
 end Behavioral;

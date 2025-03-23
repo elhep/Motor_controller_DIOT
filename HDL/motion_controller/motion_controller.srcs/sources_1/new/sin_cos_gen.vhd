@@ -115,15 +115,17 @@ attribute MARK_DEBUG of reset: signal is "TRUE";
 attribute MARK_DEBUG of reset_channel: signal is "TRUE";  
 attribute MARK_DEBUG of update_DACs: signal is "TRUE";  
 attribute MARK_DEBUG of sync: signal is "TRUE";  
---attribute MARK_DEBUG of dac1A_data: signal is "TRUE";  
---attribute MARK_DEBUG of dac1B_data: signal is "TRUE";  
+attribute MARK_DEBUG of dac1A_data: signal is "TRUE";  
+attribute MARK_DEBUG of dac1B_data: signal is "TRUE";  
+attribute MARK_DEBUG of dac2A_data: signal is "TRUE";  
+attribute MARK_DEBUG of dac2B_data: signal is "TRUE";
 attribute MARK_DEBUG of clk_en: signal is "TRUE";  
 attribute MARK_DEBUG of channel_en: signal is "TRUE";  
 attribute MARK_DEBUG of channel_start: signal is "TRUE";  
-attribute MARK_DEBUG of m_axis_data_tdata_cosine: signal is "TRUE";  
-attribute MARK_DEBUG of m_axis_data_tdata_sine: signal is "TRUE"; 
+--attribute MARK_DEBUG of m_axis_data_tdata_cosine: signal is "TRUE";  
+--attribute MARK_DEBUG of m_axis_data_tdata_sine: signal is "TRUE"; 
 attribute MARK_DEBUG of phase_inc_cnt: signal is "TRUE";
-attribute MARK_DEBUG of phase_inc_threshold: signal is "TRUE";
+--attribute MARK_DEBUG of phase_inc_threshold: signal is "TRUE";
 
 component tlv5637 IS
 	PORT

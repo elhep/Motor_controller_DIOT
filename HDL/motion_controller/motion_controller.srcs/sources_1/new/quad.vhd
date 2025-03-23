@@ -11,16 +11,37 @@ entity quad is
 end quad;
 
     architecture Behavioral of quad is
-    signal quadA_delayed, quadB_delayed : STD_LOGIC_VECTOR(2 downto 0);
+    signal quadA_delayed, quadB_delayed, index_delayed : STD_LOGIC_VECTOR(2 downto 0);
+    signal index_stable : STD_LOGIC;
     signal count_enable, count_direction : STD_LOGIC;
     signal count_internal : UNSIGNED(31 downto 0);
+    
+attribute MARK_DEBUG : string;
+attribute MARK_DEBUG of count_enable: signal is "TRUE";  
+attribute MARK_DEBUG of count_direction: signal is "TRUE";  
+attribute MARK_DEBUG of index_stable: signal is "TRUE";  
+attribute MARK_DEBUG of count_internal: signal is "TRUE"; 
+  
 begin
 
     process(clk)
     begin
         if rising_edge(clk) then
             quadA_delayed <= quadA_delayed(1 downto 0) & quadA;
-            quadB_delayed <= quadB_delayed(1 downto 0) & quadB;                 
+            quadB_delayed <= quadB_delayed(1 downto 0) & quadB;         
+            index_delayed <= index_delayed(1 downto 0) & index;                 
+        end if;
+    end process;
+    
+    -- Ensure index is stable before using it
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if index_delayed = "000" then
+                index_stable <= '0';
+            elsif index_delayed = "111" then
+                index_stable <= '1';
+            end if;
         end if;
     end process;
 
@@ -30,7 +51,7 @@ begin
     process(clk)
     begin
         if rising_edge(clk) then
-            if index = '1' then
+            if index = '0' then
                 count_internal <= (others => '0'); -- Reset the counter if index is high
             elsif count_enable = '1' then
                 if count_direction = '1' then

@@ -47,18 +47,33 @@ void processCommand(String command) {
   }
 }
 
-void sendSPIdata(byte *resp, byte *data, byte len){
-    // Send SPI data and receive response
+void printSpiRxData(uint8_t* resp, uint32_t len){
+  // Print received SPI data
   for (int i = 0; i < len; i++) {
-    Serial.print("Sending: 0x");
-    Serial.println(data[i], HEX);
-    resp[i] = SPI.transfer(data[i]);
+    Serial.print("Received: 0x");
+    Serial.println(resp[i], HEX);
   }
 }
 
-void processSPICommand(String command) {
+void sendSPIdata(byte *resp, byte *data, byte len){
+  delay(100);
   digitalWrite(CS_PIN, LOW);
   SPI.beginTransaction(SPISettings(1562500, MSBFIRST, SPI_MODE0));
+    // Send SPI data and receive response
+  for (int i = 0; i < len; i++) {
+    //Serial.print("Sending: 0x");
+    //Serial.println(data[i], HEX);
+    resp[i] = SPI.transfer(data[i]);
+  }
+  //printSpiRxData(resp, len);
+  SPI.endTransaction();
+  digitalWrite(CS_PIN, HIGH);
+  delay(100);
+}
+
+void processSPICommand(String command) {
+  //digitalWrite(CS_PIN, LOW);
+  //SPI.beginTransaction(SPISettings(1562500, MSBFIRST, SPI_MODE0));
 
   // Extract numbers from command
   command.remove(0, 4);  // Remove "SPI " from the start
@@ -94,19 +109,30 @@ void processSPICommand(String command) {
       case READ:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
       {
         data_spi[0] = cmd;
+        sendSPIdata(resp,data_spi,1);
         data_spi[1] = (byte)data_uart[1]; //channel
         data_spi[2] = (byte)data_uart[2]; //register
+        sendSPIdata(resp,&data_spi[1],2);
         data_spi[3] = 0;
         data_spi[4] = 0;
         data_spi[5] = 0;
         data_spi[6] = 0;
-        sendSPIdata(resp,data_spi,7);
-        //Serial.print("Read reg: 0x", resp);
+        
+        //sendSPIdata(resp,&data_spi[1],1);
+        sendSPIdata(resp,&data_spi[3],5);
+        //sendSPIdata(resp,data_spi,7);
+        //Serial.print("Read reg: 0x");
+        Serial.println(resp[0], HEX);
+        Serial.println(resp[1], HEX);
+        Serial.println(resp[2], HEX);
+        Serial.println(resp[3], HEX);
+        Serial.println(resp[4], HEX);
         break;
       }
       case WRITE:
       {
         data_spi[0] = cmd;
+        sendSPIdata(resp,data_spi,1);
         data_spi[1] = (byte)data_uart[1]; //channel
         data_spi[2] = (byte)data_uart[2]; //register
         Serial.print("Write: 0x");
@@ -115,7 +141,7 @@ void processSPICommand(String command) {
         data_spi[4] = (data_uart[3] >> 16) & 0xFF;
         data_spi[5] = (data_uart[3] >> 8) & 0xFF;
         data_spi[6] = data_uart[3] & 0xFF;
-        sendSPIdata(resp,data_spi,7);
+        sendSPIdata(resp,&data_spi[1],6);
         break;
       }
       case RESET:
@@ -135,15 +161,10 @@ void processSPICommand(String command) {
     }
 
   
-  SPI.endTransaction();
-  digitalWrite(CS_PIN, HIGH);
-
-  // Print received SPI data
-  for (int i = 0; i < len; i++) {
-    Serial.print("Received: 0x");
-    Serial.println(resp[i], HEX);
-  }
+  //SPI.endTransaction();
+  //digitalWrite(CS_PIN, HIGH);
 }
+
 
 void readVoltages() {
   float vA4 = analogRead(A4) * (6.0 / 1023.0) * ((10.0 + 20.0) / 10.0);

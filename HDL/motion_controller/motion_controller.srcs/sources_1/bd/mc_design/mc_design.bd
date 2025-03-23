@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xA77B6CA4D210D58F",
+      "boundary_crc": "0x60E4D2A4019F5D49",
       "device": "xc7a35tcpg236-1",
       "gen_directory": "../../../../motion_controller.gen/sources_1/bd/mc_design",
       "name": "mc_design",
@@ -251,11 +251,6 @@
           }
         }
       },
-      "quad_count": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
       "clk_1MHz": {
         "type": "clk",
         "direction": "O",
@@ -294,9 +289,6 @@
         "direction": "O",
         "left": "31",
         "right": "0"
-      },
-      "quad_index": {
-        "direction": "O"
       },
       "sin_cos_ch0_phase_inc_threshold": {
         "direction": "O",
@@ -397,6 +389,52 @@
             "value_src": "default"
           }
         }
+      },
+      "quad_count4": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "quad_count3": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "quad_count6": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "quad_count5": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "quad_count2": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "quad_count0": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "quad_count1": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "quad_count7": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "quad_index5": {
+        "direction": "O"
+      },
+      "quad_index": {
+        "direction": "O"
       }
     },
     "components": {
@@ -1767,7 +1805,7 @@
       },
       "mc_ctrl_0": {
         "vlnv": "xilinx.com:user:mc_ctrl:1.0",
-        "ip_revision": "12",
+        "ip_revision": "15",
         "xci_name": "mc_design_mc_ctrl_0_1",
         "xci_path": "ip\\mc_design_mc_ctrl_0_1\\mc_design_mc_ctrl_0_1.xci",
         "inst_hier_path": "mc_ctrl_0"
@@ -1929,6 +1967,11 @@
           "quad_index"
         ]
       },
+      "mc_ctrl_0_quad_index5": {
+        "ports": [
+          "quad_index5"
+        ]
+      },
       "mc_ctrl_0_sin_cos_ch0_phase_inc_delta": {
         "ports": [
           "mc_ctrl_0/sin_cos_ch0_phase_inc_delta",
@@ -2075,10 +2118,52 @@
           "microblaze_0_axi_intc/intr"
         ]
       },
-      "quad_count_1": {
+      "quad_count0_0_1": {
         "ports": [
-          "quad_count",
-          "mc_ctrl_0/quad_count"
+          "quad_count0",
+          "mc_ctrl_0/quad_count0"
+        ]
+      },
+      "quad_count1_0_1": {
+        "ports": [
+          "quad_count1",
+          "mc_ctrl_0/quad_count1"
+        ]
+      },
+      "quad_count2_0_1": {
+        "ports": [
+          "quad_count2",
+          "mc_ctrl_0/quad_count2"
+        ]
+      },
+      "quad_count3_0_1": {
+        "ports": [
+          "quad_count3",
+          "mc_ctrl_0/quad_count3"
+        ]
+      },
+      "quad_count4_0_1": {
+        "ports": [
+          "quad_count4",
+          "mc_ctrl_0/quad_count4"
+        ]
+      },
+      "quad_count5_0_1": {
+        "ports": [
+          "quad_count5",
+          "mc_ctrl_0/quad_count5"
+        ]
+      },
+      "quad_count6_0_1": {
+        "ports": [
+          "quad_count6",
+          "mc_ctrl_0/quad_count6"
+        ]
+      },
+      "quad_count7_0_1": {
+        "ports": [
+          "quad_count7",
+          "mc_ctrl_0/quad_count7"
         ]
       },
       "reset": {
@@ -2185,7 +2270,7 @@
       "file": {
         "name": "..\\..\\..\\..\\..\\..\\FW\\vitis_cmod2\\xspi_slave_polled_example\\build\\xspi_slave_polled_example.elf",
         "type": "ELF",
-        "checksum": "3921590955",
+        "checksum": "346736474",
         "IsVisible": "1",
         "ScopedToRef": "mc_design",
         "ScopedToCell": [
