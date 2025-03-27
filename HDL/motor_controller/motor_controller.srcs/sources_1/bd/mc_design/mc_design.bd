@@ -1805,7 +1805,7 @@
       },
       "mc_ctrl_0": {
         "vlnv": "xilinx.com:user:mc_ctrl:1.0",
-        "ip_revision": "15",
+        "ip_revision": "22",
         "xci_name": "mc_design_mc_ctrl_0_1",
         "xci_path": "ip\\mc_design_mc_ctrl_0_1\\mc_design_mc_ctrl_0_1.xci",
         "inst_hier_path": "mc_ctrl_0"
@@ -2270,7 +2270,7 @@
       "file": {
         "name": "..\\..\\..\\..\\..\\..\\FW\\cmod\\motor_controller\\build\\motor_controller.elf",
         "type": "ELF",
-        "checksum": "1728737062",
+        "checksum": "1816162650",
         "IsVisible": "1",
         "ScopedToRef": "mc_design",
         "ScopedToCell": [

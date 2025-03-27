@@ -141,10 +141,14 @@ int main(void)
                 res = XSpi_Transfer(&SpiInstance, WriteBuffer, ReadBuffer, 2);
                 int channel = ReadBuffer[0];
                 int reg = ReadBuffer[1];              
-                if(reg == 2){ channel = channel + 8; reg = 0;} // add offset for encoder register  
-                
-                uint32_t val = MC_CTRL_mReadReg(MC_CTRL_BaseAddress,(channel+1)*8 - 4 + reg*4);
-                xil_printf("\r\n%x %x \r\n",(channel+1)*8 - 4 + reg*4, val);
+                if(reg == 2){ 
+                    channel = channel + 8; 
+                    reg = 0;
+                } // add offset for encoder register  
+
+                uint16_t reg_offset = (channel+1)*8 - 4 + reg*4;
+                uint32_t val = MC_CTRL_mReadReg(MC_CTRL_BaseAddress,reg_offset);
+                xil_printf("\r\n%x %x \r\n",reg_offset, val);
                 WriteBuffer[3] = val & 0xFF;
                 WriteBuffer[2] = (val >> 8) & 0xFF;
                 WriteBuffer[1] = (val >> 16) & 0xFF;

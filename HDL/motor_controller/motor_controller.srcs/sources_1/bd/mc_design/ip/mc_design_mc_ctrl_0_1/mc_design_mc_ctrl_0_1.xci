@@ -4,7 +4,7 @@
     "xci_name": "mc_design_mc_ctrl_0_1",
     "cell_name": "mc_ctrl_0",
     "component_reference": "xilinx.com:user:mc_ctrl:1.0",
-    "ip_revision": "15",
+    "ip_revision": "22",
     "gen_directory": "../../../../../../motor_controller.gen/sources_1/bd/mc_design/ip/mc_design_mc_ctrl_0_1",
     "parameters": {
       "component_parameters": {
@@ -35,7 +35,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "15" } ],
+        "IPREVISION": [ { "value": "22" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../motor_controller.gen/sources_1/bd/mc_design/ip/mc_design_mc_ctrl_0_1" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],

@@ -191,7 +191,9 @@ end component sin_cos_gen;
    signal phase_inc_threshold : slv_array(0 to MAX_CHANNELS - 1);
 
    
---attribute MARK_DEBUG : string;
+attribute MARK_DEBUG : string;
+attribute MARK_DEBUG of quad_count0: signal is "TRUE";
+attribute MARK_DEBUG of quad_count1: signal is "TRUE";
 --attribute MARK_DEBUG of enc_a: signal is "TRUE";  
 --attribute MARK_DEBUG of enc_b: signal is "TRUE";  
 --attribute MARK_DEBUG of enc_r: signal is "TRUE";  

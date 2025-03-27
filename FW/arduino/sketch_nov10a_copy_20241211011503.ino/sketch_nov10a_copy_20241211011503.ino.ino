@@ -61,20 +61,14 @@ void sendSPIdata(byte *resp, byte *data, byte len){
   SPI.beginTransaction(SPISettings(1562500, MSBFIRST, SPI_MODE0));
     // Send SPI data and receive response
   for (int i = 0; i < len; i++) {
-    //Serial.print("Sending: 0x");
-    //Serial.println(data[i], HEX);
     resp[i] = SPI.transfer(data[i]);
   }
-  //printSpiRxData(resp, len);
   SPI.endTransaction();
   digitalWrite(CS_PIN, HIGH);
   delay(100);
 }
 
 void processSPICommand(String command) {
-  //digitalWrite(CS_PIN, LOW);
-  //SPI.beginTransaction(SPISettings(1562500, MSBFIRST, SPI_MODE0));
-
   // Extract numbers from command
   command.remove(0, 4);  // Remove "SPI " from the start
   command.trim();
@@ -86,7 +80,6 @@ void processSPICommand(String command) {
 
   char *token = strtok((char *)command.c_str(), " ");
   while (token != NULL && len < 16) {
-    //data_uart[len] = (uint32_t)atoi(token);
     data_uart[len] = strtoul(token, NULL, 16);
     Serial.print("data_uart: 0x");
     Serial.println(data_uart[len], HEX);
@@ -118,17 +111,11 @@ void processSPICommand(String command) {
         data_spi[5] = 0;
         data_spi[6] = 0;
         
-        //sendSPIdata(resp,&data_spi[1],1);
+
         sendSPIdata(resp,&data_spi[3],5);
-        //sendSPIdata(resp,data_spi,7);
-        //Serial.print("Read reg: 0x");
+
         uint32_t reg = (uint32_t)resp[1] << 24 | (uint32_t)resp[2] << 16 | (uint32_t)resp[3] << 8 | (uint32_t)resp[4];
         Serial.println(reg, HEX);
-        Serial.println(resp[0], HEX);
-        Serial.println(resp[1], HEX);
-        Serial.println(resp[2], HEX);
-        Serial.println(resp[3], HEX);
-        Serial.println(resp[4], HEX);
         break;
       }
       case WRITE:
@@ -161,10 +148,6 @@ void processSPICommand(String command) {
       default:
         break;
     }
-
-  
-  //SPI.endTransaction();
-  //digitalWrite(CS_PIN, HIGH);
 }
 
 

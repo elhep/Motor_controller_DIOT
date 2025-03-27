@@ -16,11 +16,11 @@ end quad;
     signal count_enable, count_direction : STD_LOGIC;
     signal count_internal : UNSIGNED(31 downto 0);
     
---attribute MARK_DEBUG : string;
---attribute MARK_DEBUG of count_enable: signal is "TRUE";  
---attribute MARK_DEBUG of count_direction: signal is "TRUE";  
---attribute MARK_DEBUG of index_stable: signal is "TRUE";  
---attribute MARK_DEBUG of count_internal: signal is "TRUE"; 
+attribute MARK_DEBUG : string;
+attribute MARK_DEBUG of count_enable: signal is "TRUE";  
+attribute MARK_DEBUG of count_direction: signal is "TRUE";  
+attribute MARK_DEBUG of index_stable: signal is "TRUE";  
+attribute MARK_DEBUG of count_internal: signal is "TRUE"; 
   
 begin
 

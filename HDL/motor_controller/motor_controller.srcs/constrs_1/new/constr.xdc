@@ -579,13 +579,6 @@ connect_debug_port u_ila_1/probe9 [get_nets [list quadA]]
 connect_debug_port u_ila_1/probe10 [get_nets [list quadB]]
 connect_debug_port u_ila_1/probe12 [get_nets [list sin_cos_inst/sync]]
 
-set_property OFFCHIP_TERM NONE [get_ports led1]
-set_property OFFCHIP_TERM NONE [get_ports spi_clk]
-set_property OFFCHIP_TERM NONE [get_ports spi_miso]
-set_property OFFCHIP_TERM NONE [get_ports spi_mosi]
-set_property OFFCHIP_TERM NONE [get_ports uart_txd]
-set_property OFFCHIP_TERM NONE [get_ports led_2bits_tri_o[1]]
-set_property OFFCHIP_TERM NONE [get_ports led_2bits_tri_o[0]]
 set_property MARK_DEBUG false [get_nets {sin_cos_inst/reset_channel[0]}]
 set_property MARK_DEBUG false [get_nets {sin_cos_inst/reset_channel[1]}]
 set_property MARK_DEBUG false [get_nets {sin_cos_inst/reset_channel[2]}]
@@ -594,3 +587,62 @@ set_property MARK_DEBUG false [get_nets {sin_cos_inst/reset_channel[4]}]
 set_property MARK_DEBUG false [get_nets {sin_cos_inst/reset_channel[5]}]
 set_property MARK_DEBUG false [get_nets {sin_cos_inst/reset_channel[6]}]
 set_property MARK_DEBUG false [get_nets {sin_cos_inst/reset_channel[7]}]
+
+
+
+
+
+
+set_property OFFCHIP_TERM NONE [get_ports led1]
+set_property OFFCHIP_TERM NONE [get_ports spi_clk]
+set_property OFFCHIP_TERM NONE [get_ports spi_miso]
+set_property OFFCHIP_TERM NONE [get_ports spi_mosi]
+set_property OFFCHIP_TERM NONE [get_ports uart_txd]
+set_property OFFCHIP_TERM NONE [get_ports led_2bits_tri_o[1]]
+set_property OFFCHIP_TERM NONE [get_ports led_2bits_tri_o[0]]
+create_debug_core u_ila_0 ila
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list clk_wiz_i/inst/clk_out1]]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+set_property port_width 32 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[0]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[1]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[2]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[3]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[4]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[5]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[6]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[7]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[8]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[9]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[10]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[11]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[12]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[13]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[14]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[15]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[16]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[17]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[18]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[19]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[20]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[21]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[22]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[23]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[24]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[25]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[26]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[27]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[28]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[29]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[30]} {GEN_QUAD_INSTANCES[0].quad_inst/count_internal[31]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+set_property port_width 32 [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[0]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[1]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[2]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[3]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[4]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[5]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[6]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[7]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[8]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[9]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[10]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[11]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[12]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[13]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[14]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[15]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[16]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[17]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[18]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[19]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[20]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[21]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[22]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[23]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[24]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[25]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[26]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[27]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[28]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[29]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[30]} {GEN_QUAD_INSTANCES[1].quad_inst/count_internal[31]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+set_property port_width 1 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {GEN_QUAD_INSTANCES[0].quad_inst/count_direction}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+set_property port_width 1 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {GEN_QUAD_INSTANCES[1].quad_inst/count_direction}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+set_property port_width 1 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {GEN_QUAD_INSTANCES[1].quad_inst/count_enable}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+set_property port_width 1 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {GEN_QUAD_INSTANCES[0].quad_inst/count_enable}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+set_property port_width 1 [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {GEN_QUAD_INSTANCES[0].quad_inst/index_stable}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+set_property port_width 1 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {GEN_QUAD_INSTANCES[1].quad_inst/index_stable}]]
+set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+connect_debug_port dbg_hub/clk [get_nets u_ila_0_clk_out1]
