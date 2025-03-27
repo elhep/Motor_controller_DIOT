@@ -1,40 +1,10 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 26.06.2024 12:36:44
--- Design Name: 
--- Module Name: motion_controller_top - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.slv_array_pkg.all;
 
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
-entity motion_controller_top is
+entity motor_controller_top is
     generic (MAX_CHANNELS : positive := 8);
   Port (
         clk_12MHz : in STD_LOGIC;
@@ -47,16 +17,11 @@ entity motion_controller_top is
         uart_txd : out STD_LOGIC;
         led_2bits_tri_o : out STD_LOGIC_VECTOR ( 1 downto 0 );
         push_buttons_1bit_tri_i : in STD_LOGIC;
-        
         qspi_flash_io0_io : inout STD_LOGIC;
         qspi_flash_io1_io : inout STD_LOGIC;
         qspi_flash_io2_io : inout STD_LOGIC;
         qspi_flash_io3_io : inout STD_LOGIC;
-        qspi_flash_ss_io : inout STD_LOGIC;
-        -- TODO: Expand to 8 channels
-        --dac_dataA : out std_logic_vector(MAX_CHANNELS-1 downto 0);
-        --dac_dataB : out std_logic_vector(MAX_CHANNELS-1 downto 0);
-       
+        qspi_flash_ss_io : inout STD_LOGIC; 
         dac_dataA : out std_logic;
         dac_dataB : out std_logic;
         dac_dataC : out std_logic;
@@ -72,9 +37,9 @@ entity motion_controller_top is
         enc_r : in std_logic_vector(MAX_CHANNELS-1 downto 0);
         led1 : out STD_LOGIC
    );
-end motion_controller_top;
+end motor_controller_top;
 
-architecture Behavioral of motion_controller_top is
+architecture Behavioral of motor_controller_top is
 
   component mc_design_wrapper is
   port (
@@ -156,13 +121,11 @@ end component sin_cos_gen;
            count : out STD_LOGIC_VECTOR(31 downto 0));
     end component quad;
 
-   --type array_type is array (natural range <>) of std_logic_vector(31 downto 0);
    signal phase_in_cnt : std_logic_vector(31 downto 0) := (others => '1');
    signal channel_en : std_logic := '0'; 
    signal channel_start : std_logic := '0';
    signal clk_1mhz : STD_LOGIC;
    signal gpio_mc : STD_LOGIC;
-   --signal quad_count : STD_LOGIC_VECTOR (31 downto 0 );
    signal quad_count0 : STD_LOGIC_VECTOR ( 31 downto 0 );
    signal quad_count1 : STD_LOGIC_VECTOR ( 31 downto 0 );
    signal quad_count2 : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -194,9 +157,6 @@ end component sin_cos_gen;
    signal clk_dac : std_logic;
    signal clk_dds : std_logic;                      
    signal channel_status : STD_LOGIC_VECTOR ( 7 downto 0 ); 
-   --signal dac_dataA_tmp : std_logic_vector(MAX_CHANNELS-1 downto 0);
-   --signal dac_dataB_tmp : std_logic_vector(MAX_CHANNELS-1 downto 0);
-   --signal dac_sck_tmp : std_logic_vector(MAX_CHANNELS-1 downto 0);
    signal dac_dataA_tmp : std_logic;
    signal dac_dataB_tmp : std_logic;
    signal dac_dataC_tmp : std_logic;
@@ -207,7 +167,6 @@ end component sin_cos_gen;
    signal dac_dataH_tmp : std_logic;
    signal dac_sck_tmp : std_logic;
    signal led_2bits_tri_o_tmp : STD_LOGIC_VECTOR ( 1 downto 0 );
-   ---signal counter : integer range 0 to 12000000; -- Counter for 1 Hz frequency
    signal counter : unsigned(23 downto 0) := (others => '0');
    signal probe0 :  STD_LOGIC_VECTOR(0 DOWNTO 0);
    signal probe1 :  STD_LOGIC_VECTOR(0 DOWNTO 0);
@@ -229,21 +188,19 @@ end component sin_cos_gen;
    signal locked : std_logic;
    signal quad_count : slv_array(0 to MAX_CHANNELS - 1);
    signal phase_inc_delta : slv_array(0 to MAX_CHANNELS - 1);
-   --signal sin_cos_reset : STD_LOGIC_VECTOR(7 downto 0);
    signal phase_inc_threshold : slv_array(0 to MAX_CHANNELS - 1);
 
    
-attribute MARK_DEBUG : string;
-attribute MARK_DEBUG of enc_a: signal is "TRUE";  
-attribute MARK_DEBUG of enc_b: signal is "TRUE";  
-attribute MARK_DEBUG of enc_r: signal is "TRUE";  
---attribute MARK_DEBUG of quad_count: signal is "TRUE";  
-attribute MARK_DEBUG of clk_100kHz: signal is "TRUE";  
+--attribute MARK_DEBUG : string;
+--attribute MARK_DEBUG of enc_a: signal is "TRUE";  
+--attribute MARK_DEBUG of enc_b: signal is "TRUE";  
+--attribute MARK_DEBUG of enc_r: signal is "TRUE";  
+--attribute MARK_DEBUG of clk_100kHz: signal is "TRUE";  
 
-attribute MARK_DEBUG of sin_cos_ch0_phase_inc_delta: signal is "TRUE";  
-attribute MARK_DEBUG of sin_cos_ch0_phase_inc_threshold: signal is "TRUE";  
-attribute MARK_DEBUG of sin_cos_ch1_phase_inc_delta: signal is "TRUE";  
-attribute MARK_DEBUG of sin_cos_ch1_phase_inc_threshold: signal is "TRUE";  
+--attribute MARK_DEBUG of sin_cos_ch0_phase_inc_delta: signal is "TRUE";  
+--attribute MARK_DEBUG of sin_cos_ch0_phase_inc_threshold: signal is "TRUE";  
+--attribute MARK_DEBUG of sin_cos_ch1_phase_inc_delta: signal is "TRUE";  
+--attribute MARK_DEBUG of sin_cos_ch1_phase_inc_threshold: signal is "TRUE";  
 
 begin
    
@@ -311,22 +268,6 @@ begin
         clk_in1 => clk_12Mhz
  );
  
- --GEN_INSTANCES:
- --   for I in 0 to MAX_CHANNELS - 1 generate
- 
---   sin_cos_inst : sin_cos_gen
---   port map (
---        clk_dac             => clk_100kHz,
---        clk_dds             => clk_1mhz,
---        reset               => sin_cos_reset(I),
---        phase_inc_threshold => phase_inc_threshold(I),
---        phase_inc_delta     => phase_inc_delta(I),
---        channel_status      => channel_status(I),
---        dac_dataA           => dac_dataA_tmp(I),
---        dac_dataB           => dac_dataB_tmp(I),
---        dac_sck             => dac_sck_tmp
---        );
-        
 sin_cos_inst : sin_cos_gen
    port map (
         clk_dac             => clk_100kHz,
@@ -347,8 +288,6 @@ sin_cos_inst : sin_cos_gen
         dac_sck             => dac_sck_tmp,
         dac_sync            => dac_sync
    );
-           
-   -- end generate GEN_INSTANCES;
            
 GEN_QUAD_INSTANCES:
    for I in 0 to MAX_CHANNELS - 1 generate
@@ -373,7 +312,6 @@ GEN_QUAD_INSTANCES:
     end process;
  
     -- Generate LED drive signal (1 Hz frequency)
-    --led_2bits_tri_o(1) <= '1' when counter < 6000000 else '0'; -- 1 Hz = 12 MHz / 6000000   
     led_2bits_tri_o(1) <= counter(23);
     led_2bits_tri_o(0) <= led_2bits_tri_o_tmp(0);
     

@@ -111,8 +111,7 @@ ARCHITECTURE a OF tlv5637 IS
 			sync_temp, shift_reset, data_temp, data_2_temp,
 			data_3_temp, data_4_temp, data_5_temp, data_6_temp,
 			data_7_temp, data_8_temp, stop_shift, en_conv : STD_LOGIC;
-			
-	--constant DAC_CONFIG : std_logic_vector (11 downto 0) := "000000000010" ;			
+					
 	constant DAC_CONFIG : std_logic_vector (11 downto 0) := "000000000001" ;	
 BEGIN
  
@@ -202,6 +201,7 @@ WITH Mstate  SELECT
 				
 						
 WITH Mstate SELECT
+-- Fast Mode
 --    dac1_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
 --                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
 --                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
@@ -210,6 +210,7 @@ WITH Mstate SELECT
 --                 "1100" & dac1B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
 --                 "1100" & dac1B_data WHEN Mwait_DAC_B_repeat,       -- Write data to DAC A and update DAC B with BUFFER content
 --                 "1100" & dac1B_data WHEN Mready;
+-- Slow Mode
     dac1_data <= "1001" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
                  "1001" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
                  "1001" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
@@ -220,9 +221,9 @@ WITH Mstate SELECT
                  "1100" & dac1B_data WHEN Mready;
 
 WITH Mstate SELECT
-    dac2_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+    dac2_data <= "1001" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
                  "0101" & dac2A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
                  "0101" & dac2A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
                  "1100" & dac2B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
@@ -230,9 +231,9 @@ WITH Mstate SELECT
                  "1100" & dac2B_data WHEN Mready;
 
 WITH Mstate SELECT
-    dac3_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+    dac3_data <= "1001" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
                  "0101" & dac3A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
                  "0101" & dac3A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
                  "1100" & dac3B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
@@ -240,9 +241,9 @@ WITH Mstate SELECT
                  "1100" & dac3B_data WHEN Mready;
 
 WITH Mstate SELECT
-    dac4_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+    dac4_data <= "1001" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
                  "0101" & dac4A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
                  "0101" & dac4A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
                  "1100" & dac4B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
@@ -250,9 +251,9 @@ WITH Mstate SELECT
                  "1100" & dac4B_data WHEN Mready;
 
 WITH Mstate SELECT
-    dac5_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+    dac5_data <= "1001" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
                  "0101" & dac5A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
                  "0101" & dac5A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
                  "1100" & dac5B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
@@ -260,9 +261,9 @@ WITH Mstate SELECT
                  "1100" & dac5B_data WHEN Mready;
 
 WITH Mstate SELECT
-    dac6_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+    dac6_data <= "1001" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
                  "0101" & dac6A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
                  "0101" & dac6A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
                  "1100" & dac6B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
@@ -270,9 +271,9 @@ WITH Mstate SELECT
                  "1100" & dac6B_data WHEN Mready;
 
 WITH Mstate SELECT
-    dac7_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+    dac7_data <= "1001" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
                  "0101" & dac7A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
                  "0101" & dac7A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
                  "1100" & dac7B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
@@ -280,9 +281,9 @@ WITH Mstate SELECT
                  "1100" & dac7B_data WHEN Mready;
 
 WITH Mstate SELECT
-    dac8_data <= "1101" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
-                 "1101" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
+    dac8_data <= "1001" & DAC_CONFIG WHEN Midle,                    -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config,             -- Write data to control register
+                 "1001" & DAC_CONFIG WHEN Mwait_config_repeat,      -- Write data to control register
                  "0101" & dac8A_data WHEN Mwait_DAC_A,              -- Write data to BUFFER
                  "0101" & dac8A_data WHEN Mwait_DAC_A_repeat,       -- Write data to BUFFER
                  "1100" & dac8B_data WHEN Mwait_DAC_B,              -- Write data to DAC A and update DAC B with BUFFER content
@@ -291,13 +292,6 @@ WITH Mstate SELECT
 --***********************************************************************************************************************************************
 --*******************************************	data transfer state machine	*********************************************************************
 --***********************************************************************************************************************************************
-
-
-
-
-
-
-
 
 
 	PROCESS (clk,reset)

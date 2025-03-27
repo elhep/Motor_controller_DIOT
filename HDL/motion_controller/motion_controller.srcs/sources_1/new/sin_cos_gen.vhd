@@ -30,30 +30,6 @@ entity sin_cos_gen is
 end sin_cos_gen;
 
 architecture behav of sin_cos_gen is
-    --type std_logic_vector_array is array (natural range <>) of std_logic_vector(WIDTH - 1 downto 0);
-  
-
-  -----------------------------------------------------------------------
-  -- Timing constants
-  -----------------------------------------------------------------------
-
-  -----------------------------------------------------------------------
-  -- DUT input signals
-  -----------------------------------------------------------------------
-
---  -- Phase slave channel signals
---  signal s_axis_phase_tvalid             : std_logic := '0';  -- payload is valid
---  signal s_axis_phase_tdata              : std_logic_vector(31 downto 0) := (others => '0');  -- data payload
-
---  -- Data master channel signals
---  signal m_axis_data_tvalid              : std_logic := '0';  -- payload is valid
---  signal m_axis_data_tdata               : std_logic_vector(31 downto 0) := (others => '0');  -- data payload
-
---  -- Data master channel alias signals
---  signal m_axis_data_tdata_cosine      : std_logic_vector(9 downto 0) := (others => '0');
---  signal m_axis_data_tdata_sine        : std_logic_vector(9 downto 0) := (others => '0');
-
-
    signal update_DACs : STD_LOGIC := '1';
    signal dac1A_data : STD_LOGIC_VECTOR(11 downto 0);
    signal dac1B_data : STD_LOGIC_VECTOR(11 downto 0);
@@ -78,22 +54,12 @@ architecture behav of sin_cos_gen is
    signal test3 : STD_LOGIC;
    signal test4 : STD_LOGIC;
    signal clk_en : STD_LOGIC;   
---   signal aclken : STD_LOGIC := '1';
-   
    signal aclken : STD_LOGIC_VECTOR(MAX_CHANNELS-1 downto 0) := (others => '1');
---   signal sync : STD_LOGIC_VECTOR(7 downto 0) ;
---   signal update_done : STD_LOGIC_VECTOR(7 downto 0) ;
---   signal update_DACs : STD_LOGIC_VECTOR(7 downto 0) :=  (others => '1');
-   
    signal sync_flag : std_logic_vector(MAX_CHANNELS-1 downto 0) := (others => '0');
-   
---   signal phase_inc_cnt : std_logic_vector(31 downto 0) := (others => '1');
    signal channel_en : std_logic_vector(MAX_CHANNELS-1 downto 0) := (others => '1'); 
    signal channel_start : std_logic := '0';
-   --type dds_array is array (natural range <>) of std_logic_vector(31 downto 0);
-   
    signal phase_inc_cnt : slv_array(0 to MAX_CHANNELS-1) := (others => (others => '1'));
-   
+  
    type sin_cos_array is array (natural range <>) of std_logic_vector(9 downto 0);
 
   -- Phase slave channel signals
@@ -104,28 +70,27 @@ architecture behav of sin_cos_gen is
   signal m_axis_data_tvalid              : std_logic_vector(MAX_CHANNELS-1 downto 0) := (others => '0');
   signal m_axis_data_tdata : slv_array(0 to MAX_CHANNELS-1);  -- Array of 8 elements, each 31 bits wide
   
-  
   -- Data master channel alias signals
   signal m_axis_data_tdata_cosine      : sin_cos_array(0 to MAX_CHANNELS-1);
   signal m_axis_data_tdata_sine        : sin_cos_array(0 to MAX_CHANNELS-1);
  
 --Useful debugging signals
-attribute MARK_DEBUG : string;
-attribute MARK_DEBUG of reset: signal is "TRUE";  
-attribute MARK_DEBUG of reset_channel: signal is "TRUE";  
-attribute MARK_DEBUG of update_DACs: signal is "TRUE";  
-attribute MARK_DEBUG of sync: signal is "TRUE";  
-attribute MARK_DEBUG of dac1A_data: signal is "TRUE";  
-attribute MARK_DEBUG of dac1B_data: signal is "TRUE";  
-attribute MARK_DEBUG of dac2A_data: signal is "TRUE";  
-attribute MARK_DEBUG of dac2B_data: signal is "TRUE";
-attribute MARK_DEBUG of clk_en: signal is "TRUE";  
-attribute MARK_DEBUG of channel_en: signal is "TRUE";  
-attribute MARK_DEBUG of channel_start: signal is "TRUE";  
---attribute MARK_DEBUG of m_axis_data_tdata_cosine: signal is "TRUE";  
---attribute MARK_DEBUG of m_axis_data_tdata_sine: signal is "TRUE"; 
-attribute MARK_DEBUG of phase_inc_cnt: signal is "TRUE";
---attribute MARK_DEBUG of phase_inc_threshold: signal is "TRUE";
+--attribute MARK_DEBUG : string;
+--attribute MARK_DEBUG of reset: signal is "TRUE";  
+--attribute MARK_DEBUG of reset_channel: signal is "TRUE";  
+--attribute MARK_DEBUG of update_DACs: signal is "TRUE";  
+--attribute MARK_DEBUG of sync: signal is "TRUE";  
+--attribute MARK_DEBUG of dac1A_data: signal is "TRUE";  
+--attribute MARK_DEBUG of dac1B_data: signal is "TRUE";  
+--attribute MARK_DEBUG of dac2A_data: signal is "TRUE";  
+--attribute MARK_DEBUG of dac2B_data: signal is "TRUE";
+--attribute MARK_DEBUG of clk_en: signal is "TRUE";  
+--attribute MARK_DEBUG of channel_en: signal is "TRUE";  
+--attribute MARK_DEBUG of channel_start: signal is "TRUE";  
+----attribute MARK_DEBUG of m_axis_data_tdata_cosine: signal is "TRUE";  
+----attribute MARK_DEBUG of m_axis_data_tdata_sine: signal is "TRUE"; 
+--attribute MARK_DEBUG of phase_inc_cnt: signal is "TRUE";
+----attribute MARK_DEBUG of phase_inc_threshold: signal is "TRUE";
 
 component tlv5637 IS
 	PORT
@@ -273,7 +238,6 @@ tlv5637_ip : tlv5637
  
   dds_dac : process(clk_dds, reset_channel)
     variable phase : unsigned(31 downto 0) := (others => '0');
-    --variable sync_flag : std_logic := '0';
   begin
      if reset_channel(I) = '1' then
         s_axis_phase_tvalid(I) <= '0';
@@ -301,7 +265,6 @@ tlv5637_ip : tlv5637
   end generate;
 
   -- Phase slave channel alias signals
-  --s_axis_phase_tdata_inc        <= s_axis_phase_tdata(31 downto 0);
   clk_en <= '1';
   dac_sync <= sync;
   
